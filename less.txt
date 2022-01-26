@@ -1,0 +1,14 @@
+/      search forward
+?      search backward
+n      next match
+N      previous match
+-I     case-insensitive all things
+h      help
+-N, -n enable, disable line numbers
+-M -m  "ruler" with x/y z% lines shown
+:n, :p next, previous file
+u      half page up
+Alt-u  toggle hilighting (also ESC u)
+-S     toggle wrapping long lines
+
+# less can also read (compressed) tar archives!

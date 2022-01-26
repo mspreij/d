@@ -1,0 +1,3 @@
+-n      does something with /dev/null and stdin, making ssh work in a while loop. for loops don't need this.
+-A:     agent forwarding: your ssh keys are now available to SSH on the remote host as well
+-G foo: get all settings for host foo from the .ssh/config file (and a shitton more, | less for finding things)

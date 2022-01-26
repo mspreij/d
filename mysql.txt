@@ -1,0 +1,27 @@
+CREATE USER 'joe'@'localhost' IDENTIFIED BY 'supersekrit'                     -- create user account
+GRANT SELECT, INSERT, UPDATE, DELETE ON theCornerShop.* TO 'joe'@'localhost'  -- grant permissions example
+   ALL                              -- every permission applicable to {target} (except for GRANT)
+   SELECT, INSERT, UPDATE, DELETE   -- a.k.a. CRUD
+   CREATE, ALTER, INDEX, DROP       -- CRUD for tables
+SHOW GRANTS [FOR 'username']                                                  -- shows your or specified user's permissions
+REVOKE DELETE, UPDATE ON 'theCornerShop'.'localhost' FROM 'jim'@'localhost'   -- remove permissions
+DROP USER 'leetHax0r1994'                                                     -- delete user (for all hosts..?)
+
+SET PASSWORD FOR <username>@<host> = PASSWORD('evensekriter')                 -- update password
+
+UPDATE user SET ssl_type = 'ANY' WHERE user = '<username>' AND host = '<host-address>'; -- old force encryption
+ALTER USER 'user'@'host' REQUIRE SSL                                          -- new force encryption
+
+SHOW INDEX FROM <table>; -- list keys and stuff
+
+## dubbele records eruit donderen
+ALTER IGNORE TABLE <table> ADD UNIQUE INDEX <foo> (<foo>);
+ALTER TABLE <table> DROP INDEX <foo>; -- als het /echt/ nodig is..
+
+## op command line:
+## welke configs worden waarvandaan geladen?
+/usr/sbin/mysqld --verbose --help | grep -A 1 "Default options"
+
+# the pager only works under 'unix', which apparently can mean 'centos but not wsl/ubuntu'.
+# pass --pager=less or have pager=less in the config file under [mysql]
+# 'select foo bar bazz \G' = vertical result, more useful with a WORKING pager >.> \G and others imply ';' and will run the query

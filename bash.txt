@@ -1,0 +1,47 @@
+Scripting cheatsheet: https://devhints.io/bash
+
+zcat = gzip -c = uncompress to STDOUT; $ zcat file.sql.zip | mysql -u -p dbname
+
+### looping through lines (from a textfile, say)
+# read splits a line into columns on whitespace.
+# read -a turns line into an array.
+while read -a line; do echo ${line[0]}${line[1]}; done < file.txt
+# alternatively..
+cat file.txt | while read -a line; do echo ${line[0]}${line[1]}; done
+
+# use "read foo bar bazz" to read the first 3 words (columns) into those variables.
+# the last variable always gets Everything until EOL, dump that in a '_' variable to ignore
+while read foo bar _; do things with ${foo} and to ${bar}; done < file.txt # only interested in the first two columns
+
+Is my script being piped?
+-t fd: True if file descriptor fd is open and refers to a terminal.
+fd can be one of the usual file descriptor assignments: 0 stdin, 1 stdout, 2 stderr
+$ if [[ -t 1 ]] ; then echo terminal; else echo "not a terminal"; fi
+
+Colors https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
+
+\e === ESC
+Sequence: \e[<codes separated by ';'>m
+Reset all: \e[0m
+0    reset
+1    bold
+4    underline
+FG      BG
+30	40	Black
+31	41	Red
+32	42	Green
+33	43	Yellow
+34	44	Blue
+35	45	Magenta
+36	46	Cyan
+37	47	White 
+
+216 colors:
+  \e[38;5;nm where n comes from a color table 3
+
+Millions of colors:
+  \e[38;2;r;g;b;m integer rgb values, foreground color
+  \e[48;2;r;g;b;m integer rgb values, background color
+
+Surround the escape sequences with \[ ... \] to prevent their length from being counted in the prompt string length.
+

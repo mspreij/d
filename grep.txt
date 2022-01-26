@@ -1,0 +1,7 @@
+-i   case-insensitive
+-v   negate matches (invert result)
+--include \*.php  # only search these files. either escape the * or quote the string
+### output
+-H   print filename with each match (default for wildcard file patterns)
+-n   print line number
+[-A, -B, -C]#  print # lines after, before, or around matching lines
