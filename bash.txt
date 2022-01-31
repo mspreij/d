@@ -34,7 +34,7 @@ FG      BG
 34	44	Blue
 35	45	Magenta
 36	46	Cyan
-37	47	White 
+37	47	White
 
 216 colors:
   \e[38;5;nm where n comes from a color table: https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
