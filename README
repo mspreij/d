@@ -1,8 +1,10 @@
 I keep forgetting flags/options for rarely used commands so I put them in txt files that I can throw on the screen.
+'d' contains the bash function, edit local dir as you see fit. This should be an env thing maybe?
 
 That's about it.
 
 Todo:
-- maybe add color support for emphasis or the commands in a description
+v maybe add color support for emphasis or the commands in a description
+  - example entry using this
 - config? things?
 - ???
