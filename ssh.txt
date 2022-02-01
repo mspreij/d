@@ -4,3 +4,8 @@
 
 # check /etc/ssh/sshd_config syntax before restarting the service:
 $ sshd -t
+
+Todo:
+- ssh-keygen
+- ssh-copy-id
+- ssh-agent & ssh-add
