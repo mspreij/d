@@ -1,0 +1,19 @@
+variable='Hello World!'
+cat <<END
+   Whatever goes here is printed on the screen
+   including ${variable}s and $(date) things
+END
+# note no ';' after the trailing END
+
+		cat <<-FOOBAR
+		With a '-' before the identifier,
+		leading tabs are ignored and this
+		output will not be indented at all.
+		FOOBAR
+# no spaces before delimiting identifier string though
+# tabs before it are optional
+
+cat <<'EOF'
+   By quoting the identifier, $variables and $(commands) will not be substituted.
+EOF
+# you can run this output to see the effect: $ d heredoc | bash
