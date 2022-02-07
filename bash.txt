@@ -20,9 +20,9 @@ $ if [[ -t 1 ]] ; then echo terminal; else echo "not a terminal"; fi
 
 Colors https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 
-\e === ESC
-Sequence: \e[<codes separated by ';'>m
-Reset all: \e[0m
+\\e === ESC
+Sequence: \\e[<codes separated by ';'>m
+Reset all: \\e[0m
 0    reset
 1    bold
 4    underline
@@ -36,12 +36,15 @@ FG      BG
 36	46	Cyan
 37	47	White
 
+Example: $ echo -e "\\e[1;35;42m Bold magenta on green background \\e[0m"
+Becomes: \e[1;35;42m Bold magenta on green background \e[0m
+
 216 colors:
-  \e[38;5;nm where n comes from a color table: https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
+  \\e[38;5;nm where n comes from a color table: https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
 
 Millions of colors:
-  \e[38;2;r;g;b;m integer rgb values, foreground color
-  \e[48;2;r;g;b;m integer rgb values, background color
+  \\e[38;2;r;g;b;m integer rgb values, foreground color
+  \\e[48;2;r;g;b;m integer rgb values, background color
 
 Surround the escape sequences with \[ ... \] to prevent their length from being counted in the prompt string length.
 
