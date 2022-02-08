@@ -21,6 +21,7 @@ Becomes: \e[1;35;42m Bold magenta on green background \e[0m
 
 216 colors:
   \\e[38;5;nm where n comes from a color table: https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
+  \\e[48;5;nm for background
 
 Millions of colors:
   \\e[38;2;r;g;b;m integer rgb values, foreground color
