@@ -1,0 +1,19 @@
+# variable substitutions
+${FOO%suffix}   Remove suffix
+${FOO#prefix}   Remove prefix
+${FOO%%suffix}  Remove long suffix
+${FOO##prefix}  Remove long prefix
+${FOO/from/to}  Replace first match
+${FOO//from/to} Replace all
+${FOO/%from/to} Replace suffix
+${FOO/#from/to} Replace prefix
+# mnemonic: suffix % comes after the $ (variable) on the keyboard,
+#   the prefix # before it
+
+${FOO:-val}     $FOO, or val if unset (or null)
+${FOO:=val}     Set $FOO to val if unset (or null)
+${FOO:+val}     val if $FOO is set (and not null)
+${FOO:?message} Show error message and exit if $FOO is unset (or null)
+
+# Omitting the : removes the (non)nullity checks, e.g. ${FOO-val} expands to val
+#   if unset otherwise $FOO.
