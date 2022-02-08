@@ -1,0 +1,7 @@
+ln -s <source> <target>
+# NB: source is relative to target. so if you're creating 3 symlinks at different directory levels deep,
+#     you want, for example: ln -s foo bar; ln -s ../foo dir1/bar; ln -s ../../foo dir1/dir2/bar
+
+# find broken links
+find . -xtype l
+
