@@ -8,4 +8,4 @@ $ sshd -t
 Todo:
 - ssh-keygen
 - ssh-copy-id
-- ssh-agent & ssh-add
+v ssh-agent & ssh-add

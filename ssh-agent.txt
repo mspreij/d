@@ -1,0 +1,16 @@
+### ssh-agent ###
+# start it, while setting some environment variables that other processes can use
+  $ eval `ssh-agent`
+
+
+### ssh-add ###
+# add default entries (~/.ssh/id_rsa, ~/.ssh/id_dsa etc)
+  $ ssh-add
+# or a specific entry
+  $ ssh-add <path_to_key>
+# list entries
+  $ ssh-add -l
+# delete specific entry, or the default added entries
+  $ ssh-add -d [path_to_..public_key file? not sure]
+# delete all entries
+  $ ssh-add -D 
