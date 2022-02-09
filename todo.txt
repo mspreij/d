@@ -1,0 +1,3 @@
+# not actually documentation, just a todo list..
+- jq
+- wget
