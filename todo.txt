@@ -10,3 +10,9 @@ Random ideas:
   - interpret ansi escape codes (like color)
   - attempt syntax highlighting (maybe use bat if available?)
   - there should then also be some sane - optionally configurable - defaults
+- bash_completion
+- config? things?
+- ???
+
+v maybe add color support for emphasis or the commands in a description
+  x example entry using this

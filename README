@@ -3,9 +3,4 @@ I keep forgetting flags/options for rarely used commands so I put them in txt fi
 
 That's about it.
 
-Todo:
-- bash_completion
-- config? things?
-- ???
-v maybe add color support for emphasis or the commands in a description
-  x example entry using this
+See todo.txt for things.

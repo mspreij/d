@@ -1,3 +1,7 @@
-# abuse jq as syntax validator
+# abuse jq as syntax validator, this will only yell about parse errors and such:
+  $ jq empty file.json
+# if you just want the exit status:
   $ jq empty file.json > /dev/null 2>&1; echo $?
+# or even
+  $ jq empty file.json 2>/dev/null; echo $?
 # if 0, valid file, otherwise probably 4 and syntax error
