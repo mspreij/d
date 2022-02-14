@@ -1,0 +1,4 @@
+# delete (remote) branch
+  $ git push -d origin <branchname>
+  $ git branch -d <branchname>
+# '-D' or '-d --force' will also delete unmerged branches

@@ -6,7 +6,7 @@ Things to add:
 - git o.o;
 
 Random ideas:
-- first line can be flags on how to print the rest of the file, eg
+- first line '#d ...' can be flags on how to print the rest of the file, eg
   - interpret ansi escape codes (like color)
   - attempt syntax highlighting (maybe use bat if available?)
   - there should then also be some sane - optionally configurable - defaults
