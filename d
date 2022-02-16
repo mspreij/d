@@ -24,6 +24,7 @@ d ()
     fi;
     if [[ -f $dir/$1.txt ]]; then
         local doc=$(cat $dir/$1.txt);
+        local esc=$(printf '\033');
         doc="$(echo "$doc" | sed "s/^\(#.*\)/${esc}[36m\1${esc}[0m/")";
         echo -e "$doc";
     else
