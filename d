@@ -23,7 +23,9 @@ d ()
         return;
     fi;
     if [[ -f $dir/$1.txt ]]; then
-        echo -e "$(cat $dir/$1.txt)";
+        local doc=$(cat $dir/$1.txt);
+        doc="$(echo "$doc" | sed "s/^\(#.*\)/${esc}[36m\1${esc}[0m/")";
+        echo -e "$doc";
     else
         echo "  E: docs not found.";
         return 44;
