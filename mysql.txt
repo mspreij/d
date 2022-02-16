@@ -21,6 +21,8 @@ ALTER TABLE <table> DROP INDEX <foo>; -- als het /echt/ nodig is..
 ## op command line:
 ## welke configs worden waarvandaan geladen?
 /usr/sbin/mysqld --verbose --help | grep -A 1 "Default options"
+-s  # no grid for query output
+-N  # no headers/column names for query output
 
 # the pager only works under 'unix', which apparently can mean 'centos but not wsl/ubuntu'.
 # pass --pager=less or have pager=less in the config file under [mysql]
