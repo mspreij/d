@@ -19,7 +19,7 @@ d ()
                 return;
             fi;
         fi;
-        ${EDITOR:-/usr/bin/nano} $dir/$entry.txt;
+        ${EDITOR:-nano} $dir/$entry.txt;
         return;
     fi;
     if [[ -f $dir/$1.txt ]]; then
