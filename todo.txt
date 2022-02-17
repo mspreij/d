@@ -2,8 +2,10 @@ Not actually documentation, just a todo/random ideas list..
 
 Things to add:
 * jq
+- more grep
 - wget
 - git o.o;
+- cut
 
 Random ideas:
 - first line '#d ...' can be flags on how to print the rest of the file, eg
