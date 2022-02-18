@@ -1,5 +1,5 @@
-d () 
-{ 
+d ()
+{
     local dir=~/.my_stuff/docs;
     if [[ -z $1 ]]; then
         echo "  Man pages: the cliffs notes.";
