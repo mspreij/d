@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# $ ef foo -> edit function 'foo'
+
+ef() {
+  local func=$(type $1)
+  # check whether the output is a function, alias, script / 'hashed' script, shell builtin, ...
+  # only offer to edit functions and ascii scripts!
+  store func in temp file (mktemp)
+  while loop
+    nano file (save)
+    eval $(cat file)
+    check $? is 0, offer to edit file again [Y]
+  end
+  rm file
+}
