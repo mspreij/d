@@ -1,3 +1,9 @@
-find . -mtime -1 -ls  # list all files modified within the last day (+1 for before last day,
-                      # 1 for exactly 24 hours ago)
-                      # -mmin for minutes ago/before/etc
+# list all files modified within the last day (+1 for before last day, 1 for exactly 24 hours ago)
+$ find . -mtime -1 -ls
+# -mmin for minutes ago/before/etc
+
+# find links
+$ find . -type l
+
+# find _broken_ links
+$ find . -xtype l

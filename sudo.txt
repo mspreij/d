@@ -1,0 +1,5 @@
+# make cron service start under WSL without sudo prompt
+$ sudo visudo
+# add at end:
+%sudo ALL=NOPASSWD: /usr/sbin/service cron start
+# or /etc/init.d/cron or something
