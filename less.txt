@@ -11,6 +11,11 @@ u      half page up
 Alt-u  toggle hilighting (also ESC u)
 -S     toggle wrapping long lines
 r / R  repaint screen / discarding buffered input (useful for buggered up color text)
--r     toggle interpreting escape sequences (colored & styled text)
+-r     toggle interpreting escape sequences (colored & styled text), also works as CLI flag
 F      go to end of file and wait for more input, like tail -f
+
+# this is for CLI specifically:
+-F     quit if the output fits on one screen
+
 # less can also read (compressed) tar archives!
+
