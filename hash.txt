@@ -1,0 +1,11 @@
+# script paths are cached. If, after having run it, a script is moved to another location in $PATH,
+# it might not be found afterwards.
+
+# remove a script's cached path:
+  $ hash -d <command>
+# list all cache entries
+  $ hash -l
+# show a specific entry
+  $ hash -t <command>
+# clear all cache
+  $ hash -r
