@@ -1,11 +1,23 @@
 #!/usr/bin/env bash
 # $ ef foo -> edit function 'foo'
 
-ef() {
+ef () {
   # check whether the output is a function, alias, script / 'hashed' script, shell builtin, ...
+  if [[ -z $1 ]]; then
+    echo "  ed will let you edit already defined functions, or executable files /somewhere/ in \$PATH."
+    echo "  usage: ed <thing>"
+    return;
+  fi;
   local t=$(type -t $1)
-  if [[ $t != 'function' && $t != 'file' ]]; then return 1; fi
-  local func=$(type $1)
+  if [[ $t != 'function' && $t != 'file' ]]; then
+    echo "  '$1' is type: $t; I'm either unwilling or unable to edit that."
+    return 1;
+  fi
+  if [[ $t == 'function' ]]; then
+    local func=$(type $1 | tail -n+2)
+  else
+    local func
+  fi
   # only offer to edit functions and ascii scripts!
   store func in temp file (mktemp)
   while loop
