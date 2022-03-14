@@ -15,3 +15,6 @@ $ tar -tvf archive.tar
 
 # Extract all files from archive.tar.
 $ tar -xf archive.tar
+
+# use tar to create a remote compressed archive of a local directory
+tar zcf - dirname | ssh user@remote.host 'cat - > ~/dirname.tar.gz'

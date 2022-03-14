@@ -6,6 +6,8 @@ Things to add:
 - wget
 - git o.o;
 - cut
+- type, -a, -??? https://ss64.com/bash/type.html
+- apt, probably
 
 Random ideas:
 - first line '#d ...' can be flags on how to print the rest of the file, eg
