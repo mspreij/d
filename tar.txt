@@ -17,4 +17,7 @@ $ tar -tvf archive.tar
 $ tar -xf archive.tar
 
 # use tar to create a remote compressed archive of a local directory
-tar zcf - dirname | ssh user@remote.host 'cat - > ~/dirname.tar.gz'
+$ tar zc dirname | ssh user@remote.host cat \> \~/dirname.tar.gz
+
+# or just don't bother with compression and use it instead of scp
+$ tar c stuff | ssh host tar x
