@@ -1,0 +1,22 @@
+# Quit, save, open, copy, cut, paste, select (by word), home/end/page-up/down all work like
+#   they do in normal GUI editors, so just pretend it's one of those.
+# Syntax hilighting guesses by extension, but can be specified by `-filetype <lang>`
+#   for some bizarre reason, using -filetype will also hilight the help text if viewed.
+
+# Micro has excellent inline help!
+# How to use it:
+
+Ctrl-g     general help and introduction. you know what, skip that.
+Ctrl-e     open the command prompt
+> help defaultkeys
+
+Ctrl-F     find (obviously!), enter when you're done typing or the next/previous shortcuts
+           won't work
+Ctrl-N/P   find next/previous
+Ctrl-W     toggles between the help text and the open file - between any "splits", really
+
+# things you might be searching for
+
+Ctrl-T     open new tab (and then just Ctrl-O to open a file, tab completion works)
+Alt-,/.    go to previous/next tab (doesn't wrap)
+Ctrl-Q     closes a split, a tab, or if it was the last tab, the editor

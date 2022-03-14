@@ -15,6 +15,8 @@ Random ideas:
   - attempt syntax highlighting (maybe use bat if available?)
   - there should then also be some sane - optionally configurable - defaults
 - bash_completion
+- similarly, wildcard matching or suggestions; "d var" would load vars.txt, while
+  "d foo" would be like "do you want foobazz, or foobar?"
 - config? things?
 - ???
 
