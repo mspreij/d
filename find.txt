@@ -2,6 +2,10 @@
 $ find . -mtime -1 -ls
 # -mmin for minutes ago/before/etc
 
+# find files owned by specific user or group
+$ find . -user joe -group developers
+# (yeah, try and remember THAT)
+
 # find links
 $ find . -type l
 

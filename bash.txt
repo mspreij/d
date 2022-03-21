@@ -1,6 +1,7 @@
 Scripting cheatsheet: https://devhints.io/bash
 
-zcat = gzip -c = uncompress to STDOUT; $ zcat file.sql.zip | mysql -u -p dbname
+zcat == gunzip -c  # uncompress to STDOUT
+$ zcat file.sql.zip | mysql -u -p dbname
 
 ### looping through lines (from a textfile, say)
 # read splits a line into columns on whitespace.
@@ -17,3 +18,6 @@ while read foo bar _; do things with ${foo} and to ${bar}; done < file.txt # onl
 -t fd # True if file descriptor fd is open and refers to a terminal.
 # fd can be one of the usual file descriptor assignments: 0 stdin, 1 stdout, 2 stderr
 $ if [[ -t 1 ]] ; then echo terminal; else echo "not a terminal"; fi
+
+# shortest way to increment a variable (note no '$')
+((i++))
