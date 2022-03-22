@@ -8,6 +8,7 @@ $ find . -user joe -group developers
 
 # find links
 $ find . -type l
+# pipe to xargs realpath to get the sources
 
 # find _broken_ links
 $ find . -xtype l
