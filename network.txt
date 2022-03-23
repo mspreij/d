@@ -1,0 +1,5 @@
+# what is listening on port 1234?
+$ netstat -ltnp
+$ ss -ltnp
+# flags: Listening only, TCP/IP connections, Numerical addresses and services (useful for non-standard ports), Process/Program name & pid
+# apparently ss is the new, shinier netstat? but pipe the output through less or cat to make it /somewhat/ more readable.
