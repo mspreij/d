@@ -5,6 +5,7 @@ Things to add:
 - more grep
 - wget
 - git o.o;
+- tmux
 - cut
 - type, -a, -??? https://ss64.com/bash/type.html
 - apt, probably

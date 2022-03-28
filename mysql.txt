@@ -27,3 +27,7 @@ ALTER TABLE <table> DROP INDEX <foo>; -- als het /echt/ nodig is..
 # the pager only works under 'unix', which apparently can mean 'centos but not wsl/ubuntu'.
 # pass --pager=less or have pager=less in the config file under [mysql]
 # 'select foo bar bazz \G' = vertical result, more useful with a WORKING pager >.> \G and others imply ';' and will run the query
+
+# if you can't drop a database because "a foreign key constraint fails" (I couldn't make this up) tell it to sod off
+SET FOREIGN_KEY_CHECKS=0;
+# set them back to 1 afterwards I guess.
