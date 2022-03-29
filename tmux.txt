@@ -1,0 +1,22 @@
+# My default config:
+
+# remap prefix from 'C-b' to 'C-a' or, like, `
+unbind C-b
+set-option -g prefix `
+bind-key ` send-prefix
+
+# split panes using | and -
+bind | split-window -h
+bind S split-window -v
+unbind '"'
+unbind %
+
+# switch panes using Alt-arrow without prefix
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+# these bring up freaking menus of things to do with shortcuts
+\e[38;5;208mprefix\e[0m >
+\e[38;5;208mprefix\e[0m <
