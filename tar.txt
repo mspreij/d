@@ -2,9 +2,12 @@
 c  create archive file
 x  extract
 z  [de]compress
-f  specify filename
+f  specify filename -> this refers to the archive file
 v  verbose
 t  list (but less does this too)
+
+# create archive from directory (create, compress, file)
+$ tar czf foo.tar.gz foodir
 
 # Create archive.tar from files foo and bar.
 $ tar -cf archive.tar foo bar

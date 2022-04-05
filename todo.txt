@@ -7,7 +7,6 @@ Things to add:
 - git o.o;
 - tmux
 - cut
-- type, -a, -??? https://ss64.com/bash/type.html
 - apt, probably
 
 Random ideas:

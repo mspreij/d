@@ -1,0 +1,14 @@
+# return what foo is, how it would be interpreted as command
+$ type foo
+
+# No flags return human-readable information: alias/function definition, 'x is a shell builtin/keyword', file location.# NB: aliases can override command paths, ie there can be multiple answers; type only shows the first by default.
+
+-t    only return string: alias, keyword, function, builtin, file. No match = no output, exit 1
+-p/P  interpret as file and return path
+      -P forces a PATH search (according to the man page, anyway) but only returns 1 match even with -a
+      -p returns all matches with -a but nothing when an alias overrides the command/script
+-a    return all matches
+
+# pipe function output from `type` through `tail -n+2` to lose the first line and cat to a file or something
+
+# see also: command, builtin, whereis
