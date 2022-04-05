@@ -1,8 +1,5 @@
 Scripting cheatsheet: https://devhints.io/bash
 
-zcat == gunzip -c  # uncompress to STDOUT
-$ zcat file.sql.zip | mysql -u -p dbname
-
 ### looping through lines (from a textfile, say)
 # read splits a line into columns on whitespace.
 # read -a turns line into an array.
@@ -21,3 +18,13 @@ $ if [[ -t 1 ]] ; then echo terminal; else echo "not a terminal"; fi
 
 # shortest way to increment a variable (note no '$')
 ((i++))
+
+# redirecting output.
+$ foo >/dev/null 2>&1
+# > : redirects STDOUT (the default), which would usually point to the terminal (or parent process), to /dev/null
+# 2>&1 : 2, aka STDERR, goes to where 1 (STDOUT) _now_ points, so also to /dev/null. & to indicate "not a file named 1"
+# it's more useful to read 2>&1 as "errors go to where stdout is currently going" then "errors go to stdout"
+$ foo 2>&1 >/dev/null
+# in a different order: STDERR now goes to what STDOUT points at: the terminal or parent process
+# Then, STDOUT is pointed at /dev/null, but this no longer affects error messages.
+# ..... SOMETHING like that, anyway o.o;

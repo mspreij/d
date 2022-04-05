@@ -1,8 +1,10 @@
 # gzip only operates on SINGLE FILES.
 # use `tar z` for directories with \e[33;1mc\e[0mreate or e\e[33;1mx\e[0mtract
 
--d  decompress # aka gunzip
+-d  decompress                 # aka `gunzip`
 -c  redirect output to STDOUT
 
-# default behaviour is to work on the same file
-gzip -c file > file.gz  # keep original file
+zcat == gzip -dc == gunzip -c == decompress to STDOUT
+
+# default behaviour is to work on the same file; to keep the original file, output and redirect the result "manually"
+gzip -c file > file.gz
