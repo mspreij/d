@@ -1,0 +1,6 @@
+# echo or direct some output at it
+$ mail -s "subject line" user@example.com < body.txt
+$ echo -e "heeey\n\nYou got mail, dude" mail -s "subject line" user@example.com
+
+# the '-t' flag does NOT specify the recipient o.o but rather _ignores_ the address on the CLI,
+# and expects one in the mail body (as per MIME headers etc). Seems the same goes for subject.

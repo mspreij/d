@@ -14,7 +14,8 @@ while read foo bar _; do things with ${foo} and to ${bar}; done < file.txt # onl
 # is my script being piped?
 -t fd # True if file descriptor fd is open and refers to a terminal.
 # fd can be one of the usual file descriptor assignments: 0 stdin, 1 stdout, 2 stderr
-$ if [[ -t 1 ]] ; then echo terminal; else echo "not a terminal"; fi
+$ if [[ -t 1 ]] ; then echo "output is a terminal"; else echo "output is Not a terminal"; fi
+# also works for detecting whether input came from the user, or another script/process (fd=0)
 
 # shortest way to increment a variable (note no '$')
 ((i++))
