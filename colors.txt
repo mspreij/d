@@ -18,6 +18,8 @@ FG      BG
 
 Example: $ echo -e "\\e[1;35;42m Bold magenta on green background \\e[0m"
 Becomes: \e[1;35;42m Bold magenta on green background \e[0m
+Apparently non-standard but widely supported, these are brighter background colors:
+\e[30;100m100\e[0m\e[30;101m101\e[0m\e[30;102m102\e[0m\e[30;103m103\e[0m\e[30;104m104\e[0m\e[30;105m105\e[0m\e[30;106m106\e[0m\e[30;107m107\e[0m
 
 216 colors:
   \\e[38;5;nm where n comes from a color table: https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
