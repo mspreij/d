@@ -26,7 +26,7 @@ d ()
         local doc=$(cat $dir/$1.txt);
         local esc=$(printf '\033');
         doc="$(echo "$doc" | sed "s/^\(#.*\)/${esc}[36m\1${esc}[0m/")";
-        echo -e "$doc";
+        echo -e "$doc" | less -rF;
     else
         echo "  E: docs not found.";
         return 44;
