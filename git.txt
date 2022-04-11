@@ -3,6 +3,9 @@
   $ git branch -d <branchname>
 # '-D' or '-d --force' will also delete unmerged branches
 
+# git change remote url
+git remote set-url origin foo://bar/baz.git
+
 # git puts all informative output on STDERR, which is not unixy. to not spam your inbox via crontab,
 # you can use the following (in a script):
 git -E fragile-command > tmp 2>&1 || mail_tmp_to_yourself

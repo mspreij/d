@@ -19,6 +19,7 @@ Random ideas:
   "d foo" would be like "do you want foobazz, or foobar?"
 - config? things?
 - ???
+- `d foo bar` to get only chapter bar from foo
 
 v maybe add color support for emphasis or the commands in a description
   x example entry using this
