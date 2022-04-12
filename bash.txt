@@ -11,11 +11,15 @@ cat file.txt | while read -a line; do echo ${line[0]}${line[1]}; done
 # the last variable always gets Everything until EOL, dump that in a '_' variable to ignore
 while read foo bar _; do things with ${foo} and to ${bar}; done < file.txt # only interested in the first two columns
 
-# is my script being piped?
+### Is my script being piped?
 -t fd # True if file descriptor fd is open and refers to a terminal.
 # fd can be one of the usual file descriptor assignments: 0 stdin, 1 stdout, 2 stderr
 $ if [[ -t 1 ]] ; then echo "output is a terminal"; else echo "output is Not a terminal"; fi
 # also works for detecting whether input came from the user, or another script/process (fd=0)
+
+### Is my script running from crontab?
+`tty -s` has a non-zero exit status $? when the script is running from cron (tty returns the name of the terminal
+    connected to STDIN, which won't exist. -s surpresses output)
 
 # shortest way to increment a variable (note no '$')
 ((i++))
