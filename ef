@@ -1,0 +1,49 @@
+ef () 
+{ 
+    if [[ -z $1 || "$1" == "-?" ]]; then
+        echo "  ef will let you edit already defined functions, or executable files /somewhere/ in \$PATH.";
+        echo "  Usage: ef <thing>";
+        return;
+    fi;
+    local t=$(type -t $1);
+    if [[ $t != 'function' && $t != 'file' ]]; then
+        echo "  '$1' is type: $t; I'm either unwilling or unable to edit that." 1>&2;
+        return 1;
+    fi;
+    if [[ $t == 'function' ]]; then
+        local func='# $1 is a function, changes will only be valid for this session
+
+'"$(type $1 | tail -n+2)";
+    else
+        local path="$(type -P $1)";
+        local func="$(cat "$path")";
+    fi;
+    local tmp=$(mktemp);
+    echo "$func" > $tmp;
+    while true; do
+        ${EDITOR:-nano} "$tmp";
+        if [[ "$(cat "$tmp")" != "$func" ]]; then
+            if [[ $t == "function" ]]; then
+                . "$tmp";
+            else
+                bash -n "$tmp";
+            fi;
+            if [[ $? == 0 ]]; then
+                if [[ -n $path ]]; then
+                    cat "$tmp" > "$path";
+                fi;
+                break;
+            else
+                echo "  The shell did not approve of your modifications :-(";
+                echo "  Edit again (y)? ";
+                read a;
+                if [[ "$a" != "y" ]]; then
+                    break;
+                fi;
+            fi;
+        else
+            break;
+        fi;
+    done;
+    rm $tmp
+}
