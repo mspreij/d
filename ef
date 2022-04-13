@@ -4,7 +4,7 @@ ef ()
         echo "  ef will let you edit already defined functions, or executable scripts /somewhere/ in \$PATH.";
         echo "  Function changes will only remain during the session, scripts are overwritten.";
         echo "  Usage: ef <thing>";
-        echo "  Try 'ef ef' :-)"
+        echo "  Try 'ef ef' :-)";
         return;
     fi;
     local t=$(type -t $1);
@@ -16,9 +16,9 @@ ef ()
         return 1;
     fi;
     if [[ $t == 'function' ]]; then
-        local func='# $1 is a function, changes will only be valid for this session
+        local func="# '$1' is a function, changes will only be valid for this session
 
-'"$(type $1 | tail -n+2)";
+$(type $1 | tail -n+2)";
     else
         local path="$(type -P $1)";
         local func="$(cat "$path")";

@@ -1,6 +1,8 @@
 I keep forgetting flags/options for rarely used commands so I put them in txt files that I can throw on the screen.
-'d' contains the bash function, edit local dir as you see fit. This should be an env thing maybe?
 
-That's about it.
+The mere act of writing the stuff down and saving it already makes me remember it and thus this utility makes itself irrelevant but, you know.
+
+'d' contains the bash function, edit local dir as you see fit. This will be an env thing at some point.
+'ef' is completely unrelated but will let you edit shell functions or scripts without necessarily needing to know where they are or came from.
 
 See todo.txt for things.
