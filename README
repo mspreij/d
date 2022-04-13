@@ -2,7 +2,9 @@ I keep forgetting flags/options for rarely used commands so I put them in txt fi
 
 The mere act of writing the stuff down and saving it already makes me remember it and thus this utility makes itself irrelevant but, you know.
 
-'d' contains the bash function, edit local dir as you see fit. This will be an env thing at some point.
-'ef' is completely unrelated but will let you edit shell functions or scripts without necessarily needing to know where they are or came from.
+'d' contains the bash function. It looks for the txt files in ~/.my_stuff/docs by default, or if set, in $D_DOCS.
+
+'ef' is completely unrelated but will let you edit shell functions or scripts without necessarily needing to know where they are or came from
+  (maybe not *great* for production boxes).
 
 See todo.txt for things.
