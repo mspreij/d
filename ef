@@ -4,6 +4,7 @@ ef ()
         echo "  ef will let you edit already defined functions, or executable scripts /somewhere/ in \$PATH.";
         echo "  Function changes will only remain during the session, scripts are overwritten.";
         echo "  Usage: ef <thing>";
+        echo "  Try 'ef ef' :-)"
         return;
     fi;
     local t=$(type -t $1);
