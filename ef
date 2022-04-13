@@ -1,12 +1,16 @@
 ef () 
 { 
     if [[ -z $1 || "$1" == "-?" ]]; then
-        echo "  ef will let you edit already defined functions, or executable files /somewhere/ in \$PATH.";
+        echo "  ef will let you edit already defined functions, or executable scripts /somewhere/ in \$PATH.";
+        echo "  Function changes will only remain during the session, scripts are overwritten.";
         echo "  Usage: ef <thing>";
         return;
     fi;
     local t=$(type -t $1);
     if [[ $t != 'function' && $t != 'file' ]]; then
+        if [[ -z $t ]]; then
+            t='(none)';
+        fi;
         echo "  '$1' is type: $t; I'm either unwilling or unable to edit that." 1>&2;
         return 1;
     fi;
@@ -35,7 +39,7 @@ ef ()
                 break;
             else
                 echo "  The shell did not approve of your modifications :-(";
-                echo "  Edit again (y)? ";
+                echo -n "  Edit again (y)? ";
                 read a;
                 if [[ "$a" != "y" ]]; then
                     break;
