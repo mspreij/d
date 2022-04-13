@@ -4,8 +4,8 @@
 ef () {
   # check whether the output is a function, alias, script / 'hashed' script, shell builtin, ...
   if [[ -z $1 ]]; then
-    echo "  ed will let you edit already defined functions, or executable files /somewhere/ in \$PATH."
-    echo "  usage: ed <thing>"
+    echo "  ef will let you edit already defined functions, or executable files /somewhere/ in \$PATH."
+    echo "  usage: ef <thing>"
     return;
   fi;
   local t=$(type -t $1)
