@@ -1,6 +1,6 @@
 d ()
 {
-    local dir=~/.my_stuff/docs;
+    local dir=${D_DOCS:-~/.my_stuff/docs};
     if [[ -z $1 ]]; then
         echo "  Man pages: the cliffs notes.";
         echo "  Available: "$(ls $dir/*.txt | xargs basename -a | sed s/.txt//);
