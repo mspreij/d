@@ -15,6 +15,7 @@ ef:
   > the function is sourced - but if it's no longer a function, that means the code will be run.. add more disclaimers!  > probs just need to `bash -n` it like the script, and then run it if there were no syntax errors (is there any way
     to detect whether it'll Do Things When Run?)
 - ENV variable for path to ef's and d files should be the same, and used in both
+- _init_ the local path var regardless of whether it's used o.o; a global path variable might exist and be used..
 - support other langs? wrt syntax check and such
 
 Random ideas:
@@ -27,6 +28,7 @@ Random ideas:
   "d foo" would be like "do you want foobazz, or foobar?"
 - config? things?
 - ???
+- d now supresses color when outputting to other process; add a flag to force color output?
 - `d foo bar` to get only chapter bar from foo
 
 v maybe add color support for emphasis or the commands in a description

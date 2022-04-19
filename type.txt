@@ -9,6 +9,8 @@ $ type foo
       -p returns all matches with -a but nothing when an alias overrides the command/script
 -a    return all matches
 
-# pipe function output from `type` through `tail -n+2` to lose the first line and cat to a file or something
+# pipe function output from `type` through `tail -n+2` to lose the first line and cat >> to a file or something
+#   voice of experience: make sure you're not overwriting the file with just that function o.o;
+#   also also: you lose all comments in the function source
 
 # see also: command, builtin, whereis

@@ -1,7 +1,17 @@
+# this is a /mostly/ correct interpretation of the man pages, the details on regex are hairy and depend on the grep
+# version and implementation
+
 -i   case-insensitive
 -v   negate matches (invert result)
+-e   use for each pattern if you have more than one to match or negate (it ORs)
+-E   extended regex
+
 --include \*.php  # only search these files. either escape the * or quote the string
+
 ### output
 -H   print filename with each match (default for wildcard file patterns)
 -n   print line number
 [-A, -B, -C]#  print # lines after, before, or around matching lines
+
+# filter out empty lines for, say, -v, by using a start/end pattern ^$
+$ grep -v -e foobar -e ^$
