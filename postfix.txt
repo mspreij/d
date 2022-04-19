@@ -1,0 +1,39 @@
+# Ok this is going to be RANDOM since I'm writing as I read docs. It might be mostly accurate.
+
+# === CRASHCOURSE WHAT EVEN IS EMAIL AGAIN ===
+# Postfix is not a mailserver, it's an MTA, it speaks SMTP, like sendmail and Exim.
+# Mailservers (like Dovecot) speak POP3 and IMAP and deal with user accounts (and of course talk
+#   to MTAs).
+# Postfix is meant to replace sendmail.
+# In general, Postfix deals with mails that need to be sent (from a client), mailservers deal
+# with mail that has been received and will be fetched/read (by a client).
+# === END ===
+
+# for systemd boxes it'll run as postfix.service
+
+# Postfix has a _metric fuckton_ of options (the one I'm looking at has over 800):
+$ postconf | less
+# you can scan that for whatever thing you want to change and/or break
+
+# it doesn't have "a readme", it has directories of them, find them here (if not online):
+$ postconf readme_directory html_directory
+
+# you want to scan the BASIC_CONFIGURATION_README. This file has an introduction, which
+# gives a brief description of the chapters in the rest of the file, which are shown as:
+# "    * Postfix configuration files"
+# and show up in bold after the introduction. Browser version:
+https://www.postfix.org/BASIC_CONFIGURATION_README.html
+
+# Config files are in /etc/postfix, the two important ones are main.cf and master.cf
+# Parameters are set like shell variables, except
+#  1. postfix doesn't know about quotes, and
+#  2. you can use variables before you set them:
+
+   other_parameter = $parameter
+   parameter = value
+
+# after changing things:
+
+$ postfix reload
+
+# See also: mail (useful for testing!)

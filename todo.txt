@@ -12,7 +12,8 @@ Things to add:
 ef:
 - sort out different checks for whether it's a function or script
 - find out why commenting the start of the function makes it run again without confirming, somehow
-  > the function is sourced - but if it's no longer a function, that means the code will be run.. add more disclaimers!
+  > the function is sourced - but if it's no longer a function, that means the code will be run.. add more disclaimers!  > probs just need to `bash -n` it like the script, and then run it if there were no syntax errors (is there any way
+    to detect whether it'll Do Things When Run?)
 - ENV variable for path to ef's and d files should be the same, and used in both
 - support other langs? wrt syntax check and such
 
