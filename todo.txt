@@ -9,6 +9,13 @@ Things to add:
 - cut
 - apt, probably
 
+ef:
+- sort out different checks for whether it's a function or script
+- find out why commenting the start of the function makes it run again without confirming, somehow
+  > the function is sourced - but if it's no longer a function, that means the code will be run.. add more disclaimers!
+- ENV variable for path to ef's and d files should be the same, and used in both
+- support other langs? wrt syntax check and such
+
 Random ideas:
 - first line '#d ...' can be flags on how to print the rest of the file, eg
   - interpret ansi escape codes (like color)

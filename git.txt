@@ -5,6 +5,7 @@
 
 # git change remote url
 git remote set-url origin foo://bar/baz.git
+# looks like you can also edit .git/config ?
 
 # git puts all informative output on STDERR, which is not unixy. to not spam your inbox via crontab,
 # you can use the following (in a script):
