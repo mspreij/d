@@ -10,6 +10,7 @@ Things to add:
 - apt, probably
 
 ef:
+- there's a newer version of this at work probs, ~/src/ef/ or so o.o
 - sort out different checks for whether it's a function or script
 - find out why commenting the start of the function makes it run again without confirming, somehow
   > the function is sourced - but if it's no longer a function, that means the code will be run.. add more disclaimers!  > probs just need to `bash -n` it like the script, and then run it if there were no syntax errors (is there any way
