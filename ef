@@ -28,14 +28,15 @@ $(type $1 | tail -n+2)";
     while true; do
         ${EDITOR:-nano} "$tmp";
         if [[ "$(cat "$tmp")" != "$func" ]]; then
-            if [[ $t == "function" ]]; then
-                . "$tmp";
-            else
-                bash -n "$tmp";
-            fi;
+            bash -n "$tmp";
             if [[ $? == 0 ]]; then
                 if [[ -n $path ]]; then
+                    echo \ \ Writing script to $path ...;
                     cat "$tmp" > "$path";
+                else
+                    echo \ \ Storing and sourcing function ...;
+                    cat "$tmp" > ~/src/ef/$1;
+                    . "$tmp";
                 fi;
                 break;
             else
