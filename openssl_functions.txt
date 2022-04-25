@@ -1,0 +1,77 @@
+# look at certificate as if you were human
+cert ()
+{
+    openssl x509 -text -noout -in "$1" | less -F
+}
+
+# same for csr
+csr ()
+{
+    openssl req -text -noout -verify -in "$1" | less -F
+}
+
+# read the helptext
+tlsmod () 
+{ 
+    local full='';
+    local modulus;
+    local filetype;
+    if [[ -z $1 || "$1" == "-?" || "$1" == "-h" ]]; then
+        cat <<HELPTEXT
+    ${FUNCNAME[0]} prints the type and the modulus for certificates' public keys, and private keys.
+    Usage: ${FUNCNAME[0]} file ...
+    Use -f as first argument to show the full modulus instead of the md5 hash.
+HELPTEXT
+
+        return;
+    fi
+    if [[ "$1" == "-f" ]]; then
+        full=1;
+        shift;
+    fi;
+    for file in "$@";
+    do
+        echo "  File: $file";
+        if ! [[ -f "$file" && -r "$file" ]]; then
+            echo -e "  \e[31m  E: Can't read '$file', skipping\e[0m";
+            continue;
+        fi;
+        case "$(head "$file" -n1)" in 
+            -----BEGIN\ CERTIFICATE-----)
+                filetype="Type: certificate";
+                cmd='openssl x509 -noout -modulus -in'
+            ;;
+            -----BEGIN*PRIVATE\ KEY-----)
+                filetype="Type: private key";
+                cmd='openssl rsa -noout -modulus -in'
+            ;;
+            -----BEGIN\ CERTIFICATE\ REQUEST-----)
+                filetype="Type: certificate request";
+                cmd='openssl req -modulus -noout -in'
+            ;;
+            *)
+                echo -e "  \e[31mE: unhandled filetype '$file'; only keys, certifcates and certificate requests are handled\e[0m";
+                continue
+            ;;
+        esac;
+        echo "  $filetype";
+        if modulus=$($cmd "$file"); then
+            [[ -z $full ]] && ( echo "$modulus" | openssl md5 | sed 's/(stdin)=/  Hash:/' ) || echo "$modulus";
+        else
+            echo -e "  \e[31mFailed\e[0m";
+        fi;
+    done
+}
+
+# just returns the modulus/hash, needs doc
+keymod ()
+{
+    local hash='';
+    local modulus;
+    if [[ "$1" == "-h" ]]; then
+        hash=1;
+        shift;
+    fi;
+    modulus=$(openssl rsa -noout -modulus -in "$1");
+    [[ -n $hash ]] && ( echo "$modulus" | openssl md5 ) || echo "$modulus"
+}
