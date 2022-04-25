@@ -1,0 +1,18 @@
+# as with all things created by committees or experts, there are 3247 options and features of which
+# we need like 3, but any software created for those will be incomplete or lack edgecases or...
+# CentOS 7 won't update to OpenSSL 1.1 (support dropped december 2019) but invites you to install "openssl11" for spot usage.
+
+
+# look at certificate as if you were human
+cert ()
+{
+    openssl x509 -text -noout -in "$1" | less -F
+}
+# same for csr
+csr ()
+{
+    openssl req -text -noout -verify -in "$1" | less -F
+}
+
+# create new certificate signing request (CSR) based on existing certificate and key
+openssl x509 -x509toreq -in ssl.cert -signkey ssl.key -out ssl.csr.new

@@ -1,0 +1,5 @@
+# xargs tries to call the given command as few times as possible by default, and will pass multi-line input in one go.
+
+-n#    # split input on whitespace and use # number of words each call
+-L#    # split by line but lines with trailing spaces will be appended to the next line
+
