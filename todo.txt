@@ -28,7 +28,7 @@ Random ideas:
 - similarly, wildcard matching or suggestions; "d var" would load vars.txt, while
   "d foo" would be like "do you want foobazz, or foobar?"
 - config? things?
-- ???
+- -l to list entries with last-modified date, and/or commit message
 - d now supresses color when outputting to other process; add a flag to force color output?
 - `d foo bar` to get only chapter bar from foo
 

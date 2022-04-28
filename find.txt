@@ -23,3 +23,5 @@ $ find . -type l
 
 # find _broken_ links
 $ find . -xtype l
+
+There are modern `find` alternatives, I'll list 'm when I ..find 'm.
