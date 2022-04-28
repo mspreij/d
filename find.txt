@@ -6,6 +6,17 @@ $ find . -mtime -1 -ls
 $ find . -user joe -group developers
 # (yeah, try and remember THAT)
 
+# find files with extension foo, note the wildcard AND the quotes because why make things simple
+$ find . -name '*foo'
+
+# find files except not in /that/ directory (note, again, the quotes and slashes and wildcard..)
+$ find . -name '*php' -not -path './vendor/*'
+# although the second slash is technically optional. possibly. depending, probably.
+
+# find files matching this or that, except not in /that/ directory
+$ find . \( -name '*php' -o -name '*json' \) -not -path './vendor/*'
+# the -o is an OR, and the escaped () group the name matches to logically separate both from the directory filter
+
 # find links
 $ find . -type l
 # pipe to xargs realpath to get the sources
