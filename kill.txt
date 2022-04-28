@@ -1,0 +1,25 @@
+# politely ask process to stop
+$ kill 1234
+# shoot process in the head
+$ kill -9 1234
+
+Usage:
+  kill -l [name/number]
+  kill [-<signal>] <pid>
+
+# kill is used to send signals to running processes (by pid)
+# by default it sends SIGTERM (15) which politely asks the process to stop.
+# signal 9 or SIGKILL (or KILL) halts the process impolitely.
+# but you can also use it to suspend and then continue a process, with
+18 SIGCONT
+19 SIGSTOP
+
+# specified signals follow a '-'. a signal can be the name, short name or number.
+
+# these all do the same
+kill -15 123, kill -SIGTERM 123, kill -TERM 123
+
+-l [number/name]  # list signals (supply a number to get signal name, or vice versa)
+
+See also: $ man 7 signal
+          https://en.wikipedia.org/wiki/Signal_(IPC)
