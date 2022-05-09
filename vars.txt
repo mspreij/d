@@ -1,15 +1,14 @@
-# variable substitutions
-${FOO%suffix}   Remove suffix
-${FOO#prefix}   Remove prefix
-${FOO%%suffix}  Remove long suffix
-${FOO##prefix}  Remove long prefix
-${FOO/from/to}  Replace first match
-${FOO//from/to} Replace all
-${FOO/%from/to} Replace suffix
-${FOO/#from/to} Replace prefix
+# variable substitutions                 Substrings
+${FOO%suffix}   Remove suffix            ${FOO:0:3}       substring (position, length)
+${FOO#prefix}   Remove prefix            ${FOO:(-3):3}    substring from the right
+${FOO%%suffix}  Remove long suffix       Arguments:
+${FOO##prefix}  Remove long prefix       $#               number of arguments
+${FOO/from/to}  Replace first match      $*               all positional arguments as a single word
+${FOO//from/to} Replace all              $@               all positional arguments as separate strings
+${FOO/%from/to} Replace suffix           $1, $2 etc       first, second, .. argument
+${FOO/#from/to} Replace prefix           $_               last argument of previous command
 # mnemonic: suffix % comes after the $ (variable) on the keyboard,
 #   the prefix # before it
-
 ${FOO:-val}     $FOO, or val if unset (or null)
 ${FOO:=val}     Set $FOO to val if unset (or null)
 ${FOO:+val}     val if $FOO is set (and not null)
