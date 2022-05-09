@@ -18,10 +18,10 @@ ef:
 - ENV variable for path to ef's and d files should be the same, and used in both
 - _init_ the local path var regardless of whether it's used o.o; a global path variable might exist and be used..
 - when storing the function in ~/src/ef/ echo that path, and uh.. should this be happening, I think it should be optional,
-  and how do you store the src/ef functions back into their original place, and how do you even check which one's better
-  and why did I even do that it only gets more complicated <o>
+   and how do you store the src/ef functions back into their original place, and how do you even check which one's better
+    and why did I even do that it only gets more complicated <o>
 ? make some function/script that will source the usual stuff but /not/ ~/src/ef/* and then checks/shows the differences
-  put this function in a readme somewhere, not as like official d code (why is ef even still in this repo)
+- put this function in a readme somewhere, not as like official d code (why is ef even still in this repo)
 - move ef tf out of this repo?
 - support other langs? wrt syntax check and such
 
