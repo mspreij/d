@@ -23,6 +23,11 @@ ef:
 ? make some function/script that will source the usual stuff but /not/ ~/src/ef/* and then checks/shows the differences
 - put this function in a readme somewhere, not as like official d code (why is ef even still in this repo)
 - move ef tf out of this repo?
+- ok this is gonna sound crazy but what if ef copied the original function to a git repo (in that specific path that will
+  be the same as `d`'s path), and then updated that repo with the new version? you'd have a history! and when you
+  eventually find the original again, you can check from what point in the repo it was taken, how old it is or w/e. Also
+  you could ignore the original completely and just use the repo.
+  Hm.
 - support other langs? wrt syntax check and such
 
 Random ideas:
