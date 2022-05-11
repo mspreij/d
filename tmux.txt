@@ -4,6 +4,11 @@
 \e[38;5;208mprefix\e[0m >
 \e[38;5;208mprefix\e[0m <
 
+# capture the entire pane history and dump it to a file:
+$ tmux capture-pane -eS - -p > tmux.txt
+# -e = include escape sequences (most of them at least..)
+# -S = starting line (negative is from before visible, - is from start)
+# -p = print to STDOUT, otherwise it goes to some buffer thing, somewhere?
 
 # My default config ==========
 # remap prefix from 'C-b' to 'C-a' or, like, `
