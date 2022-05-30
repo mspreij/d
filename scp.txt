@@ -1,0 +1,4 @@
+# yes, you /can/ copy remote to remote using scp, but CentOS requires the -3
+$ scp \e[1;32m-3\e[0m user@server1:/path user@server2:/path
+
+# because REASONS. "user@" is optional if you have a good .ssh/config

@@ -1,0 +1,19 @@
+# basically check the line at the bottom, myeah?
+# different versions of nano support different things, but for those that do..
+# if Alt is not available or does weird stuff, Esc can be used as separate keypress instead
+
+Alt-a    set start- and end-marks for copy/cutting; Shift-cursor keys might also work!
+Ctrl-k   cut marked text or line (including trailing newline) into (nano) buffer
+Ctrl-u   un-cut buffer to cursor position
+Alt-6    copy marked text or line into buffer
+
+Alt-u    undo
+Alt-e    redo
+
+# 
+Ctrl-r   read new file into current or new buffer
+Alt-f    toggle between current/new buffer for Ctrl-r behaviour above, for newer nanos
+         this only works while in the Ctrl-r "dialog"
+Alt->    (that is, Alt-Shift-. or Esc, '>') go to next buffer
+
+Alt-c    toggle cursor position display

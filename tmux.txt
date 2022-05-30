@@ -6,7 +6,7 @@
 
 # capture the entire pane history and dump it to a file:
 $ tmux capture-pane -eS - -p > tmux.txt
-# -e = include escape sequences (most of them at least..)
+# -e = include escape sequences (most of them at least; not the non-standard 100-107 range for one)
 # -S = starting line (negative is from before visible, - is from start)
 # -p = print to STDOUT, otherwise it goes to some buffer thing, somewhere?
 
