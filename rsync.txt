@@ -1,0 +1,31 @@
+# basic command:
+rsync [flags] source target
+# source and target can be ssh-style remote servers like user@domain:/path
+
+# Trailing Slashes are important!
+rsync /path/src\e[32;1m/\e[0m dest/  # copy the contents of src directory to the dest directory
+rsync /path/src  dest/  # copy the src directory *itself* into the dest directory, making dest/src/contents
+
+# use --dry-run and --stats to test the effects before running it
+
+# -a is kinda useful as a base template:
+-a => --archive => "equals -rlptgoD (no -H,-A,-X)" (yeah)
+-r Recursive
+-l copy symLinks as symlinks (creates a symlink on the target, instead of copying the data the source link pointed to)
+-p preserve Permissions
+-t preserve modification Times
+-g preserve Group -> if target rsync runs as super-user, or if the target rsync user is in that group
+-o preserve Owner -> if target rsync runs as super-user
+-D preserve device and special files (-D stands for '--devices --specials')
+
+# it's often useful to also delete files on the target that no longer exist on the source, there's a bunch of
+# options to tweak that (before/during/after transfer, also excluded files, also on IO errors (do not))
+# NB: deleting files on the target that are not on the source might NOT be useful when rsync is used in a backup script!
+#     if the source got wiped, the first "backup" with --delete will remove the backup too.. so *unless* the backup medium
+#     has snapshots enabled, don't.
+--del => --delete-during => "receiver deletes during the transfer" seems a safe default (for synchronizing)
+
+# misleading option names:
+--ignore-errors => refers to how --delete behaves, and will remove target files even if there were IO errors, so you can lose
+                   last night's backup if there's source disk- or network glitches
+--force         => also refers to --delete, and will remove directories with contents on the target if they're no longer on the source
