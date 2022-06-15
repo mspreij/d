@@ -1,0 +1,5 @@
+# get dns info on domain, BUT it will show information from /etc/hosts as if it were legit
+$ dig foo.bar
+
+# so, use specific nameserver for things you've hardwired
+$ dig @8.8.8.8 foo.bar

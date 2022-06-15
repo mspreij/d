@@ -1,0 +1,45 @@
+# some aliases because WHO HAS TIME FOR TYPING ALL THAT
+alias fw='firewall-cmd'
+alias fwl='firewall-cmd --list-all'
+alias fwr='firewall-cmd --reload'  # this will also get rid of unstored live changes
+alias fw-cc='firewall-cmd --check-config'
+alias fw-gaz='firewall-cmd --get-active-zones'
+alias fw-gdz='firewall-cmd --get-default-zone'  # though you /can/ have more than one active zones
+
+firewalld runs as a service; firewall-cmd is used to poke at it.
+Config is stored in /etc/firewalld/firewalld.conf, zones in /etc/firewalld/zones/<zone>.xml
+You can change the config files and then issue a "firewall-cmd --reload", too.
+NB: Invalid service names will be happily ignored (and not reported) by reload, run
+  "firewall-cmd --check-config" if you're not sure.
+
+Adding --permanent to commands stores config changes in the /etc/firewalld/zones/<zone>.xml file,
+  but apparently does /not/ also change the config of the running instance (RedHat, eh), so either
+  run a config change command twice (once with --permanent), or run it with --permanent once and
+  then 'firewall-cmd --reload'.
+  --change-interface is unaffected by --permanent, allegedly.
+According to the manual you can "firewall-cmd --runtime-to-permanent" to write live changes back
+  to disk.
+
+A zone is a set of rules, that traffic coming from its network interface(s) should obey.
+There are different zones, each zone can listen/subscribe to one or more network interfaces like
+  eth0, but a network interface can only ever sit in a single zone (the interface file in
+  /etc/sysconfig/network-scripts/ has max 1 ZONE=.. entry).
+Packets that arrive over that interface have to match the rules for that zone, or they are dropped,
+  bounced, whatever.
+The rules can be service (http), port (80), source (some ip/range), protocols (tcp), etc.
+Then there's some settings to forward ports and probably what-not-other-stuff.
+
+1 takeaway: --change-interface doesn't really "change" the interface of a zone, it points the traffic
+  from that interface to the zone rules. Old/other interfaces for that zone will still be there.
+
+Read:
+  https://docs.rockylinux.org/de/guides/security/firewalld-beginners/
+  https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-8
+
+There's also the NetworkManager, whose job overlaps/overrules that of firewall-cmd iiuic. It has
+files in /etc/sysconfig/network-scripts/ 
+
+# some more options/commands
+--list-services        # services for [default] zone
+--add-service=ssh      # adds to default or given zone; --zone=foobar
+--remove-service=ssh   # reverse, eh

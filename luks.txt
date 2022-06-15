@@ -1,0 +1,2 @@
+# list luks things
+$ blkid -t TYPE=crypto_LUKS -o device
