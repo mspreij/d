@@ -18,7 +18,7 @@ Adding --permanent to commands stores config changes in the /etc/firewalld/zones
   then 'firewall-cmd --reload'.
   --change-interface is unaffected by --permanent, allegedly.
 According to the manual you can "firewall-cmd --runtime-to-permanent" to write live changes back
-  to disk.
+  to config files, too.
 
 A zone is a set of rules, that traffic coming from its network interface(s) should obey.
 There are different zones, each zone can listen/subscribe to one or more network interfaces like
