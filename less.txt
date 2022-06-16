@@ -1,5 +1,6 @@
 /      search forward
 ?      search backward
+# protip: search strings are some kind of regex; you can search for multiple separate things using |
 n      next match
 N      previous match
 -I     case-insensitive all things
@@ -18,4 +19,3 @@ F      go to end of file and wait for more input, like tail -f
 -F     quit if the output fits on one screen
 
 # less can also read (compressed) tar archives!
-

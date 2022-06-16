@@ -1,0 +1,22 @@
+# uh... I know nothing, and here it is!
+atop = top + history, and more detail.
+
+It can run interactively like top, but also as a service (atop.service), as which it will sample system load/resources and
+  write their values to /var/log/atop/atop_<date>, every $interval seconds (see below), it's some binary format.
+
+Config file sits in /etc/default/atop, unless you run CentOS, then it's /etc/sysconfig/atop. Unless it's simply
+  /etc/atoprc, and you can override them in ~/.atoprc, this probably depends on the version. atoprc could be another thing
+  altogether which is /supposed/ to have a manpage? I can't find it.
+
+For my current version (2.7.1 CentOS), the config settings are just this:
+  LOGOPTS=
+  LOGINTERVAL=60
+  LOGGENERATIONS=14
+  LOGPATH=/var/log/atop
+
+Interval is in seconds, default is 600 for "get and write values every 10 minutes"
+Generations is days kept I think (default 28)
+
+Todo:
+- useful shortcuts in the interface
+- graphs based on atop logs
