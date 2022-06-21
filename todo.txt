@@ -3,12 +3,13 @@ Not actually documentation, just a todo/random ideas list..
 Things to add:
 * jq
 - more grep
-- wget
+- wget/curl
 - git o.o;
 - tmux
-- cut
+- cut? this needs to be a chapter thing in bash or ... w/e
 - apt, probably
 - atop
+- yum
 
 ef:
 - sort out different checks for whether it's a function or script

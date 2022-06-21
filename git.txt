@@ -1,3 +1,6 @@
+# grab myfile.txt from otherbranch and put it HERE, RIGHT FUCKING NOW
+  $ git checkout otherbranch myfile.txt
+
 # delete (remote) branch
   $ git push -d origin <branchname>
   $ git branch -d <branchname>
