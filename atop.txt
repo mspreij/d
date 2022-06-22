@@ -18,5 +18,6 @@ Interval is in seconds, default is 600 for "get and write values every 10 minute
 Generations is days kept I think (default 28)
 
 Todo:
+- useful commandline options
 - useful shortcuts in the interface
 - graphs based on atop logs
