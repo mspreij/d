@@ -7,7 +7,7 @@ alias fw-gaz='firewall-cmd --get-active-zones'
 alias fw-gdz='firewall-cmd --get-default-zone'  # though you /can/ have more than one active zones
 
 firewalld runs as a service; firewall-cmd is used to poke at it.
-Config is stored in /etc/firewalld/firewalld.conf, zones in /etc/firewalld/zones/<zone>.xml
+Config is stored in \e[38;5;226m/etc/firewalld/firewalld.conf\e[0m, zones in \e[38;5;226m/etc/firewalld/zones/<zone>.xml\e[0m
 You can change the config files and then issue a "firewall-cmd --reload", too.
 NB: Invalid service names will be happily ignored (and not reported) by reload, run
   "firewall-cmd --check-config" if you're not sure.
