@@ -12,7 +12,7 @@ You can change the config files and then issue a "firewall-cmd --reload", too.
 NB: Invalid service names will be happily ignored (and not reported) by reload, run
   "firewall-cmd --check-config" if you're not sure.
 
-Adding --permanent to commands stores config changes in the /etc/firewalld/zones/<zone>.xml file,
+Adding \e[35m--permanent\e[0m to commands stores config changes in the \e[38;5;226m/etc/firewalld/zones/<zone>.xml\e[0m file,
   but apparently does /not/ also change the config of the running instance (RedHat, eh), so either
   run a config change command twice (once with --permanent), or run it with --permanent once and
   then 'firewall-cmd --reload'.
