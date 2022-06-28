@@ -6,3 +6,6 @@ $ dig @8.8.8.8 foo.bar
 
 # get ALL THE INFO
 $ dig foo.bar ANY
+
+# get only the ip address (or, like, emptiness for not found)
+$ dig +short foo.bar
