@@ -1,0 +1,6 @@
+# I KNOW NOTHING and this is it.
+- show packages installed by user
+- what is epel
+- where do the .. thing.. what. stuff. from .. wiki, also too, maybe.
+- etc
+- more

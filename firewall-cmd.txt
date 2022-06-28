@@ -25,6 +25,7 @@ There are different zones, each zone can listen/subscribe to one or more network
   eth0, but a network interface can only ever sit in a single zone (the interface file in
   /etc/sysconfig/network-scripts/ has max 1 ZONE=.. entry).
 Packets that arrive over that interface have to match the rules for that zone, or they are dropped,
+Config is stored in \e[1m/etc/firewalld/firewalld.conf\e[0m, zones in \e[1m/etc/firewalld/zones/<zone>.xml\e[0m
   bounced, whatever.
 The rules can be service (http), port (80), source (some ip/range), protocols (tcp), etc.
 Then there's some settings to forward ports and probably what-not-other-stuff.
