@@ -1,5 +1,11 @@
+# NB: last and lastlog and other functions won't always agree with eachother - like, /var/log/secure says a session was
+#     opened for johndoe Jun 28 15:40:52; lastlog -u johndoe says May 30 15:34:47, last yields nothing but says it started
+#     logging May 25th. So, ya know, who knows.
+
 # see last login [for user]
 $ lastlog [-u <username>]
 
-# see all logins for the last month or so [for user]
-$ last [<user>]
+# see all logins for the last month or so [or the last 10] [for user]
+$ last [-10/-n 10] [<user>]
+
+# man last returns more fascinating stuff which I can't see working atm.
