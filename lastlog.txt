@@ -1,0 +1,5 @@
+# see last login [for user]
+$ lastlog [-u <username>]
+
+# see all logins for the last month or so [for user]
+$ last [<user>]
