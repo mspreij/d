@@ -12,6 +12,7 @@
 -H   print filename with each match (default for wildcard file patterns)
 -n   print line number
 [-A, -B, -C]#  print # lines after, before, or around matching lines
+-o   print only the matching part of the line, useful to regex values out of a file for use in a pipeline
 
 # filter out empty lines for, say, -v, by using a start/end pattern ^$
 $ grep -v -e foobar -e ^$
