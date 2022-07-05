@@ -11,6 +11,7 @@ Things to add:
 - apt, probably
 - atop
 - yum
+- shopt???
 
 ef:
 - sort out different checks for whether it's a function or script
