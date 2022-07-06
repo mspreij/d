@@ -3,7 +3,7 @@ rsync [flags] source target
 # source and target can be ssh-style remote servers like user@domain:/path
 
 # Trailing Slashes are important!
-rsync /path/src\e[32;1m/\e[0m dest/  # copy the contents of src directory to the dest directory
+rsync /path/src\e[32;1;4m/\e[0m dest/  # copy the contents of src directory to the dest directory
 rsync /path/src  dest/  # copy the src directory *itself* into the dest directory, making dest/src/contents
 
 # use --dry-run and --stats to test the effects before running it

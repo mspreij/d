@@ -16,7 +16,7 @@ unbind C-b
 set-option -g prefix `
 bind-key ` send-prefix
 
-# split panes using | and -
+# split panes using | and S
 bind | split-window -h
 bind S split-window -v
 unbind '"'
