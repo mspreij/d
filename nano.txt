@@ -9,6 +9,7 @@ Alt-6    copy marked text or line into buffer
 
 Alt-u    undo
 Alt-e    redo
+Ctrl-up/down   no idea what version this was added, but this moves the cursor to the previous/next paragraph
 
 # 
 Ctrl-r   read new file into current or new buffer

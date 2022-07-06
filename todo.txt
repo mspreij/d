@@ -6,12 +6,13 @@ Things to add:
 - more grep
 - wget/curl
 - git o.o;
-- tmux
 - cut? this needs to be a chapter thing in bash or ... w/e
 - apt, probably
 - atop
 - yum
+- configure/make stuff, check old C notes & kilo editor
 - shopt???
+* tmux
 
 ef:
 - sort out different checks for whether it's a function or script
@@ -32,6 +33,8 @@ ef:
   eventually find the original again, you can check from what point in the repo it was taken, how old it is or w/e. Also
   you could ignore the original completely and just use the repo.
   Hm.
+  AND you could put the repo ONLINE and use that as source for new installs. It could, like, replace the functions.sh
+  file. There are notes, similar to this idea, somewhere out there.
 - support other langs? wrt syntax check and such
 
 Random ideas:
