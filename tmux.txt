@@ -1,14 +1,32 @@
+# tmux is a Terminal MUltipleXer. It lets you split a window (the whole screen) into panes, and you
+# can have multiple windows too; they're numbered, and the current one is asterisk'd, in the bottom bar.
+
 \e[38;5;208mprefix\e[0m :  command prompt
 
-# these bring up freaking menus of things to do with shortcuts
-\e[38;5;208mprefix\e[0m >
-\e[38;5;208mprefix\e[0m <
+# swap pane with previous/next; {, } being Shift-[, ]
+\e[38;5;208mprefix\e[0m {
+\e[38;5;208mprefix\e[0m }
+
+# new window
+\e[38;5;208mprefix\e[0m c
+# next window
+\e[38;5;208mprefix\e[0m n
+# break current pane out into new window
+\e[38;5;208mprefix\e[0m !
+# move current pane into other window where \e[38;5;200mn\e[0m = window number (see bottom bar)
+# the ':' opens the command prompt where you type out the rest.
+\e[38;5;208mprefix\e[0m :join-pane -t [session]:\e[38;5;200mn\e[0m
+# for the reverse, -s will join a/the pane from the target window to your current window
 
 # capture the entire pane history and dump it to a file:
 $ tmux capture-pane -eS - -p > tmux.txt
 # -e = include escape sequences (most of them at least; not the non-standard 100-107 range for one)
 # -S = starting line (negative is from before visible, - is from start)
 # -p = print to STDOUT, otherwise it goes to some buffer thing, somewhere?
+
+# these bring up freaking menus of things to do with shortcuts!
+\e[38;5;208mprefix\e[0m >
+\e[38;5;208mprefix\e[0m <
 
 # My default config ==========
 # remap prefix from 'C-b' to 'C-a' or, like, `
