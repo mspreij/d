@@ -38,18 +38,21 @@ ef:
 - support other langs? wrt syntax check and such
 
 Random ideas:
-- first line '#d ...' can be flags on how to print the rest of the file, eg
-  - interpret ansi escape codes (like color)
-  - attempt syntax highlighting (maybe use bat if available?)
-  - there should then also be some sane - optionally configurable - defaults
-- similarly, wildcard matching or suggestions; "d var" would load vars.txt, while
-  "d foo" would be like "do you want foobazz, or foobar?" bash has dialog things for that
-  you could abuse to let the user simply type a number? or it reads and handles input itself.
-- config? things? somewhere in $D_DOCS (and/or check ~/.config/?)
-- -l to list entries with last-modified date, and/or commit message
-- d now supresses color when outputting to other process; add a flag to force color output?
-- `d foo bar` to get only chapter bar from foo
+ - first line '#d ...' can be flags on how to print the rest of the file, eg
+   - interpret ansi escape codes (like color)
+   - attempt syntax highlighting (maybe use bat if available?)
+   - there should then also be some sane - optionally configurable - defaults
+ - config? things? somewhere in $D_DOCS (and/or check ~/.config/?)
+   - color to use for comments. also make a placeholder for this, to finish different-color strings inside the comment
+ - -l to list entries with last-modified date, and/or commit message
+ - d now supresses color when outputting to other process; add a flag to force color output?
+ - `d foo :bar` to get only chapter bar from foo
 
-v bash_completion
-v maybe add color support for emphasis or the commands in a description
-  x example entry using this
+Done/discarded:
+ v bash_completion
+ v maybe add color support for emphasis or the commands in a description
+   x example entry using this
+ x similarly, wildcard matching or suggestions; "d var" would load vars.txt, while
+   "d foo" would be like "do you want foobazz, or foobar?" bash has dialog things for that
+   you could abuse to let the user simply type a number? or it reads and handles input itself.
+   > bash_completion handles this.
