@@ -48,6 +48,7 @@ Random ideas:
  - d now supresses color when outputting to other process; add a flag to force color output?
  - `d foo :bar` to get only chapter bar from foo
  - some type of apropos, "d -s blaat" where it simply greps for blaat in all doc files and prints a pretty result table
+ - could even fetch and store data from some server. or local database. not sure what the advantage of this is, or if there is one..
 
 Done/discarded:
  v bash_completion
