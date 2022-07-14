@@ -6,6 +6,16 @@
   $ git branch -d <branchname>
 # '-D' or '-d --force' will also delete unmerged branches
 
+# rename (remote) branch, assuming you have branchOldName checked out
+  $ git branch -m \e[32mbranchNewName\e[0m
+  $ git push origin :branchOldName; $ git push --delete \e[38;5;208mbranchOldName\e[0m
+  $ git branch --unset-upstream \e[32mbranchNewName\e[0m
+  $ git push
+# first you rename the current local branch, then you delete the old remote one (the first form is a shortcut),
+# then you unset the remote branch (which is still set to the old name) for the current local new branch
+# then you simply push and git will yell at you, and give you something to copy/paste to both push and set the remote
+# branch to the new name.
+
 # git change remote url
 git remote set-url origin foo://bar/baz.git
 # looks like you can also edit .git/config ?

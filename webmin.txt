@@ -1,0 +1,5 @@
+# vhost settings are stored here (plaintext mysql password, among others)
+/etc/webmin/virtual-server/domains/<longassnumber>
+
+# certs/keys (backups I guess) and some related config
+/etc/webmin/webmin/*
