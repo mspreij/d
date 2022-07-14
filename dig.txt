@@ -1,3 +1,5 @@
+# the TTL is in \e[38;5;227;1mseconds\e[0m
+
 # get dns info on domain, BUT it will show information from /etc/hosts as if it were legit
 $ dig foo.bar
 
