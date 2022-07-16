@@ -1,0 +1,4 @@
+# to kill dead mosh server sessions, just
+$ kill <all the pids that that message gives you>
+
+# yes, you still have to write or find a script for this, but that's the manual version.
