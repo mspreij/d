@@ -23,12 +23,12 @@ Apparently non-standard but widely supported, these are brighter background colo
 \e[30;100m100\e[0m\e[30;101m101\e[0m\e[30;102m102\e[0m\e[30;103m103\e[0m\e[30;104m104\e[0m\e[30;105m105\e[0m\e[30;106m106\e[0m\e[30;107m107\e[0m
 
 216 colors:
-  \\e[38;5;nm where n comes from a color table: https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
-  \\e[48;5;nm for background
+  \\e[38;5;\e[36;1mn\e[0mm where \e[36;1mn\e[0m comes from a color table: https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
+  \\e[48;5;\e[36;1mn\e[0mm for background
 
 Millions of colors:
-  \\e[38;2;r;g;bm integer rgb values, foreground color
-  \\e[48;2;r;g;bm integer rgb values, background color
+  \\e[38;2;\e[36;1mr\e[0m;\e[36;1mg\e[0m;\e[36;1mb\e[0mm integer \e[36;1mrgb\e[0m values, foreground color
+  \\e[48;2;\e[36;1mr\e[0m;\e[36;1mg\e[0m;\e[36;1mb\e[0mm integer \e[36;1mrgb\e[0m values, background color
 
 Surround the escape sequences (start and end separately) with \[ ... \] to prevent their length from being counted in
   the prompt string length.
