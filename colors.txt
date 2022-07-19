@@ -5,6 +5,7 @@ Sequence: \\e[<codes separated by ';'>m
 Reset all: \\e[0m
 0    reset
 1    \e[1mbold\e[0m
+22   normal text; no longer bold or faint, keeps current color
 4    \e[4munderline\e[0m
 FG      BG
 30	40	\e[30;47mBlack\e[0m
@@ -26,8 +27,8 @@ Apparently non-standard but widely supported, these are brighter background colo
   \\e[48;5;nm for background
 
 Millions of colors:
-  \\e[38;2;r;g;b;m integer rgb values, foreground color
-  \\e[48;2;r;g;b;m integer rgb values, background color
+  \\e[38;2;r;g;bm integer rgb values, foreground color
+  \\e[48;2;r;g;bm integer rgb values, background color
 
 Surround the escape sequences (start and end separately) with \[ ... \] to prevent their length from being counted in
   the prompt string length.
