@@ -38,15 +38,16 @@ ef:
 - support other langs? wrt syntax check and such
 
 Random ideas:
- - config? things? somewhere in $D_DOCS
-   - color to use for comments. also make a placeholder for this, to finish different-color strings inside the comment
- - -l to list entries with last-modified date, and/or commit message
+ ? placeholder for comment color, to finish different-color strings inside the comment
+ ? -l to list entries with last-modified date, and/or commit message
  - d now supresses color when outputting to other process; add a flag to force color output?
- - `d foo :bar` to get only chapter bar from foo
+ - `d foo :bar` to get only chapter bar from foo (what in the frick is 'chapter notation')
  - some type of apropos, "d -s blaat" where it simply greps for blaat in all doc files and prints a pretty result table
  - could even fetch and store data from some server. or local database. not sure what the advantage of this is, or if there is one..
 
 Done/discarded:
+ √ config? things? somewhere in $D_DOCS
+   √ color to use for comments
  x first line '#d ...' can be flags on how to print the rest of the file, eg
    x interpret ansi escape codes (like color)
    x attempt syntax highlighting (maybe use bat if available?)
