@@ -38,13 +38,8 @@ ef:
 - support other langs? wrt syntax check and such
 
 Random ideas:
- - first line '#d ...' can be flags on how to print the rest of the file, eg
-   - interpret ansi escape codes (like color)
-   - attempt syntax highlighting (maybe use bat if available?)
-   - there should then also be some sane - optionally configurable - defaults
- - config? things? somewhere in $D_DOCS (and/or check ~/.config/?)
+ - config? things? somewhere in $D_DOCS
    - color to use for comments. also make a placeholder for this, to finish different-color strings inside the comment
-   - <d></d> things? it's not an existing html tag.. (also ugly as sin)
  - -l to list entries with last-modified date, and/or commit message
  - d now supresses color when outputting to other process; add a flag to force color output?
  - `d foo :bar` to get only chapter bar from foo
@@ -52,6 +47,11 @@ Random ideas:
  - could even fetch and store data from some server. or local database. not sure what the advantage of this is, or if there is one..
 
 Done/discarded:
+ x first line '#d ...' can be flags on how to print the rest of the file, eg
+   x interpret ansi escape codes (like color)
+   x attempt syntax highlighting (maybe use bat if available?)
+   x there should then also be some sane - optionally configurable - defaults
+   > No.
  v bash_completion
  v maybe add color support for emphasis or the commands in a description
    x example entry using this

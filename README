@@ -1,6 +1,8 @@
 I keep forgetting flags/options for rarely used commands so I put them in txt files that I can throw on the screen.
+Often the mere act of writing the stuff down and saving it already makes me remember it and then this utility makes itself irrelevant but, you know.
 
-The mere act of writing the stuff down and saving it already makes me remember it and thus this utility makes itself irrelevant but, you know.
+Popular community ones are https://github.com/tldr-pages/tldr and https://github.com/cheat/cheat
+I use cheat too, but had already written d and it has more personal things I forget, so..
 
 'd' contains the bash function. It looks for the txt files in ~/.my_stuff/docs by default, or if set, in $D_DOCS.
 
