@@ -1,4 +1,4 @@
-# return what foo is, how it would be interpreted as command. for regular files use `file`.
+# Return what foo is, how it would be interpreted as command. For regular files use `file`.
 $ type foo
 
 # No flags return human-readable information: alias/function definition, 'x is a shell builtin/keyword', file location.# NB: aliases can override command paths, ie there can be multiple answers; type only shows the first by default.
@@ -9,8 +9,8 @@ $ type foo
       -p returns all matches with -a but nothing when an alias overrides the command/script
 -a    return all matches
 
-# pipe function output from `type` through `tail -n+2` to lose the first line and cat >> to a file or something
-#   voice of experience: make sure you're not overwriting the file with just that function o.o;
-#   also also: you lose all comments in the function source
+# pipe function output from `type` through `tail -n+2` to lose the first line and cat >> to a file or something (or pipe it to clipboard)
+# NB, voice of experience: make sure you're not overwriting the file with just that function o.o;
+# Also: you lose all comments in the function source
 
-# see also: command, builtin, whereis
+# See also: command, builtin, whereis
