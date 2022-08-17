@@ -1,6 +1,9 @@
 # grab myfile.txt from otherbranch and put it HERE, RIGHT FUCKING NOW
   $ git checkout otherbranch myfile.txt
 
+# just show old/other version of file, from another branch or specific commit (shown)
+  $ git show 412c00baa6\e[32;1m:\e[0mpath/to/filename
+
 # delete (remote) branch
   $ git push -d origin <branchname>
   $ git branch -d <branchname>
