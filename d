@@ -1,6 +1,10 @@
-d ()
-{
+d () 
+{ 
     local dir=${D_DOCS:-~/.my_stuff/docs};
+    local comment=36;
+    if [[ -r $dir/d.conf ]]; then
+        . $dir/d.conf;
+    fi;
     if [[ -z $1 ]]; then
         echo "  Man pages: the cliffs notes.";
         echo "  Available: "$(ls $dir/*.txt | xargs basename -a | sed s/.txt//);
@@ -26,7 +30,7 @@ d ()
         local doc=$(cat $dir/$1.txt);
         if [[ -t 1 ]]; then
             local esc=$(printf '\033');
-            doc="$(echo "$doc" | sed "s/^\(#.*\)/${esc}[36m\1${esc}[0m/")";
+            doc="$(echo "$doc" | sed "s/^\(#.*\)/${esc}[${comment}m\1${esc}[0m/")";
             echo -e "$doc" | less -rF;
         else
             echo "$doc";

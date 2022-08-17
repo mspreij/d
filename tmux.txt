@@ -1,4 +1,4 @@
-# tmux is a Terminal MUltipleXer. It lets you split a window (the whole screen) into panes, and you
+# tmux is a \e[1mT\e[22merminal \e[1mMU\e[22mltiple\e[1mX\e[22mer. It lets you split a window (the whole screen) into panes, and you
 # can have multiple windows too; they're numbered, and the current one is asterisk'd, in the bottom bar.
 
 \e[38;5;208mprefix\e[0m :  command prompt

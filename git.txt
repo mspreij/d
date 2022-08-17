@@ -19,6 +19,12 @@
 # then you simply push and git will yell at you, and give you something to copy/paste to both push and set the remote
 # branch to the new name.
 
+# git add remote [github] repo for existing project
+Create remote repo, copy the url
+$ git add remote origin <paste-url-here>
+$ git push
+# urls can be like https://... or git@github.com:username/foo.bar, the latter works better with ssh keys
+
 # git change remote url
 git remote set-url origin foo://bar/baz.git
 # looks like you can also edit .git/config ?
