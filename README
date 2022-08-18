@@ -6,7 +6,4 @@ I use cheat too, but had already written d and it has more personal things I for
 
 'd' contains the bash function. It looks for the txt files in ~/.my_stuff/docs by default, or if set, in $D_DOCS.
 
-'ef' is completely unrelated but will let you edit shell functions or scripts without necessarily needing to know where they are or came from
-  (maybe not *great* for production boxes).
-
 See todo.txt for things.

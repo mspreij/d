@@ -14,38 +14,15 @@ Things to add:
 - shopt???
 * tmux
 
-ef:
-- sort out different checks for whether it's a function or script
-- find out why commenting the start of the function makes it run again without confirming, somehow
-  > the function is sourced - but if it's no longer a function, that means the code will be run.. add more disclaimers!
-  > probs just need to `bash -n` it like the script, and then run it if there were no syntax errors (is there any way
-    to detect whether it'll Do Things When Run?)
-- ENV variable for path to ef's and d files should be the same, and used in both
-- _init_ the local path var regardless of whether it's used o.o; a global path variable might exist and be used..
-- when storing the function in ~/src/ef/ echo that path, and uh.. should this be happening, I think it should be optional,
-   and how do you store the src/ef functions back into their original place, and how do you even check which one's better
-    and why did I even do that it only gets more complicated <o>
-? make some function/script that will source the usual stuff but /not/ ~/src/ef/* and then checks/shows the differences
-- put this function in a readme somewhere, not as like official d code (why is ef even still in this repo)
-- move ef tf out of this repo?
-- ok this is gonna sound crazy but what if ef copied the original function to a git repo (in that specific path that will
-  be the same as `d`'s path), and then updated that repo with the new version? you'd have a history! and when you
-  eventually find the original again, you can check from what point in the repo it was taken, how old it is or w/e. Also
-  you could ignore the original completely and just use the repo.
-  Hm.
-  AND you could put the repo ONLINE and use that as source for new installs. It could, like, replace the functions.sh
-  file. There are notes, similar to this idea, somewhere out there.
-- support other langs? wrt syntax check and such
-
 Random ideas:
  ? placeholder for comment color, to finish different-color strings inside the comment
  ? -l to list entries with last-modified date, and/or commit message
  - d now supresses color when outputting to other process; add a flag to force color output?
  - `d foo :bar` to get only chapter bar from foo (what in the frick is 'chapter notation')
- - some type of apropos, "d -s blaat" where it simply greps for blaat in all doc files and prints a pretty result table
  - could even fetch and store data from some server. or local database. not sure what the advantage of this is, or if there is one..
 
 Done/discarded:
+ √ some type of apropos, "d -s blaat" where it simply greps for blaat in all doc files and prints a pretty result table
  √ config? things? somewhere in $D_DOCS
    √ color to use for comments
  x first line '#d ...' can be flags on how to print the rest of the file, eg
