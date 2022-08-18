@@ -5,14 +5,17 @@ d ()
     if [[ -r $dir/d.conf ]]; then
         . $dir/d.conf;
     fi;
+    # Help text
     if [[ -z $1 ]]; then
         echo "  Man pages: the cliffs notes.";
         echo "  Available: "$(ls $dir/*.txt | xargs basename -a | sed s/.txt//);
         echo "  Usage: d <entry>     # view entry";
         echo "         d -e <entry>  # create or edit entry";
+        echo "         d -s <query>  # search entries for string";
         echo "  Supports ANSI color sequences.";
         return;
     fi;
+    # Edit mode
     if [[ $1 = "-e" ]]; then
         local entry;
         entry=$2;
@@ -26,6 +29,21 @@ d ()
         ${EDITOR:-nano} $dir/$entry.txt;
         return;
     fi;
+    # Search mode
+    if [[ $1 = '-s' ]]; then
+        local query
+        query=$2
+        if [[ -z $query ]]; then
+            echo -n "  Search for..: "
+            read query;
+            if [[ -z $query ]]; then
+                return;
+            fi;
+        fi;
+        grep --color=always ${query} ${dir}/*.txt | less -rF
+        return;
+    fi
+    # Display mode
     if [[ -f $dir/$1.txt ]]; then
         local doc=$(cat $dir/$1.txt);
         if [[ -t 1 ]]; then
