@@ -5,6 +5,7 @@ $ dig foo.bar
 
 # so, use specific nameserver for things you've hardwired
 $ dig @8.8.8.8 foo.bar
+# if the status at the top says NXDOMAIN, it means it couldn't find an IP address for it.
 
 # get ALL THE INFO
 $ dig foo.bar ANY

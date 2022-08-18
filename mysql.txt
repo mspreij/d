@@ -1,3 +1,4 @@
+# basic administration stuff:
 CREATE USER 'joe'@'localhost' IDENTIFIED BY 'supersekrit'                     -- create user account
 GRANT SELECT, INSERT, UPDATE, DELETE ON theCornerShop.* TO 'joe'@'localhost'  -- grant permissions example
    ALL                              -- every permission applicable to {target} (except for GRANT)
@@ -13,20 +14,25 @@ SET PASSWORD FOR <username>@<host> = PASSWORD('evensekriter')                 --
 UPDATE user SET ssl_type = 'ANY' WHERE user = '<username>' AND host = '<host-address>'; -- old force encryption
 ALTER USER 'user'@'host' REQUIRE SSL                                          -- new force encryption
 
-SHOW INDEX FROM <table>; -- list keys and stuff
+# list keys and stuff
+SHOW INDEX FROM <table>;
 
-## dubbele records eruit donderen
-ALTER IGNORE TABLE <table> ADD UNIQUE INDEX <foo> (<foo>);
-ALTER TABLE <table> DROP INDEX <foo>; -- als het /echt/ nodig is..
+# remove duplicate records
+ALTER IGNORE TABLE \e[32m<table>\e[0m ADD UNIQUE INDEX \e[32m<foo>\e[0m (\e[32m<foo>\e[0m);
+# and then optionally..
+ALTER TABLE <table> DROP INDEX \e[32m<foo>\e[0m;
 
-## op command line:
-## welke configs worden waarvandaan geladen?
-/usr/sbin/mysqld --verbose --help | grep -A 1 "Default options"
--s  # no grid for query output
+# which config files come from where?
+$ /usr/sbin/mysqld --verbose --help | grep -A 1 "Default options"
+# general query result display:
+-s  # no grid-lines for query output
 -N  # no headers/column names for query output
 
-# the pager only works under 'unix', which apparently can mean 'centos but not wsl/ubuntu'.
-# pass --pager=less or have pager=less in the config file under [mysql]
+## In the client
+# MySQL has a few flags/toggles that you can run interactively, '\h' will bring up a list.
+#   useful ones are \s for status, \! for system commands and \e for editing large multiline queries in a real editor
+# the pager only works under 'unix', which apparently can mean 'centos but not wsl/ubuntu'. While running you can
+#   enter \e[32m\P less\e[0m; when launching you can pass --pager=less or have pager=less in the config file under [mysql].
 # 'select foo bar bazz \G' = vertical result, more useful with a WORKING pager >.> \G and others imply ';' and will run the query
 
 # if you can't drop a database because "a foreign key constraint fails" (I couldn't make this up) tell it to sod off

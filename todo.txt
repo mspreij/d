@@ -15,7 +15,13 @@ Things to add:
 * tmux
 
 Random ideas:
- ? placeholder for comment color, to finish different-color strings inside the comment
+ - placeholder for comment color, to finish different-color strings inside comments.
+   > how about simply "\e[0m" but only in comment lines! this would need to go Before the sed that colors
+     the comment lines, so # lines still end with "\e[0m"
+     https://stackoverflow.com/questions/48772986/sed-replace-a-string-in-a-text-only-if-enclosed-within-quotes
+     So: "# foo <esc color>bar\e[0m bazz"             becomes
+         "# foo <esc color>bar<comment color> bazz"   becomes
+         "<comment color># foo <esc color>bar<comment color> bazz\e[0m"
  ? -l to list entries with last-modified date, and/or commit message
  - d now supresses color when outputting to other process; add a flag to force color output?
  - `d foo :bar` to get only chapter bar from foo (what in the frick is 'chapter notation')
