@@ -9,10 +9,16 @@ ${FOO/%from/to} Replace suffix           $1, $2 etc       first, second, .. argu
 ${FOO/#from/to} Replace prefix           $_               last argument of previous command
 # mnemonic: suffix % comes after the $ (variable) on the keyboard,
 #   the prefix # before it
+
+# Case
+${FOO,}         lowercase first character
+${FOO,,}        lowercase whole value
+${FOO^}         uppercase first character
+${FOO^^}        uppercase whole value
+
 ${FOO:-val}     $FOO, or val if unset (or null)
 ${FOO:=val}     Set $FOO to val if unset (or null)
 ${FOO:+val}     val if $FOO is set (and not null)
 ${FOO:?message} Show error message and exit if $FOO is unset (or null)
-
 # Omitting the : removes the (non)nullity checks, e.g. ${FOO-val} expands to val
 #   if unset otherwise $FOO.
