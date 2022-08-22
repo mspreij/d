@@ -1,0 +1,2 @@
+# Ubuntu / Debian: /var/spool/cron/crontabs/ has files for each user
+# For Redhat / Centos, they're under /var/spool/cron/
