@@ -46,6 +46,9 @@ SET FOREIGN_KEY_CHECKS=0;
 ## In the client
 # MySQL has a few flags/toggles that you can run interactively, '\h' will bring up a list.
 #   useful ones are \s for status, \! for system commands and \e for editing large multiline queries in a real editor
-# The pager only works under 'unix', which apparently can mean 'centos but not wsl/ubuntu'. While running you can
-#   enter \e[32m\P less\e[0m; when launching you can pass --pager=less or have pager=less in the config file under [mysql].
+
+# The pager only works under 'unix', which apparently can mean 'centos but not wsl/ubuntu'. NB: when connecting to a remote host,
+#   it's the abilities of the local client that count.
+# While running you can enter \e[32m\P less\e[0m; when launching you can pass --pager=less or have pager=less in the config file
+#   under [mysql].
 # 'select foo bar bazz \G' = vertical result (more useful with a WORKING pager >.>) \G and others imply ';' and will run the query
