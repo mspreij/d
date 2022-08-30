@@ -40,7 +40,7 @@ d ()
                 return;
             fi;
         fi;
-        grep --color=always ${query} ${dir}/*.txt | less -rF
+        grep -n --color=always ${query} ${dir}/*.txt | less -rF
         return;
     fi
     # Display mode
@@ -48,7 +48,7 @@ d ()
         local doc=$(cat $dir/$1.txt);
         if [[ -t 1 ]]; then
             local esc=$(printf '\033');
-            doc="$(echo "$doc" | sed "s/^\(#.*\)/${esc}[${comment}m\1${esc}[0m/")";
+            doc="$(echo "$doc" | sed "/^#/s/\\e\[0m/\\e[${comment}m/g" | sed "s/^\(#.*\)/${esc}[${comment}m\1${esc}[0m/")";
             echo -e "$doc" | less -rF;
         else
             echo "$doc";
