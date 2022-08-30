@@ -15,20 +15,19 @@ Things to add:
 * tmux
 
 Random ideas:
- - placeholder for comment color, to finish different-color strings inside comments.
-   > how about simply "\e[0m" but only in comment lines! this would need to go Before the sed that colors
-     the comment lines, so # lines still end with "\e[0m"
-     https://stackoverflow.com/questions/48772986/sed-replace-a-string-in-a-text-only-if-enclosed-within-quotes
-     So: "# foo <esc color>bar\e[0m bazz"             becomes
-         "# foo <esc color>bar<comment color> bazz"   becomes
-         "<comment color># foo <esc color>bar<comment color> bazz\e[0m"
  ? -l to list entries with last-modified date, and/or commit message
- - d now supresses color when outputting to other process; add a flag to force color output?
+ - support multiple random-order options o.o https://stackoverflow.com/a/14203146/126584
+ - d now supresses color when outputting to other process; add a flag to force color output? (also for search result and other
+   non-interactive output)
  - `d foo :bar` to get only chapter bar from foo (what in the frick is 'chapter notation')
  - could even fetch and store data from some server. or local database. not sure what the advantage of this is, or if there is one..
- - if <entry> not found, offer to grep for it? or do that automatically? or count the results and decide on that
+ - if <entry> not found, offer to grep for it? or do that automatically? or count the results and decide on that? flip a coin?
 
 Done/discarded:
+ √ placeholder for comment color, to finish different-color strings inside comments.
+   > how about simply "\e[0m" but only in comment lines! this would need to go Before the sed that colors
+   > this even worked, shiv'd the new sed on the same line before the current one, but using \e instead of ${esc} and somehow it
+     works..
  √ some type of apropos, "d -s blaat" where it simply greps for blaat in all doc files and prints a pretty result table
  √ config? things? somewhere in $D_DOCS
    √ color to use for comments
