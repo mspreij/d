@@ -45,7 +45,7 @@ SET FOREIGN_KEY_CHECKS=0;
 
 ## In the client
 # MySQL has a few flags/toggles that you can run interactively, '\h' will bring up a list.
-#   useful ones are \s for status, \! for system commands and \e for editing large multiline queries in a real editor
+#   useful ones are \s for status, \! for system commands and \\e for editing large multiline queries in a real editor
 
 # The pager only works under 'unix', which apparently can mean 'centos but not wsl/ubuntu'. NB: when connecting to a remote host,
 #   it's the abilities of the local client that count.
