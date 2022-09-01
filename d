@@ -48,7 +48,10 @@ d ()
         local doc=$(cat $dir/$1.txt);
         if [[ -t 1 ]]; then
             local esc=$(printf '\033');
-            doc="$(echo "$doc" | sed "/^#/s/\\e\[0m/\\e[${comment}m/g" | sed "s/^\(#.*\)/${esc}[${comment}m\1${esc}[0m/")";
+            # sed 1: only within comments, a reset-color code is replaced by a color code using the $comment color (and resets
+            #        style and background)
+            # sed 2: comment lines get colored using the $comment color
+            doc="$(echo "$doc" | sed "/^#/s/\\e\[0m/\\e[${comment};49;22m/g" | sed "s/^\(#.*\)/${esc}[${comment}m\1${esc}[0m/")";
             echo -e "$doc" | less -rF;
         else
             echo "$doc";
