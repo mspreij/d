@@ -12,6 +12,7 @@ $ fw --add-rich-rule='rule family="ipv4" source address="136.144.153.19" port po
 $ fwl # this should show the added rules
 $ fwr # this resets the rules to the stored config (and so removes the temporary rule again)
 'success'
+$ fw --remove-rich-rule <quoted rule from fwl, probably>
 
 # NB: protocol is required, port apparently needs mentioning twice (once with value), and the "source address='foo'" format.
 #     also note the nested quotes. due to bash shenanigans the outer quotes /can/ also be double quotes but it's hella confusing.

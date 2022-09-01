@@ -1,0 +1,41 @@
+# Rambling ahead \o/
+# ipsets are some kind of Fast specifications for groups of ip addresses, networks, ip:port things and whatever else you
+#   need to view cat pictures on the interweb. firewalld can use the thing, and yes this entry is rather firewalld specific.
+# Ipsets have names (and for firewalld, xml files in \e[38;5;226m/etc/firewalld/ipsets/\e[0m)
+
+# fw = firewall-cmd
+# list ipsets
+$ fw --permanent --get-ipsets
+# this will read it from the config files, leave out --permanent to get the ipsets used by the running instance
+# alternatively:
+$ ipset list
+
+# Ipsets have types. An ipset type is a \e[38;5;208mmethod\e[0m and one or more \e[38;5;208mdatatypes\e[0m, like method:type1[,type2,..]
+# Method refers to how it is stored, and can be: bitmap, hash, list.
+# Datatype, or _what_ is stored, can be: ip, net, mac, port, iface.
+# Multiple datatypes seems to mean an entry consisting of two parts, like an ip address + port number, not random amounts
+#   of either.
+# We're interested in simply storing a bunch of ip addresses so we're going with type 'hash:ip'
+# For shits and giggles, check out what ipset types are supported:
+$ fw --get-ipset-types
+  > hash:ip hash:ip,mark hash:ip,port hash:ip,port,ip hash:ip,port,net .....
+
+# Let's create a set, put some IP addresses in it, and then use it in a rich rule!
+# Note that removing an ipset with firewall-cmd doesn't necessarily remove it from `ipset` (the command/service) so, there's that.
+$ fw --permanent --new-ipset=nijntje --type=hash:ip
+# not that you want to but you can delete it again with \e[32mfw --permanent --delete-ipset=nijntje
+
+$ fw --permanent --ipset=nijntje --add-entry=1.2.3.4
+# you can also edit the xml file, ofc
+
+# now directly adding a rich-rule for this will fail since firewall-the-instance has no idea about changes in these files.
+$ fwr
+
+# now add a rule for the set
+$ fw --add-rich-rule='rule family=ipv4 source ipset=nijntje accept'
+# or a more specific rule...
+$ fw --add-rich-rule='rule family=ipv4 source ipset=nijntje port port=22 protocol=tcp accept'
+# store the config
+$ fw --runtime-to-permanent
+# -OR- ditch it with \e[32mfirewall-cmd reload\e[0m ("fwr")
+
