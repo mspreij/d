@@ -4,8 +4,9 @@
 # Ipsets have names (and for firewalld, xml files in \e[38;5;226m/etc/firewalld/ipsets/\e[0m)
 
 # fw = firewall-cmd
-# list ipsets
+# list ipsets or get info on one
 $ fw --permanent --get-ipsets
+$ fw --info-ipset=nijntje
 # this will read it from the config files, leave out --permanent to get the ipsets used by the running instance
 # alternatively:
 $ ipset list
