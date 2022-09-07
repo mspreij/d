@@ -1,0 +1,10 @@
+# no man page:
+$ bat --help
+
+# bat has its own ideas about what to color in, say, logfiles. Using \e[32m--color never\e[0m it will not add colors, but still
+#   print ansi colors already in the file. It doesn't seem to believe in coloring past the first linebreak though..
+
+# remove bat's fancy lines and numbers and such
+-p / --plain
+# specify syntax to use for coloring (accepts language or extension)
+-l <language> 

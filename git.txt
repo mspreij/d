@@ -33,3 +33,9 @@ git remote set-url origin foo://bar/baz.git
 # you can use the following (in a script):
 git -E fragile-command > tmp 2>&1 || mail_tmp_to_yourself
 # or for a bunch of them, "cat tmp >> all_errors.txt" and check that at EOF
+
+# see diff with more context
+$ git diff -U30 file
+# -U takes number of lines before and after the change. you can use \e[32m-U$(wc -l <file>)\e[0m as well which will
+#   show the whole file. Since wc also prints the filename after the number of lines, no need to specify that for git too.
+$ git diff -U$(wc -l file)
