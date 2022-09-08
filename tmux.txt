@@ -24,6 +24,15 @@ $ tmux capture-pane -eS - -p > tmux.txt
 # -S = starting line (negative is from before visible, - is from start)
 # -p = print to STDOUT, otherwise it goes to some buffer thing, somewhere?
 
+# capture a SELECTION over multiple pages and copy it to the OS clipboard \o/
+# start copy-mode
+\e[38;5;208mprefix\e[0m [
+# start selecting
+Ctrl-Space
+# copy the select and exit copy-mode
+Ctrl-w
+# paste to your heart's content \o/ It does not seem to copy colors, this is either a feature or a bug.
+
 # these bring up freaking menus of things to do with shortcuts!
 \e[38;5;208mprefix\e[0m >
 \e[38;5;208mprefix\e[0m <

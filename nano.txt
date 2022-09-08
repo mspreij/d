@@ -5,7 +5,7 @@
 Alt-a       set start- and end-marks for copy/cutting; Shift-cursor keys might also work!
 Alt-delete  removes a marked area without putting it into the cut buffer; With set zap or $ nano -Z
             regular delete and backspace work too.
-
+            While a selection is active, Ctrl-O turns into "Write Selection to File: " with no filename
 Ctrl-k   cut marked text or line (including trailing newline) into (nano) buffer
 Ctrl-u   un-cut buffer to cursor position
 Alt-6    copy marked text or line into buffer
