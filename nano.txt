@@ -2,7 +2,10 @@
 # different versions of nano support different things, but for those that do..
 # if Alt is not available or does weird stuff, Esc can be used as separate keypress instead
 
-Alt-a    set start- and end-marks for copy/cutting; Shift-cursor keys might also work!
+Alt-a       set start- and end-marks for copy/cutting; Shift-cursor keys might also work!
+Alt-delete  removes a marked area without putting it into the cut buffer; With set zap or $ nano -Z
+            regular delete and backspace work too.
+
 Ctrl-k   cut marked text or line (including trailing newline) into (nano) buffer
 Ctrl-u   un-cut buffer to cursor position
 Alt-6    copy marked text or line into buffer

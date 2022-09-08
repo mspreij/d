@@ -3,7 +3,8 @@ Not actually documentation, just a todo/random ideas list..
 Things to add:
 * jq
 - bat install instructions o.o;
-- more grep
+- grep: exclude file/dir patterns with examples
+        print ONLY filenames for wildcard file results
 - wget/curl
 - git o.o;
 - cut? this needs to be a chapter thing in bash or ... w/e
