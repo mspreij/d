@@ -1,3 +1,5 @@
+https://www.nano-editor.org/dist/v6/cheatsheet.html # etc
+
 # basically check the line at the bottom, myeah?
 # different versions of nano support different things, but for those that do..
 # if Alt is not available or does weird stuff, Esc can be used as separate keypress instead
