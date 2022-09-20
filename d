@@ -8,7 +8,7 @@ d ()
     # Help text
     if [[ -z $1 ]]; then
         echo "  Man pages: the cliffs notes.";
-        echo "  Available: "$(ls $dir/*.txt | xargs basename -a | sed s/.txt//);
+        echo "  Available: "$(command ls $dir/*.txt | xargs basename -a | sed s/.txt//);
         echo "  Usage: d <entry>     # view entry";
         echo "         d -e <entry>  # create or edit entry";
         echo "         d -s <query>  # search entries for string";
