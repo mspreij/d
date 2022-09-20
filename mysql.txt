@@ -52,3 +52,8 @@ SET FOREIGN_KEY_CHECKS=0;
 # While running you can enter \e[32m\P less\e[0m; when launching you can pass --pager=less or have pager=less in the config file
 #   under [mysql].
 # 'select foo bar bazz \G' = vertical result (more useful with a WORKING pager >.>) \G and others imply ';' and will run the query
+
+# == "Recipes" or some shit ==
+# - Export a database from localhost to remote server, compressed. Mind the quotes and the pipes and such.
+$ mysqldump --default-character-set=utf8 -u <user> -p<password?> <database> | gzip -c | ssh user@remote 'gunzip | mysql --default-character-set=utf8 -u <remote_user> -p<remote_password> <remote_database>'
+# basically dump the local database into gzip, pass that on to ssh which pours it in the quoted command pipeline it's given
