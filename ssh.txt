@@ -2,7 +2,11 @@
 -A:     agent forwarding: your ssh keys are now available to SSH on the remote host as well
 -G foo: get all settings for host foo from the .ssh/config file (and a shitton more, | less for finding things)
 
-# check /etc/ssh/sshd_config syntax before restarting the service:
+# To give multiple commands to be run remotely over ssh, quote the lot, or escape the \; thing between them
+# Completely randomly, you can add newlines to files by doing \e[33mecho >> foo.txt\e[0m
+# Mind you still have to quote the >> or the whole thing when ssh'ing the command.
+
+# Check /etc/ssh/sshd_config syntax before restarting the service:
 $ sshd -t
 
 Todo:
