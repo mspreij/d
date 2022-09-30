@@ -9,3 +9,7 @@ Todo:
 - ssh-keygen
 - ssh-copy-id
 v ssh-agent & ssh-add
+
+"SSH protocol v.1 is no longer supported"
+# this can mean you need to use a capital P for port if you're using a lowercase p. It can also mean you
+# need to use a lowercase p for port if you're using a capital P. Don't ask.
