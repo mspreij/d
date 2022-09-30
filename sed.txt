@@ -1,0 +1,5 @@
+# no, sed doesn't understand linebreaks, but it *does* understand line _beginnings_, so in case you were trying to indent
+# some string or output again:
+echo -n "$foo" | sed 's/^/  /'
+echo
+# the -n and last echo are optional, in case padding the last linebreak of $foo presents formatting issues

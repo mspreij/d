@@ -25,6 +25,10 @@ $ git add remote origin <paste-url-here>
 $ git push
 # urls can be like https://... or git@github.com:username/foo.bar, the latter works better with ssh keys
 
+# to create a new empty repository locally:
+$ git init --bare foo.git
+# and paste path instead of url
+
 # git change remote url
 git remote set-url origin foo://bar/baz.git
 # looks like you can also edit .git/config ?
