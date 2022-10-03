@@ -23,3 +23,6 @@ Alt-f    toggle between current/new buffer for Ctrl-r behaviour above, for newer
 Alt->    (that is, Alt-Shift-. or Esc, '>') go to next buffer
 
 Alt-c    toggle cursor position display
+
+# read different .nanorc:
+$ nano --rcfile blaa.nanorc

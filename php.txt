@@ -1,0 +1,29 @@
+# prompt reader for value from CLI script:
+function input(string $prompt = null): string
+{
+    echo $prompt;
+    $handle = fopen ("php://stdin","r");
+    $output = fgets ($handle);
+    return trim ($output);
+}
+
+# call nano from PHP CLI script, for a temp file, say
+
+$fname = tempnam('/tmp', '');
+file_put_contents($fname, "some value or variable or other file content...");
+
+// edit the temp file, loop back if the saved content is not valid
+while (1) {
+    system("nano $fname > $(tty)");
+    $content = file_get_contents($fname);
+    // check content..
+    if ($error) {
+        $again = input("there were errors, want to try again?"); // input() see above
+        if (! in_array($again, [yes, y, etc])) {
+            break or exit..
+        }
+    }else{
+        file_put_contents($realFile, $content);
+        break / exit;
+    }
+}
