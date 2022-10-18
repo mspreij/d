@@ -28,5 +28,7 @@ kill -15 123, kill -SIGTERM 123, kill -TERM 123
 # list signals (supply a number to get signal name, or vice versa)
 $ kill -l [number/name]
 
+# tip: partial PIDs can be tab-completed (on sane systems, anyway)
+
 See also: $ man 7 signal
           https://en.wikipedia.org/wiki/Signal_(IPC)

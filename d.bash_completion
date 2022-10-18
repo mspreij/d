@@ -6,7 +6,7 @@ function _d
     prev="${COMP_WORDS[COMP_CWORD-1]}"
     
     ### fix the path to *.txt ###
-    opts="$(ls /home/joe/.my_stuff/docs/*.txt | xargs basename -a | sed s/.txt//)"
+    opts="$(ls ~/.my_stuff/docs/*.txt | xargs basename -a | sed s/.txt//)"
     
     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
     return 0
