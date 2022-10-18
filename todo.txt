@@ -1,7 +1,8 @@
 Not actually documentation, just a todo/random ideas list..
 
-Things to add:
+Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
 * jq
+- composer
 - bat install instructions o.o;
 - grep: exclude file/dir patterns with examples
         print ONLY filenames for wildcard file results

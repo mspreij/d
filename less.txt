@@ -1,19 +1,29 @@
+h      help
+
+# Search
 /      search forward
 ?      search backward
 # protip: search strings are some kind of regex; you can search for multiple separate things using |
 n      next match
 N      previous match
+&      filter (show only matching lines). multiple uses will stack filters, use &<enter> to reset. ! negates. not sure
+       what works in both regular search and filter
 -I     case-insensitive all things
-h      help
 -N, -n enable, disable line numbers
 -M -m  "ruler" with x/y z% lines shown
 :n, :p next, previous file
-u      half page up
 Alt-u  toggle hilighting (also ESC u)
 -S     toggle wrapping long lines
 r / R  repaint screen / discarding buffered input (useful for buggered up color text)
 -r     toggle interpreting escape sequences (colored & styled text), also works as CLI flag
-F      go to end of file and wait for more input, like tail -f
+
+# Navigate
+pagedown / space   page down
+pageup / b         page up
+u                  half page up
+g / p              start of file
+G / Esc >          end of file
+F                  go to end of file and wait for more input, like tail -f
 
 # this is for CLI specifically:
 -F     quit if the output fits on one screen

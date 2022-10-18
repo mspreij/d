@@ -4,6 +4,9 @@
 # just show old/other version of file, from another branch or specific commit (shown)
   $ git show 412c00baa6\e[32;1m:\e[0mpath/to/filename
 
+# what am I about to push?
+  $ git diff [--stat] origin/master
+
 # delete (remote) branch
   $ git push -d origin <branchname>
   $ git branch -d <branchname>
