@@ -42,6 +42,7 @@ Ctrl-w
 unbind C-b
 set-option -g prefix `
 bind-key ` send-prefix
+set -g mouse on
 
 # split panes using | and S
 bind | split-window -h
