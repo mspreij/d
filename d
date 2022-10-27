@@ -40,7 +40,7 @@ d ()
                 return;
             fi;
         fi;
-        grep -n --color=always ${query} ${dir}/*.txt | less -rF
+        grep -n --color=always "${query}" ${dir}/*.txt | less -rF
         return;
     fi
     # Display mode
