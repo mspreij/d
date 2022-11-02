@@ -1,0 +1,2 @@
+# show last patches and stuff for a package (-q for --query)
+rpm -q --changelog openssl | less
