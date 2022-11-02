@@ -15,8 +15,9 @@ Alt-6    copy marked text or line into buffer
 Alt-u    undo
 Alt-e    redo
 Ctrl-up/down   no idea what version this was added, but this moves the cursor to the previous/next paragraph
+Alt-+/-      scrolls without moving the caret (until the caret hits the top/bottom, then it scrolls along)
 
-# 
+# comment. I forgot what was going to be here.
 Ctrl-r   read new file into current or new buffer
 Alt-f    toggle between current/new buffer for Ctrl-r behaviour above, for newer nanos
          this only works while in the Ctrl-r "dialog"

@@ -15,4 +15,4 @@ csr ()
 }
 
 # create new certificate signing request (CSR) based on existing certificate and key
-openssl x509 -x509toreq -in ssl.cert -signkey ssl.key -out ssl.csr.new
+openssl x509 \e[38;5;202m-x509toreq\e[0m -in ssl.cert -signkey ssl.key -out ssl.csr.new
