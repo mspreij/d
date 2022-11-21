@@ -18,7 +18,7 @@ while (1) {
     $content = file_get_contents($fname);
     // check content..
     if ($error) {
-        $again = input("there were errors, want to try again?"); // input() see above
+        $again = input("there were errors, want to try again? "); // input() see above
         if (! in_array($again, [yes, y, etc])) {
             break;
         }

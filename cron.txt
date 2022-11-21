@@ -1,2 +1,8 @@
-# Ubuntu / Debian: /var/spool/cron/crontabs/ has files for each user
-# For Redhat / Centos, they're under /var/spool/cron/
+# Ubuntu / Debian: \e[33m/var/spool/cron/crontabs/\e[0m has files for each user
+# For Redhat / Centos, they're under \e[33m/var/spool/cron/\e[0m
+
+# hourly/daily/weekly/monthly scripts live in \e[33m/etc/cron.*\e[0m
+# on some systems they seem to by run by \e[33m/etc/crontab\e[0m? on others they seem to just run, who knows
+
+# there's also /etc/cron.d/ for ... generic crons that are not hourly/daily-etc. All these crons also include
+#   a column for the username.

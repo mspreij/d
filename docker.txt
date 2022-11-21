@@ -1,0 +1,45 @@
+# basing this initial version on
+https://www.youtube.com/watch?v=gAkwW2tuIqE  Docker in 7 steps              11 minutes
+https://www.youtube.com/watch?v=3c-iBn73dDE  Docker tutorial for beginners  2:45 hours
+
+## Dockerfiles, images and containers ##
+A \e[38;5;201;1mdockerfile\e[0m is a description of/recipe for an environment + applications etc, you can \e[1mbuild\e[0m it to create a docker image. A
+dockerfile is a simple text file consisting of lines of an instruction followed by arguments (and # comments).
+Usually the file builds on existing images (the FROM: instruction), which are based on yet other images etc, with some light-weight
+linux distro at the bottom.
+
+You can \e[1m$ docker build\e[0m a dockerfile to create a docker \e[38;5;201;1mimage\e[0m: a static binary thing that you can copy around, upload, download etc,
+kinda like the ISO of VMs.
+
+When you run/start that image, you get a \e[38;5;201;1mcontainer\e[0m, a running "instance" of the image. Whatever happens in or to the container does
+not affect the image.
+
+To access the containers you still need to map local ports to their listening ports (it's a virtual thing, container ports are
+virtual too). You can do this in the run command (and probably some config file or w/e).
+
+## Common docker commands ##
+# Add --help to any docker command to get more info eg $ docker run --help
+\e[38;5;202;1mdocker build -t somename:version /path/to/Dockerfile/\e[0m  # build an image from a Dockerfile
+\e[38;5;202;1mdocker pull <image>[:tag]\e[0m  # download <image> from hub.docker.com, tag can be version or some random name string indicating the
+  release, and defaults to latest. It downloads the stack of images that the requested image was built on, so they can be re-used
+  for other images that use them.
+\e[38;5;202;1mdocker run <image>[:tag]\e[0m   # run starts an image to create a new container. if it can't find the image locally, it looks for it
+  on hub.docker.com. Basically it's short for pull and start.
+    \e[38;5;202;1m.. run -d\e[0m              # detach (and print container id), so you get the terminal back
+    \e[38;5;202;1m.. run -p3000:4000\e[0m     # map local port 3000 to container port 4000
+    \e[38;5;202;1m.. run --name foobar\e[0m   # give your container a non-random name (I mean xenodochial_herschel, what?)
+    \e[38;5;202;1m.. run --env BAZZ=yadda\e[0m  # add some environment variables (give each one its own --env)
+\e[38;5;202;1mdocker stop/start (container-id|name)\e[0m  # whereas \e[33mdocker run\e[0m creates a new container, \e[33mstop\e[0m and \e[33mstart\e[0m work on existing containers.
+  I guess they're like snapshots or something when stopped?
+\e[38;5;202;1mdocker logs (container-id|name) [-f]\e[0m  # magically shows relevant log lines from within the container, probably needs a config
+  somewhere. -f keeps it open like tail.
+\e[38;5;202;1mdocker exec -it (container-id|name) /bin/bash\e[0m  # exec runs things in the container. -it for \e[4mi\e[0mnteractive \e[4mt\e[0merminal apparently, and
+  you can point at what terminal you want. So that gives you an inside shell.
+
+# removing things
+\e[38;5;202;1mdocker rm (container-id|name)\e[0m  # remove the container (it has to be stopped)
+\e[38;5;202;1mdocker rmi <image-id>\e[0m          # remove an image (this fails if there are still [stopped] containers based on that image)
+
+# overview of running containers:
+$ docker ps
+$ docker ps -a # includes non-running
