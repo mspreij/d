@@ -1,3 +1,9 @@
+# echo CLI errors to STDERR
+fwrite(STDERR, "E: invalid input!");
+# for PHP's own errors (not tested):
+ini_set('display_errors', 'stderr');
+
+
 # prompt reader for value from CLI script:
 function input(string $prompt = null): string
 {
@@ -7,8 +13,8 @@ function input(string $prompt = null): string
     return trim ($output);
 }
 
-# call nano from PHP CLI script, for a temp file, say
 
+# call nano from PHP CLI script, for a temp file, say
 $fname = tempnam('/tmp', '');
 file_put_contents($fname, "some value or variable or other file content...");
 
