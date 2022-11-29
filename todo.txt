@@ -15,6 +15,8 @@ Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
 - configure/make stuff, check old C notes & kilo editor
 - shopt???
 * tmux
+- visudo
+- certinfo?
 
 Random ideas:
  ? -l to list entries with last-modified date, and/or commit message

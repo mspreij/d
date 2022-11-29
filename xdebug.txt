@@ -1,0 +1,6 @@
+
+browser config: right-click the thing in the browser, manage extension, 3-dots options, select IDE and save.
+browser theme: disable that to see the ACTUAL GREEN COLOR of the bug, because themes are HARD and when it gets confused it stays gray.
+
+in phpstorm do the configuration: different port, xdebugphp-ON.ini config somewhere
+and click the goddamn telephone bug listen icon, to the right of the config play button, top right, in the menu thing bar wadoodie.
