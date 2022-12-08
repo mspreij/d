@@ -1,6 +1,8 @@
 # some aliases because WHO HAS TIME FOR TYPING ALL THAT
 alias fw='firewall-cmd'
 alias fwl='firewall-cmd --list-all'
+# this doesn't actually "list all"; fail2ban for example will use --direct when --add-rule'ing to pass raw iptables commands.
+# to list /those/, use \e[37m$ firewall-cmd --direct --get-all-rules
 alias fwr='firewall-cmd --reload'  # this will also get rid of unstored live changes
 alias fw-cc='firewall-cmd --check-config'
 alias fw-gaz='firewall-cmd --get-active-zones'
