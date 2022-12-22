@@ -17,3 +17,7 @@ v ssh-agent & ssh-add
 "SSH protocol v.1 is no longer supported"
 # this can mean you need to use a capital P for port if you're using a lowercase p. It can also mean you
 # need to use a lowercase p for port if you're using a capital P. Don't ask.
+
+Verbose debugging -v to -vvv, output is prefixed with debug1 to debug3.
+The client/server send number or typed packets, here is what the numbers mean:
+  https://www.rfc-editor.org/rfc/rfc4250.html#section-4.1.2

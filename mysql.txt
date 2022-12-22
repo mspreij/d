@@ -19,7 +19,9 @@ REVOKE DELETE, UPDATE ON theCornerShop.localhost FROM 'jim'@'localhost'       --
 REVOKE ALL PRIVILEGES ON theCornerShop.*  FROM user@host;                     -- remove bunch of permissions
 DROP USER 'leetHax0r1994'                                                     -- delete user (for all hosts..?)
 
-SET PASSWORD FOR <username>@<host> = PASSWORD('evensekriter')                 -- update password
+# update password for existing users
+SET PASSWORD FOR <username>@<host> = PASSWORD('evensekriter')                 -- update password <= 5.7.5
+ALTER USER <user>@<host> IDENTIFIED BY 'soopersekrit';                        -- update password >= 5.7.6
 
 UPDATE user SET ssl_type = 'ANY' WHERE user = '<username>' AND host = '<host-address>'; -- old force encryption
 ALTER USER 'user'@'host' REQUIRE SSL                                          -- new force encryption
