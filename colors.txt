@@ -1,7 +1,7 @@
 Exhaustive colors info: https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 
 \\e === ESC
-Sequence: \\e[<codes separated by ';'>m
+Sequence: \\e[\e[36;1m<codes separated by ';'>\e[0mm
 Reset all: \\e[0m
 0    reset
 1    \e[1mbold\e[0m
