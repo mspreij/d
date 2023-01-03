@@ -4,10 +4,16 @@
 
 # To give multiple commands to be run remotely over ssh, quote the lot, or escape the \; thing between them
 # Completely randomly, you can add newlines to files by doing \e[33mecho >> foo.txt\e[0m
-# Mind you still have to quote the >> or the whole thing when ssh'ing the command.
+# Mind you, still have to quote the >> or the whole thing when ssh'ing the command.
 
 # Check /etc/ssh/sshd_config syntax before restarting the service:
 $ sshd -t
+
+# SSH defines some escapes you can use while in session, they all start with a tilde '~', which is only
+# interpreted as special when following a newline. \e[33m~?\e[0m gets you a list, \e[33mman ssh\e[0m has longer explanations under
+# \e[33mESCAPE CHARACTERS\e[0m. Some useful ones:
+~.   # disconnect (presumably when some remote process hangs on you)
+~&   # "Background ssh at logout when waiting for forwarded connection / X11 sessions to terminate."
 
 Todo:
 - ssh-keygen
