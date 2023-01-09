@@ -1,4 +1,11 @@
-# no man page:
+# bat is a better cat. because of naming issues it's also known as batcat on some distros.
+# debian/ubuntu: apt install bat.
+# centos: grab a unknown-linux-musl binary from the releases page (below)
+
+# site: https://github.com/sharkdp/bat
+# binaries: https://github.com/sharkdp/bat/releases
+
+# there *is* a man page, at least with the binary download, but that needs putting somewhere. this works too:
 $ bat --help
 
 # bat has its own ideas about what to color in, say, logfiles. Using \e[32m--color never\e[0m it will not add colors, but still

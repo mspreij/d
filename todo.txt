@@ -4,6 +4,7 @@ Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
 * jq
 - composer
 - bat install instructions o.o;
+- man: where are man pages? what are the numbers about?
 - grep: exclude file/dir patterns with examples
         print ONLY filenames for wildcard file results
 - wget/curl
