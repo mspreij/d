@@ -1,0 +1,5 @@
+When the retarded thing keeps insisting on \e[31mHTTPS\e[0m instead of \e[34mHTTP\e[0m, even when given a specific port, go to
+  the site entry in history, right-click and do a \e[35m"forget about this site"\e[0m. you might lose the cached
+  password, it might stick around in the password manager, wtf knows.
+
+Jesus Christ Almighty what a fat slice of failure.
