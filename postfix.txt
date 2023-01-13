@@ -17,6 +17,8 @@
 # === DOCUMENTATION ===
 # it doesn't have "a readme", it has directories of them, find them here (if not online):
 $ postconf readme_directory html_directory
+# if that returns errors, just find them in All the settings:
+$ postconf | grep -e readme -e html
 
 # You want to scan at least the BASIC_CONFIGURATION_README. This file has an introduction, which
 #   gives a brief description of the chapters in the rest of the file, which are shown as:
