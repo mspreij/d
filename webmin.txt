@@ -3,3 +3,8 @@
 
 # certs/keys (backups I guess) and some related config
 /etc/webmin/webmin/*
+
+# if you replaced the ssl cert of the main website and fucked up and then restored the backup, and THEN webmin fails to load,
+# it needs restarting too. the piece of shit.
+systemctl restart webmin # fu
+
