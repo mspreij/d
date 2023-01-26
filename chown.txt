@@ -1,0 +1,5 @@
+# when \e[38;5;226mchown -R <name>:<name> target\e[0m runs on a symlink it does NOT recurse, you need to add a trailing slash after the target:
+$ chown -R <name>:<name> target\e[32;1m/\e[0m
+
+# chmod on a symlink affects the file the symlink points to
+# chmod -R on a symlink does \e[1mnot\e[0m require a trailing slash
