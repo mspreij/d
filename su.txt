@@ -1,0 +1,2 @@
+# if su drops you in sh, pass the shell:
+$ su -s /bin/bash someuser
