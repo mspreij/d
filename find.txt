@@ -1,3 +1,6 @@
+# basically find takes 1 \e[1mor more\e[0m directories, tests (name, mtime, type, etc) and actions.
+# most of the below examples are just tests
+
 # list all files modified within the last day (+1 for before last day, 1 for exactly 24 hours ago)
 $ find . -mtime -1 -ls
 # -mmin for minutes ago/before/etc
@@ -28,16 +31,19 @@ $ find . -type l
 # find _broken_ links
 $ find . -xtype l
 
+# find \e[31mnot\e[0m links (files only)
+$ find . -type f
+
 # simple function searching current and sub-directories for case-insensitive substring match
 f ()
 {
     if [[ "$1" = '' ]]; then
         echo '  Finds files in current (sub)directory containing given substring. Usage: $ f <substring>';
-        echo "  Implemented as: $ find . -iname \"*\$1*\" -not -path './.git/*' | cut -b 3-;";
+        echo "  Implemented as: $ find . -iname \"*\$1*\" -not -path './.git/*' -not -path './vendor/*' | cut -b 3-;";
         echo "  It works mostly.";
         return;
     fi;
-    find . -iname "*$1*" -not -path './.git/*' | cut -b 3-
+    find . -iname "*$1*" -not -path './.git/*' -not -path './vendor/*' | cut -b 3-
 }
 
 There are modern `find` alternatives, I'll list 'm when I ..find 'm.
