@@ -1,0 +1,7 @@
+# comments: lines where the first non-space character is a '#'
+
+# syntax check:
+$ logrotate --debug -f /etc/logrotate.d/filetocheck
+# \e[35;1m-f\e[0m forces the logrotate even if it was less than 24 hours ago (or one is needed for other reasons),
+#    \e[35;1m--debug\e[0m causes nothing to actually happen. Also it implies \e[35;1m-v\e[0m for verbose which is useful.
+
