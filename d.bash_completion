@@ -1,12 +1,12 @@
 function _d
 {
     local cur prev opts dir
+    local dir=${D_DOCS:-~/.my_stuff/docs};
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
     
-    ### fix the path to *.txt ###
-    opts="$(command ls ~/.my_stuff/docs/*.txt | xargs basename -a | sed s/.txt//)"
+    opts="$(command ls $dir/*.txt | xargs basename -a | sed s/.txt//)"
     
     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
     return 0
