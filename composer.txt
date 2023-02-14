@@ -1,0 +1,17 @@
+!Very incomplete!
+
+Composer has a \e[32mjson\e[0m file which tells it what we *want*. It uses that to generate a \e[32mlock\e[0m file to tell the world what it has
+decided to install (based on the json file) in /vendor. Both files go in git, the json is obvious, and the lock file tells other
+developers what they should be using to get the same result, and will deploy those same exact versions into production, which is
+usually what you want.
+
+$ composer install
+# composer will check for a lock file and install everything there in vendor.
+# If there's no lock file, it will install the newest version of whatever's in the json file (as new as allowed) and then create
+#   the lock file based on the versions installed.
+
+# Tell composer to add this to install this, add it to the json file and note the installed version in the lock file.
+$ composer require some/package
+
+# tell composer to check for newer versions (as allowed) per the json file, install those and update the lock file.
+$ composer update

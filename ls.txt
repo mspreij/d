@@ -1,0 +1,21 @@
+ls
+
+-- Basic ls usage to go here... --
+
+
+
+From https://stackoverflow.com/a/24812068/126584
+ In the list format, the first character, before the permissions, indicates the type of 'file':
+ -  regular file
+ d  directory
+ l  symbolic link
+ b  block special file/block device:           tends to be storage devices, buffers output, writes per block
+ c  character special file/character device:   tends to be audio/graphics cards, keyboard, mouse
+ C  high performance ("contiguous data") file  
+ D  door (Solaris 2.5 and up)
+ M  off-line ("migrated") file (Cray DMF)
+ n  network special file (HP-UX)
+ p  FIFO (named pipe)
+ P  port (Solaris 10 and up)
+ s  socketqq
+

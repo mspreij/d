@@ -1,9 +1,18 @@
 # as with all things created by committees or experts, there are 3247 options and features of which
 # we need like 3, but any software created for those will be incomplete or lack edgecases or...
-# CentOS 7 won't update to OpenSSL 1.1 (support dropped december 2019) but invites you to install "openssl11" for spot usage.
+
+# openssl works with a few dozen "sub-commands", each with their own arguments etc etc. The man pages could comprise a fair-
+#   sized book.
+
+# Some common sub-commands:
+req           # generate certificate request, optionally along with private key
+x509          # certificate display & signing utility
+version [-a]  # get version. \e[38;5;202m-a\e[0m for a bunch of compile-time settings, options, vars and flags (useful for bugreports)
 
 # create new certificate signing request (CSR) based on existing certificate and key
 openssl x509 \e[38;5;202m-x509toreq\e[0m -in ssl.cert -signkey ssl.key -out ssl.csr.new
+
+# CentOS 7 won't update to OpenSSL 1.1 (support dropped december 2019) but invites you to install "openssl11" for spot usage.
 
 # see also
 openssl_functions

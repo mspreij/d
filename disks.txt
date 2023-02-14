@@ -1,0 +1,11 @@
+On Unix, everything is a file \o/
+
+Disks are, obviously, also files, and they live in /dev (for device). Specifically, they are files of type "block device" or
+  "block special file" (indicated by the 'b' before the permissions in ls -l), meaning they cache and write data per block,
+  as opposed to per character (like character devices do, that is mice or audio card or..).
+
+Originally sd meant \e[32;1mS\e[0mCSI \e[32;1mD\e[0misk, then it was used for any additional disk (like connected USB drives).
+sd\e[32;1ma\e[0m, sd\e[32;1mb\e[0m, sd\e[32;1mc\e[0m andsoforth are the 1st..3rd disks that the computer finds upon booting. After 26 in theory it goes to sdAa, sdAb, ..
+Then the numbers refer to the partitions on those disks.
+
+So: sdb3 = 3rd partition on the second (b) disk (sd)
