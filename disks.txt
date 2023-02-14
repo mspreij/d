@@ -1,3 +1,4 @@
+\e[33mwtf is "sdb3"?\e[0m
 On Unix, everything is a file \o/
 
 Disks are, obviously, also files, and they live in /dev (for device). Specifically, they are files of type "block device" or
@@ -9,3 +10,9 @@ sd\e[32;1ma\e[0m, sd\e[32;1mb\e[0m, sd\e[32;1mc\e[0m andsoforth are the 1st..3rd
 Then the numbers refer to the partitions on those disks.
 
 So: sdb3 = 3rd partition on the second (b) disk (sd)
+
+\e[33mLVM:\e[0m Logical Volume Manager, one of many forms of storage virtualization. "A method of allocating space on mass-storage devices that is more flexible than conventional partitioning schemes to store volumes. In particular, a volume manager can concatenate, stripe together or otherwise combine partitions (or block devices in general) into larger virtual partitions that administrators can re-size or move."
+
+\e[33mLUKS:\e[0m Linux Unified Key Setup is a disk encryption specification: https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup
+
+\e[33mLUN:\e[0m Logical Unit Number, a number used to identify a logical unit, which is a device addressed by the SCSI protocol or by Storage Area Network protocols that encapsulate SCSI, such as Fibre Channel or iSCSI. Glad you asked?
