@@ -21,7 +21,8 @@ Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
 
 Random ideas:
  - bash_completion is a good start, but for incomplete input if there is a single match, d can load that.
-   for multiple matches, prepend some message maybe but show the first one (or all, if that is even possible?)
+   for multiple matches, prepend a message but show the first one (or all, if that is even possible?).
+   for bonus points prepend a different message if only a substring match was found ('zip' for gzip)
  ? -l to list entries with last-modified date, and/or commit message
  - support multiple random-order options o.o https://stackoverflow.com/a/14203146/126584
  - d now supresses color when outputting to other process; add a flag to force color output? (also for search result and other

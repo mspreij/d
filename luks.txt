@@ -1,2 +1,5 @@
-# list luks things
+# what in the fuck *is* LUKS?
+\e[32;1mLinux Unified Key Setup\e[0m is a disk encryption specification: https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup
+
+# list LUKS things
 $ blkid -t TYPE=crypto_LUKS -o device
