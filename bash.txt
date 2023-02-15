@@ -24,6 +24,11 @@ $ if [[ -t 1 ]] ; then echo "output is a terminal"; else echo "output is Not a t
 # shortest way to increment a variable (note no '$')
 ((i++))
 
+# what's the deal with export?
+export foo[=bar]
+Basically it turns a regular variable into an environment variable, which means it gets copied to nested shells and
+scripts. Some variables (like $TERM) are environment variables already and don't require an export when changing them.
+
 # redirecting output.
 $ foo >/dev/null 2>&1
 # > : redirects STDOUT (the default), which would usually point to the terminal (or parent process), to /dev/null

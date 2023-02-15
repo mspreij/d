@@ -15,4 +15,4 @@ So: sdb3 = 3rd partition on the second (b) disk (sd)
 
 \e[33mLUKS:\e[0m Linux Unified Key Setup is a disk encryption specification: https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup
 
-\e[33mLUN:\e[0m Logical Unit Number, a number used to identify a logical unit, which is a device addressed by the SCSI protocol or by Storage Area Network protocols that encapsulate SCSI, such as Fibre Channel or iSCSI. Glad you asked?
+\e[33mLUN:\e[0m Logical Unit Number, a number used to identify a logical unit, which is a device addressed by the SCSI protocol or by Storage Area Network protocols that encapsulate SCSI, such as Fibre Channel or iSCSI. Glad you asked? Basically it seems to be most useful as a volume identifier for virtual volumes like in LVM, although it's also used for existing/older scsi things. apparently. or something. Just read it as "points to a disk" maybe.
