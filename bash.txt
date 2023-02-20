@@ -28,6 +28,7 @@ $ if [[ -t 1 ]] ; then echo "output is a terminal"; else echo "output is Not a t
 export foo[=bar]
 Basically it turns a regular variable into an environment variable, which means it gets copied to nested shells and
 scripts. Some variables (like $TERM) are environment variables already and don't require an export when changing them.
+You can see which variables are environment variables by checking for them in \e[38;5;208menv\e[0m, or easier, \e[38;5;208mprintenv <var>\e[0m
 
 # redirecting output.
 $ foo >/dev/null 2>&1

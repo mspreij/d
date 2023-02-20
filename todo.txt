@@ -19,6 +19,13 @@ Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
 - visudo
 - certinfo?
 
+Colors:
+- yellow: paths, maybe \e[38;5;226m38;5;226\e[0m
+- white (default color): example commands, outside the blue comments
+                         inside blue comments, maybe orange for commands?
+- bright green: something exciting in a command like a placeholder
+- 
+
 Random ideas:
  - bash_completion is a good start, but for incomplete input if there is a single match, d can load that.
    for multiple matches, prepend a message but show the first one (or all, if that is even possible?).
