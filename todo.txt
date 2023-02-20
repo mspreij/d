@@ -22,9 +22,9 @@ Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
 Colors:
 - yellow: paths, maybe \e[38;5;226m38;5;226\e[0m
 - white (default color): example commands, outside the blue comments
-                         inside blue comments, maybe orange for commands?
-- bright green: something exciting in a command like a placeholder
-- 
+                         inside blue comments, maybe \e[38;5;208morange (38;5;208)\e[0m for commands?
+- \e[32;1mbright green (32;1)\e[0m: something exciting in a command like a placeholder
+- \e[38;5;201mbright pink (38;5;201)\e[0m for some newly introduced concept
 
 Random ideas:
  - bash_completion is a good start, but for incomplete input if there is a single match, d can load that.

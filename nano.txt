@@ -22,13 +22,16 @@ Ctrl-r   read new file into current or new buffer
 Ctrl-r-t cursorable file chooser! o.o why am I discovering this by accident??
 Alt-f    toggle between current/new buffer for Ctrl-r behaviour above, for newer nanos
          this only works while in the Ctrl-r "dialog"
-Alt->    (that is, Alt-Shift-. or Esc, '>') go to next buffer
+Alt-.    (or Esc, '.') go to next buffer
 Alt-c    toggle cursor position display
 Alt-o    toggle tab -> spaces ('set tabsize 4' or so in .nanorc)
-
+Alt-y    toggle syntax highlighting
 
 # read different .nanorc:
 $ nano --rcfile blaa.nanorc
 
 # syntax hilighting is guessed by extension, tell it what to use with -Y:
 $ nano -Y php foobar
+
+# If syntax highlighting still doesn't work, or is just regular/bold instead of colors, experiment
+#   with your TERM variable.
