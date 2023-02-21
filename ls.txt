@@ -19,3 +19,5 @@ From https://stackoverflow.com/a/24812068/126584
  P  port (Solaris 10 and up)
  s  socketqq
 
+# If there's a \e[38;5;201m+\e[0m sign trailing the permissions, that file/directory has extended permissions called ACLs for Access Control List.
+# use \e[38;5;208mgetfacl <file>\e[0m or \e[38;5;208mls -le [file]\e[0m to view them, depending on OS.
