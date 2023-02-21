@@ -1,6 +1,8 @@
 -n      does something with /dev/null and stdin, making ssh work in a while loop. for loops don't need this.
 -A:     agent forwarding: your ssh keys are now available to SSH on the remote host as well
 -G foo: get all settings for host foo from the .ssh/config file (and a shitton more, | less for finding things)
+-t      "Force pseudo-terminal allocation". makes the remote host think you have a terminal, so screen-based programs
+        (and cron-vs-interactive checks...) might work better.
 
 # To give multiple commands to be run remotely over ssh, quote the lot, or escape the \; thing between them
 # Completely randomly, you can add newlines to files by doing \e[33mecho >> foo.txt\e[0m
