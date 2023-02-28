@@ -1,0 +1,37 @@
+https://rclone.org/
+https://en.wikipedia.org/wiki/Rclone
+
+# rclone is like rsync on steroids and was originally created for files in cloud storage such as S3, Dropbox etc.
+# Besides syncing files it can encrypt, compress and locally cache them, and mount remote sources in the local filesystem,
+#   decrypting etc on the fly as needed.
+
+# Instead of passing bunches of arguments you define \e[38;5;201mremotes\e[0m, usually using the interactive \e[38;5;208mrclone config\e[0m.
+# A remote is a name, type, location, credentials, and whatever type-specific options/flags are available. In sync and copy etc
+#   commands you use the remote \e[1mname\e[0m as source or destination, followed by a colon ':' to distinguish it from a local file/directory.
+# All configuration is stored in a config file, get the path with \e[38;5;208mrclone config file\e[0m.
+# It will usually be in \e[38;5;226m~/.config/rclone/rclone.conf\e[0m
+# For a local source or destination you don't usually have to create a config entry, unless you want rclone to encrypt it,
+#   then a sample configuration will look like (externcrypted is the name of the remote, here):
+
+[externcrypted]
+type = crypt
+remote = /media/usbshare/backup/
+directory_name_encryption = false
+password = **longassobfuscatedpassword**
+password2 = **longassobfuscatedpassword**
+
+# you can backup to this directory using
+$ rclone sync some/local/path externcrypted:
+# switching the arguments obviously syncs the other way.
+# it is always the contents of the given directories that are sync'd or copied.
+
+# you can \e[1mmount\e[0m it: (the & is to run it in the background as it stays open)
+$ rclone mount externcrypted: /existing/mount/directory &
+
+# You can unmount it with umount again:
+$ sudo umount /mount/directory
+
+### TROUBLESHOOTING ###
+-v or -vv for verbose/debug info. It might turn out it keeps copying files because the timestamps on two different filesystems
+  are stored differently
+
