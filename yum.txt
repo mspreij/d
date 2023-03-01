@@ -1,6 +1,11 @@
 # I KNOW NOTHING and this is it.
 - show packages installed by user
-- what is epel
-- where do the .. thing.. what. stuff. from .. wiki, also too, maybe.
-- etc
-- more
+
+# show used repositories
+$ yum repolist
+
+
+
+EPEL = Extra Packages for Enterprise Linux, a repository. Not part of Red Hat but maintained by Fedora repo, whatever that means.
+
+dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm

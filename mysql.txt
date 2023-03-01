@@ -39,7 +39,7 @@ SET FOREIGN_KEY_CHECKS=0;
 # set them back to 1 afterwards I guess.
 
 
-# === CLI ===
+\e[38;5;201m# === CLI ===\e[0m
 
 # general query result display (running queries straight from the bash prompt with -e):
 -s  # no grid-lines for query output
@@ -55,7 +55,11 @@ SET FOREIGN_KEY_CHECKS=0;
 #   under [mysql].
 # 'select foo bar bazz \G' = vertical result (more useful with a WORKING pager >.>) \G and others imply ';' and will run the query
 
-# == "Recipes" or some shit ==
+# To connect to a Docker/Podman container from localhost, use -h 127.0.0.1; if you use localhost mysql client tries to use a unix
+# socket.
+
+\e[38;5;201m# == "Recipes" or some shit ==\e[0m
+
 # All these are similar and are some basic blocks chained together.
 
 # \e[33mExport a database from localhost to remote server, compressed.\e[0m Mind the quotes and the pipes and such.
