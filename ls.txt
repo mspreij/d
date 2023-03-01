@@ -3,6 +3,11 @@ ls
 -- Basic ls usage to go here... --
 
 
+# get time with seconds and sub-seconds if the OS/FS supports it
+$ ls --full-time
+# which is shorthand for
+$ ls -l --time-style=full-iso
+
 
 From https://stackoverflow.com/a/24812068/126584
  In the list format, the first character, before the permissions, indicates the type of 'file':

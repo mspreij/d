@@ -1,0 +1,3 @@
+New Curses Disk Usage
+Call it with -e to make modified-timestamps available; 'm' then toggles them, and you can sort on it by 'M'.
+And it's hella faster than ls afaics..
