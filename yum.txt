@@ -4,6 +4,11 @@
 # show used repositories
 $ yum repolist
 
+# search with
+yum search foo
+# see? even centos can be intuitive!
+
+https://access.redhat.com/sites/default/files/attachments/rh_yum_cheatsheet_1214_jcs_print-1.pdf
 
 
 EPEL = Extra Packages for Enterprise Linux, a repository. Not part of Red Hat but maintained by Fedora repo, whatever that means.

@@ -1,0 +1,9 @@
+# update the database:
+$ updatedb
+# this can take a bit but will be faster than several \e[38;5;208mfind / ...\e[0m commands
+
+# search for directories, and \e[4mnot\e[0m the millions of files inside, with either
+$ locate -e foobar$
+# or
+$ locate -r foobar$
+# depending on the version (gnu vs redhat vs old/new etc)
