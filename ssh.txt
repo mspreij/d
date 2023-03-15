@@ -8,6 +8,11 @@
 # Completely randomly, you can add newlines to files by doing \e[33mecho >> foo.txt\e[0m
 # Mind you, still have to quote the >> or the whole thing when ssh'ing the command.
 
+# Do this public and private key even belong together?
+$ ssh-keygen -E md5 -lf ~/.ssh/id_rsa
+$ ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub
+# should return the same results
+
 # Check /etc/ssh/sshd_config syntax before restarting the service:
 $ sshd -t
 
@@ -22,7 +27,7 @@ Todo:
 - ssh-copy-id
 v ssh-agent & ssh-add
 
-"SSH protocol v.1 is no longer supported"
+\e[31mSSH protocol v.1 is no longer supported\e[0m
 # this can mean you need to use a capital P for port if you're using a lowercase p. It can also mean you
 # need to use a lowercase p for port if you're using a capital P. Don't ask.
 
