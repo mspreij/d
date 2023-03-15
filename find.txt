@@ -2,18 +2,21 @@
 # most of the below examples are just tests
 
 # list all files modified within the last day (+1 for before last day, 1 for exactly 24 hours ago)
+$ find . -mtime -1
+# \e[38;5;208m-mmin\e[0m for minutes ago/before/etc
+# if you want long format (think ls -la) add \e[38;5;208m-ls\e[0m:
 $ find . -mtime -1 -ls
-# -mmin for minutes ago/before/etc
-# -ls has a retarded flag by default stuffing inodes or something in front, you can use exec instead:
+# then again, -ls has a retarded flag by default stuffing inodes or something in front, you can also use \e[38;5;208mexec\e[0m:
 $ find . -mtime -1 -exec ls -la \;
-# the \; is a retarded -exec thing, think of it as an actual argument that must be escaped because bash, and needs
+# the \e[38;5;208m\;\e[0m is a retarded -exec thing, think of it as an actual argument that must be escaped because bash, and needs
 #   to be separated from the previous element with a space. SERIOUSLY, you used ";" as a REQUIRED ARGUMENT??
 
 # find files owned by specific user or group
 $ find . -user joe -group developers
 # (yeah, try and remember THAT)
 
-# find files with extension foo, note the wildcard AND the quotes because why make things simple
+# find files with extension foo, note the wildcard AND the quotes because why make things simple (though the quotes seems to
+# not always be required?)
 $ find . -name '*foo'
 
 # find files except not in /that/ directory (note, again, the quotes and slashes and wildcard..)
