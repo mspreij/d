@@ -26,6 +26,7 @@ Colors:
                          inside blue comments, maybe \e[38;5;208morange (38;5;208)\e[0m for commands?
 - \e[32;1mbright green (32;1)\e[0m: something exciting in a command like a placeholder
 - \e[38;5;201mbright pink (38;5;201)\e[0m for some newly introduced concept
+- \e[34;1mbright blue\e[0m for key strokes? maybe something with bg color to suggest a key cap
 
 Random ideas:
  - -s search should also check for files with the query as substring

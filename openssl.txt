@@ -14,5 +14,8 @@ openssl x509 \e[38;5;202m-x509toreq\e[0m -in ssl.cert -signkey ssl.key -out ssl.
 
 # CentOS 7 won't update to OpenSSL 1.1 (support dropped december 2019) but invites you to install "openssl11" for spot usage.
 
+# TODO
+SSL_ERROR_RX_RECORD_TOO_LONG: explanation and fix here...
+
 # see also
 openssl_functions

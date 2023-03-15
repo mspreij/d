@@ -3,3 +3,6 @@ $ chown -R <name>:<name> target\e[32;1m/\e[0m
 
 # chmod on a symlink affects the file the symlink points to
 # chmod -R on a symlink does \e[1mnot\e[0m require a trailing slash, and seems to make no difference.
+
+# remove sticky bits
+$ chmod -t foo

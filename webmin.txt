@@ -8,3 +8,12 @@
 # it needs restarting too. the piece of shit.
 systemctl restart webmin # fu
 
+# webmin refuses to load because https is fucked again. disable it:
+nano /etc/webmin/miniserv.conf # ssl=1 -> ssl=0
+systemctl restart webmin
+
+# to then fix it you can tell it to use the main vhosts' certificate for webmin/usermin etc services too
+VirtualMin (pick right host) -> Server Configuration -> SSL Certificate: "copy ssl certificate to services" or "set as default services certificate", one of those might work
+Then set ssl=1 back in /etc/webmin/miniserv.conf
+and then systemctl restart webmin again
+Kick it some more if needed, wtf knows.

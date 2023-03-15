@@ -37,7 +37,7 @@ According to the manual you can "firewall-cmd --runtime-to-permanent" to write l
 A zone is a set of rules, that traffic coming from its network interface(s) should obey.
 There are different zones, each zone can listen/subscribe to one or more network interfaces like
   eth0, but a network interface can only ever sit in a single zone (the interface file in
-  /etc/sysconfig/network-scripts/ has max 1 ZONE=.. entry).
+  \e[38;5;226m/etc/sysconfig/network-scripts/\e[0m has max 1 ZONE=.. entry).
 Packets that arrive over that interface have to match the rules for that zone, or they are dropped,
   bounced, whatever.
 The rules can be service (http), port (80), source (some ip/range), protocols (tcp), etc.

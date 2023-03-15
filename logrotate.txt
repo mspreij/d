@@ -7,4 +7,7 @@ $ logrotate --debug -f /etc/logrotate.d/filetocheck
 
 # in the config use
 start 1
-# to make it number the files instead of adding a datetime thing
+# to make it number the files instead of adding a datetime thing (I mean, theoretically, does this even work?)
+# maybe it also needs
+nodateext
+# I am now trying this. Yes.
