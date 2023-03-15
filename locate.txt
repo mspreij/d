@@ -2,6 +2,13 @@
 $ updatedb
 # this can take a bit but will be faster than several \e[38;5;208mfind / ...\e[0m commands
 
+# install
+yum install \e[32;1mm\e[0mlocate
+apt install locate
+
+# mlocate on ubuntu is a dummy package and there's also plocate which is a locate and drop-in replacement for mlocate,
+#   I hope that clears things up 4 u
+
 # search for directories, and \e[4mnot\e[0m the millions of files inside, with either
 $ locate -e foobar$
 # or
