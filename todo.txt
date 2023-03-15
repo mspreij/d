@@ -13,6 +13,7 @@ Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
 - apt, probably
 - atop
 - yum
+- irssi
 - configure/make stuff, check old C notes & kilo editor
 - shopt???
 * tmux
