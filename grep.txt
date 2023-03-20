@@ -11,6 +11,7 @@
 
 ### output
 -H   print filename with each match (default for wildcard file patterns)
+-h   do NOT print filename even for multiple files, this is useful when you want to further parse the contents
 -n   print line number
 [-A, -B, -C]#  print # lines after, before, or around matching lines
 -o   print only the matching part of the line, useful to regex values out of a file for use in a pipeline

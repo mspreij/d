@@ -33,6 +33,10 @@ Ctrl-Space
 Ctrl-w
 # paste to your heart's content \o/ It does not seem to copy colors, this is either a feature or a bug.
 
+# In copy-mode you can \e[38;5;201msearch\e[0m using
+Ctrl-s [type string] <enter>
+# and then n or shift-n for next/previous. Ctrl-r for reverse search
+
 # these bring up freaking menus of things to do with shortcuts!
 \e[38;5;208mprefix\e[0m >
 \e[38;5;208mprefix\e[0m <
