@@ -29,7 +29,7 @@ $ find . \( -name '*php' -o -name '*json' \) -not -path './vendor/*'
 
 # find links
 $ find . -type l
-# pipe to xargs realpath to get the sources
+# pipe to xargs realpath to get the sources, or add \e[38;5;208m-ls\e[0m and ignore the extra cruft
 
 # find _broken_ links
 $ find . -xtype l

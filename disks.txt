@@ -11,6 +11,9 @@ Then the numbers refer to the partitions on those disks.
 
 So: sdb3 = 3rd partition on the second (b) disk (sd)
 
+# prettify list of mounts:
+$ mount | column -t
+
 \e[33mLVM:\e[0m Logical Volume Manager, one of many forms of storage virtualization. "A method of allocating space on mass-storage devices that is more flexible than conventional partitioning schemes to store volumes. In particular, a volume manager can concatenate, stripe together or otherwise combine partitions (or block devices in general) into larger virtual partitions that administrators can re-size or move."
 
 \e[33mLUKS:\e[0m Linux Unified Key Setup is a disk encryption specification: https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup

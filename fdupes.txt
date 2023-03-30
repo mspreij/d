@@ -1,0 +1,2 @@
+install this to find duplicate files. it is Useful.
+also look at fslint
