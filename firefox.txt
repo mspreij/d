@@ -3,3 +3,6 @@ When the retarded thing keeps insisting on \e[31mHTTPS\e[0m instead of \e[34mHTT
   password, it might stick around in the password manager, wtf knows.
 
 Jesus Christ Almighty what a fat slice of failure.
+
+To allow importing passwords from the logins.csv that is created by exporting passwords, set this to true in about:config
+  signon.management.page.fileImport.enabled (create if needed)
