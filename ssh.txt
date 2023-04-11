@@ -1,3 +1,4 @@
+\e[38;5;201m--- SSH ---\e[0m
 -n      does something with /dev/null and stdin, making ssh work in a while loop. for loops don't need this.
 -A:     agent forwarding: your ssh keys are now available to SSH on the remote host as well
 -G foo: get all settings for host foo from the .ssh/config file (and a shitton more, | less for finding things)
@@ -8,29 +9,33 @@
 # Completely randomly, you can add newlines to files by doing \e[33mecho >> foo.txt\e[0m
 # Mind you, still have to quote the >> or the whole thing when ssh'ing the command.
 
-# Do this public and private key even belong together?
-$ ssh-keygen -E md5 -lf ~/.ssh/id_rsa
-$ ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub
-# should return the same results
-
-# Check /etc/ssh/sshd_config syntax before restarting the service:
-$ sshd -t
-
 # SSH defines some escapes you can use while in session, they all start with a tilde '~', which is only
 # interpreted as special when following a newline. \e[33m~?\e[0m gets you a list, \e[33mman ssh\e[0m has longer explanations under
 # \e[33mESCAPE CHARACTERS\e[0m. Some useful ones:
 ~.   # disconnect (presumably when some remote process hangs on you)
 ~&   # "Background ssh at logout when waiting for forwarded connection / X11 sessions to terminate."
 
-Todo:
-- ssh-keygen
-- ssh-copy-id
-v ssh-agent & ssh-add
+Verbose debugging -v to -vvv, output is prefixed with debug1 to debug3.
+The client/server send number or typed packets, here is what the numbers mean:
+  https://www.rfc-editor.org/rfc/rfc4250.html#section-4.1.2
 
 \e[31mSSH protocol v.1 is no longer supported\e[0m
 # this can mean you need to use a capital P for port if you're using a lowercase p. It can also mean you
 # need to use a lowercase p for port if you're using a capital P. Don't ask.
 
-Verbose debugging -v to -vvv, output is prefixed with debug1 to debug3.
-The client/server send number or typed packets, here is what the numbers mean:
-  https://www.rfc-editor.org/rfc/rfc4250.html#section-4.1.2
+\e[38;5;201m--- SSH-KEYGEN ---\e[0m
+
+# remove a passphrase
+$ ssh-keygen -p
+# then simply enter the old passphrase and leave the new one blank
+
+# Do this public and private key even belong together?
+$ ssh-keygen -E md5 -lf ~/.ssh/id_rsa
+$ ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub
+# should return the same results
+
+# see also \e[38;5;201mssh-agent\e[0m
+
+\e[38;5;201m--- SSHD ---\e[0m
+# Check /etc/ssh/sshd_config syntax before restarting the service:
+$ sshd -t
