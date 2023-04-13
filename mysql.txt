@@ -38,6 +38,8 @@ ALTER TABLE <table> DROP INDEX \e[32m<foo>\e[0m;
 SET FOREIGN_KEY_CHECKS=0;
 # set them back to 1 afterwards I guess.
 
+# find storage engine of tables
+select table_name, engine from information_schema.tables where table_schema='\e[32m<db_name>\e[0m' and table_name in ('\e[32m<table_1>\e[0m', '\e[32m<table_2>\e[0m', ..)
 
 \e[38;5;201m# === CLI ===\e[0m
 

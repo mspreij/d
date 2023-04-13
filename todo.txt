@@ -36,8 +36,9 @@ Random ideas:
    for bonus points prepend a different message if only a substring match was found ('zip' for gzip)
  ? -l to list entries with last-modified date, and/or commit message
  - support multiple random-order options o.o https://stackoverflow.com/a/14203146/126584
- - d now supresses color when outputting to other process; add a flag to force color output? (also for search result and other
-   non-interactive output)
+ - d now supresses color (well, the git version does, I keep overwriting the version in use) when outputting to other process;
+   add a flag to force color output? (also for search result and other non-interactive output)
+ - should probably prefix more things (like grep) with 'command'
  - `d foo :bar` to get only chapter bar from foo (what in the frick is 'chapter notation')
  - could even fetch and store data from some server. or local database. not sure what the advantage of this is, or if there is one..
  - if <entry> not found, offer to grep for it? or do that automatically? or count the results and decide on that? flip a coin?

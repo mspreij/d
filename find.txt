@@ -16,7 +16,7 @@ $ find . -user joe -group developers
 # (yeah, try and remember THAT)
 
 # find files with extension foo, note the wildcard AND the quotes because why make things simple (though the quotes seems to
-# not always be required?)
+# not always be required, sometimes they ARE, I dunno, just use 'm)
 $ find . -name '*foo'
 
 # find files except not in /that/ directory (note, again, the quotes and slashes and wildcard..)
