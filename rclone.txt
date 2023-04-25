@@ -25,13 +25,23 @@ $ rclone sync some/local/path externcrypted:
 # switching the arguments obviously syncs the other way.
 # it is always the contents of the given directories that are sync'd or copied.
 
+# \e[1;33;41m NB: \e[0m when the timestamps are not the same, rclone doesn't check the size or checksum, but copies the file regardless. On
+#     different filesystems the timestamps can differ by nano-seconds straight after a sync, some difference in stored
+#     precision or loss in encrypted-to-write, I don't know - but this WILL cause a second sync to copy all files again,
+#     even if the source wasn't touched. \e[38;5;208m--modify-window=1s\e[0m adds a 1 second margin and helps enormously here.
+# Use \e[38;5;208m-v\e[0m or \e[38;5;208m-vv\e[0m to check for this. You can also use \e[38;5;208mtouch -d '<iso timestamp>' $file\e[0m and \e[38;5;208mstat $file\e[0m to test the precision of
+#   a FS, just add like 12 numbers after the decimal dot of the seconds in touch. Also, use stat for iso format examples.
+
 # you can \e[1mmount\e[0m it: (the & is to run it in the background as it stays open)
 $ rclone mount externcrypted: /existing/mount/directory &
 
 # You can unmount it with umount again:
 $ sudo umount /mount/directory
 
+# If you have the keys (in the config) to mount an encrypted directory, but that directory sits on a disk that rclone can't access
+#   for whatever reasons (like Windows), you can simply copy the files you need to somewhere rclone *can* access, and modify the
+#   config or re-create the directories leading to the original mountpoint and move the files there, it'll magically work.
+
 ### TROUBLESHOOTING ###
 -v or -vv for verbose/debug info. It might turn out it keeps copying files because the timestamps on two different filesystems
   are stored differently
-

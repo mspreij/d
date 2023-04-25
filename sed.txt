@@ -3,3 +3,6 @@
 echo -n "$foo" | sed 's/^/  /'
 echo
 # the -n and last echo are optional, in case padding the last linebreak of $foo presents formatting issues
+
+# single quotes in sed is often hassle, maybe it supports \x27 notation. if not can you wrap the expression
+# in double quotes?

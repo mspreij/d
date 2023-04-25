@@ -29,3 +29,6 @@ rsync /path/src  dest/  # copy the src directory *itself* into the dest director
 --ignore-errors => refers to how --delete behaves, and will remove target files even if there were IO errors, so you can lose
                    last night's backup if there's source disk- or network glitches
 --force         => also refers to --delete, and will remove directories with contents on the target if they're no longer on the source
+
+### Logging ###
+https://stackoverflow.com/a/12037164/126584
