@@ -28,4 +28,10 @@ F                  go to end of file and wait for more input, like tail -f
 # this is for CLI specifically:
 -F     quit if the output fits on one screen
 
-# less can also read (compressed) tar archives!
+# less can also list the files in (compressed) tar archives!
+# for the contents of a compressed file you can
+gunzip -c file.gz | less
+# or
+zcat file.gz | less
+# orrrr
+zless file.gz

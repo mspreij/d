@@ -5,6 +5,7 @@
 -c  redirect output to STDOUT
 
 zcat == gzip -dc == gunzip -c == decompress to STDOUT
+if you want to zcat | less, \e[38;5;202mzless\e[0m is also a thing
 
 # default behaviour is to work on the same file; to keep the original file, output and redirect the result "manually"
 gzip -c file > file.gz
