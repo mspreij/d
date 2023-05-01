@@ -6,3 +6,6 @@ Jesus Christ Almighty what a fat slice of failure.
 
 To allow importing passwords from the logins.csv that is created by exporting passwords, set this to true in about:config
   signon.management.page.fileImport.enabled (create if needed)
+
+The "add custom search engine" <https://addons.mozilla.org/en-US/firefox/addon/add-custom-search-engine/> which is pretty awesome works
+  as of now, but you have to set the default search engine using the SELECT and not the list where you can drag to order them, kthxbai.
