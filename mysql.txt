@@ -58,7 +58,7 @@ select table_name, engine from information_schema.tables where table_schema='\e[
 # 'select foo bar bazz \G' = vertical result (more useful with a WORKING pager >.>) \G and others imply ';' and will run the query
 
 # To connect to a Docker/Podman container from localhost, use -h 127.0.0.1; if you use localhost mysql client tries to use a unix
-# socket.
+# socket. Unless it works regardless because wsl magic or somesuch.
 
 \e[38;5;201m# == "Recipes" or some shit ==\e[0m
 
