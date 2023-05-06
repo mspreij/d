@@ -1,7 +1,7 @@
 !Very incomplete!
 
 Composer has a \e[32mjson\e[0m file which tells it what we *want*. It uses that to generate a \e[32mlock\e[0m file to tell the world what it has
-decided to install (based on the json file) in /vendor. Both files go in git, the json is obvious, and the lock file tells other
+decided to install (based on the json file) in /vendor. Both files go in git: the json is obvious, and the lock file tells other
 developers what they should be using to get the same result, and will deploy those same exact versions into production, which is
 usually what you want.
 
@@ -15,3 +15,18 @@ $ composer require some/package
 
 # tell composer to check for newer versions (as allowed) per the json file, install those and update the lock file.
 $ composer update
+
+### Versions
+# there's exact, range, hyphenated range, wildcard range, tilde range and caret range (and some stability stuff)
+# Notation              Means
+1.0.1                   1.0.1
+>=1,<2                  any version starting with 1. operators include: >, >=, <, <=, !=
+1-2.0.0                 any version starting with 1 and 2.0.0
+1-2                     any version starting with 1 or 2 (hyphen notation fills up the right-hand version with wildcards so it's really
+                        1-2.*.*
+1.0.*                   >=1.0 <1.1
+# tilde allows _only_ the last specified digit to go up (~1 becomes ~1.0 though)
+~1.2                    >=1.2.0 <2
+~1.2.3                  >=1.2.3 <1.3
+# caret is similar but allows anything until the next major version (unless current MV is 0: ^0.4 becomes >=0.4 <0.5)
+^1.5.7                  >=1.5.7 <2
