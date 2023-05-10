@@ -16,6 +16,10 @@ while read foo bar _; do things with ${foo} and to ${bar}; done < file.txt # onl
 # fd can be one of the usual file descriptor assignments: 0 stdin, 1 stdout, 2 stderr
 $ if [[ -t 1 ]] ; then echo "output is a terminal"; else echo "output is Not a terminal"; fi
 # also works for detecting whether input came from the user, or another script/process (fd=0)
+# here, stdin is not a tty, therefor the input has been piped or redirected.
+$ if [[ ! -t 0 ]]; then ..
+# you can grab it with input="$(cat)". according to some online AI the quotes are optional because of how cat behaves, but
+#  still a good habit.
 
 ### Is my script running from crontab?
 `tty -s` has a non-zero exit status $? when the script is running from cron (tty returns the name of the terminal

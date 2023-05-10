@@ -11,9 +11,12 @@ $ /usr/sbin/mysqld --verbose --help | grep -A 1 "Default options"
 # basic administration stuff:
 CREATE USER 'joe'@'localhost' IDENTIFIED BY 'supersekrit'                     -- create user account
 GRANT SELECT, INSERT, UPDATE, DELETE ON theCornerShop.* TO 'joe'@'localhost'  -- grant permissions example
-   ALL                              -- every permission applicable to {target} (except for GRANT)
+   ALL [PRIVILEGES]                 -- every permission applicable to {target} (except for GRANT)
    SELECT, INSERT, UPDATE, DELETE   -- a.k.a. CRUD
    CREATE, ALTER, INDEX, DROP       -- CRUD for tables
+# to also allow GRANT itself to a user:
+GRANT ALL [PRIVILEGES] ON *.* TO root@123.456.789.123 WITH GRANT OPTION;
+# view and edit:
 SHOW GRANTS [FOR 'username'@'host']                                           -- shows your or specified user's permissions
 REVOKE DELETE, UPDATE ON theCornerShop.localhost FROM 'jim'@'localhost'       -- remove specific permissions
 REVOKE ALL PRIVILEGES ON theCornerShop.*  FROM user@host;                     -- remove bunch of permissions
