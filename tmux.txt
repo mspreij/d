@@ -40,8 +40,8 @@ Ctrl-s [type string] <enter>
 # and then n or shift-n for next/previous. Ctrl-r for reverse search
 
 # these bring up freaking menus of things to do with shortcuts!
-\e[38;5;208mprefix\e[0m >
-\e[38;5;208mprefix\e[0m <
+\e[38;5;208mprefix\e[0m >   # acts on pane
+\e[38;5;208mprefix\e[0m <   # acts on window
 
 # My default config ==========
 # remap prefix from 'C-b' to 'C-a' or, like, `
