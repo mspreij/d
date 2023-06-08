@@ -6,10 +6,18 @@ $ yum repolist
 
 # search with
 yum search foo
-# see? even centos can be intuitive!
+
+# repo info is stored in /etc/yum.repo.d/
+# here you can also disable, for example, the gpgcheck in case google has decided to update its key structure which
+# is no longer supported by centos7.
+# By default, "yum update" considers the whole thing a transaction and will error out if a single package fails, even if
+# the others don't depend on it:
+# - if it's a dependency issue you can force it through with --skip-broken
+# - if it's a key issue, you can install the key again with "rpm --install <keyurlfrommessage>"
+#   or exclude that package from the update with `yum update --exclude=google-chrome-stable`
+#   or as said, disabling the key check for that package.
 
 https://access.redhat.com/sites/default/files/attachments/rh_yum_cheatsheet_1214_jcs_print-1.pdf
-
 
 EPEL = Extra Packages for Enterprise Linux, a repository. Not part of Red Hat but maintained by Fedora repo, whatever that means.
 

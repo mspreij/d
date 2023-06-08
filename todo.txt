@@ -29,7 +29,9 @@ Colors:
 - \e[34;1mbright blue\e[0m for key strokes? maybe something with bg color to suggest a key cap
 
 Random ideas:
- - -s search should also check for files with the query as substring
+ Search:
+   - should also check for files with the query as substring
+   - should not search the symlinks (optionally check they link to something in that directory, otherwise still search?)
  - if the shown command is a symlink to another command, prepend a message stating that
  - bash_completion is a good start, but for incomplete input if there is a single match, d can load that.
    for multiple matches, prepend a message but show the first one (or all, if that is even possible?).
