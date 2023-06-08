@@ -1,0 +1,11 @@
+This is not about a command "random" but literally for random shit.
+
+# Copy file from server A to server C via localhost (or another server)
+$ ssh server_A 'cat sourcefile' | ssh server_B 'cat > targetfile'
+
+# with PROGRESS
+$ ssh server_A 'cat sourcefile' | \e[32;1mpv |\e[0m ssh server_B 'cat > targetfile'
+# you can add \e[38;5;208mtar\e[0m and \e[38;5;208mgunzip\e[0m and \e[38;5;208mgzip -c\e[0m to the quoted commands too.
+
+# get directory sizes for multiple directories AND the grand total:
+du -sh\e[38;5;205mc\e[0m dir1 dir2 dir3

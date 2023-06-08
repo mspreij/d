@@ -16,6 +16,7 @@ yum search foo
 # - if it's a key issue, you can install the key again with "rpm --install <keyurlfrommessage>"
 #   or exclude that package from the update with `yum update --exclude=google-chrome-stable`
 #   or as said, disabling the key check for that package.
+# note that the keys are used to verify all packages from that repo, disabling it is a security risk.
 
 https://access.redhat.com/sites/default/files/attachments/rh_yum_cheatsheet_1214_jcs_print-1.pdf
 
