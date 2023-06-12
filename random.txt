@@ -4,7 +4,8 @@ This is not about a command "random" but literally for random shit.
 $ ssh server_A 'cat sourcefile' | ssh server_B 'cat > targetfile'
 
 # with PROGRESS
-$ ssh server_A 'cat sourcefile' | \e[32;1mpv |\e[0m ssh server_B 'cat > targetfile'
+$ ssh server_A 'cat sourcefile' | \e[32;1mpv [-s $filesize] [-i sec] |\e[0m ssh server_B 'cat > targetfile'
+# optional filesize is in bytes of course, interval -i in seconds, which can be decimal 0.1
 # you can add \e[38;5;208mtar\e[0m and \e[38;5;208mgunzip\e[0m and \e[38;5;208mgzip -c\e[0m to the quoted commands too.
 
 # get directory sizes for multiple directories AND the grand total:

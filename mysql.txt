@@ -20,7 +20,8 @@ GRANT ALL [PRIVILEGES] ON *.* TO root@123.456.789.123 WITH GRANT OPTION;
 SHOW GRANTS [FOR 'username'@'host']                                           -- shows your or specified user's permissions
 REVOKE DELETE, UPDATE ON theCornerShop.localhost FROM 'jim'@'localhost'       -- remove specific permissions
 REVOKE ALL PRIVILEGES ON theCornerShop.*  FROM user@host;                     -- remove bunch of permissions
-DROP USER 'leetHax0r1994'                                                     -- delete user (for all hosts..?)
+DROP USER 'leetHax0r1994'@'localhost'                                         -- delete user/host pair. all related privileges should
+                                                                                   be gone too.
 
 # update password for existing users
 SET PASSWORD FOR <username>@<host> = PASSWORD('evensekriter')                 -- update password <= 5.7.5
