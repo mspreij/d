@@ -3,6 +3,9 @@
 https://wiki.fatboy.fargeau.nl/display/FARGEAU/Fail2Ban
 https://www.fail2ban.org/wiki/index.php/MANUAL_0_8 (this documentation is not complete and utter shit FOR A CHANGE)
 
+# There is a \e[33mfail2ban-server\e[0m which just runs, and a \e[33mfail2ban-client\e[0m which starts/reloads/stops the server
+#   and sends it all the configuration.
+
 $ man jail.conf
 
 # the too-short;didn't-bother-reading of it is there are
@@ -10,5 +13,7 @@ $ man jail.conf
 # - \e[33mactions\e[0m: [groups of] commands to execute, eg send mail, add rules to iptables and/or firewalld
 # - \e[33mjails\e[0m: combinations of a filter and one or more actions: if a filter triggers, the actions will run
 
-# There is a \e[33mfail2ban-server\e[0m which just runs, and a \e[33mfail2ban-client\e[0m which starts/reloads/stops the server and sends it all the
-# configuration.
+# By default, jails and filters have the same name, so a jail doesn't need to explicitly define its filter.
+
+# get some stats on a specific jail
+$ fail2ban-client status <jail>

@@ -1,4 +1,5 @@
-# yes, you /can/ copy remote to remote using scp, but CentOS requires the -3
+# yes, you \e[1mcan\e[0m copy remote to remote using scp, but scp tries to do it "smart", that is, copy from server1 directly to server2.
+# server1 might not be able to access server2 directly, or have the right credentials. to route traffic through the issuing local PC, use the -3:
 $ scp \e[1;32m-3\e[0m user@server1:/path user@server2:/path
 
-# because REASONS. "user@" is optional if you have a good .ssh/config
+# "user@" is optional if you have a decent ~/.ssh/config

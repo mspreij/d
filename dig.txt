@@ -7,6 +7,11 @@ $ dig foo.bar
 $ dig @8.8.8.8 foo.bar
 # if the status at the top says NXDOMAIN, it means it couldn't find an IP address for it.
 
+TTL = 0?
+# if you see 0 where you expect a number, check for ";; WARNING: recursion requested but not available"
+# this means the DNS server was not able to "recurse" to other DNS servers, and only had this IP address in its cache
+# run it again with @8.8.8.8 for example
+
 # get ALL THE INFO
 $ dig foo.bar ANY
 

@@ -77,3 +77,6 @@ $ ssh \e[32m<host>\e[0m 'mysqldump -u\e[32m<user>\e[0m -p\e[32m<pass>\e[0m --def
 # \e[33mdrop the local file into a remote server
 $ cat db_dump.sql.gz | ssh \e[32m<host>\e[0m 'gunzip | mysql --default-character-set=utf8 -u\e[32m<user>\e[0m -p\e[32m<pass>\e[0m \e[32m<database>\e[0m'
 # maybe run 'history -c' after stuffing the commandlines with passwords.
+
+# \e[33mgrab a database from one remote mysql server and put it in another remote mysql server (because we can!)
+ssh \e[32m<source_host>\e[0m 'mysqldump -u\e[32m<user>\e[0m -p\e[32m<pass>\e[0m \e[32m<database>\e[0m | gzip -c ' | ssh \e[32m<target_host>\e[0m 'gunzip | mysql -u\e[32m<user>\e[0m -p\e[32m<pass>\e[0m \e[32m<database>\e[0m'

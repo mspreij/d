@@ -1,5 +1,6 @@
-# basically find takes 1 \e[1mor more\e[0m directories, tests (name, mtime, type, etc) and actions.
-# most of the below examples are just tests
+# Basically find takes 1 \e[1mor more\e[0m directories, tests (name, mtime, type, etc) and actions.
+# Most of the below examples are just tests.
+# With \e[38;5;208m-not\e[0m or \e[38;5;208m!\e[0m you can negate a test.
 
 # list all files modified within the last day (+1 for before last day, 1 for exactly 24 hours ago)
 $ find . -mtime -1

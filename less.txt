@@ -35,3 +35,6 @@ gunzip -c file.gz | less
 zcat file.gz | less
 # orrrr
 zless file.gz
+
+# you can set some defaults in the LESS environment variable, like
+$ export LESS='-I' # searches and patterns are case-insensitive by default
