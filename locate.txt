@@ -10,7 +10,7 @@ apt install locate
 #   I hope that clears things up 4 u
 
 # search for directories, and \e[4mnot\e[0m the millions of files inside, with either
-$ locate -e foobar$
+$ locate -e foobar\e[32;1m$\e[0m
 # or
-$ locate -r foobar$
+$ locate -r foobar\e[32;1m$\e[0m
 # depending on the version (gnu vs redhat vs old/new etc)

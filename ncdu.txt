@@ -3,3 +3,6 @@ Call it with \e[38;5;208m-e\e[0m to make modified-timestamps available; \e[34;1m
 And it's hella faster than ls afaics..
 
 Use \e[34;1mb\e[0m to open the current directory in a new shell (simply exit the shell to return to ncdu).
+
+Poor man's ncdu (in docker containers, say), which only shows directory sizes:
+\e[38;5;208malias ncdu="ls -lA | grep ^d | awk '{print \$9}' | xargs du -sh"\e[0m
