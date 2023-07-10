@@ -9,3 +9,12 @@ To allow importing passwords from the logins.csv that is created by exporting pa
 
 The "add custom search engine" <https://addons.mozilla.org/en-US/firefox/addon/add-custom-search-engine/> which is pretty awesome works
   as of now, but you have to set the default search engine using the SELECT and not the list where you can drag to order them, kthxbai.
+
+Location field behavior tweak, seems to only affect suggestions, not results:
+^    to search for matches in your browsing history.
+*    to search for matches in your bookmarks.
++    to search for matches in pages you've tagged.
+%    to search for matches in your currently open tabs.
+#    to search for matches in page titles.
+$    to search for matches in web addresses (URLs).
+?    to search for matches in suggestions.
