@@ -3,6 +3,10 @@ fwrite(STDERR, "E: invalid input!");
 # for PHP's own errors (not tested):
 ini_set('display_errors', 'stderr');
 
+# Detect whether input or output are tty. if not, it's likely pipes.
+
+echo "input: ".(posix_isatty(STDIN) ? 'tty' : 'no tty')."\n";
+echo "output: ".(posix_isatty(STDOUT) ? 'tty' : 'no tty')."\n";
 
 # prompt reader for value from CLI script:
 function input(string $prompt = null): string
@@ -12,7 +16,6 @@ function input(string $prompt = null): string
     $output = fgets ($handle);
     return trim ($output);
 }
-
 
 # call nano from PHP CLI script, for a temp file, say
 $fname = tempnam('/tmp', '');
