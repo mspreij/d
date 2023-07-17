@@ -34,12 +34,13 @@ Random ideas:
    - should not search the symlinks (optionally check they link to something in that directory, otherwise still search?)
  - if the shown command is a symlink to another command, prepend a message stating that
  - bash_completion is a good start, but for incomplete input if there is a single match, d can load that.
-   for multiple matches, prepend a message but show the first one (or all, if that is even possible?).
-   for bonus points prepend a different message if only a substring match was found ('zip' for gzip)
+   ? for multiple matches, prepend a message but show the first one (or all, if that is even possible?).
+   ? for bonus points prepend a different message if only a substring match was found ('zip' for gzip)
  ? -l to list entries with last-modified date, and/or commit message
  - support multiple random-order options o.o https://stackoverflow.com/a/14203146/126584
- - d now supresses color (well, the git version does, I keep overwriting the version in use) when outputting to other process;
-   add a flag to force color output? (also for search result and other non-interactive output)
+ * d now supresses color (well, the git version does, I keep overwriting the version in use) when outputting to other process;
+   v added a flag to force color output
+   ? also for search result and other non-interactive output (is this needed?)
  - should probably prefix more things (like grep) with 'command'
  - `d foo :bar` to get only chapter bar from foo (what in the frick is 'chapter notation')
  - could even fetch and store data from some server. or local database. not sure what the advantage of this is, or if there is one..

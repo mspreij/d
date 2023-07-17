@@ -9,11 +9,20 @@
 systemctl restart webmin # fu
 
 # webmin refuses to load because https is fucked again. disable it:
-nano /etc/webmin/miniserv.conf # ssl=1 -> ssl=0
+nano \e[38;5;226m/etc/webmin/miniserv.conf\e[0m # ssl=1 -> ssl=0
 systemctl restart webmin
 
 # to then fix it you can tell it to use the main vhosts' certificate for webmin/usermin etc services too
 VirtualMin (pick right host) -> Server Configuration -> SSL Certificate: "copy ssl certificate to services" or "set as default services certificate", one of those might work
-Then set ssl=1 back in /etc/webmin/miniserv.conf
-and then systemctl restart webmin again
+
+# If that fails with a "Failed to save service certificates : Service webmin is not installed", edit
+\e[38;5;226m/etc/webmin/miniserv.conf\e[0m again to set ssl back to 1 but \e[1mDo Not\e[0m restart the webmin service. The script
+ where that error originates just checks the config apparently? Regardless, try hitting the button again.
+Afterwards, the service will try restarting itself (because it has a [new] cert) and you might get more
+ errors and the interface might Windows3.1 on you but whatever. https might work again.
+
+If you didn't get that error, great!
+Set ssl=1 back in \e[38;5;226m/etc/webmin/miniserv.conf\e[0m
+ and then systemctl restart webmin again.
+
 Kick it some more if needed, wtf knows.

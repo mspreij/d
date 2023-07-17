@@ -14,6 +14,9 @@ openssl x509 \e[38;5;202m-x509toreq\e[0m -in ssl.cert -signkey ssl.key -out ssl.
 
 # CentOS 7 won't update to OpenSSL 1.1 (support dropped december 2019) but invites you to install "openssl11" for spot usage.
 
+# PHP8 has functions to parse PEMs and such, who knew?!
+https://www.php.net/manual/en/function.openssl-x509-parse.php
+
 # TODO
 SSL_ERROR_RX_RECORD_TOO_LONG: explanation and fix here...
 
