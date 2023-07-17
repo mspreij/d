@@ -13,3 +13,6 @@ du -sh\e[38;5;205mc\e[0m dir1 dir2 dir3
 
 # you can sort on 3rd column too
 sort -k3 somefile.txt
+
+# to reverse input use \e[38;5;208mtac\e[0m, not sort
+tac somefile.txt
