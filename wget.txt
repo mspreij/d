@@ -1,0 +1,13 @@
+$ wget domain.com
+$ wget http://domain.com/foobar/?asdf
+$ wget http://domain.com:8080/etc
+
+--server-response / -S         print response headers
+--quiet / -q                   turn of wget output (progress bars can ef up the content)
+--output-document / -O <file>  save response data to file; - for STDOUT
+--no-hsts                      do NOT automatically switch to https when asking for the http response specifically >:-|
+--max-redirect=<number>        how many times to follow "Location: .." headers, can be set to 0 which is useful to debug redirects
+                               with --server-response
+
+# NB: wget will upgrade \e[38;5;208mhttp\e[0m requests to \e[38;5;208mhttps\e[0m requests automatically if it knows the server supports it, use --no-hsts to prevent.
+#     if shit fails, carefully read the output before the response data (no -q) to check for funny stuff.

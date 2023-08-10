@@ -10,7 +10,7 @@ $ composer install
 # If there's no lock file, it will install the newest version of whatever's in the json file (as new as allowed) and then create
 #   the lock file based on the versions installed.
 
-# Tell composer to add this to install this, add it to the json file and note the installed version in the lock file.
+# Tell composer to install this, add it to the json file and note the installed version in the lock file.
 $ composer require some/package
 
 # tell composer to check for newer versions (as allowed) per the json file, install those and update the lock file.
