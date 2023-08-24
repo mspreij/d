@@ -16,3 +16,6 @@ sort -k3 somefile.txt
 
 # to reverse input use \e[38;5;208mtac\e[0m, not sort
 tac somefile.txt
+
+# change the last modified date on a file with touch -t [YY]YYMMDDhhmm[.ss]
+touch -t 202308121520.12 somefile.txt

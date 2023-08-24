@@ -18,3 +18,7 @@
 
 # filter out empty lines for, say, -v, by using a start/end pattern ^$
 $ grep -v -e foobar -e ^$
+
+# bugs
+grep will hang on named pipes/FIFO type things, and not skip them even if they are in the --exclude list. You can use
+  --device=skip to not process this type of file.
