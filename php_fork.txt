@@ -1,5 +1,5 @@
 Example script that uses pcntl_fork() to fork itself a few dozen times, and System V IPC functions to create a message queue,
-  let the children processes send data to it and the parent process read and display it.
+  let the child processes send data to it and the parent process read and display it.
 
 #!/usr/bin/env php
 <?php
@@ -40,6 +40,13 @@ for ($i = 0; $i < $child_count; $i++) {
 
 # Destroy the message queue, otherwise it hangs around in memory. \e[38;5;208mipcs\e[0m will show you current message queues.
 msg_remove_queue($queue);
+# You might be tempted to use register_shutdown_function() for this (ChatGPT told me to!) but that will also fire as soon as
+# the first child process exits, sooo.. don't.
 
-# you could also use \e[38;5;208mregister_shutdown_function()\e[0m for this. If all else fails, use \e[38;5;208mipcrm -q <msqid>\e[0m, where the
-#   msqid shows up under the output of \e[38;5;208mipcs\e[0m.
+# If all else fails, from the cli use \e[38;5;208mipcrm -q <msqid>\e[0m, where the msqid shows up under the output of \e[38;5;208mipcs\e[0m.
+
+# Other considerations:
+# - make sure the child process Always exits, and always sends something to the queue before doing so, wrapping it in a try/catch
+#   should work
+# - counting $children++ inside the child process does not work, this variable will not be incremented in the parent process.
+#   you can increment it in the parent branch of the $pid fork.
