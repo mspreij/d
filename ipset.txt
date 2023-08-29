@@ -29,8 +29,10 @@ $ fw --permanent --new-ipset=nijntje --type=hash:ip
 $ fw --permanent --ipset=nijntje --add-entry=1.2.3.4
 # you can also edit the xml file, ofc
 
-# now directly adding a rich-rule for this will fail since firewall-the-instance has no idea about changes in these files.
-$ fwr
+# now directly adding a rich-rule for this will fail since firewall-the-instance has no idea about changes in these files, so reload
+# the files first.
+$ fw --reload
+# Firewalld has this thing where you can either write config changes to the files or shiv them into the running instance but not both?
 
 # now add a rule for the set
 $ fw --add-rich-rule='rule family=ipv4 source ipset=nijntje accept'
@@ -39,4 +41,3 @@ $ fw --add-rich-rule='rule family=ipv4 source ipset=nijntje port port=22 protoco
 # store the config
 $ fw --runtime-to-permanent
 # -OR- ditch it with \e[32mfirewall-cmd reload\e[0m ("fwr")
-
