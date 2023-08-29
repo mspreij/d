@@ -1,0 +1,22 @@
+# it runs as a service, grab the current status from systemctl
+$ systemctl | grep cert
+
+# then when you see it's failed, you can do a dry-run to see what's up
+$ certbot renew --dry-run
+
+# or check the logs in \e[38;5;226m/var/log/letsencrypt/letsencrypt.log\e[0m
+
+# Make sure the .well-known path can be read o.o Blocking all requests that start with '.' will need an exception rule
+#  for '.well-known'. Sample nginx config:
+
+# Allow access to the .well-known directory
+location ^~ /.well-known {
+  allow all;
+}
+
+# deny .htaccess, .git etc
+location ~ /\. {
+  deny all;
+}
+
+# ^~ = starts with, ~ = regex (hence why the period in .well-known shouldn't be escaped)
