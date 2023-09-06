@@ -1,11 +1,11 @@
 When the retarded thing keeps insisting on \e[31mHTTPS\e[0m instead of \e[34mHTTP\e[0m, even when given a specific port, go to
   the site entry in history, right-click and do a \e[35m"forget about this site"\e[0m. you might lose the cached
-  password, it might stick around in the password manager, wtf knows.
-
-Jesus Christ Almighty what a fat slice of failure.
+  password, it might stick around in the password manager, wtf knows. There may also be a setting to ignore HSTS?
 
 To allow importing passwords from the logins.csv that is created by exporting passwords, set this to true in about:config
   signon.management.page.fileImport.enabled (create if needed)
+
+about:about # who could have seen that coming
 
 The "add custom search engine" <https://addons.mozilla.org/en-US/firefox/addon/add-custom-search-engine/> which is pretty awesome works
   as of now, but you have to set the default search engine using the SELECT and not the list where you can drag to order them, kthxbai.
@@ -15,6 +15,6 @@ Location field behavior tweak, seems to only affect suggestions, not results:
 *    to search for matches in your bookmarks.
 +    to search for matches in pages you've tagged.
 %    to search for matches in your currently open tabs.
-#    to search for matches in page titles.
+\e[22m#    to search for matches in page titles.
 $    to search for matches in web addresses (URLs).
 ?    to search for matches in suggestions.
