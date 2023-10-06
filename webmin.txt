@@ -21,8 +21,14 @@ VirtualMin (pick right host) -> Server Configuration -> SSL Certificate: "copy s
 Afterwards, the service will try restarting itself (because it has a [new] cert) and you might get more
  errors and the interface might Windows3.1 on you but whatever. https might work again.
 
+If firefox keeps redirecting to https even though ssl was disabled in the webmin conf, "Forget this site" in
+ history->find site, right-click.
+
 If you didn't get that error, great!
 Set ssl=1 back in \e[38;5;226m/etc/webmin/miniserv.conf\e[0m
  and then systemctl restart webmin again.
+
+# Iffff you now get SSL_ERROR_NO_CYPHER_OVERLAP or somesuch,
+ maybe webmin doesn't understand the type of SSL keys used by the site, this happened with ECC keys.
 
 Kick it some more if needed, wtf knows.

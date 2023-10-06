@@ -1,0 +1,1 @@
+When a page say See also foo(3) you can do 'man 3 foo'

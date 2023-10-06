@@ -6,3 +6,6 @@
 
 # there's also /etc/cron.d/ for ... generic crons that are not hourly/daily-etc. All these crons also include
 #   a column for the username.
+
+The day of week column has Monday 1, and Sunday 0 or 7. You can also use the first three letters, in which case you can't
+use ranges. Apparently the same is true for month names.
