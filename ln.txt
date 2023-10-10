@@ -7,3 +7,7 @@ ln -s <source> <target>
 # find broken links
 find . -xtype l
 
+-f will overwrite existing links AND regular files/directories
+-n will prevent nesting the link in a target directory if you're symlinking a directory and the link already exists
+
+So -sfn will replace a link, forcefully, and it can be a directory.
