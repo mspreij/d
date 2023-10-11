@@ -4,7 +4,7 @@ Scripting cheatsheet: https://devhints.io/bash
 # read splits a line into columns on whitespace.
 # read -a turns line into an array.
 while read -a line; do echo ${line[0]}${line[1]}; done < file.txt
-# alternatively..
+    # alternatively..
 cat file.txt | while read -a line; do echo ${line[0]}${line[1]}; done
 
 # use "read foo bar bazz" to read the first 3 words (columns) into those variables.
@@ -52,3 +52,11 @@ $ foo 2>&1 >/dev/null
 if [[ "string" =~ regex ]]; then..
 # do not quote the regex. if it's complicated, store it in a variable first and use that (unquoted).
 # see http://mywiki.wooledge.org/BashGuide/Patterns for the ugl^H^Hseful details.
+
+# Deleting a million files, in order of fast to slow (as per 2023-10, on CentOS)
+$ find ./filesToRemove -type f -delete
+$ rm -rf ./filesToRemove \e[36m# never do rm -rf /dir/*, because * expands and the command will either be or take too long\e[0m
+$ rsync -a --delete emptyDir/ filesToRemove/
+# you can time any command by prepending it with 'time', like `$ time find ..`; the first entry (realtime?) is wall clock time,
+#  the other two (user/system) added up can be longer or shorter depending on what other processes were happening and the number
+#  of cores.
