@@ -3,6 +3,7 @@
 
 -d  decompress                 # aka `gunzip`
 -c  redirect output to STDOUT
+-t  verify archive integrity
 
 zcat == gzip -dc == gunzip -c == decompress to STDOUT
 if you want to zcat | less, \e[38;5;202mzless\e[0m is also a thing
