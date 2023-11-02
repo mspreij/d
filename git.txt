@@ -46,3 +46,5 @@ $ git diff -U30 file
 # -U takes number of lines before and after the change. you can use \e[32m-U$(wc -l <file>)\e[0m as well which will
 #   show the whole file. Since wc also prints the filename after the number of lines, no need to specify that for git too.
 $ git diff -U$(wc -l file)
+
+https://jvns.ca/blog/2023/11/01/confusing-git-terminology/
