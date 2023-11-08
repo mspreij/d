@@ -4,6 +4,9 @@
 -d  decompress                 # aka `gunzip`
 -c  redirect output to STDOUT
 -t  verify archive integrity
+-l  show uncompressed filesize and compression ratio. \e[31;1mNB:\e[33;22m this fails for input files over 4 GB, since the
+    original filesize is stored in 4 bytes. Higher filesizes are stored as filesize modulo 2^32, and can
+    hence show negative compression ratios.\e[0m
 
 zcat == gzip -dc == gunzip -c == decompress to STDOUT
 if you want to zcat | less, \e[38;5;202mzless\e[0m is also a thing
