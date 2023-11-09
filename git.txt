@@ -15,6 +15,7 @@
 # rename (remote) branch, assuming you have branchOldName checked out
   $ git branch -m \e[32mbranchNewName\e[0m
   $ git push origin :branchOldName; $ git push --delete \e[38;5;208mbranchOldName\e[0m
+  # this doesn't seem to work with github, just use the webinterface in that case..
   $ git branch --unset-upstream \e[32mbranchNewName\e[0m
   $ git push
 # first you rename the current local branch, then you delete the old remote one (the first form is a shortcut),
