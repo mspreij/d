@@ -4,7 +4,13 @@ $ systemctl | grep cert
 # then when you see it's failed, you can do a dry-run to see what's up
 $ certbot renew --dry-run
 
-# or check the logs in \e[38;5;226m/var/log/letsencrypt/letsencrypt.log\e[0m
+# or check the logs in \e[38;5;226m/var/log/letsencrypt/letsencrypt.log\e[0m and \e[38;5;226m/var/log/le-renew.log\e[0m
+
+# To simply manually renew a cert:
+$ certbot renew --cert-name domain.com
+
+
+\e[36;1m=== .well-known/acme-challenge ===\e[0m
 
 # Make sure the .well-known path can be read o.o Blocking all requests that start with '.' will need an exception rule
 #  for '.well-known'. Sample nginx config:
