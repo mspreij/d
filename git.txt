@@ -29,6 +29,10 @@ $ git remote add origin <paste-url-here>
 $ git push
 # urls can be like https://... or git@github.com:username/foo.bar, the latter works better with ssh keys
 
+# undo last commit
+$ git revert HEAD
+# commit again, and if needed push
+
 # to create a new empty repository locally:
 $ git init --bare foo.git
 # and paste path instead of url
