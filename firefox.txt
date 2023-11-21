@@ -18,3 +18,5 @@ Location field behavior tweak, seems to only affect suggestions, not results:
 \e[22m#    to search for matches in page titles.
 $    to search for matches in web addresses (URLs).
 ?    to search for matches in suggestions.
+
+Buttons/links with accesskeys can be triggered with alt-shift-<key>
