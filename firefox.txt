@@ -22,3 +22,5 @@ $    to search for matches in web addresses (URLs).
 # Create a new profile if firefox KEEPS being a bitch with
 $ firefox -p
 # in linux at least. It'll bring up the profile manager.
+
+Buttons/links with accesskeys can be triggered with alt-shift-<key>

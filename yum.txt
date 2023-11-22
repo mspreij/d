@@ -21,5 +21,7 @@ yum search foo
 https://access.redhat.com/sites/default/files/attachments/rh_yum_cheatsheet_1214_jcs_print-1.pdf
 
 EPEL = Extra Packages for Enterprise Linux, a repository. Not part of Red Hat but maintained by Fedora repo, whatever that means.
-
+# if you need it just toss it in there with
+dnf install epel-release
+# I think this is a more specific one?
 dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm

@@ -9,11 +9,19 @@ dockerfile is a simple text file consisting of lines of an instruction followed 
 Usually the file builds on existing images (the FROM: instruction), which are based on yet other images etc, with some light-weight
 linux distro at the bottom.
 
-You can \e[1m$ docker build\e[0m a dockerfile to create a docker \e[38;5;201;1mimage\e[0m: a static binary thing that you can copy around, upload, download etc,
-kinda like the ISO of VMs.
+You can \e[1m$ docker build\e[0m a dockerfile to create a docker \e[38;5;201;1mimage\e[0m.
 
 When you run/start that image, you get a \e[38;5;201;1mcontainer\e[0m, a running "instance" of the image. Whatever happens in or to the container does
 not affect the image.
+
+# \e[1mHow does this work?\e[0m
+Images are really a stack of layers, or overlays. At the bottom there is the lightweight distro (like Alpine). On disk, this is a
+directory named after a hash, with all the files of that OS, except the kernel - the host OS provides the kernel. This is a \e[38;5;226mkey
+difference\e[0m between VMs (which do have their own kernel) and containers. Every layer above that has its own directory, and can add,
+update or delete files from the base image. Higher layers keep a reference to the underlying layer in a file 'lower'. Docker merges
+all these layers into a virtual filesystem.
+
+
 
 To access the containers you still need to map local ports to their listening ports (it's a virtual thing, container ports are
 virtual too). You can do this in the run command (and probably some config file or w/e).

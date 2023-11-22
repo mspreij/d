@@ -1,0 +1,5 @@
+nice                  # show current niceness (default 0?)
+nice command          # runs command with current niceness + 10, which is low priority
+nice -n $num command  # where $num = -20 .. 19, where lowest number (minus 20) = highest priority.
+
+renice -n $num <pid>  # set niceness of process pid to $num

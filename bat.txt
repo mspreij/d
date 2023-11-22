@@ -1,6 +1,7 @@
 # bat is a better cat. because of naming issues it's also known as batcat on some distros.
 # debian/ubuntu: apt install bat.
-# centos: grab a unknown-linux-musl binary from the releases page (below)
+# centos: dnf install bat
+# otherwise check https://github.com/sharkdp/bat#installation
 
 # site: https://github.com/sharkdp/bat
 # binaries: https://github.com/sharkdp/bat/releases

@@ -1,0 +1,2 @@
+So this is like docker except more RedHatter.
+

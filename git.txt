@@ -15,6 +15,7 @@
 # rename (remote) branch, assuming you have branchOldName checked out
   $ git branch -m \e[32mbranchNewName\e[0m
   $ git push origin :branchOldName; $ git push --delete \e[38;5;208mbranchOldName\e[0m
+  # this doesn't seem to work with github, just use the webinterface in that case..
   $ git branch --unset-upstream \e[32mbranchNewName\e[0m
   $ git push
 # first you rename the current local branch, then you delete the old remote one (the first form is a shortcut),
@@ -27,6 +28,10 @@ Create remote repo, copy the url
 $ git remote add origin <paste-url-here>
 $ git push
 # urls can be like https://... or git@github.com:username/foo.bar, the latter works better with ssh keys
+
+# undo last commit
+$ git revert HEAD
+# commit again, and if needed push
 
 # to create a new empty repository locally:
 $ git init --bare foo.git
@@ -46,3 +51,5 @@ $ git diff -U30 file
 # -U takes number of lines before and after the change. you can use \e[32m-U$(wc -l <file>)\e[0m as well which will
 #   show the whole file. Since wc also prints the filename after the number of lines, no need to specify that for git too.
 $ git diff -U$(wc -l file)
+
+https://jvns.ca/blog/2023/11/01/confusing-git-terminology/
