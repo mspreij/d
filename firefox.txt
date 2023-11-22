@@ -18,3 +18,7 @@ Location field behavior tweak, seems to only affect suggestions, not results:
 \e[22m#    to search for matches in page titles.
 $    to search for matches in web addresses (URLs).
 ?    to search for matches in suggestions.
+
+# Create a new profile if firefox KEEPS being a bitch with
+$ firefox -p
+# in linux at least. It'll bring up the profile manager.

@@ -1,6 +1,7 @@
 # basing this initial version on
 https://www.youtube.com/watch?v=gAkwW2tuIqE  Docker in 7 steps              11 minutes
 https://www.youtube.com/watch?v=3c-iBn73dDE  Docker tutorial for beginners  2:45 hours
+https://devopscycle.com/blog/the-ultimate-docker-cheat-sheet/
 
 ## Dockerfiles, images and containers ##
 A \e[38;5;201;1mdockerfile\e[0m is a description of/recipe for an environment + applications etc, you can \e[1mbuild\e[0m it to create a docker image. A
