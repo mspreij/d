@@ -10,7 +10,7 @@ $queue = msg_get_queue(ftok(__FILE__, 'a'), 0600); # set permissions so that onl
 
 $child_count = 50;
 
-// Fork 5 child processes
+// fork child processes
 for ($i = 0; $i < $child_count; $i++) {
     \e[36m# pcntl_fork() splits the script \e[1mat the point where it is called\e[0;36m. The two copies of the script know what they are
     \e[36m# based on the value of $pid: 0 for the child, positive int for the parent (it will be the child's PID) or -1 for failure.\e[0m
