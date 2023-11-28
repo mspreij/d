@@ -4,14 +4,16 @@
 -G foo: get all settings for host foo from the .ssh/config file (and a shitton more, | less for finding things)
 -t      "Force pseudo-terminal allocation". makes the remote host think you have a terminal, so screen-based programs
         (and cron-vs-interactive checks...) might work better.
+-o      BUNCH of options, check \e[38;5;208mman ssh_config\e[0m for the list. A useful one is
+\e[38;5;208m-o batchmode=yes\e[0m that makes it run non-interactively, and will not ask for input like password of confirm hostkey changes.
 
 # To give multiple commands to be run remotely over ssh, quote the lot, or escape the \; thing between them
-# Completely randomly, you can add newlines to files by doing \e[33mecho >> foo.txt\e[0m
+# Completely randomly, you can add newlines to files by doing \e[38;5;208mecho >> foo.txt\e[0m
 # Mind you, still have to quote the >> or the whole thing when ssh'ing the command.
 
 # SSH defines some escapes you can use while in session, they all start with a tilde '~', which is only
-# interpreted as special when following a newline. \e[33m~?\e[0m gets you a list, \e[33mman ssh\e[0m has longer explanations under
-# \e[33mESCAPE CHARACTERS\e[0m. Some useful ones:
+# interpreted as special when following a newline. \e[38;5;208m~?\e[0m gets you a list, \e[38;5;208mman ssh\e[0m has longer explanations under
+# \e[38;5;201mESCAPE CHARACTERS\e[0m. Some useful ones:
 ~.   # disconnect (presumably when some remote process hangs on you)
 ~&   # "Background ssh at logout when waiting for forwarded connection / X11 sessions to terminate."
 
