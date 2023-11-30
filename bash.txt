@@ -2,7 +2,7 @@ Scripting cheatsheet: https://devhints.io/bash
 
 ### looping through lines (from a textfile, say)
 # read splits a line into columns on whitespace.
-# read -a turns line into an array.
+# read \e[38;5;208m-a\e[0m turns line into an array. you can add \e[38;5;208m-r\e[0m to \e[1mnot\e[0m interpret backslashed characters differently (safer)
 while read -a line; do echo ${line[0]}${line[1]}; done < file.txt
     # alternatively..
 cat file.txt | while read -a line; do echo ${line[0]}${line[1]}; done

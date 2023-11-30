@@ -1,0 +1,6 @@
+/etc/resolv.conf symlinks /mnt/wsl/resolv.conf which is automatically generated, and will put a nameserver in there which does not nameserve afaict. maybe it needs things in the firewall to not be blocked, I dunno. put 8.8.8.8 and turn of autogeneration by putting
+
+[network]
+generateResolvConf = false
+
+in /etc/wsl.conf. Or something. I dunno. It seems to just revert somehow sometimes.

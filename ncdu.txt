@@ -2,6 +2,8 @@ New Curses Disk Usage
 Call it with \e[38;5;208m-e\e[0m to make modified-timestamps available; \e[34;1mm\e[0m then toggles them, and you can sort on it by \e[34;1mM\e[0m.
 And it's hella faster than ls afaics..
 
+-x   only scan the given (current?) filesystem/partition
+
 Use \e[34;1mb\e[0m to open the current directory in a new shell (simply exit the shell to return to ncdu).
 
 Poor man's ncdu (in docker containers, say), which only shows directory sizes:

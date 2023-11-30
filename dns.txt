@@ -1,0 +1,10 @@
+Flush on windows:
+C:/> ipconfig /flushdns
+
+WSL2, one of these, maybe? otherwise just restart the thing I guess.. google this some more
+
+sudo systemd-resolve --flush-caches
+
+sudo /etc/init.d/nscd restart
+
+sudo systemctl restart nscd
