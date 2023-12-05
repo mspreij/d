@@ -4,7 +4,27 @@ C:/> ipconfig /flushdns
 WSL2, one of these, maybe? otherwise just restart the thing I guess.. google this some more
 
 sudo systemd-resolve --flush-caches
-
 sudo /etc/init.d/nscd restart
-
 sudo systemctl restart nscd
+
+== named etc ==
+
+DNS servers have a \e[38;5;226mnamed.root\e[0m or \e[38;5;226mroot.hints\e[0m file, which contains the list of IP addresses (v4 and v6) of the root servers.
+These very occasionally change, so this file must be kept uptodate. It's usually located in \e[38;5;226m/etc/named\e[0m or \e[38;5;226m/var/named\e[0m,
+and should be specified in the bind config file, which (of course) can also sit in various places like \e[38;5;226m/etc/named.conf\e[0m or
+\e[38;5;226m/etc/named/named.conf\e[0m, look for
+
+\e[32mzone "." IN {
+        type hint;
+        \e[38;5;46mfile "named.ca";\e[32m
+}\e[0m
+
+which is probably relative to the \e[32mdirectory\e[0m entry under \e[32moptions\e[0m elsewhere in the file.
+
+On CentOS/WebMin this file is \e[38;5;226m/var/named/named.ca\e[0m.
+
+After making a backup of this file and noting the permissions and ownership, you can download a fresh version from
+  \e[36mhttps://www.internic.net/domain/named.root\e[0m
+or, in a pinch, use dig to generate the contents with:
+  \e[38;5;208m$ dig +bufsize=1200 +norec NS . @a.root-servers.net > /var/named/named.ca\e[0m
+Then restart the lot with \e[38;5;208msystemctl restart named\e[0m
