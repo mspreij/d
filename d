@@ -49,8 +49,18 @@ d ()
         shift
     fi
     # Display mode
-    if [[ -f $dir/$1.txt ]]; then
-        local doc=$(cat $dir/$1.txt);
+    local file;
+    if [[ -f "$dir"/"$1".txt ]]; then                                    # exact match
+        file="$dir"/"$1".txt
+    elif [[ $(ls "$dir"/"$1"*.txt 2>/dev/null | wc -l) -eq 1 ]]; then    # starts with
+        file=$(ls "$dir"/"$1"*.txt)
+        echo -e "\e[31;1m${file##*/}\e[0m"
+    elif [[ $(ls "$dir"/*"$1"*.txt 2>/dev/null | wc -l) -eq 1 ]]; then   # contains
+        file=$(ls "$dir"/*"$1"*.txt)
+        echo -e "\e[31;1m${file##*/}\e[0m"
+    fi
+    if [[ -f "$file" ]]; then
+        local doc=$(cat "$file");
         local esc=$(printf '\033');
         # sed 1: only within comments, a reset-color code is replaced by a color code using the $comment color (and resets
         #        style and background)
