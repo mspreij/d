@@ -11,6 +11,10 @@ $ find . -mtime -1 -ls
 $ find . -mtime -1 -exec ls -la \;
 # the \e[38;5;208m\;\e[0m is a retarded -exec thing, think of it as an actual argument that must be escaped because bash, and needs
 #   to be separated from the previous element with a space. SERIOUSLY, you used ";" as a REQUIRED ARGUMENT??
+# Somewhere around here you might notice some idiot thought it'd be a good idea to pepper filenames with spaces for no good
+#   reason what-so-fucking-ever, and your \e[38;5;208m-exec ls\e[0m breaks on it. Break out \e[38;5;208mxargs\e[0m telling both \e[1mfind\e[0m and \e[1mxargs\e[0m to use a \e[38;5;201mnull\e[0m
+#   \e[38;5;201mdelimiter\e[0m for newlines:
+$ find . -mtime -1 \e[32;1m-print0\e[0m | xargs \e[32;1m-0\e[0m ls -la
 
 # find files owned by specific user or group
 $ find . -user joe -group developers
