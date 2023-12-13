@@ -35,6 +35,9 @@ Random ideas:
  - if the shown command is a symlink to another command, prepend a message stating that
  * bash_completion is a good start, but for incomplete input..
    √ if there is a single match, d can load that. It shows the filename in red.
+   > this needs tweaking: the red filename should end up in the same data that goes to `less`, and ls should be command ls
+     because sometimes shit ends up executable/symlink and the filename gains a '*' with some .bashrcs (or something), which
+     then breaks the file-exists check
    - for multiple matches, probably just yell at the user?
    ?? for multiple matches, prepend a message but show the first one (or all, if that is even possible?).
    ? for bonus points prepend a different message if only a substring match was found ('zip' for gzip)
