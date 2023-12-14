@@ -1,5 +1,5 @@
-d () 
-{ 
+d ()
+{
     local dir=${D_DOCS:-~/.my_stuff/docs};
     local comment=36;
     if [[ -r $dir/d.conf ]]; then
@@ -50,17 +50,19 @@ d ()
     fi
     # Display mode
     local file;
+    local partial;
     if [[ -f "$dir"/"$1".txt ]]; then                                    # exact match
         file="$dir"/"$1".txt
-    elif [[ $(ls "$dir"/"$1"*.txt 2>/dev/null | wc -l) -eq 1 ]]; then    # starts with
-        file=$(ls "$dir"/"$1"*.txt)
-        echo -e "\e[31;1m${file##*/}\e[0m"
-    elif [[ $(ls "$dir"/*"$1"*.txt 2>/dev/null | wc -l) -eq 1 ]]; then   # contains
-        file=$(ls "$dir"/*"$1"*.txt)
-        echo -e "\e[31;1m${file##*/}\e[0m"
+    elif [[ $(command ls "$dir"/"$1"*.txt 2>/dev/null | wc -l) -eq 1 ]]; then    # starts with
+        file=$(command ls "$dir"/"$1"*.txt)
+        partial=1
+    elif [[ $(command ls "$dir"/*"$1"*.txt 2>/dev/null | wc -l) -eq 1 ]]; then   # contains
+        file=$(command ls "$dir"/*"$1"*.txt)
+        partial=1
     fi
     if [[ -f "$file" ]]; then
         local doc=$(cat "$file");
+        if [[ $partial == 1 ]]; then doc="===> $(basename ${file%.*})\n$doc"; fi
         local esc=$(printf '\033');
         # sed 1: only within comments, a reset-color code is replaced by a color code using the $comment color (and resets
         #        style and background)
