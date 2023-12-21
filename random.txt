@@ -16,3 +16,8 @@ tac somefile.txt
 
 # change the last modified date on a file with touch -t [YY]YYMMDDhhmm[.ss]
 touch -t 202308121520.12 somefile.txt
+
+# date from a specific timestamp, -d or --date:
+$ date -d @1703028415
+  Wed Dec 20 00:26:55 CET 2023
+# with '+<format>' you can probably wrangle that to something useful, even
