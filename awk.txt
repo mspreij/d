@@ -1,0 +1,25 @@
+Ok this is SUPER short because I don't actually know awk.
+basic syntax is
+
+\e[32mawk 'pattern { action }' file\e[0m
+
+awk operates on each line of the file. $0 is the whole line, $1, $2 etc are columns/words where the line is split on any amount of
+whitespace.
+If pattern yields true, action will run.
+Default action is print, default argument of print is $0.
+Multiple actions are separated by ';'
+So these are all basically the same:
+
+\e[32mawk '{if (length($0) > 50 ) print $0}' file
+awk '{if (length($0) > 50 ) print }' file
+awk 'length($0) > 50 { print }' file
+awk 'length($0) > 50' file\e[0m
+
+and will print all lines of file longer than 50 characters.
+
+Find out the longest 10 filenames in a directory:
+
+\e[32mls somedir | awk '{print length($0), $0}' | sort -nr | head\e[0m
+optionally add \e[32m| cut -d\  -f2-\e[0m to only print the filenames, or even \e[32m| awk '{print $2}'\e[0m if they don't contain spaces.
+printf is similar to print where the first argument can be a format string like \e[32mprintf 'foo: %s', 123\e[0m, it also does not add
+  a linebreak by default like print does (use "\\n")

@@ -1,2 +1,3 @@
 So this is like docker except more RedHatter.
-
+if your setup is cursed and you're using systemd to manage your containers, "podman run <thing>" might work less well
+  then \e[32msystemctl --user restart whateverthehellitwas.service\e[0m. I dunno.
