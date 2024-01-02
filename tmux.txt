@@ -9,12 +9,14 @@
 \e[38;5;208mprefix\e[0m {
 \e[38;5;208mprefix\e[0m }
 
-# new window
-\e[38;5;208mprefix\e[0m c
-# next window
-\e[38;5;208mprefix\e[0m n
-# break current pane out into new window
-\e[38;5;208mprefix\e[0m !
+### WINDOWS
+\e[38;5;208mprefix\e[0m c   \e[36m# new window\e[0m
+\e[38;5;208mprefix\e[0m n   \e[36m# next window\e[0m
+\e[38;5;208mprefix\e[0m p   \e[36m# previous window\e[0m
+\e[38;5;208mprefix\e[0m l   \e[36m# last window\e[0m
+\e[38;5;208mprefix\e[0m !   \e[36m# break current pane out into new window\e[0m
+\e[38;5;208mprefix\e[0m w   \e[36m# show windows and panes in a navigable tree \o/\e[0m
+
 # move current pane into other window where \e[38;5;200mn\e[0m = window number (see bottom bar)
 # the ':' opens the command prompt where you type out the rest.
 \e[38;5;208mprefix\e[0m :join-pane -t [session]:\e[38;5;200mn\e[0m

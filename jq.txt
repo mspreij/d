@@ -5,3 +5,5 @@
 # or even
   $ jq empty file.json 2>/dev/null; echo $?
 # if 0, valid file, otherwise probably 4 and syntax error
+
+# interactive viewer: https://github.com/antonmedv/fx
