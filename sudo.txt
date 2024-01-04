@@ -3,3 +3,9 @@ $ sudo visudo
 # add at end:
 %sudo ALL=NOPASSWD: /usr/sbin/service cron start
 # or /etc/init.d/cron or something
+
+# add user to sudoers
+# normal OS
+$ [sudo] adduser <user> sudo
+# CentOS
+$ usermod -aG wheel nemo
