@@ -8,4 +8,4 @@ $ sudo visudo
 # normal OS
 $ [sudo] adduser <user> sudo
 # CentOS
-$ usermod -aG wheel nemo
+$ usermod -aG wheel <user>
