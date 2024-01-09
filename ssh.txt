@@ -42,3 +42,11 @@ $ ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub
 \e[38;5;201m--- SSHD ---\e[0m
 # Check /etc/ssh/sshd_config syntax before restarting the service:
 $ sshd -t
+
+# You can add match blocks to /etc/ssh/sshd_config to define specific source IPs or authentication methods for users,
+#   but they're finicky in that if the global settings allow them, the match blocks are ignored.
+# To allow a specific user only from specific IP addresses, just edit its \e[38;5;226m.ssh/authorized_keys\e[0m file:
+
+from="192.168.0.*" ssh-rsa AAAAB3NzaC1yc2E...
+
+# it should allow multiple comma-separated addresses and wildcards
