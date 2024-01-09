@@ -1,0 +1,13 @@
+# Linux users, that is
+
+# add user: adduser is the perl script that was created because useradd wasn't .. userfriendly.
+$ [sudo] adduser <username>
+
+# add 'm to sudo, normal linux:
+$ [sudo] adduser <username> sudo
+# centos
+$ [sudo] usermod -aG wheel <username>
+# see also \e[38;5;208msudo\e[0m
+
+# remove (including homedir & mail spool)
+$ userdel -r <username>

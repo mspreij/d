@@ -1,13 +1,17 @@
 ls
-
--- Basic ls usage to go here... --
-
+-l  # list/long format
+-a  # include dot-files
+-A  # include dot-files but not the current and parent directory
+-h  # human-readable filesizes
+-S  # order by size (-s shows "allocated size in blocks")
+-t  # order by time
+-r  # reverse order
+-i  # show inode number
 
 # get time with seconds and sub-seconds if the OS/FS supports it
 $ ls --full-time
 # which is shorthand for
 $ ls -l --time-style=full-iso
-
 
 From https://stackoverflow.com/a/24812068/126584
  In the list format, the first character, before the permissions, indicates the type of 'file':
@@ -26,3 +30,25 @@ From https://stackoverflow.com/a/24812068/126584
 
 # If there's a \e[38;5;201m+\e[0m sign trailing the permissions, that file/directory has extended permissions called ACLs for Access
 # Control List. use \e[38;5;208mgetfacl <file>\e[0m or \e[38;5;208mls -le [file]\e[0m to view them, depending on OS.
+
+See also: \e[38;5;208mstat\e[0m
+
+==
+
+# show last 10 (or given number of) modified files
+# not bugfree wrt dotfiles and/or piping, not sure
+lt () 
+{ 
+    local lines=10;
+    local rf='^[0-9]+$';
+    if [[ "$1" =~ $rf ]]; then
+        lines=$1;
+        shift;
+    fi;
+    if [[ -t 1 ]]; then
+        command ls --color=always -lAt "$@" | head -n$((lines+1)) | tail -n$lines;
+    else
+        command ls -At "$@" | head -n$lines;
+    fi
+}
+
