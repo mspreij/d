@@ -6,6 +6,7 @@
         (and cron-vs-interactive checks...) might work better.
 -o      BUNCH of options, check \e[38;5;208mman ssh_config\e[0m for the list. A useful one is
 \e[38;5;208m-o batchmode=yes\e[0m that makes it run non-interactively, and will not ask for input like password of confirm hostkey changes.
+-vvv    1 to 3 v's for debugging non-cooperative connections
 
 # To give multiple commands to be run remotely over ssh, quote the lot, or escape the \; thing between them
 # Completely randomly, you can add newlines to files by doing \e[38;5;208mecho >> foo.txt\e[0m

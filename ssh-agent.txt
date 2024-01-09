@@ -14,3 +14,6 @@
   $ ssh-add -d [path_to_..public_key file? not sure]
 # delete all entries
   $ ssh-add -D 
+
+# forward your key to the host so you can use it as a jump thing
+  $ ssh -A <user@host>
