@@ -9,3 +9,8 @@ $ sudo visudo
 $ [sudo] adduser <user> sudo
 # CentOS
 $ usermod -aG wheel <user>
+
+# let users do sudo things without a password
+$ sudo visudo
+# add:
+<username> ALL=(ALL)  NOPASSWD: ALL
