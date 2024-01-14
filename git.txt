@@ -24,7 +24,9 @@
 # branch to the new name.
 
 # git add remote [github] repo for existing project
-Create remote repo, copy the url
+# Create remote repo, copy the url. if you don't do this on github, use:
+$ git init --bare somedir.git
+# and the path can be used, maybe after a ssh 'host:'
 $ git remote add origin <paste-url-here>
 $ git push
 # urls can be like https://... or git@github.com:username/foo.bar, the latter works better with ssh keys
