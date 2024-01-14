@@ -1,6 +1,6 @@
 d ()
 {
-    local dir=${D_DOCS:-~/.my_stuff/docs};
+    local dir=${D_DOCS:-~/.local/share/d_docs};
     local comment=36;
     if [[ -r $dir/d.conf ]]; then
         . $dir/d.conf;

@@ -6,6 +6,7 @@ To allow importing passwords from the logins.csv that is created by exporting pa
   signon.management.page.fileImport.enabled (create if needed)
 
 about:about # who could have seen that coming
+about:profiles is useful for finding out what you need to backup? probably..
 
 The "add custom search engine" <https://addons.mozilla.org/en-US/firefox/addon/add-custom-search-engine/> which is pretty awesome works
   as of now, but you have to set the default search engine using the SELECT and not the list where you can drag to order them, kthxbai.

@@ -1,7 +1,7 @@
 function _d
 {
     local cur prev opts dir
-    local dir=${D_DOCS:-~/.my_stuff/docs};
+    local dir=${D_DOCS:-~/.local/share/d_docs};
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
