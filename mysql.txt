@@ -76,11 +76,15 @@ select table_name, engine from information_schema.tables where table_schema='\e[
 $ mysqldump --default-character-set=utf8 -u\e[32m<user>\e[0m -p\e[32m<pass?>\e[0m \e[32m<database>\e[0m | gzip -c | ssh \e[32m<host>\e[0m 'gunzip | mysql --default-character-set=utf8 -u\e[32m<remote_user>\e[0m -p\e[32m<remote_password>\e[0m \e[32m<remote_database>\e[0m'
 # basically dump the local database into gzip, pass that on to ssh which pours it in the quoted command pipeline it's given
 
-# \e[33mdrop a remote database into a local file
+# \e[33mDrop a remote database into a local file
 $ ssh \e[32m<host>\e[0m 'mysqldump -u\e[32m<user>\e[0m -p\e[32m<pass>\e[0m --default-character-set=utf8 \e[32m<database>\e[0m | gzip -c' > db_dump.sql.gz
-# \e[33mdrop the local file into a remote server
+# \e[33mDrop the local file into a remote server
 $ cat db_dump.sql.gz | ssh \e[32m<host>\e[0m 'gunzip | mysql --default-character-set=utf8 -u\e[32m<user>\e[0m -p\e[32m<pass>\e[0m \e[32m<database>\e[0m'
 # maybe run 'history -c' after stuffing the commandlines with passwords.
 
-# \e[33mgrab a database from one remote mysql server and put it in another remote mysql server (because we can!)
+# \e[33mGrab a database from one remote mysql server and put it in another remote mysql server (because we can!)
 ssh \e[32m<source_host>\e[0m 'mysqldump -u\e[32m<user>\e[0m -p\e[32m<pass>\e[0m \e[32m<database>\e[0m | gzip -c ' | ssh \e[32m<target_host>\e[0m 'gunzip | mysql -u\e[32m<user>\e[0m -p\e[32m<pass>\e[0m \e[32m<database>\e[0m'
+
+# \e[33mExtract a table structure and its data from a Default MySQL data dump:
+$ sed -n -e '/-- Table structure for table `\e[32;1mmy_table\e[0m`/,/-- Table structure for/p' \e[32;1mdatabase.sql\e[0m > \e[32;1mmy_table.sql\e[0m
+# \e[32;1m-n\e[0m suppress default output \e[32;1m-e\e[0m add expression, then start/end regexes. \e[32;1mp\e[0m for print matching lines.
