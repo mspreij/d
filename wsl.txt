@@ -4,3 +4,7 @@
 generateResolvConf = false
 
 in /etc/wsl.conf. Or something. I dunno. It seems to just revert somehow sometimes.
+
+---
+
+In other news, if you block incoming connections in Windows (Settings -> privacy & security -> windows security -> firewall and network protection -> whichever one shows 'active'), WSL cannot connect to, say, MariaDB running on Docker Desktop. Yes, it makes sense if you think about it, but I'm starting to fucking hate this hybrid unholiness.
