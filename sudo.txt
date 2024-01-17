@@ -12,5 +12,7 @@ $ usermod -aG wheel <user>
 
 # let users do sudo things without a password
 $ sudo visudo
-# add:
+# if it launches vi, reboot and export EDITOR=/bin/nano somewhere
+# add this AT THE END OF THE FILE:
 <username> ALL=(ALL)  NOPASSWD: ALL
+# because "When multiple entries match for a user, they are applied in order." and there's some group setting that comes near the end of the file.
