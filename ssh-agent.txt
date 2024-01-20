@@ -1,6 +1,6 @@
 ### ssh-agent ###
 # this agent runs in the background and hangs on to your keys for you. other ssh utilities connect to it
-# through it's socket ($SSH_AUTH_SOCK). If you start it in a remote session and then disconnect, it'll keep
+# through its socket ($SSH_AUTH_SOCK). If you start it in a remote session and then disconnect, it'll keep
 # running, and next time you connect the environment variables like SSH_AUTH_SOCK and SSH_AGENT_PID will no
 # longer be set, so \e[38;5;208mssh-add -l\e[0m will not immediately work, but you can re-connect to it by setting
 # these. You can get the pid from \e[38;5;208mps aux | grep ssh-agent\e[0m, and the socket will be somewhere
