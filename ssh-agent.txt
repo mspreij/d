@@ -1,19 +1,62 @@
 ### ssh-agent ###
-# start it, while setting some environment variables that other processes can use
+# this agent runs in the background and hangs on to your keys for you. other ssh utilities connect to it
+# through it's socket ($SSH_AUTH_SOCK). If you start it in a remote session and then disconnect, it'll keep
+# running, and next time you connect the environment variables like SSH_AUTH_SOCK and SSH_AGENT_PID will no
+# longer be set, so \e[38;5;208mssh-add -l\e[0m will not immediately work, but you can re-connect to it by setting
+# these. You can get the pid from \e[38;5;208mps aux | grep ssh-agent\e[0m, and the socket will be somewhere
+# in \e[38;5;226m/tmp/ssh-XXXXXXXXXX/agent.1234\e[0m where that last 1234 will be its parent PID (PPID).
+# It's easier to script this of course:
+
+# =======================================================
+# this script should be SOURCED in the shell, not run!
+# it attempts to get a running ssh-agent with valid env vars so sshcrypt works.
+
+vars=$HOME/.ssh/vars
+
+# == start ==
+if ssh-add -l >/dev/null 2>&1; then
+  return; # something already works
+fi;
+# it worksn't. do we have a vars file? create one if not.
+if [[ ! -f $vars ]]; then
+    ssh-agent > $vars;
+fi;
+# now parse the file (new or not) and try to add keys to the agent
+. $vars >/dev/null
+ssh-add >/dev/null 2>&1
+# did that work?
+if ssh-add -l >/dev/null 2>&1; then
+  return; # all is well
+fi
+# it not work, maybe that file was too old
+ssh-agent > $vars
+. $vars >/dev/null
+ssh-add > /dev/null 2>&1; # much deja vu
+if ! ssh-add -l; then
+  echo >&2 -e '\e[31;1mERROR: ssh-agent key-adding failed, good luck debugging!\e[0m'
+  return 1
+fi
+# =======================================================
+
+# regular starting \e[38;5;208mssh-agent\e[0m will output some env variables that need setting, which is why
+# it's often started like this:
   $ eval `ssh-agent`
+# it can't do it by itself since running an app starts a subshell, which can't easily affect the parent shell.
 
-
-### ssh-add ###
+# Now add keys to it with ssh-add
 # add default entries (~/.ssh/id_rsa, ~/.ssh/id_dsa etc)
   $ ssh-add
 # or a specific entry
   $ ssh-add <path_to_key>
 # list entries
   $ ssh-add -l
+# to be SURE the shown keys match your .ssh files, compare fingerprints with \e[38;5;208mssh-keygen -lf ~/.ssh/id_rsa.pub\e[0m
+
 # delete specific entry, or the default added entries
   $ ssh-add -d [path_to_..public_key file? not sure]
 # delete all entries
   $ ssh-add -D 
 
-# forward your key to the host so you can use it as a jump thing
+# forward the agent to the host so you your local keys are available there, too
   $ ssh -A <user@host>
+# note that keys added to this agent on the host will be available on your local box too!
