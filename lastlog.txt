@@ -8,5 +8,7 @@ $ lastlog [-u <username>]
 # see all logins for the last month or so [or the last 10] [for user]
 # the -w is for showing full username & host (why isn't this default..)
 $ last -w [-10/-n 10] [<user>]
+# show reboots
+$ last reboot
 
 # man last returns more fascinating stuff which I can't see working atm.
