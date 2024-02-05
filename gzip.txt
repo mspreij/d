@@ -1,5 +1,5 @@
 # gzip only operates on SINGLE FILES.
-# use `tar z` for directories with \e[33;1mc\e[0mreate or e\e[33;1mx\e[0mtract
+# use `tar z` for directories with \e[38;5;201mc\e[0mreate or e\e[38;5;201mx\e[0mtract
 
 -d  decompress                 # aka `gunzip`
 -c  redirect output to STDOUT
@@ -7,9 +7,12 @@
 -l  show uncompressed filesize and compression ratio. \e[31;1mNB:\e[33;22m this fails for input files over 4 GB, since the
     original filesize is stored in 4 bytes. Higher filesizes are stored as filesize modulo 2^32, and can
     hence show negative compression ratios.\e[0m
+# default behaviour is to replace the old file with the [de]compressed version. To keep the input file,
+# recent version of gzip:
+-k  --keep, [de]compress to a new file
+# older versions of gzip output to stdout (-c) and redirect to a file
+gzip -c file > file.gz
 
 zcat == gzip -dc == gunzip -c == decompress to STDOUT
 if you want to zcat | less, \e[38;5;202mzless\e[0m is also a thing
 
-# default behaviour is to work on the same file; to keep the original file, output and redirect the result "manually"
-gzip -c file > file.gz
