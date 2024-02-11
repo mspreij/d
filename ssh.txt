@@ -4,8 +4,13 @@
 -G foo: get all settings for host foo from the .ssh/config file (and a shitton more, | less for finding things)
 -t      "Force pseudo-terminal allocation". makes the remote host think you have a terminal, so screen-based programs
         (and cron-vs-interactive checks...) might work better.
--o      BUNCH of options, check \e[38;5;208mman ssh_config\e[0m for the list. A useful one is
+-o      BUNCH of options, check \e[38;5;208mman ssh_config\e[0m for the list. Useful ones:
 \e[38;5;208m-o batchmode=yes\e[0m that makes it run non-interactively, and will not ask for input like password of confirm hostkey changes.
+\e[38;5;208m-o SendEnv=<VarName>\e[0m  send/copy/export the local env variable to the remote's Env. This can be useful to conditionally run
+        some remote ~/.bashrc things based on the origin of the session.
+        \e[38;5;201mNB:\e[0m the variable name needs to be specifically allowed in the remote's \e[38;5;226m/etc/ssh/sshd_config\e[0m using
+        \e[38;5;208mAcceptEnv <VarName>\e[0m (multiple delimited by space). \e[4;1mMake sure\e[0m this config line sits above any match blocks!
+\e[38;5;208m-o SetEnv=<VarName>=<value>\e[0m  like the above except you can set a new/different one, since \e[38;5;208mOpenSSH 7.8\e[0m
 -vvv    1 to 3 v's for debugging non-cooperative connections
 
 # To give multiple commands to be run remotely over ssh, quote the lot, or escape the \; thing between them
