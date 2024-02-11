@@ -1,0 +1,10 @@
+# a very incomplete list because I've been looking for this file and it never exists, so now it does.
+Ctrl-R       : list and navigate symbols in the file
+Ctrl-shift-P : do anything whatsoever?
+Ctrl-P       : go through ALL THE FILES
+Ctrl-Shift-Alt-P: show scope of symbol, useful for setting syntax hilighting colors
+Ctrl-Shift-K : Delete line
+Ctrl-D       : Duplicate line
+
+Ctrl-K, Ctrl-B (or like, Ctrl-KB): toggle sidebar
+Ctrl-0 (zero): focus sidebar
