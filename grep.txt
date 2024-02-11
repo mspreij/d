@@ -4,7 +4,8 @@
 -i   case-insensitive
 -v   negate matches (invert result)
 -e   use for each pattern if you have more than one to match or negate (it ORs)
--E   extended regex
+-E   extended regex.
+-P   Perl compatible regex
 -s   surpress that warning about directories (and other unreadable files)
 
 --include \*.php  # only search these files. either escape the * or quote the string
