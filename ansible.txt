@@ -1,5 +1,5 @@
-THE THINGS. NOTE THEM DOWN.
 # disable the fucking cow:
 make a file ansible.cfg with
   [defaults]
   nocows = True
+

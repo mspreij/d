@@ -47,6 +47,11 @@ select table_name, engine from information_schema.tables where table_schema='\e[
 
 \e[38;5;201m# === CLI ===\e[0m
 
+# export/import
+mysqldump <creds/host> dbname > dbname.sql
+mysqldump <creds/host> dbname tablename > table.sql
+mysql dbname < dbname.sql # etc
+
 # general query result display (running queries straight from the bash prompt with -e):
 -s  # no grid-lines for query output
 -N  # no headers/column names for query output
@@ -55,7 +60,7 @@ select table_name, engine from information_schema.tables where table_schema='\e[
 #     easier to parse
 
 ## In the client
-# ctrl-W doesn't work, ctrl-H does and deletes the last word. fiik.
+# ctrl-W doesn't work, ctrl-H does and deletes the last word. fiik. Ctrl-cursor keys might jump by word? Sometimes?
 # MySQL has a few flags/toggles that you can run interactively, '\h' will bring up a list.
 #   useful ones are \s for status, \! for system commands and \\e for editing large multiline queries in a real editor
 
