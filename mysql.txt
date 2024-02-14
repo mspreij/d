@@ -60,7 +60,7 @@ mysql dbname < dbname.sql # etc
 #     easier to parse
 
 ## In the client
-# ctrl-W doesn't work, ctrl-H does and deletes the last word. fiik. Ctrl-cursor keys might jump by word? Sometimes?
+# ctrl-W doesn't work, ctrl-H or ctrl-backspace does and deletes the last word/space. fiik. Ctrl-cursor keys might jump by word?
 # MySQL has a few flags/toggles that you can run interactively, '\h' will bring up a list.
 #   useful ones are \s for status, \! for system commands and \\e for editing large multiline queries in a real editor
 
