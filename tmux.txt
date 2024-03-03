@@ -45,6 +45,9 @@ Ctrl-s [type string] <enter>
 \e[38;5;208mprefix\e[0m >   # acts on pane
 \e[38;5;208mprefix\e[0m <   # acts on window
 
+# enable mouse
+set -g mouse on
+
 # My default config ==========
 # remap prefix from 'C-b' to 'C-a' or, like, `
 unbind C-b
@@ -63,4 +66,8 @@ bind -n M-Left select-pane -L
 bind -n M-Right select-pane -R
 bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
-# =============================
+
+# chatgpt says to use these for truecolor and you know what it works I'm keeping it
+set -g default-terminal "tmux-256color"
+set -ga terminal-overrides ",xterm-256color:Tc"
+# ============================
