@@ -7,10 +7,10 @@
 # \e[38;5;226m/tmp/ssh-XXXXXXXXXX/agent.1234\e[0m where that last 1234 will be its parent PID (PPID).
 # It's easier to script this of course:
 
+
 # =======================================================
 # this script should be SOURCED in the shell, not run!
 # it attempts to get a running ssh-agent with valid env vars so sshcrypt works.
-
 vars=$HOME/.ssh/vars
 
 # == start ==
@@ -23,6 +23,11 @@ if [[ ! -f $vars ]]; then
 fi;
 # now parse the file (new or not) and try to add keys to the agent
 . $vars >/dev/null
+# this might already be enough, let's check
+if ssh-add -l >/dev/null 2>&1; then
+  return; # it now works
+fi;
+# hmmmmmmnope, add keys
 ssh-add >/dev/null 2>&1
 # did that work?
 if ssh-add -l >/dev/null 2>&1; then
@@ -37,6 +42,7 @@ if ! ssh-add -l; then
   return 1
 fi
 # =======================================================
+
 
 # regular starting \e[38;5;208mssh-agent\e[0m will output some env variables that need setting, which is why
 # it's often started like this:
