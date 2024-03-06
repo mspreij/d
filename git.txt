@@ -11,6 +11,10 @@
   $ git push -d origin <branchname>
   $ git branch -d <branchname>
 # '-D' or '-d --force' will also delete unmerged branches
+# if this fails to work with a 
+error: unable to delete '<foo>': remote ref does not exist
+error: failed to push some refs to '<remote addr>'
+# maybe do a \e[38;5;208mgit fetch --prune\e[0m
 
 # rename (remote) branch, assuming you have branchOldName checked out
   $ git branch -m \e[32mbranchNewName\e[0m
