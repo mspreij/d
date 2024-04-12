@@ -1,0 +1,3 @@
+# fix sound by nuking preferences. It apparently opens VLC again, try again if it doesn't work the first time?
+
+$ vlc --reset-config --reset-plugins-cache
