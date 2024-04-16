@@ -1,2 +1,9 @@
 # if su drops you in sh, pass the shell:
 $ su -s /bin/bash someuser
+
+# Switching to a user with \e[38;5;208msu -\e[0m from another user session does not initiate a full login session in the same
+# way that logging in directly via SSH or at a physical terminal does. This difference is crucial because
+# \e[38;5;226m/run/user/<uid>\e[0m directories are created and managed by systemd-logind or equivalent session managers, and
+# are tied to login sessions. These directories are intended to store user-specific runtime data and are
+# automatically created when a user logs in and removed when the user logs out.
+# And for some applications, that directory is needed, and they will not run properly when you only \e[38;5;208msu -\e[0m'd in.

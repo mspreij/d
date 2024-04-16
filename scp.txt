@@ -1,5 +1,11 @@
 # yes, you \e[1mcan\e[0m copy remote to remote using scp, but scp tries to do it "smart", that is, copy from server1 directly to server2.
-# server1 might not be able to access server2 directly, or have the right credentials. to route traffic through the issuing local PC, use the -3:
+# server1 might not be able to access server2 directly, or have the right credentials.
+# To route traffic through the issuing local PC, use \e[38;5;208m-3\e[0m
 $ scp \e[1;32m-3\e[0m user@server1:/path user@server2:/path
 
-# "user@" is optional if you have a decent ~/.ssh/config
+# of course "user@" is optional if you have a decent ~/.ssh/config
+
+# for a simple, single file you can also simply do
+$ cat file.txt | ssh <server> 'cat > file.txt'
+
+# for a directory, see \e[38;5;208mtar\e[0m

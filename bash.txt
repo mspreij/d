@@ -15,6 +15,11 @@ while read foo bar _; do things with ${foo} and to ${bar}; done < file.txt # onl
 #     and gobbling up all the other lines. In this case, redirect its STDIN to dev null:
 while read foo bar _; do hungryscript.sh -flags $foo $bar \e[32;1m< /dev/null\e[0m; done < file.txt
 
+## Variation: reading from a process
+while read foo _; do stuff.sh; done \e[32;1m<\e[0m \e[35;1m<(\e[0mgrep acc file.txt\e[35;1m)\e[0m
+\e[35;1m<(..)\e[0m creates a pseudofile to read from
+\e[32;1m<\e[0m is still needed to redirect the output from the pseudofile to the input of the script.
+
 ### Is my script being piped?
 -t fd # True if file descriptor fd is open and refers to a terminal.
 # fd can be one of the usual file descriptor assignments: 0 stdin, 1 stdout, 2 stderr
