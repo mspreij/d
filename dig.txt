@@ -5,6 +5,9 @@ $ dig foo.bar
 
 # so, use specific nameserver for things you've hardwired
 $ dig @8.8.8.8 foo.bar
+# Note that even this address has multiple servers/caches and can return different values for the same domain on
+# subsequent queries.
+
 # if the status at the top says NXDOMAIN, it means it couldn't find an IP address for it.
 
 TTL = 0?
@@ -12,8 +15,11 @@ TTL = 0?
 # this means the DNS server was not able to "recurse" to other DNS servers, and only had this IP address in its cache
 # run it again with @8.8.8.8 for example
 
+# It might also return an AUTHORITY SECTION instead of an ANSWER SECTION which contains the dns server you should ask
+# instead. Sometimes nested subdomains are handled by a different DNS server.
+
 # get ALL THE INFO
 $ dig foo.bar ANY
 
-# get only the ip address (or, like, emptiness for not found)
+# get only the ip address (or, like, emptiness for not found). It will also return a CNAME if there is one.
 $ dig +short foo.bar
