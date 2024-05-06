@@ -1,3 +1,6 @@
+ini_set('display_errors', '1');
+error_reporting(-1); // report everything, forever
+
 # echo CLI errors to STDERR
 fwrite(STDERR, "E: invalid input!");
 # for PHP's own errors (not tested):
