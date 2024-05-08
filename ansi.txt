@@ -1,0 +1,4 @@
+Some random sequences that can be used in scripts
+\\e[2J clear the screen
+\\e[H  move the cursor to top-left
+...

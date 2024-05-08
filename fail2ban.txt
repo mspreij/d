@@ -19,3 +19,15 @@ $ man jail.conf
 
 # get some stats on a specific jail
 $ fail2ban-client status <jail>
+
+# random script that checks today's logs
+
+#!/usr/bin/env bash
+if [[ -f /var/log/fail2ban.log ]]; then
+  fail2bans=$(cat /var/log/fail2ban.log | grep $(date +%F) | grep -e Ban -e Unban)
+  if [[ -n $fail2bans ]]; then
+    echo -e "  \e[33mFail2bans of today:\e[0m"
+    echo -n "$fail2bans" | sed 's/^/  /'
+    echo
+  fi;
+fi;
