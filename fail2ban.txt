@@ -4,7 +4,7 @@ https://wiki.fatboy.fargeau.nl/display/FARGEAU/Fail2Ban
 https://www.fail2ban.org/wiki/index.php/MANUAL_0_8 (this documentation is not complete and utter shit FOR A CHANGE)
 
 # There is a \e[33mfail2ban-server\e[0m which just runs, and a \e[33mfail2ban-client\e[0m which starts/reloads/stops the server
-#   and sends it all the configuration.
+#   and sends it all the configuration. You can also do this from systemctl, but apparently the two methods are not compatible.
 
 $ man jail.conf
 
@@ -13,14 +13,20 @@ $ man jail.conf
 # - \e[33mactions\e[0m: [groups of] commands to execute, eg send mail, add rules to iptables and/or firewalld
 # - \e[33mjails\e[0m: combinations of a filter and one or more actions: if a filter triggers, the actions will run
 
-# more or less everything lives in \e[38;5;226m/etc/fail2ban\e[0m
+# more or less everything lives in \e[38;5;226m/etc/fail2ban\e[0m, but it keeps state in a sqlite db in \e[38;5;226m/var/lib/fail2ban/\e[0m
+# the logfile is conveniently \e[38;5;226m/var/log/fail2ban.log\e[0m
 
 # By default, jails and filters have the same name, so a jail doesn't need to explicitly define its filter.
+# also good to know: variables can be defined \e[1mafter\e[0m they're used, and the config in general relies a lot on variables and default
+# values, which can come from pretty much anywhere.
 
-# get some stats on a specific jail
-$ fail2ban-client status <jail>
+$ fail2ban-client status             \e[36m# list jails\e[0m
+$ fail2ban-client status <jail>      \e[36m# get some stats on a specific jail like 'sshd'\e[0m
+$ fail2ban-client get <jail> bantime \e[36m# get various properties of this jail\e[0m
+$ fail2ban-client -h|--help          \e[36m# get help (the 'help' command doesn't seem to work, only these options)\e[0m
 
-# random script that checks today's logs
+
+# random script that checks today's logs for (un)bans
 
 #!/usr/bin/env bash
 if [[ -f /var/log/fail2ban.log ]]; then
