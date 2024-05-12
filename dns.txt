@@ -9,10 +9,10 @@ sudo systemctl restart nscd
 
 == named etc ==
 
-DNS servers have a \e[38;5;226mnamed.root\e[0m or \e[38;5;226mroot.hints\e[0m file, which contains the list of IP addresses (v4 and v6) of the root servers.
+DNS servers have a \e[38;5;226mnamed.root\e[0m or \e[38;5;226mroot.hints\e[0m file, which contains the list of IP addresses (v4 and v6) of the root
+servers.
 These very occasionally change, so this file must be kept uptodate. It's usually located in \e[38;5;226m/etc/named\e[0m or \e[38;5;226m/var/named\e[0m,
-and should be specified in the bind config file, which (of course) can also sit in various places like \e[38;5;226m/etc/named.conf\e[0m or
-\e[38;5;226m/etc/named/named.conf\e[0m, look for
+and should be specified in the bind config file, which (of course) can also sit in various places like \e[38;5;226m/etc/named.conf\e[0m or \e[38;5;226m/etc/named/named.conf\e[0m, look for
 
 \e[32mzone "." IN {
         type hint;
