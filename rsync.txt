@@ -31,7 +31,11 @@ rsync /path/src  dest/  # copy the src directory *itself* into the dest director
 --force         => also refers to --delete, and will remove directories with contents on the target if they're no longer on the source
 
 # progress
--v probably does something. --info=progress2 gives an ever changing summary and estimation of done and todo. --progress gives EVERY SINGLE FILE DO NOT WANT. use `pv` for uh.. a guess. probably.
+-v shows each file and directory
+--progress shows \e[1mstats\e[0m on each file and directory, only use for debugging
+--info=progress2 gives an ever changing summary and estimation of done and todo.
+Using `pv` is possible but only with rsync -v and pv -l(ine count) -s $lines, as rsync doesn't use the STDIO streams that pv needs.
+  Also redirect stdout to /dev/null because pv still outputs all incoming data again.
 
 ### Logging ###
 https://stackoverflow.com/a/12037164/126584
