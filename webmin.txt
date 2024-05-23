@@ -32,3 +32,18 @@ Set ssl=1 back in \e[38;5;226m/etc/webmin/miniserv.conf\e[0m
  maybe webmin doesn't understand the type of SSL keys used by the site, this happened with ECC keys.
 
 Kick it some more if needed, wtf knows.
+
+=== MySQL backups ===
+
+Crontab:
+  /etc/webmin/mysql/backup.pl
+calls
+  /usr/libexec/webmin/mysql/backup.pl
+runs
+  backup_database
+which is defined in
+  /usr/libexec/webmin/mysql/mysql-lib.pl
+containing the part that looks at settings, around line 1576
+The settings are stored in
+  /etc/webmin/mysql/config
+$ grep backup /etc/webmin/mysql/config
