@@ -2,8 +2,11 @@
 $ help history
 # for when you're doing password things on the cli:
 -c         clear history
+# random other things that you'll never ever need
 -s args..  store the rest of the args in history without executing them
 -p !foo    echo the most recent history entry that starts with foo, without running it
+# this ties in with bash' expansion of !stuff. !-3 will run the third-last command again,
+#   !123 runs command nr 123 (according to the history list)
 
 # the following is mostly copy/pasted from a random .bashrc file:
 
