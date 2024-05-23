@@ -1,0 +1,22 @@
+# the man page is for the history library or somesuch? use help:
+$ help history
+# for when you're doing password things on the cli:
+-c         clear history
+-s args..  store the rest of the args in history without executing them
+-p !foo    echo the most recent history entry that starts with foo, without running it
+
+# the following is mostly copy/pasted from a random .bashrc file:
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# show with timestamps
+HISTTIMEFORMAT="%F %T "
