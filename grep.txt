@@ -16,6 +16,8 @@
 -n   print line number
 [-A, -B, -C]#  print # lines after, before, or around matching lines
 -o   print only the matching part of the line, useful to regex values out of a file for use in a pipeline
+-m # print only the first # matching lines
+-l   print only the filenames, not the matching lines
 
 # filter out empty lines for, say, -v, by using a start/end pattern ^$
 $ grep -v -e foobar -e ^$
