@@ -3,3 +3,9 @@ make a file ansible.cfg with
   [defaults]
   nocows = True
 
+# Commandline tools list
+https://docs.ansible.com/ansible/latest/command_guide/index.html
+
+# what modules are installed?
+$ ansible-galaxy collection list | less
+# note that collections in $HOME/.ansible can override the default ones

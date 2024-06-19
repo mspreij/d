@@ -6,3 +6,6 @@ echo
 
 # single quotes in sed is often hassle, maybe it supports \\x27 notation. if not can you wrap the expression
 # in double quotes?
+
+# using sed to color certain substrings; basically use \\x1b for ESC
+echo 12345367 | sed 's/3/\\x1b[31m3\\x1b[0m/g'

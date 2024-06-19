@@ -2,10 +2,10 @@ Not actually documentation, just a todo/random ideas list..
 
 Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
 * jq
-- composer
-- bat install instructions o.o;
+* composer
+v bat install instructions o.o;
 - man: where are man pages? what are the numbers about? mandb, manpath
-- grep: exclude file/dir patterns with examples
+* grep: exclude file/dir patterns with examples
         print ONLY filenames for wildcard file results
 - wget/curl
 - git o.o;
