@@ -33,7 +33,7 @@ HELPTEXT
     do
         echo "  File: $file";
         if ! [[ -f "$file" && -r "$file" ]]; then
-            echo -e "  \e[31m  E: Can't read '$file', skipping\e[0m";
+            echo -e "  \\e[31mE: Can't read '$file', skipping\e[0m";
             continue;
         fi;
         case "$(head "$file" -n1)" in 
@@ -50,7 +50,7 @@ HELPTEXT
                 cmd='openssl req -modulus -noout -in'
             ;;
             *)
-                echo -e "  \e[31mE: unhandled filetype '$file'; only keys, certifcates and certificate requests are handled\e[0m";
+                echo -e "  \\e[31mE: unhandled filetype '$file'; only keys, certifcates and certificate requests are handled\e[0m";
                 continue
             ;;
         esac;
@@ -58,7 +58,7 @@ HELPTEXT
         if modulus=$($cmd "$file"); then
             [[ -z $full ]] && ( echo "$modulus" | openssl md5 | sed 's/(stdin)=/  Hash:/' ) || echo "$modulus";
         else
-            echo -e "  \e[31mFailed\e[0m";
+            echo -e "  \\e[31mFailed\e[0m";
         fi;
     done
 }
