@@ -3,9 +3,36 @@ make a file ansible.cfg with
   [defaults]
   nocows = True
 
+$ alias ap='ansible-playbook -i inventory.yml --vault-password-file secrets/password' \e[36m# or something\e[0m
+$ ap playbook.yml --syntax-check \e[36m# just check it without running\e[0m
+
 # Commandline tools list
 https://docs.ansible.com/ansible/latest/command_guide/index.html
 
 # what modules are installed?
 $ ansible-galaxy collection list | less
 # note that collections in $HOME/.ansible can override the default ones
+
+# I'm SURE I'll remember these things forever the moment I write them down, but if I don't I won't, therefor it's useful *nods*
+# run a specific task from a role in a playbook:
+- name: random playbook
+  tasks:
+    - name: fucking hell
+      include_tasks: roles/random-net-things/tasks/disable-ipv6.yml
+# or..
+....
+  tasks:
+    - name: what now
+      include_role:
+        name: random-net-things
+        tasks_from: disable-ipv6.yml
+
+# Specify roles in playbook:
+- name: random playbook
+  roles:
+    - \e[32;1mfoo\e[0m           # regular role names
+    - \e[32;1mbar\e[0m
+    - role: \e[32;1mfoobar\e[0m  # with this format you can add additional parameters:
+      vars:
+        var_specific_to_foobar: 123
+      when: some_boolean

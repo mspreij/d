@@ -1,3 +1,14 @@
-So this is like docker except more RedHatter.
-if your setup is cursed and you're using systemd to manage your containers, "podman run <thing>" might work less well
+So this is like docker with a red hat on.
+If your setup is cursed and you're using systemd to manage your containers, "podman run <thing>" might work less well
   then \e[32msystemctl --user restart whateverthehellitwas.service\e[0m. I dunno.
+
+# list running containers [or all of them]
+podman ps [-a]
+
+# get oodles of json to parse through for useful things
+podman generate spec <container> | less
+podman inspect <container> | less
+
+# without systemd
+podman run <image> # creates new container from image which is fetched if necessary
+podman start <container> # existing container
