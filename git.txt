@@ -7,6 +7,9 @@
 # what am I about to push?
   $ git diff [--stat] origin/master
 
+# diff between branches, commit hash, symbolic ref..
+  $ git diff [options] <commit>..<commit> [--] [path..]
+
 # delete (remote) branch
   $ git push -d origin <branchname>
   $ git branch -d <branchname>
