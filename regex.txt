@@ -3,7 +3,7 @@ Lookahead and lookbehind assertions (also known as zero-width assertions) in reg
 They follow this pattern:
 
 (?....)        basic assertion wrapper
-(?\e[32m=\e[0m<pattern>)  \e[32mpositive\e[0m lookahead assertion - a preceding capture will only match when this pattern follows
+(?\e[32m=\e[0m<pattern>)  \e[32mpositive\e[0m lookahead assertion - a preceding capture/placeholder will only match when this pattern follows
 (?\e[31m!\e[0m<pattern>)  \e[31mnegative\e[0m lookahead assertion - etc etc etc ...        \e[1m*not*\e[0m etc etc.
 (?\e[33m<\e[0m\e[32m=\e[0m<pattern>) \e[32mpositive\e[0m \e[33mlookbehind\e[0m assertion - a following capture will only etc etc etc
 (?\e[33m<\e[0m\e[31m!\e[0m<pattern>) \e[31mnegative\e[0m \e[33mlookbehind\e[0m assertion - etc.

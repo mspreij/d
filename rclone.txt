@@ -42,6 +42,14 @@ $ sudo umount /mount/directory
 #   for whatever reasons (like Windows), you can simply copy the files you need to somewhere rclone *can* access, and modify the
 #   config or re-create the directories leading to the original mountpoint and move the files there, it'll magically work.
 
+# \e[38;5;208m--filter-from somefile.txt\e[0m can be used to only include and exclude certain files/directories.
+# Some incomplete notes:
+Lines with stuff to include start with a '+', to exclude start with '-'
+Comments are #
+Directories should probably have /** at the end?
+If you use the file at all, a line with '- *' might prevent wiping the target directory's .ssh, .bashrc etc. This shouldn't happen
+with a proper setup but YOU KNOW.
+
 ### TROUBLESHOOTING ###
 -v or -vv for verbose/debug info. It might turn out it keeps copying files because the timestamps on two different filesystems
   are stored differently
