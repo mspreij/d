@@ -1,5 +1,9 @@
 # xargs tries to call the given command as few times as possible by default, and will pass multi-line input in one go.
 
--n#    # split input on whitespace and use # number of words each call
--L#    # split by line but lines with trailing spaces will be appended to the next line
+-n #    \e[36m# split input on whitespace and use # number of words each call\e[0m
+-P #    \e[36m# create # processes to speed it up more, this helps when there are multiple CPU cores available \e[0m
+-L #    \e[36m# split by line but lines with trailing spaces will be appended to the next line\e[0m
 
+# so instead of calling `touch` 500000 times with a for-loop, you can run 4 copies of it with 100 items each by using
+seq 1 500000 | xargs -n 100 -P 4 touch
+# which will speed it up dramatically.
