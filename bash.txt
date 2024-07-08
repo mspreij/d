@@ -65,3 +65,12 @@ $ rsync -a --delete emptyDir/ filesToRemove/
 # you can time any command by prepending it with 'time', like `$ time find ..`; the first entry (realtime?) is wall clock time,
 #  the other two (user/system) added up can be longer or shorter depending on what other processes were happening and the number
 #  of cores.
+
+# Creating a million files (look, people need hobbies)
+# breaks because too many args:
+$ touch {1..500000}
+# is silly slow because touch is called for each file
+$ for (( i=0; i<500000; i++ )); do touch $i; done
+# this is parallelized and fast! \o/
+$ seq 1 500000 | xargs -n 100 -P 4 touch
+# -n is number of args to pass per call, -P is number of simultaneous processes, so basically it handles 400 files per call instead of 1
