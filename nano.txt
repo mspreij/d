@@ -11,6 +11,10 @@ Alt-delete  removes a marked area without putting it into the cut buffer; With s
 Ctrl-k   cut marked text or line (including trailing newline) into (nano) buffer
 Ctrl-u   un-cut buffer to cursor position
 Alt-6    copy marked text or line into buffer
+Ctrl-/   find/replace; you can find regex but replace only accepts strings, HOWEVER..
+Ctrl-t   pipe buffer or selection through command. Start the command with \e[32;1m|\e[0m to pipe throught, I guess.
+         \e[32;1m| sed\e[0m wants \e[32;1m-z\e[0m to use null character instead of newline to delimit, for some reason.
+
 
 Alt-u    undo
 Alt-e    redo

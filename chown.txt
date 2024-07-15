@@ -4,7 +4,9 @@ $ chown -R <name>:<name> target\e[32;1m/\e[0m
 # chmod -R on a symlink does \e[1mnot\e[0m require a trailing slash, and seems to make no difference.
 
 \e[1;36mSymlinks\e[0m
-# chown on a symlink affects the file the symlink points to, you can use -h for the link itself.
+# chown on a symlink affects the file the symlink points to, you can use \e[38;5;208m-h\e[0m for the link itself.
+# it does \e[1mnot follow symlinks inside\e[0m a target directory though, for that you'll need \e[38;5;208mfind -L $dir exec chown user:user {} +\e[0m
+
 # chmod on a symlink \e[1monly\e[0m affects the file the symlink points to. The perms on the link itself are always 777, per man page:
   "the chmod system call cannot change their permissions.  This is not a problem since the permissions of symbolic links
    are never used."
