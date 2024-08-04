@@ -1,0 +1,4 @@
+# Convert mp4 to mp3:
+$ for f in *.m4a; do ffmpeg -i "$f" -codec:v copy -codec:a libmp3lame -q:a 3 "${f%.m4a}.mp3"; done
+Source: <https://superuser.com/a/704535/30493>
+

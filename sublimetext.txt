@@ -3,8 +3,14 @@ Ctrl-R       : list and navigate symbols in the file
 Ctrl-shift-P : do anything whatsoever?
 Ctrl-P       : go through ALL THE FILES
 Ctrl-Shift-Alt-P: show scope of symbol, useful for setting syntax hilighting colors
-Ctrl-Shift-K : Delete line
+
+Alt--        : (that's alt minus) go to previous location
+Alt-Shift--  : go to next location
+
+# Editing
+Ctrl-Enter   : add newline at end of current line and go to next line
 Ctrl-D       : Duplicate line
+Ctrl-Shift-K : Delete line
 
 Ctrl-K, Ctrl-B (or like, Ctrl-KB): toggle sidebar
 Ctrl-0 (zero): focus sidebar
