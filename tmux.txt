@@ -21,6 +21,7 @@
 # the ':' opens the command prompt where you type out the rest.
 \e[38;5;208mprefix\e[0m :join-pane -t [session]:\e[38;5;200mn\e[0m
 # for the reverse, -s will join a/the pane from the target window to your current window
+# (that's probably for "Target" and "Source")
 
 # capture the entire pane history and dump it to a file:
 $ tmux capture-pane -eS - -p > tmux.txt

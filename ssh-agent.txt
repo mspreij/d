@@ -7,6 +7,7 @@
 # \e[38;5;226m/tmp/ssh-XXXXXXXXXX/agent.1234\e[0m where that last 1234 will be its parent PID (PPID).
 # It's easier to script this of course:
 
+# Todo: fix below script to quit any ssh-agents that were started in error? I occasionally end up with two.
 
 # =======================================================
 # this script should be SOURCED in the shell, not run!

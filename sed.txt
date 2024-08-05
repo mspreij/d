@@ -1,3 +1,8 @@
+# flags
+-E    use regex, \1, \2 etc are backreferences
+-i    change file in place
+-e    use for multiple separate 's/foo/bar/' replacements (kinda like grep?)
+
 # no, sed doesn't understand linebreaks, but it *does* understand line _beginnings_, so in case you were trying to
 # indent some string or output again:
 echo -n "$foo" | sed 's/^/  /'
