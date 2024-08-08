@@ -1,13 +1,19 @@
 # it runs as a service, grab the current status from systemctl
 $ systemctl | grep cert
+# maybe this only shows a certbot.timer, which then fires up the service (or something) when needed.
 
 # then when you see it's failed, you can do a dry-run to see what's up
 $ certbot renew --dry-run
 
 # or check the logs in \e[38;5;226m/var/log/letsencrypt/letsencrypt.log\e[0m and \e[38;5;226m/var/log/le-renew.log\e[0m
 
-# To simply manually renew a cert:
-$ certbot renew --cert-name domain.com
+# To simply manually renew a cert [for a specific domain]:
+$ certbot renew [--cert-name domain.com]
+
+# certbot does not automagically restart the webserver after a renew without additional plugins, but you can also
+# add a \e[38;5;208mrenew_hook = <executable script path>\e[0m line to \e[38;5;226m/etc/letsencrypt/renewal/<domain.tld>.conf\e[0m
+# That script would then restart the server.
+# ORRR you can place an executable script in \e[38;5;226m/etc/letsencrypt/renewal-hooks/deploy/\e[0m that does the thing.
 
 
 \e[36;1m=== .well-known/acme-challenge ===\e[0m

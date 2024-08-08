@@ -1,3 +1,16 @@
+# Aliases! Everyone loves aliases. Who has time for typing?!
+# super-fancy history
+alias gl='git log --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit'
+alias gsns='git show --name-status'
+alias gdc='git diff --cached'
+# "git last commit"
+alias glc='git show --name-status'
+# "git last branches"
+alias glb='git reflog | grep checkout | cut -d\  -f6,8 | sed '\''s/ /\n/'\'' | head -n50 |  awk '\''!x[$0]++'\''  | egrep [g-z] | head -n8'
+alias glp='git log -p'
+# show \e[4monly\e[0m paths/names of changed files, for additional handling
+alias gsf='git status -s -uno | awk '\''{ print $2 }'\'
+
 # grab myfile.txt from otherbranch and put it HERE, RIGHT FUCKING NOW
   $ git checkout otherbranch myfile.txt
 
@@ -9,6 +22,13 @@
 
 # diff between branches, commit hash, symbolic ref..
   $ git diff [options] <commit>..<commit> [--] [path..]
+
+# add specific parts of changed file to stage:
+  $ git add -p
+# it'll let you open an editor to tweak it line by line if needed
+
+# git add everything that is being tracked already
+  $ git add -u
 
 # delete (remote) branch
   $ git push -d origin <branchname>
@@ -38,9 +58,11 @@ $ git remote add origin <paste-url-here>
 $ git push
 # urls can be like https://... or git@github.com:username/foo.bar, the latter works better with ssh keys
 
-# undo last commit
+# \e[1mUndo last commit\e[0m - this basically creates a new commit that is the inverse of the last commit, which is more useful
+# then \e[38;5;208mgit reset HEAD~1\e[0m if you've already pushed the faulty commit.
 $ git revert HEAD
 # commit again, and if needed push
+
 
 # to create a new empty repository locally:
 $ git init --bare foo.git
