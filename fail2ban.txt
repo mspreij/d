@@ -24,7 +24,7 @@ $ fail2ban-client status             \e[36m# list jails\e[0m
 $ fail2ban-client status <jail>      \e[36m# get some stats on a specific jail like 'sshd'\e[0m
 $ fail2ban-client get <jail> bantime \e[36m# get various properties of this jail\e[0m
 $ fail2ban-client -h|--help          \e[36m# get help (the 'help' command doesn't seem to work, only these options)\e[0m
-
+$ fail2ban-client set <jail> unbanip <address> \e[36m# unban an IP address\e[0m
 
 # random script that checks today's logs for (un)bans
 
