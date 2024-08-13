@@ -7,6 +7,9 @@ $ certbot renew --dry-run
 
 # or check the logs in \e[38;5;226m/var/log/letsencrypt/letsencrypt.log\e[0m and \e[38;5;226m/var/log/le-renew.log\e[0m
 
+# To add a new cert:
+$ certbot certonly --webroot -w /var/www/mysite/ -d mysite.nl [-d www.mysite.nl]
+
 # To simply manually renew a cert [for a specific domain]:
 $ certbot renew [--cert-name domain.com]
 

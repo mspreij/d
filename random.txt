@@ -10,6 +10,8 @@ $ ssh server_A 'cat sourcefile' | \e[32;1mpv [-s $filesize] [-i sec] |\e[0m ssh 
 
 # get directory sizes for multiple directories AND the grand total:
 du -sh\e[38;5;205mc\e[0m dir1 dir2 dir3
+# get size per directory in given path and the total from all files directly in path:
+du -hd 1
 
 # to reverse input use \e[38;5;208mtac\e[0m, not sort
 tac somefile.txt
