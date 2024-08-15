@@ -19,16 +19,16 @@ $ certbot --apache -d mysite.nl
 # To simply manually renew a cert [for a specific domain]:
 $ certbot renew [--cert-name domain.com]
 
-# certbot does not alwayss automagically restart the webserver after a renew without additional plugins, but you can also
-# add a \e[38;5;208mrenew_hook = <executable script path>\e[0m line to \e[38;5;226m/etc/letsencrypt/renewal/<domain.tld>.conf\e[0m
+# certbot does not alwayss automagically restart the webserver after a renew without additional plugins, but you can
+# also add a \e[38;5;208mrenew_hook = <executable script path>\e[0m line to \e[38;5;226m/etc/letsencrypt/renewal/<domain.tld>.conf\e[0m
 # That script would then restart the server.
 # ORRR you can place an executable script in \e[38;5;226m/etc/letsencrypt/renewal-hooks/deploy/\e[0m that does the thing.
 
 
 \e[36;1m=== .well-known/acme-challenge ===\e[0m
 
-# Make sure the .well-known path can be read o.o Blocking all requests that start with '.' will need an exception rule
-#  for '.well-known'. Sample nginx config:
+# Make sure the .well-known path can be read o.o Blocking all requests that start with '.' will need an exception
+# rule for '.well-known'. Sample nginx config:
 
 # Allow access to the .well-known directory
 location ^~ /.well-known {
