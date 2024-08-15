@@ -7,13 +7,19 @@ $ certbot renew --dry-run
 
 # or check the logs in \e[38;5;226m/var/log/letsencrypt/letsencrypt.log\e[0m and \e[38;5;226m/var/log/le-renew.log\e[0m
 
-# To add a new cert:
+# Register a new certbot/site/thing/whatever
+$ certbot register \e[36m# accept terms, enter email address and politely decline the EFF emails\e[0m
+
+# To add a new cert where you don't have the apache plugin:
 $ certbot certonly --webroot -w /var/www/mysite/ -d mysite.nl [-d www.mysite.nl]
+
+# with apache plugin it follows Includes in the httpd conf and figures out the location of the webroot of your vhost:
+$ certbot --apache -d mysite.nl
 
 # To simply manually renew a cert [for a specific domain]:
 $ certbot renew [--cert-name domain.com]
 
-# certbot does not automagically restart the webserver after a renew without additional plugins, but you can also
+# certbot does not alwayss automagically restart the webserver after a renew without additional plugins, but you can also
 # add a \e[38;5;208mrenew_hook = <executable script path>\e[0m line to \e[38;5;226m/etc/letsencrypt/renewal/<domain.tld>.conf\e[0m
 # That script would then restart the server.
 # ORRR you can place an executable script in \e[38;5;226m/etc/letsencrypt/renewal-hooks/deploy/\e[0m that does the thing.
