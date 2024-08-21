@@ -8,8 +8,9 @@ alias glc='git show --name-status'
 # "git last branches"
 alias glb='git reflog | grep checkout | cut -d\  -f6,8 | sed '\''s/ /\\n/'\'' | head -n50 |  awk '\''!x[$0]++'\''  | egrep [g-z] | head -n8'
 alias glp='git log -p'
-# show \e[4monly\e[0m paths/names of changed files, for additional handling
-alias gsf='git status -s -uno | awk '\''{ print $2 }'\'
+# show \e[4monly\e[0m paths/names of changed files, for additional handling. cut removes the git flag(s), sed takes care of quotes
+# in filenames with spaces.
+alias gsf='git status -s -uno --porcelain | cut -c4- | sed '\''s/^"//;s/"$//'\'''
 
 # grab myfile.txt from otherbranch and put it HERE, RIGHT FUCKING NOW
   $ git checkout otherbranch myfile.txt
