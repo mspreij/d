@@ -20,6 +20,8 @@ d -e <name> # lets you edit it, or create new files. Use ansi color sequences fo
 d -s query # searches for whatever and lists files
 the '-c' flag will force color even when cat'ing to another process or file.
 
-See todo.txt for things.
+In a fit of procrastination, boredom and sub-zero motivation for actual work I added a d note on itself; you can do  
+`$ d d`  
+now.
 
 ![screenshot of usage](d_d.png)
