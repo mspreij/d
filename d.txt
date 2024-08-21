@@ -14,10 +14,10 @@ If you're not sure what the note was called anymore you can search the contents 
 \e[38;5;208md -e foo\e[0m pulls up your preferred \e[32m$EDITOR\e[0m (nano by default) to edit the \e[32m$D_DOCS\e[38;5;226m/foo.txt\e[0m file. ANSI escape sequences for colors are
 supported, check \e[38;5;208md colors\e[0m for a quickstart on those. You can simply start editing a new note with this to create it.
 Lines that start with '#' are colored with a/the comment color (blue by default), see preferences below.
-Notes that start with \e[34;1mprivate_\e[0m are ignored by git.
+Notes of which the name (and thus filename) starts with \e[34;1mprivate_\e[0m are ignored by git.
 
-When d output is piped elsewhere, the colors are stripped, unless the -c/--color flag is passed as well (\e[1mbefore\e[0m the note name, the code is
-hacky enough already..).
+When d output is piped elsewhere, the colors are stripped, unless the -c/--color flag is passed as well (\e[1mbefore\e[0m the note name, the code
+is hacky enough already..).
 
 There's a tiny 'preferences' file \e[1md.conf\e[0m (basically a list of bash variables that will be sourced) you can make in \e[32m$D_DOCS\e[0m (based on say
 \e[32m$D_DOCS\e[38;5;226m/d.conf.sample\e[0m), that lets you set a comment ansi color which I think actually works these days, and a var commit_edits, that if
