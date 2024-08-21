@@ -26,7 +26,16 @@ if [[ $1 = "-e" ]]; then
             exit;
         fi;
     fi;
-    ${EDITOR:-nano} $dir/$entry.txt;
+    ${EDITOR:-nano} "$dir/$entry.txt";
+    modified_files=$(git -C "$dir" status -s -uno --porcelain | cut -c4- | sed 's/^"//;s/"$//')
+    if [[ -n "$commit_edits" && $(printf '%s\n' "$modified_files" | grep -Fx "${entry}.txt") ]]; then
+        echo -n "  git commit message, will (try to) push (leave empty to skip): "
+        read msg
+        if [[ -n $msg ]]; then
+            git -C "$dir" commit "$entry".txt -m "$msg"
+            git -C "$dir" push
+        fi
+    fi
     exit;
 fi;
 
