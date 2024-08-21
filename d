@@ -78,7 +78,7 @@ if [[ -f "$file" ]]; then
     # sed 2: comment lines get colored using the $comment color
     # also a backup here because the new version works better with undoing underlined text but I don't know why
     # doc="$(echo "$doc" | sed "/^#/s/\\e\[0m/\\e[${comment};49;22m/g" | sed "s/^\(#.*\)/${esc}[${comment}m\1${esc}[0m/")";
-    doc="$(echo "$doc" | sed "/^#/s/\\\e\[0m/${esc}[0m${esc}[36;49;22m/g" | sed "s/^\(#.*\)/${esc}[${comment}m\1${esc}[0m/")";
+    doc="$(echo "$doc" | sed "/^#/s/\\\e\[0m/${esc}[0m${esc}[${comment};49;22m/g" | sed "s/^\(#.*\)/${esc}[${comment}m\1${esc}[0m/")";
     if [[ -t 1 ]]; then
         echo -e "$doc" | less -rF;
     else
