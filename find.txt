@@ -32,15 +32,17 @@ $ find . -name '*php' -not -path './vendor/*'
 $ find . \( -name '*php' -o -name '*json' \) -not -path './vendor/*'
 # the -o is an OR, and the escaped () group the name matches to logically separate both from the directory filter
 
-# find links
-$ find . -type l
-# pipe to xargs realpath to get the sources, or add \e[38;5;208m-ls\e[0m and ignore the extra cruft
+#=- find types -=#
 
-# find _broken_ links
-$ find . -xtype l
+-type f    \e[36m# regular files\e[0m
+-type d    \e[36m# directory\e[0m
+-type l    \e[36m# links. pipe to xargs realpath to get the sources, or add \e[38;5;208m-ls\e[36m and ignore the extra cruft\e[0m
+-xtype l   \e[36m# broken links\e[0m
+-type p    \e[36m# named pipe\e[0m
+-type s    \e[36m# socket\e[0m
+-type c    \e[36m# character (unbuffered) special\e[0m
+-type b    \e[36m# block (buffered) special\e[0m
 
-# find \e[31mnot\e[0m links (files only)
-$ find . -type f
 
 # simple function searching current and sub-directories for case-insensitive substring match
 f ()
