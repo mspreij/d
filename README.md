@@ -21,3 +21,5 @@ d -s query # searches for whatever and lists files
 the '-c' flag will force color even when cat'ing to another process or file.
 
 See todo.txt for things.
+
+![screenshot of usage](d_d.png)
