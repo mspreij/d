@@ -1,5 +1,5 @@
 This is not about a command "random" but literally for random shit.
-And for testing the editing wrapper.
+And for testing the editing wrapper. And git -C, too.
 
 # Copy file from server A to server C via localhost (or another server)
 $ ssh server_A 'cat sourcefile' | ssh server_B 'cat > targetfile'
