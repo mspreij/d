@@ -6,7 +6,7 @@ alias gdc='git diff --cached'
 # "git last commit"
 alias glc='git show --name-status'
 # "git last branches"
-alias glb='git reflog | grep checkout | cut -d\  -f6,8 | sed '\''s/ /\n/'\'' | head -n50 |  awk '\''!x[$0]++'\''  | egrep [g-z] | head -n8'
+alias glb='git reflog | grep checkout | cut -d\  -f6,8 | sed '\''s/ /\\n/'\'' | head -n50 |  awk '\''!x[$0]++'\''  | egrep [g-z] | head -n8'
 alias glp='git log -p'
 # show \e[4monly\e[0m paths/names of changed files, for additional handling
 alias gsf='git status -s -uno | awk '\''{ print $2 }'\'
@@ -50,6 +50,14 @@ error: failed to push some refs to '<remote addr>'
 # then you simply push and git will yell at you, and give you something to copy/paste to both push and set the remote
 # branch to the new name.
 
+# run any git commit in a repo that is not your current directory
+$ git -C /other/path/ status
+$ git -C /other/path commit file.txt -m message
+# etc
+
+
+### Repos
+
 # git add remote [github] repo for existing project
 # Create remote repo, copy the url. if you don't do this on github, use:
 $ git init --bare somedir.git
@@ -63,7 +71,6 @@ $ git push
 $ git revert HEAD
 # commit again, and if needed push
 
-
 # to create a new empty repository locally:
 $ git init --bare foo.git
 # and paste path instead of url
@@ -71,6 +78,9 @@ $ git init --bare foo.git
 # git change remote url
 git remote set-url origin foo://bar/baz.git
 # looks like you can also edit .git/config ?
+
+
+### Misc
 
 # git puts all informative output on STDERR, which is not unixy. to not spam your inbox via crontab,
 # you can use the following (in a script):
