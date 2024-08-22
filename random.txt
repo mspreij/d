@@ -1,5 +1,5 @@
 This is not about a command "random" but literally for random shit.
-And for testing the editing wrapper. And git -C, too.
+Some of it should move to regular notes one day.
 
 # Copy file from server A to server C via localhost (or another server)
 $ ssh server_A 'cat sourcefile' | ssh server_B 'cat > targetfile'
@@ -16,6 +16,9 @@ du -hd 1
 
 # to reverse input use \e[38;5;208mtac\e[0m, not sort
 tac somefile.txt
+
+bash completion functions aren't even DEFINED before trying to tab-complete a command, so if you want to see the
+function slam tab a couple times on it first.
 
 # change the last modified date on a file with touch -t [YY]YYMMDDhhmm[.ss]
 touch -t 202308121520.12 somefile.txt
