@@ -14,11 +14,11 @@ Contents:
 - bunch of .txt files
 
 Usage:
-d <name> # like, "$ d dig" should show the colorized version of $D_DOCS/dig.txt
-         # it tries to intelligently guess what you wanted from substrings too, and if completed a full name from it will show that on line 1
-d -e <name> # lets you edit it, or create new files. Use ansi color sequences for pretty colors (see 'd colors')
-d -s query # searches for whatever and lists files
-the '-c' flag will force color even when cat'ing to another process or file.
+    d <name> # like, "$ d dig" should show the colorized version of $D_DOCS/dig.txt
+             # it tries to intelligently guess what you wanted from substrings too, and if completed a full name from it will show that on line 1
+    d -e <name> # lets you edit it, or create new files. Use ansi color sequences for pretty colors (see 'd colors')
+    d -s query # searches for whatever and lists files
+    the '-c' flag will force color even when cat'ing to another process or file.
 
 In a fit of procrastination, boredom and sub-zero motivation for actual work I added a d note on itself; you can do  
 `$ d d`  
