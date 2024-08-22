@@ -1,4 +1,4 @@
-testThis was totally a matter of time, wasn't it?
+This was totally a matter of time, wasn't it?
 
 \e[38;5;201;1md\e[0m shows (and lets you edit) notes on commands or flags or software and whatever you want basically.
 
