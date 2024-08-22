@@ -1,30 +1,32 @@
-This was totally a matter of time, wasn't it?
+testThis was totally a matter of time, wasn't it?
 
 \e[38;5;201;1md\e[0m shows (and lets you edit) notes on commands or flags or software and whatever you want basically.
 
-The notes files are .txt files that live in \e[32m$D_DOCS\e[0m, or by default \e[38;5;226m~/.local/share/d_docs\e[0m, so either checkout the git repo there
-or set \e[32m$D_DOCS\e[0m to its path.
+The notes files are .txt files that live in \e[32m$D_DOCS\e[0m, or by default \e[38;5;226m~/.local/share/d_docs\e[0m, so either checkout the git
+repo there or set \e[32m$D_DOCS\e[0m to its path.
 
-It has a tab-completion function in d.bash_completion, you can symlink that to say \e[38;5;226m~/.local/share/bash-completion/completions/\e[0m ,
-or wherever your bash completion functions live.
-It will also match unique substrings of notes, so to see php_fork notes you can use \e[38;5;208md fork\e[0m
+It has a tab-completion function in d.bash_completion, you can symlink that to say
+\e[38;5;226m~/.local/share/bash-completion/completions/\e[0m , or wherever your bash completion functions live.
+It will also match unique substrings of notes, so to see php_fork notes you can use \e[38;5;208md fork\e[0m.
 
 If you're not sure what the note was called anymore you can search the contents of all notes with \e[38;5;208md -s <query>\e[0m.
 
-\e[38;5;208md -e foo\e[0m pulls up your preferred \e[32m$EDITOR\e[0m (nano by default) to edit the \e[32m$D_DOCS\e[38;5;226m/foo.txt\e[0m file. ANSI escape sequences for colors are
-supported, check \e[38;5;208md colors\e[0m for a quickstart on those. You can simply start editing a new note with this to create it.
+\e[38;5;208md -e foo\e[0m pulls up your preferred \e[32m$EDITOR\e[0m (nano by default) to edit the \e[32m$D_DOCS\e[38;5;226m/foo.txt\e[0m file.
+You can simply start editing a new note (\e[38;5;208md -e newthing\e[0m) to create it.
+ANSI escape sequences for colors are supported, check \e[38;5;208md colors\e[0m for a quickstart on those.
 Lines that start with '#' are colored with a/the comment color (blue by default), see preferences below.
-Notes of which the name (and thus filename) starts with \e[34;1mprivate_\e[0m are ignored by git.
+Notes of which the names (and thus filenames) start with \e[34;1mprivate_\e[0m are ignored by git.
 
-When d output is piped elsewhere, the colors are stripped, unless the -c/--color flag is passed as well (\e[1mbefore\e[0m the note name, the code
-is hacky enough already..).
+When d output is piped elsewhere, the colors are stripped, unless the \e[38;5;208m-c\e[0m/\e[38;5;208m--color\e[0m flag is passed as well (\e[1mbefore\e[0m
+the note name, the code is hacky enough already..).
 
-There's a tiny 'preferences' file \e[1md.conf\e[0m (basically a list of bash variables that will be sourced) you can make in \e[32m$D_DOCS\e[0m (based on say
-\e[32m$D_DOCS\e[38;5;226m/d.conf.sample\e[0m), that lets you set a comment ansi color which I think actually works these days, and a var commit_edits, that if
-non-empty will prompt you for a commit message after you edited a note.
-NB: the git thing does not work if you invoked editing using a symlink of the note name, like \e[38;5;208md -e ff\e[0m for firefox notes.
+There's a tiny 'preferences' file \e[1md.conf\e[0m (basically a list of bash variables that will be sourced) you can make in
+\e[32m$D_DOCS\e[0m (based on say \e[32m$D_DOCS\e[38;5;226m/d.conf.sample\e[0m), that lets you set a comment ansi color which I think actually works
+these days, and a var commit_edits, that if non-empty will prompt you for a commit message after you edited a note.
+NB: the git thing does not work if you invoked editing using a symlink of the note name, like \e[38;5;208md -e ff\e[0m for firefox
+notes.
 
-# show usage and \e[38;5;201mavailable\e[0m .txt files
+# show usage and available .txt files
 $ d
 
 # print notes for foo
