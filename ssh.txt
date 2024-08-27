@@ -33,14 +33,18 @@ The client/server send number or typed packets, here is what the numbers mean:
 
 \e[38;5;201m--- SSH-KEYGEN ---\e[0m
 
-# remove a passphrase
+### remove a passphrase
 $ ssh-keygen -p
 # then simply enter the old passphrase and leave the new one blank
 
-# Do this public and private key even belong together?
+### Do this public and private key even belong together?
 $ ssh-keygen -E md5 -lf ~/.ssh/id_rsa
 $ ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub
 # should return the same results
+
+### Create public key from private key
+$ ssh-keygen -y -f foobar > foobar.pub
+# -y outputs the public key, -f foobar specifies the private file. Etc.
 
 # see also \e[38;5;201mssh-agent\e[0m
 
