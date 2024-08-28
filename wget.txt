@@ -8,6 +8,8 @@ $ wget http://domain.com:8080/etc
 --no-hsts                      do NOT automatically switch to https when asking for the http response specifically..
 --max-redirect=<number>        how many times to follow "Location: .." headers, can be set to 0 which is useful to
                                debug redirects with --server-response
+# NB: & in the url will cut off remaining arguments and push the task into the background, printing a PID, the prompt, and *then* all the
+#     output. Quote your URL.
 
 # NB: wget will upgrade \e[38;5;208mhttp\e[0m requests to \e[38;5;208mhttps\e[0m requests automatically if it knows the server supports it, use
 #     --no-hsts to prevent.
