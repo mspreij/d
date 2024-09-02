@@ -80,7 +80,7 @@ if [[ -f "$file" ]]; then
     # doc="$(echo "$doc" | sed "/^#/s/\\e\[0m/\\e[${comment};49;22m/g" | sed "s/^\(#.*\)/${esc}[${comment}m\1${esc}[0m/")";
     doc="$(echo "$doc" | sed "/^#/s/\\\e\[0m/${esc}[0m${esc}[${comment};49;22m/g" | sed "s/^\(#.*\)/${esc}[${comment}m\1${esc}[0m/")";
     if [[ -t 1 ]]; then
-        echo -e "$doc" | less -rF;
+        echo -e "$doc" | less -riF;
     else
         if [[ $color ]]; then
             echo -e "$doc"
