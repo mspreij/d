@@ -1,5 +1,9 @@
 Not actually documentation, just a todo/random ideas list..
 
+d:
+- also git add in case of new file
+- move short usage list to top of d.txt
+
 Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
 * jq
 * composer
