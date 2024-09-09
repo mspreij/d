@@ -28,7 +28,8 @@ F                  go to end of file and wait for more input, like tail -f
 # this is for CLI specifically:
 -F     quit if the output fits on one screen
 -r     interpret escape sequences (for colour, say)
--i     searching is case-insensitive by default
+-i     searching is case-insensitive by default (except when the pattern contains uppercase)
+-I     searching is case-insensitive even when the pattern contains uppercase
 
 # less can also list the files in (compressed) tar archives!
 # for the contents of a compressed file you can
