@@ -20,6 +20,9 @@ tac somefile.txt
 bash completion functions aren't even DEFINED before trying to tab-complete a command, so if you want to see the
 function slam tab a couple times on it first.
 
+# pretty-print XML
+xmllint --format <file> \e[36m# and pipe through \e[38;5;208mless\e[36m, probably
+
 # change the last modified date on a file with touch -t [YY]YYMMDDhhmm[.ss]
 touch -t 202308121520.12 somefile.txt
 
