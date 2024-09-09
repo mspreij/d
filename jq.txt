@@ -7,3 +7,4 @@
 # if 0, valid file, otherwise probably 4 and syntax error
 
 # interactive viewer: https://github.com/antonmedv/fx
+$ sudo snap install fx     \e[36m# or see: https://fx.wtf/install
