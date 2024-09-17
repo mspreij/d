@@ -52,6 +52,8 @@ $ foo 2>&1 >/dev/null
 # in a different order: STDERR now goes to what STDOUT points at: the terminal or parent process
 # Then, STDOUT is pointed at /dev/null, but this no longer affects error messages.
 # ..... SOMETHING like that, anyway o.o;
+# In modern(?) terminals there's a shortcut for redirecting both STDOUT and STDERR:
+$ foo &> /dev/null
 
 # regex in `if` uses ERE, unrelated to the general shell glob patterns in eg `case`
 if [[ "string" =~ regex ]]; then..
