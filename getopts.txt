@@ -1,0 +1,32 @@
+# This is not about getopts, but it *is* what you usually want when you end up looking for getopts and find there are like 3
+# different versions of getopt[s] and they're all complicated and you just want the stupid one-off script or 10-line function
+# to work and you'll just hack it together yourself again.
+
+# This is how you hack it together for your one-off function 'foo':
+
+function foo {
+    local debug
+    local silent
+    ... vars, settings, whatever?
+    while true; do
+        case "$1" in          # case just looks at the first argument. if it's a -d, a var is reset
+            -d)               # and the -d is taken out of args. now it goes back to the start of the loop
+                debug=echo;
+                shift
+            ;;
+            -s)               # so the next loop around, it might encounter -s and the same thing happens.
+                silent='-s';  # but because while (true) it also works if -s comes before -d
+                shift
+            ;;
+            *)                # first time it encounters something not in the cases, it exits the while loop.
+                break
+            ;;
+        esac;
+    done;
+    actual_thing="$1"
+    ... body of the function
+}
+
+# Notes:
+# - every case ends with a double ;;. This can immediately follow the preceding command or statement, like shift;;
+# - yes, every case starts with \e[38;5;208mthe-thing-to-match )\e[0m , bash is weird like that.

@@ -10,6 +10,9 @@
 
 --include \*.php  # only search these files. either escape the * or quote the string
 
+# find LITERAL periond: use quotes _and_ escape it
+$ grep 'foo\.txt' *
+
 ### output
 -H   print filename with each match (default for wildcard file patterns)
 -h   do NOT print filename even for multiple files, this is useful when you want to further parse the contents

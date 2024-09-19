@@ -20,6 +20,7 @@ $ man jail.conf
 # also good to know: variables can be defined \e[1mafter\e[0m they're used, and the config in general relies a lot on variables and default
 # values, which can come from pretty much anywhere.
 
+$ fail2ban-client banned             \e[36m# list banned IPs per jail\e[0m
 $ fail2ban-client status             \e[36m# list jails\e[0m
 $ fail2ban-client status <jail>      \e[36m# get some stats on a specific jail like 'sshd'\e[0m
 $ fail2ban-client get <jail> bantime \e[36m# get various properties of this jail\e[0m
