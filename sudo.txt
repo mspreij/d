@@ -1,3 +1,12 @@
+# become root
+sudo -i
+# which is like
+sudo su -
+# but ever so slightly better.
+# ssh in and become root immediately:
+$ ssh \e[32;1m-t\e[0m $host sudo -i
+# \e[38;5;208m-t\e[0m for pseudoterminal, see \e[38;5;208mssh\e[0m
+
 # make cron service start under WSL without sudo prompt
 $ sudo visudo
 # add at end:
