@@ -7,6 +7,7 @@ ls
 -t  # order by time
 -r  # reverse order
 -i  # show inode number
+-Z  # print security context (AppArmor, SELinux, ..)
 
 # get time with seconds and sub-seconds if the OS/FS supports it
 $ ls --full-time
