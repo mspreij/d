@@ -9,12 +9,13 @@ $ find . -mtime -1
 $ find . -mtime -1 -ls
 
 # then again, -ls has a retarded flag by default stuffing inodes or something in front, you can also use \e[38;5;208mexec\e[0m:
-find $args \e[32;1m-exec <command> {} \;\e[0m
+$ find $args \e[32;1m-exec <command> {} \;\e[0m
 # \e[38;5;208m{}\e[0m is a placeholder for the filename/path
 # \e[38;5;208m\;\e[0m tells find to run \e[38;5;208mcommand\e[0m on \e[1meach found file\e[0m
 # So:
 $ find . -mtime -1 -exec ls -la {} \;
-# if there's not too many files, you can use \e[38;5;208m+\e[0m instead of \e[38;5;208m\;\e[0m which runs the command once on \e[1mall files\e[0m.
+# if there's not too many files, you can use \e[38;5;208m+\e[0m instead of \e[38;5;208m\;\e[0m which runs the command once on \e[1mall files\e[0m (assuming the command
+# supports that)
 
 # Instead of \e[38;5;208m-exec rm {} +\e[0m you can use \e[38;5;208m-delete\e[0m
 $ find ./filesToRemove -type f -delete
