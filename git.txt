@@ -18,6 +18,11 @@ alias gsf='git status -s -uno --porcelain | cut -c4- | sed '\''s/^"//;s/"$//'\''
 # just show old/other version of file, from another branch or specific commit (shown)
   $ git show 412c00baa6\e[32;1m:\e[0mpath/to/filename
 
+# grab a commit from elsewhere to current branch:
+  $ git cherry-pick otherBranch
+# or by commit hash:
+  $ git cherry-pick <commit-hash>
+
 # what am I about to push?
   $ git diff [--stat] origin/master
 
