@@ -9,7 +9,7 @@ alias glc='git show --name-status'
 alias glb='git reflog | grep checkout | cut -d\  -f6,8 | sed '\''s/ /\\n/'\'' | head -n50 |  awk '\''!x[$0]++'\''  | egrep [g-z] | head -n8'
 
 alias glp='git log -p'
-# git log also supports \e[38;5;208m--grep=foo\e[0m to filter commit messages
+# git log also supports \e[38;5;208m--grep=foo | --grep foo\e[0m to filter commit messages. Add \e[38;5;208m-i\e[0m after it to make it case-insensitive.
 
 # show \e[4monly\e[0m paths/names of changed files, for additional handling. cut removes the git flag(s), sed takes care of quotes
 # in filenames with spaces.
