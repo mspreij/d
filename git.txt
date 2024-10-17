@@ -7,7 +7,10 @@ alias gdc='git diff --cached'
 alias glc='git show --name-status'
 # "git last branches"
 alias glb='git reflog | grep checkout | cut -d\  -f6,8 | sed '\''s/ /\\n/'\'' | head -n50 |  awk '\''!x[$0]++'\''  | egrep [g-z] | head -n8'
+
 alias glp='git log -p'
+# git log also supports \e[38;5;208m--grep=foo\e[0m to filter commit messages
+
 # show \e[4monly\e[0m paths/names of changed files, for additional handling. cut removes the git flag(s), sed takes care of quotes
 # in filenames with spaces.
 alias gsf='git status -s -uno --porcelain | cut -c4- | sed '\''s/^"//;s/"$//'\'''
