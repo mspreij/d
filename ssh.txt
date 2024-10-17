@@ -60,3 +60,19 @@ $ sshd -t
 from="192.168.0.*" ssh-rsa AAAAB3NzaC1yc2E...
 
 # it should allow multiple comma-separated addresses and wildcards
+
+\e[38;5;201m--- TUNNELLING ---\e[0m
+
+### Create a secure tunnel to a specific port on a remote host (example given for VNC)
+$ ssh -L \e[32;1m5900\e[0m:\e[38;5;208mlocalhost:5900\e[0m username@remote_host
+# \e[37;1m-L\e[0m for local port forwarding
+# \e[32;1m5900\e[0m refers to the port on the client (your localhost)
+# \e[38;5;208mlocalhost:5900\e[0m refers to port 5900 on the \e[1mlocalhost of the remote host\e[0m, ie it's not going to another host on the remote
+# network. Now you connect your VNC client to localhost:\e[32;1m5900\e[0m and SSH will shuffle it to the remote listener's port.
+
+### SOCKS Proxy to browse from another host
+$ ssh -D 8080 username@remote_host
+# Go to manual proxy configuration in your browser settings -> network
+# In the SOCKS Host field, enter localhost and port 8080 (or whatever port you chose).
+# Select SOCKS v5 (which supports DNS over the proxy).
+# Check Proxy DNS when using SOCKS v5 to make sure all DNS requests are also routed through the remote server.
