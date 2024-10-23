@@ -5,9 +5,10 @@
 # longer be set, so \e[38;5;208mssh-add -l\e[0m will not immediately work, but you can re-connect to it by setting these.
 # You can get the pid from \e[38;5;208mps aux | grep ssh-agent\e[0m, and the socket will be somewhere in
 # \e[38;5;226m/tmp/ssh-XXXXXXXXXX/agent.1234\e[0m where that last 1234 will be its parent PID (PPID).
-# It's easier to script this of course:
-
-# Todo: fix below script to quit any ssh-agents that were started in error? I occasionally end up with two.
+# It's easier to script this of course, see below.
+# Sidenote: I've had WSL start /etc/profile \e[1mtwice\e[0m for some bizarre reason, causing that script to also run
+#           twice, yielding two ssh-agent which played merry havoc with any encryption scripts I was using. So check
+#           for that I guess.
 
 # =======================================================
 # this script should be SOURCED in the shell, not run!
