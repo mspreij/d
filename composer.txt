@@ -13,11 +13,12 @@ $ composer install
 # Tell composer to install this, add it to the json file and note the installed version in the lock file.
 $ composer require some/package
 
-# tell composer to check for newer versions (as allowed) per the json file, install those and update the lock file.
-$ composer update
+# Tell composer to check for newer versions [of a package] (as allowed) per the json file, install that or those and update the
+# lock file.
+$ composer update [some/package]
 
 ### Versions
-# there's exact, range, hyphenated range, wildcard range, tilde range and caret range (and some stability stuff)
+# There's exact, range, hyphenated range, wildcard range, tilde range and caret range (and some stability stuff)
 # Notation              Means
 1.0.1                   1.0.1
 >=1,<2                  any version starting with 1. operators include: >, >=, <, <=, !=
