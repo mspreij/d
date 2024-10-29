@@ -1,0 +1,6 @@
+After opening the file, use \e[32;1mi\e[0m to enter insert mode.
+Now you can TYPE!
+Then press \e[32;1mEsc\e[0m to exit insert mode, and then \e[32;1m:w\e[0m and \e[32;1mEnter\e[0m to write the file.
+You can also type \e[32;1m:wq\e[0m to write and then quit (and enter).
+Or \e[32;1m:q\e[0m to just quit.
+And if it complains about changes you don't want to save, type \e[32;1m:q!\e[0m.
