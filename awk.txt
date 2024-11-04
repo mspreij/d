@@ -1,25 +1,38 @@
 Ok this is SUPER short because I don't actually know awk.
-basic syntax is
+Basic syntax is
 
-\e[32mawk 'pattern { action }' file\e[0m
+\e[32mawk '/pattern/ { action }' file\e[0m
 
-awk operates on each line of the file. $0 is the whole line, $1, $2 etc are columns/words where the line is split on any amount of
+awk operates on each line of the file or STDIN, and runs action if pattern matches.
+- action is optional, and print by default. Default argument for print is the whole line. {..} surround the action(s).
+- action can contain if-clauses and var assignments etc too
+- if no pattern is given, the action runs.
+- pattern can also be a conditional expression like \e[38;5;208m$2 > 20\e[0m meaning the value in column two must be over 20.
+- you can ALSO combine patterns and conditional expressions with && and ||
+
+\e[32mawk '/pattern/ && $1 > 100 { print $2 }' filename\e[0m
+
+$0 is the whole line, $1, $2 etc are columns/words where the line is split on any amount of
 whitespace.
-If pattern yields true, action will run.
-Default action is print, default argument of print is $0.
 Multiple actions are separated by ';'
 So these are all basically the same:
 
 \e[32mawk '{if (length($0) > 50 ) print $0}' file
 awk '{if (length($0) > 50 ) print }' file
-awk 'length($0) > 50 { print }' file
-awk 'length($0) > 50' file\e[0m
+awk 'length($0) > 50 { print }' file \e[36m# note conditional expression instead of if-clause in the action\e[0m
+\e[32mawk 'length($0) > 50' file\e[0m
 
 and will print all lines of file longer than 50 characters.
 
-Find out the longest 10 filenames in a directory:
+BEGIN and END are special commands that can have their own actions.
+
+# add up all numbers from the first column:
+command | awk '{sum += $1} END {print sum}'
+
+
+# Find out the longest 10 filenames in a directory:
 
 \e[32mls somedir | awk '{print length($0), $0}' | sort -nr | head\e[0m
-optionally add \e[32m| cut -d\  -f2-\e[0m to only print the filenames, or even \e[32m| awk '{print $2}'\e[0m if they don't contain spaces.
+optionally add \e[32m| cut -d' ' -f2-\e[0m to only print the filenames, or even \e[32m| awk '{print $2}'\e[0m if they don't contain spaces.
 printf is similar to print where the first argument can be a format string like \e[32mprintf 'foo: %s', 123\e[0m, it also does not add
   a linebreak by default like print does (use "\\n")
