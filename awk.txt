@@ -1,34 +1,39 @@
-Ok this is SUPER short because I don't actually know awk.
 Basic syntax is
 
 \e[32mawk '/pattern/ { action }' file\e[0m
 
 awk operates on each line of the file or STDIN, and runs action if pattern matches.
-- action is optional, and print by default. Default argument for print is the whole line. {..} surround the action(s).
+#Action:
+- action is optional, and 'print' by default. Default argument for print is the whole line. {..} surround the action(s).
 - action can contain if-clauses and var assignments etc too
+- multiple actions are separated by ';'
+#Pattern:
 - if no pattern is given, the action runs.
 - pattern can also be a conditional expression like \e[38;5;208m$2 > 20\e[0m meaning the value in column two must be over 20.
 - you can ALSO combine patterns and conditional expressions with && and ||
-
 \e[32mawk '/pattern/ && $1 > 100 { print $2 }' filename\e[0m
 
-$0 is the whole line, $1, $2 etc are columns/words where the line is split on any amount of
-whitespace.
-Multiple actions are separated by ';'
 So these are all basically the same:
-
 \e[32mawk '{if (length($0) > 50 ) print $0}' file
 awk '{if (length($0) > 50 ) print }' file
 awk 'length($0) > 50 { print }' file \e[36m# note conditional expression instead of if-clause in the action\e[0m
 \e[32mawk 'length($0) > 50' file\e[0m
-
 and will print all lines of file longer than 50 characters.
+
+#Vars
+$0 is the whole line, $1, $2 etc are columns/words where the line is split on any amount of whitespace.
+NF is number of fields (columns). NR is the line number (R for record).
+FS and OFS are field separater, 2nd for output, they're space by default and can be reset \e[32mawk 'BEGIN { FS="," } ...\e[0m
+RS and ORS are similar, line/record separators.
+There's others for handling files, arguments and environment vars.
+
+#Flags
+-F,  \e[36m# use ',' as Field separator instead of whitespace\e[0m
 
 BEGIN and END are special commands that can have their own actions.
 
 # add up all numbers from the first column:
 command | awk '{sum += $1} END {print sum}'
-
 
 # Find out the longest 10 filenames in a directory:
 
@@ -36,3 +41,14 @@ command | awk '{sum += $1} END {print sum}'
 optionally add \e[32m| cut -d' ' -f2-\e[0m to only print the filenames, or even \e[32m| awk '{print $2}'\e[0m if they don't contain spaces.
 printf is similar to print where the first argument can be a format string like \e[32mprintf 'foo: %s', 123\e[0m, it also does not add
   a linebreak by default like print does (use "\\n")
+
+#functions:
+tolower(str),
+toupper(str),
+substr(string, start, length)
+index(string, substring)
+gsub(regex, replacement, target) \e[36m# global substitute, sub(..) for just first match\e[0m
+#number functions
+int() rounds down to integer
+sqrt() square root
+rand() \e[36m# random number between 0 and 1, multiply and int() as needed.\e[0m
