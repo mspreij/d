@@ -6,7 +6,7 @@ The notes files are .txt files that live in \e[32m$D_DOCS\e[0m, or by default \e
 repo there or set \e[32m$D_DOCS\e[0m to its path.
 
 It has a tab-completion function in d.bash_completion, you can symlink that to say
-\e[38;5;226m~/.local/share/bash-completion/completions/\e[0m , or wherever your bash completion functions live.
+\e[38;5;226m~/.local/share/bash-completion/completions/d\e[0m , or wherever your bash completion functions live.
 It will also match unique substrings of notes, so to see php_fork notes you can use \e[38;5;208md fork\e[0m.
 
 If you're not sure what the note was called anymore you can search the contents of all notes with \e[38;5;208md -s <query>\e[0m.
