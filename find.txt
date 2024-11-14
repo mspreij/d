@@ -13,9 +13,9 @@ $ find $args \e[32;1m-exec <command> {} \;\e[0m
 # \e[38;5;208m{}\e[0m is a placeholder for the filename/path
 # \e[38;5;208m\;\e[0m tells find to run \e[38;5;208mcommand\e[0m on \e[1meach found file\e[0m
 # So:
-$ find . -mtime -1 -exec ls -la {} \;
+$ find . -mtime -1 -exec ls -lAd {} \;
 # if there's not too many files, you can use \e[38;5;208m+\e[0m instead of \e[38;5;208m\;\e[0m which runs the command once on \e[1mall files\e[0m (assuming the command
-# supports that)
+# supports that), which also helps with the columns lining up
 
 # Instead of \e[38;5;208m-exec rm {} +\e[0m you can use \e[38;5;208m-delete\e[0m
 $ find ./filesToRemove -type f -delete
@@ -23,7 +23,7 @@ $ find ./filesToRemove -type f -delete
 
 # If \e[38;5;208m-exec ls\e[0m has issues with spaces in names (I think that happened to me once?), break out \e[38;5;208mxargs\e[0m telling both \e[1mfind\e[0m and
 # \e[1mxargs\e[0m to use a \e[38;5;201mnull delimiter\e[0m for newlines:
-$ find . -mtime -1 \e[32;1m-print0\e[0m | xargs \e[32;1m-0\e[0m ls -la
+$ find . -mtime -1 \e[32;1m-print0\e[0m | xargs \e[32;1m-0\e[0m ls -lAd
 
 # find files owned by specific user or group
 $ find . -user joe -group developers
