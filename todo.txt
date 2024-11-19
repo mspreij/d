@@ -8,6 +8,7 @@ Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
 * jq
 * composer
 v bat install instructions o.o;
+* ansi codes
 - man: where are man pages? what are the numbers about? mandb, manpath
 * grep: ?exclude file/dir patterns with examples
 - wget/curl
