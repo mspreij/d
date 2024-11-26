@@ -31,3 +31,6 @@ $ composer update [some/package]
 ~1.2.3                  >=1.2.3 <1.3
 # caret is similar but allows anything until the next major version (unless current MV is 0: ^0.4 becomes >=0.4 <0.5)
 ^1.5.7                  >=1.5.7 <2
+
+### show what versions of packages are installed in the current project
+$ composer show
