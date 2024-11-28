@@ -75,3 +75,49 @@ keymod ()
     modulus=$(openssl rsa -noout -modulus -in "$1");
     [[ -n $hash ]] && ( echo "$modulus" | openssl md5 ) || echo "$modulus"
 }
+
+
+# ---- shell script ----------------------
+#!/usr/bin/env bash
+
+# lists of cipher suites to test
+tls12_ciphers=($(openssl ciphers -s -v | grep -e TLSv1.2 | awk '{print $1}'))
+tls13_ciphers=($(openssl ciphers -s -v | grep -e TLSv1.3 | awk '{print $1}'))
+# -s for secure/modern (smaller but more relevant set), -v: verbose to get the version info so we can grep on it
+# then just only print the cipher again
+
+# Target server
+if [[ -z $1 ]]; then
+    echo -e "  \e[36;1mPass a host as first argument to probe it. Using default host:\e[0m";
+fi
+
+server="${1:-fargeau.horafinita.nl}"
+
+echo "  $server"
+echo "  $(dig +short $server | tail -n1)"
+
+echo '  --- Certificate ---'
+
+echo | openssl s_client -servername $server -connect $server:443 2> /dev/null | openssl x509 -noout -issuer -dates -ext subjectAltName \
+       | sed 's/^/    /g'
+
+echo '  --- Cipher support ---'
+
+function test_ciphers() {
+    local version=$1
+    shift
+    local ciphers=("$@")
+    local arg=-cipher
+    if [[ "$version" == "tls1_3" ]]; then arg=-ciphersuites; fi
+    echo "$(echo \ \ TLS ${version:3} | sed 's/_/./')"
+    for cipher in "${ciphers[@]}"; do
+        result=$(echo | openssl s_client -connect $server:443 $arg $cipher -$version 2>&1)
+        if [[ $result == *"Cipher is"* && $result != *"Cipher is (NONE)"* ]]; then
+            echo "    "$cipher
+        fi
+    done
+}
+
+test_ciphers tls1_2 "${tls12_ciphers[@]}"
+test_ciphers tls1_3 "${tls13_ciphers[@]}"
+# ---------------------------------------------
