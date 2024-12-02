@@ -2,16 +2,17 @@ https://rclone.org/
 https://en.wikipedia.org/wiki/Rclone
 
 # rclone is like rsync on steroids and was originally created for files in cloud storage such as S3, Dropbox etc.
-# Besides syncing files it can encrypt, compress and locally cache them, and mount remote sources in the local filesystem,
-#   decrypting etc on the fly as needed.
+# Besides syncing files it can encrypt, compress and locally cache them, and mount remote sources in the local
+# filesystem, decrypting etc on the fly as needed.
 
 # Instead of passing bunches of arguments you define \e[38;5;201mremotes\e[0m, usually using the interactive \e[38;5;208mrclone config\e[0m.
-# A remote is a name, type, location, credentials, and whatever type-specific options/flags are available. In sync and copy etc
-#   commands you use the remote \e[1mname\e[0m as source or destination, followed by a colon ':' to distinguish it from a local file/directory.
+# A remote is a name, type, location, credentials, and whatever type-specific options/flags are available. In sync
+# and copy etc commands you use the remote \e[1mname\e[0m as source or destination, followed by a colon ':' to distinguish it
+# from a local file/directory.
 # All configuration is stored in a config file, get the path with \e[38;5;208mrclone config file\e[0m.
 # It will usually be in \e[38;5;226m~/.config/rclone/rclone.conf\e[0m
-# For a local source or destination you don't usually have to create a config entry, unless you want rclone to encrypt it,
-#   then a sample configuration will look like (externcrypted is the name of the remote, here):
+# For a local source or destination you don't usually have to create a config entry, unless you want rclone to encrypt
+# it, then a sample configuration will look like (externcrypted is the name of the remote, here):
 
 [externcrypted]
 type = crypt
@@ -25,12 +26,14 @@ $ rclone sync some/local/path externcrypted:
 # switching the arguments obviously syncs the other way.
 # it is always the contents of the given directories that are sync'd or copied.
 
-# \e[1;33;41m NB: \e[0m when the timestamps are not the same, rclone doesn't check the size or checksum, but copies the file regardless. On
-#     different filesystems the timestamps can differ by nano-seconds straight after a sync, some difference in stored
-#     precision or loss in encrypted-to-write, I don't know - but this WILL cause a second sync to copy all files again,
-#     even if the source wasn't touched. \e[38;5;208m--modify-window=1s\e[0m adds a 1 second margin and helps enormously here.
-# Use \e[38;5;208m-v\e[0m or \e[38;5;208m-vv\e[0m to check for this. You can also use \e[38;5;208mtouch -d '<iso timestamp>' $file\e[0m and \e[38;5;208mstat $file\e[0m to test the precision of
-#   a FS, just add like 12 numbers after the decimal dot of the seconds in touch. Also, use stat for iso format examples.
+# \e[1;33;41mNB: \e[0m when the timestamps are not the same, rclone doesn't check the size or checksum, but copies the file
+#      regardless. On different filesystems the timestamps can differ by nano-seconds straight after a sync, some
+#      difference in stored precision or loss in encrypted-to-write, I don't know - but this WILL cause a second
+#      sync to copy all files again, even if the source wasn't touched. \e[38;5;208m--modify-window=1s\e[0m adds a 1 second margin
+#      and helps enormously here.
+# Use \e[38;5;208m-v\e[0m or \e[38;5;208m-vv\e[0m to check for this. You can also use \e[38;5;208mtouch -d '<iso timestamp>' $file\e[0m and \e[38;5;208mstat $file\e[0m to test the
+#   precision of a FS, just add like 12 numbers after the decimal dot of the seconds in touch.
+# Also, use stat for iso format examples.
 
 # you can \e[1mmount\e[0m it: (the & is to run it in the background as it stays open)
 $ rclone mount externcrypted: /existing/mount/directory &
@@ -38,18 +41,19 @@ $ rclone mount externcrypted: /existing/mount/directory &
 # You can unmount it with umount again:
 $ sudo umount /mount/directory
 
-# If you have the keys (in the config) to mount an encrypted directory, but that directory sits on a disk that rclone can't access
-#   for whatever reasons (like Windows), you can simply copy the files you need to somewhere rclone *can* access, and modify the
-#   config or re-create the directories leading to the original mountpoint and move the files there, it'll magically work.
+# If you have the keys (in the config) to mount an encrypted directory, but that directory sits on a disk that
+#   rclone can't access for whatever reasons (like Windows), you can simply copy the files you need to somewhere
+#   rclone *can* access, and modify the config or re-create the directories leading to the original mountpoint and
+#   move the files there, it'll magically work.
 
 # \e[38;5;208m--filter-from somefile.txt\e[0m can be used to only include and exclude certain files/directories.
 # Some incomplete notes:
 Lines with stuff to include start with a '+', to exclude start with '-'
 Comments are #
 Directories should probably have /** at the end?
-If you use the file at all, a line with '- *' might prevent wiping the target directory's .ssh, .bashrc etc. This shouldn't happen
-with a proper setup but YOU KNOW.
+If you use the filqe at all, a line with '- *' might prevent wiping the target directory's .ssh, .bashrc etc. This
+shouldn't happen with a proper setup but YOU KNOW.
 
 ### TROUBLESHOOTING ###
--v or -vv for verbose/debug info. It might turn out it keeps copying files because the timestamps on two different filesystems
-  are stored differently
+-v or -vv for verbose/debug info. It might turn out it keeps copying files because the timestamps on two different
+  filesystems are stored differently.
