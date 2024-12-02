@@ -1,0 +1,71 @@
+ 
+# A bunch of the below can simply go in a boilerplate init() function. Call that *after* you've handled -?/-h
+
+# Set terminal to raw mode: allows you to interpret keys more easily
+# -icanon to send every char straight through, no wait for newlines
+# -echo to not print input (DISABLE this before exiting the script!)
+shell_exec('stty -icanon -echo');
+# fgetc etc don't wait for input.
+# put fgetc in a while($char = fgetc()) {.. loop for putting together mb chars
+stream_set_blocking(STDIN, false);
+# switch to alternate screen buffer
+echo "\e[?1049h";
+# hide cursor
+echo "\e[?25l";
+
+# register shutdown function to restore terminal
+register_shutdown_function('back_to_normal');
+
+# catch Ctrl-C and make it properly exit.
+# call this in like a loop:
+pcntl_signal_dispatch();
+# and here you define the callback (you can put this in the init())
+pcntl_signal(SIGINT, function () {
+    back_to_normal();
+    exit(0);
+});
+
+
+function back_to_normal() {
+    shell_exec('stty sane');
+    echo "\e[?1049l"; // back to original screen buffer
+    echo "\e[?25h";   // show the cursor again
+}
+
+# todo: get more from ~/projects/hacks/ like width, height
+
+# https://en.wikipedia.org/wiki/Box-drawing_characters
+
+# https://en.wikipedia.org/wiki/Block_Elements:
+▀  Upper half block
+▁  Lower one eighth block
+▂  Lower one quarter block
+▃  Lower three eighths block
+▄  Lower half block
+▅  Lower five eighths block
+▆  Lower three quarters block
+▇  Lower seven eighths block
+█  Full block
+▉  Left seven eighths block
+▊  Left three quarters block
+▋  Left five eighths block
+▌  Left half block
+▍  Left three eighths block
+▎  Left one quarter block
+▏  Left one eighth block
+▐  Right half block
+░  Light shade
+▒  Medium shade
+▓  Dark shade
+▔  Upper one eighth block
+▕  Right one eighth block
+▖  Quadrant lower left
+▗  Quadrant lower right
+▘  Quadrant upper left
+▙  Quadrant upper left and lower left and lower right
+▚  Quadrant upper left and lower right
+▛  Quadrant upper left and upper right and lower left
+▜  Quadrant upper left and upper right and lower right
+▝  Quadrant upper right
+▞  Quadrant upper right and lower left
+▟  Quadrant upper right and lower left and lower right
