@@ -34,3 +34,6 @@ $ composer update [some/package]
 
 ### show what versions of packages are installed in the current project
 $ composer show
+
+### show what you did wrong, and why composer is disappointed in you
+$ composer validate
