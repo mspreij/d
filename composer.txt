@@ -1,8 +1,8 @@
 !Very incomplete!
 
-Composer has a \e[32mjson\e[0m file which tells it what we *want*. It uses that to generate a \e[32mlock\e[0m file to tell the world
-what it has decided to install (based on the json file) in /vendor. Both files go in git: the json is obvious, and the lock file tells
-other developers what they should be using to get the same result, and will deploy those same exact versions into production, which is
+Composer has a \e[32mjson\e[0m file which tells it what we *want*. It uses that to generate a \e[32mlock\e[0m file to tell the world what it has decided
+to install (based on the json file) in /vendor. Both files go in git: the json is obvious, and the lock file tells other
+developers what they should be using to get the same result, and will deploy those same exact versions into production, which is
 usually what you want.
 
 $ composer install
@@ -24,8 +24,8 @@ $ composer update [some/package]
 1.0.1                   1.0.1
 >=1,<2                  any version starting with 1. operators include: >, >=, <, <=, !=
 1-2.0.0                 any version starting with 1 and 2.0.0
-1-2                     any version starting with 1 or 2 (hyphen notation fills up the right-hand version with wildcards so it's really
-                        1-2.*.*
+1-2                     any version starting with 1 or 2 (hyphen notation fills up the right-hand version with wildcards so it's
+                        really 1-2.*.*)
 1.0.*                   >=1.0 <1.1
 # tilde allows _only_ the last specified digit to go up (~1 becomes ~1.0 though)
 ~1.2                    >=1.2.0 <2
