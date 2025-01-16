@@ -41,3 +41,17 @@ $ nano -Y php foobar
 
 # If syntax highlighting still doesn't work, or is just regular/bold instead of colors, experiment
 #   with your TERM variable.
+
+### my config:
+include "/usr/share/nano/*.nanorc"
+include "/home/<user>/.config/nanophpsyntax"
+
+set softwrap
+set tabsize 4
+set tabstospaces
+set multibuffer
+set constantshow
+set zap
+set autoindent
+set trimblanks
+###
