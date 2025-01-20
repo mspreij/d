@@ -76,3 +76,14 @@ $ ssh -D 8080 username@remote_host
 # In the SOCKS Host field, enter localhost and port 8080 (or whatever port you chose).
 # Select SOCKS v5 (which supports DNS over the proxy).
 # Check Proxy DNS when using SOCKS v5 to make sure all DNS requests are also routed through the remote server.
+
+### Reverse SSH tunnel
+# on the target box (Alice), create a reverse tunnel that connects the remote port 2222 to local 22:
+Alice_$ ssh \e[32;1m-R 2222:localhost:22\e[0m bob@remote
+# keep this connection active, don't let the computer sleep/lock while you're away
+# Now on the remote (Bob's machine), you can simply connect to \e[38;5;208m-p 2222 alice@localhost\e[0m:
+Bob_$ ssh -p 2222 alice@localhost
+
+# If both Alice and Bob are behind a firewall/router, you can use a jumphost provided both can access that:
+Alice_$ ssh -R 2222:localhost:22 \e[32;1mcarol@jumphost\e[0m
+Bob_$ ssh \e[32;1m-J carol@jumphost\e[0m -p 2222 alice@localhost
