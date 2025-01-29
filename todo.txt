@@ -57,7 +57,7 @@ Random ideas:
 Done/discarded:
  √ placeholder for comment color, to finish different-color strings inside comments.
    > how about simply "\e[0m" but only in comment lines! this would need to go Before the sed that colors
-   > this even worked, shiv'd the new sed on the same line before the current one, but using \e instead of ${esc} and somehow it
+   > this even worked, shiv'd the new sed on the same line before the current one, but using \\e instead of ${esc} and somehow it
      works..
  √ some type of apropos, "d -s blaat" where it simply greps for blaat in all doc files and prints a pretty result table
  √ config? things? somewhere in $D_DOCS
