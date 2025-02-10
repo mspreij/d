@@ -3,15 +3,15 @@ Basic syntax is
 \e[32mawk '/pattern/ { action }' file\e[0m
 
 awk operates on each line of the file or STDIN, and runs action if pattern matches.
-#Action:
-- action is optional, and 'print' by default. Default argument for print is the whole line. {..} surround the action(s).
-- action can contain if-clauses and var assignments etc too
-- multiple actions are separated by ';'
 #Pattern:
 - if no pattern is given, the action runs.
 - pattern can also be a conditional expression like \e[38;5;208m$2 > 20\e[0m meaning the value in column two must be over 20.
 - you can ALSO combine patterns and conditional expressions with && and ||
 \e[32mawk '/pattern/ && $1 > 100 { print $2 }' filename\e[0m
+#Action:
+- action is optional, and 'print' by default. Default argument for print is the whole line. {..} surround the action(s).
+- action can contain if-clauses and var assignments etc too
+- multiple actions are separated by ';'
 
 So these are all basically the same:
 \e[32mawk '{if (length($0) > 50 ) print $0}' file
@@ -30,8 +30,7 @@ There's others for handling files, arguments and environment vars.
 #Flags
 -F,  \e[36m# use ',' as Field separator instead of whitespace\e[0m
 
-BEGIN and END are special commands that can have their own actions.
-
+BEGIN and END are special commands that can have their own actions:
 # add up all numbers from the first column:
 command | awk '{sum += $1} END {print sum}'
 
