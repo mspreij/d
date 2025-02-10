@@ -5,14 +5,9 @@ d:
 - move short usage list to top of d.txt
 
 Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
-* jq
-* composer
-v bat install instructions o.o;
-* ansi codes
 - man: where are man pages? what are the numbers about? mandb, manpath
-* grep: ?exclude file/dir patterns with examples
+- locale
 - wget/curl
-v git
 - cut? this needs to be a chapter thing in bash or ... w/e
 - apt, probably
 - atop
@@ -20,9 +15,15 @@ v git
 - irssi
 - configure/make stuff, check old C notes & kilo editor
 - shopt???
-* tmux
 - visudo
 - certinfo?
+* jq
+* composer
+* ansi codes
+* grep: ?exclude file/dir patterns with examples
+* tmux
+v git
+v bat install instructions o.o;
 
 Colors:
 - yellow: paths, maybe \e[38;5;226m38;5;226\e[0m
