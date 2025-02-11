@@ -1,7 +1,12 @@
-# This is not about getopts, but it *is* what you usually want when you end up looking for getopts and find there are like 3
-# different versions of getopt[s] and they're all complicated and you just want the stupid one-off script or 10-line function
-# to work and you'll just hack it together yourself again.
+# So, there was a \e[1mgetopt\e[0m in a bygone era which had issues, so they made a \e[1mgetopts\e[0m in 1986 which was shipped with bash.
+# In 1995 it was added to the Single Unix Specification (SUS).
+# Then a newer one was made for Linux based on a BSD getopt, which they also named getopt. It fixes things in the original
+#   getopt, and adds features that getopts lacks.
 
+# for php the syntax is
+$options = getopt($shortflags, [array $longflags], [stuff more to finish later.
+
+# The following does not use getopts, but will work for simple separate -x -y -z flags.
 # This is how you hack it together for your one-off function 'foo':
 
 function foo {
@@ -26,7 +31,6 @@ function foo {
     actual_thing="$1"
     ... body of the function
 }
-
 # Notes:
 # - every case ends with a double ;;. This can immediately follow the preceding command or statement, like shift;;
 # - yes, every case starts with \e[38;5;208mthe-thing-to-match )\e[0m , bash is weird like that.
