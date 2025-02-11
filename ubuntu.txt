@@ -1,0 +1,27 @@
+=== CHARACTERS ===
+
+press (don't hold) right-alt and then the chars in the 2.. columns. Also this is not working in KDE or somesuch?
+°    o o  degrees
+©    o c
+®    o r
+™    t m
+éèë  '`" e (uiao etc)é
+ç    , c
+ñ    - n
+→    - >
+←    < -
+↑    ^ |   # these two can go
+↓    | v   #  in either order
+
+Unicode: ctrl-shift-u, <code>, enter. if the code is uppercase, enter seems less needed? And it also seems to yes, be case-sensitive.
+         code:
+√/∛/∜    221A/B/C
+€        20AC          <-------- EURO EURO EURO
+♠♡♢♣     2660,1,2,3
+♤♥♦♧     2664,5,6,7
+💙       1f499
+💚💛💜   1f49a,b,c
+❤️       2764 (heavy black heart) then fe0f "An invisible codepoint which specifies that the preceding character should be displayed with emoji presentation." Needs its own ctrl-shft-u.
+♠️♥️♦️♣️  2660/2665/2663/2666 fe0f (see above)
+💀       1f480
+🔥       1f525
