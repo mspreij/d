@@ -14,5 +14,9 @@ $ bat --help
 
 # remove bat's fancy lines and numbers and such
 -p / --plain
+
+# no paging
+-P
+
 # specify syntax to use for coloring (accepts language or extension)
 -l <language> 
