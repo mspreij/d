@@ -32,6 +32,9 @@ alias gsf='git status -s -uno --porcelain | cut -c4- | sed '\''s/^"//;s/"$//'\''
 # diff between branches, commit hash, symbolic ref..
   $ git diff [options] <commit>..<commit> [--] [path..]
 
+# fine-grained diff shows changes inline: \e[31;1m[-deleted stuff-]\e[0m \e[32;1m{+added stuff+}\e[0m
+  $ git diff --word-diff 
+
 # add specific parts of changed file to stage:
   $ git add -p
 # it'll let you open an editor to tweak it line by line if needed
