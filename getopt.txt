@@ -1,18 +1,34 @@
 # So, there was a \e[1mgetopt\e[0m in a bygone era which had issues, so they made a \e[1mgetopts\e[0m in 1986 which was shipped with bash.
 # In 1995 it was added to the Single Unix Specification (SUS).
 # Then a newer one was made for Linux based on a BSD getopt, which they also named getopt. It fixes things in the original
-#   getopt, and adds features that getopts lacks.
+#   getopt, and adds features that getopt\e[1ms\e[0m lacks.
 
-# for php the syntax is
-$options = getopt($shortflags, [array $longflags], [stuff more to finish later.
+# what (new) getopt DOES:
+# - you tell it what flags to expect, long or short, and if they require a value
+# - you give it all the args
+# - it transforms them into a neat list that is easier for you to parse with while/case
+# What it does NOT DO:
+# - prevent invalid input. it does show an error, but will continue on.
 
-# The following does not use getopts, but will work for simple separate -x -y -z flags.
-# This is how you hack it together for your one-off function 'foo':
+# How it works is iffy to explain without an example:
+OPTIONS=$(\e[32mgetopt\e[35;1m -o ab:c -l help\e[0m \e[34;1m-n "$0"\e[0m -- \e[31;1m"$@"\e[0m)
+eval set -- "$OPTIONS"
+
+\e[32mgetopt\e[0m            \e[36m# calls getopt \o/
+\e[35;1m -o ab:c -l help\e[0m  \e[36m# expected -o/--options and -l/--longoptions are supplied here.
+                  \e[36m# an option followed by ':' \e[1mrequires\e[36;22m a value, if no value is passed getopt will not pass it into $OPTIONS
+\e[34;1m-n "$0"\e[0m           \e[36m# optionally pass the name of the script, used for error messages\e[0m
+--                \e[36m# separate options for getopt from whatever was passed to the main script
+\e[31;1m"$@"\e[0m              \e[36m# positional arguments passed to the main script, as separate strings
+
+# then the eval..$OPTIONS" turns $OPTIONS into $1, $2, ... $n, leaving out flags for missing required values and separating
+# everything neatly.
 
 function foo {
     local debug
     local silent
-    ... vars, settings, whatever?
+    options=$(getopt -o ds -- "$@")
+    eval set -- "$options"
     while true; do
         case "$1" in          # case just looks at the first argument. if it's a -d, a var is reset
             -d)               # and the -d is taken out of args. now it goes back to the start of the loop
@@ -28,9 +44,28 @@ function foo {
             ;;
         esac;
     done;
-    actual_thing="$1"
-    ... body of the function
+    # body etc
+    echo debug $debug
+    echo silent $silent
 }
 # Notes:
 # - every case ends with a double ;;. This can immediately follow the preceding command or statement, like shift;;
 # - yes, every case starts with \e[38;5;208mthe-thing-to-match )\e[0m , bash is weird like that.
+
+
+### PHP ###
+
+# for php the syntax is
+$options = getopt(str $shortflags, array $longflags = [], int &$rest_index = null);
+# short options are letters, like "abc" for optional -a -b -c flags.
+# add a ':' after a flag to make it require a value: "ab:c"
+# add 2 '::' to make the value optional (rarely needed)
+
+$options = getopt('abc');
+$ script.php -ca
+var_export($options); // ['c'=>false, 'a'=>false] 
+# so check for flag using isset($options['b']) I guess
+
+# NB: getopt stops parsing input at the first non-option (ie something not starting with - or --):
+$ script.php -a x -b // ['a'=>false]
+$ script.php -a -x -b // ['a'=>false, 'b'=>false]
