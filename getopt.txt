@@ -14,41 +14,52 @@
 OPTIONS=$(\e[32mgetopt\e[35;1m -o ab:c -l help\e[0m \e[34;1m-n "$0"\e[0m -- \e[31;1m"$@"\e[0m)
 eval set -- "$OPTIONS"
 
-\e[32mgetopt\e[0m            \e[36m# calls getopt \o/
-\e[35;1m -o ab:c -l help\e[0m  \e[36m# expected -o/--options and -l/--longoptions are supplied here.
-                  \e[36m# an option followed by ':' \e[1mrequires\e[36;22m a value, if no value is passed getopt will not pass it into $OPTIONS
-\e[34;1m-n "$0"\e[0m           \e[36m# optionally pass the name of the script, used for error messages\e[0m
---                \e[36m# separate options for getopt from whatever was passed to the main script
-\e[31;1m"$@"\e[0m              \e[36m# positional arguments passed to the main script, as separate strings
+\e[32mgetopt\e[0m           \e[36m# calls getopt \o/
+\e[35;1m-o ab:c -l help\e[0m  \e[36m# expected \e[38;5;208m-o/--options\e[36m and \e[38;5;208m-l/--longoptions\e[36m are supplied here.
+                 \e[36m# an option followed by ':' \e[1mrequires\e[36;22m a value, if no value is passed getopt will not pass it into $OPTIONS
+\e[34;1m-n "$0"\e[0m          \e[36m# optionally pass the name of the script, used for error messages\e[0m
+--               \e[36m# separate options for getopt from whatever was passed to the main script
+\e[31;1m"$@"\e[0m             \e[36m# positional arguments passed to the main script, as separate strings
 
 # then the eval..$OPTIONS" turns $OPTIONS into $1, $2, ... $n, leaving out flags for missing required values and separating
-# everything neatly.
+# everything neatly, so
+$(getopt -o abco: -- "$@")
+-abo foobar
+# becomes
+-a -b -o foobar
 
+# Example use in a function:
 function foo {
-    local debug
-    local silent
-    options=$(getopt -o ds -- "$@")
+    local debug=off
+    local myvar
+    options=$(getopt -o dr:h -l help -- "$@")
     eval set -- "$options"
     while true; do
         case "$1" in          # case just looks at the first argument. if it's a -d, a var is reset
             -d)               # and the -d is taken out of args. now it goes back to the start of the loop
-                debug=echo;
+                debug=ON;
                 shift
             ;;
-            -s)               # so the next loop around, it might encounter -s and the same thing happens.
-                silent='-s';  # but because while (true) it also works if -s comes before -d
-                shift
+            -r)               # so the next loop around, it might encounter -r and the same thing happens.
+                myvar=$2;     # but because while (true) it also works if -r comes before -d
+                shift 2       # note that myvar is set to the Next argument, and 2 items are shifted of remaining args
             ;;
+            -h|--help )       # handle both possible options
+                echo Help text goes here
+                shift;;
+            --)               # getopt always adds this, so filter it out. and since it's the end of options, you can break
+                shift
+                break;;
             *)                # first time it encounters something not in the cases, it exits the while loop.
                 break
             ;;
         esac;
     done;
     # body etc
-    echo debug $debug
-    echo silent $silent
+    echo debug: $debug
+    echo myvar: $myvar
 }
-# Notes:
+# unrelated case notes:
 # - every case ends with a double ;;. This can immediately follow the preceding command or statement, like shift;;
 # - yes, every case starts with \e[38;5;208mthe-thing-to-match )\e[0m , bash is weird like that.
 
