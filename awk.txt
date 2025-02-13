@@ -20,17 +20,28 @@ awk 'length($0) > 50 { print }' file \e[36m# note conditional expression instead
 \e[32mawk 'length($0) > 50' file\e[0m
 and will print all lines of file longer than 50 characters.
 
-#Vars
+Multiple pattern/action pairs are possible, each pair will be evaluated for every line.
+If a script becomes unwieldy, store it in a file:
+foo | awk -f script.awk
+
+# Vars
 $0 is the whole line, $1, $2 etc are columns/words where the line is split on any amount of whitespace.
 NF is number of fields (columns). NR is the line number (R for record).
 FS and OFS are field separater, 2nd for output, they're space by default and can be reset \e[32mawk 'BEGIN { FS="," } ...\e[0m
 RS and ORS are similar, line/record separators.
 There's others for handling files, arguments and environment vars.
 
+# Arrays!
+foo[$1]++ \e[36m# will create an assoc array with first words as key and number of occurrences as value.\e[0m
+# print how often the words in the second column appeared, and the word itself
+awk '{count[$2]++} END {for (c in count) print count[c], c}' data.txt
+
 #Flags
 -F,  \e[36m# use ',' as Field separator instead of whitespace\e[0m
+-f <file> \e[36m# read script from file\e[0m
+-v var=value \e[36m# assign value to variable\e[0m
 
-BEGIN and END are special commands that can have their own actions:
+BEGIN and END are special commands that can have their own actions, they run before and after processing all the lines:
 # add up all numbers from the first column:
 command | awk '{sum += $1} END {print sum}'
 
@@ -41,13 +52,18 @@ optionally add \e[32m| cut -d' ' -f2-\e[0m to only print the filenames, or even 
 printf is similar to print where the first argument can be a format string like \e[32mprintf 'foo: %s', 123\e[0m, it also does not add
   a linebreak by default like print does (use "\\n")
 
-#functions:
+# c-style for-loops
+for (i=1; i<=NF; i++) do something field-count times
+# ternary
+{ print ($1 > 10 ? ($1 > 30 ? "huge" : "medium") : "small") }
+
+# functions:
 tolower(str),
 toupper(str),
 substr(string, start, length)
 index(string, substring)
 gsub(regex, replacement, target) \e[36m# global substitute, sub(..) for just first match\e[0m
-#number functions
+# number functions
 int() rounds down to integer
 sqrt() square root
 rand() \e[36m# random number between 0 and 1, multiply and int() as needed.\e[0m
