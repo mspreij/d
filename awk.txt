@@ -23,6 +23,7 @@ and will print all lines of file longer than 50 characters.
 Multiple pattern/action pairs are possible, each pair will be evaluated for every line.
 If a script becomes unwieldy, store it in a file:
 foo | awk -f script.awk
+While it doesn't look it, awk is a full programming language with function declarations, system calls, 
 
 # Vars
 $0 is the whole line, $1, $2 etc are columns/words where the line is split on any amount of whitespace.
@@ -55,8 +56,14 @@ optionally add \e[32m| cut -d' ' -f2-\e[0m to only print the filenames, or even 
 printf is similar to print where the first argument can be a format string like \e[32mprintf 'foo: %s', 123\e[0m, it also does not add
   a linebreak by default like print does (use "\\n")
 
-# c-style for-loops
-for (i=1; i<=NF; i++) do something field-count times
+# loops
+for (i=1; i<=NF; i++) print stuff
+for (key in assocArray) stuff with assocArray[key]
+while (a < 10) {
+    # multiple lines in a block are surrounded by {..}
+    foo
+}
+
 # ternary
 { print ($1 > 10 ? ($1 > 30 ? "huge" : "medium") : "small") }
 
