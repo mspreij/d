@@ -22,3 +22,4 @@ ${FOO:+val}     val if $FOO is set (and not null)
 ${FOO:?message} Show error message and exit if $FOO is unset (or null)
 # Omitting the : removes the (non)nullity checks, e.g. ${FOO-val} expands to val
 #   if unset otherwise $FOO.
+${!BAR}         use the value of the variable whose name is stored in $BAR
