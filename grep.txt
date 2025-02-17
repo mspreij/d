@@ -19,8 +19,10 @@ $ grep 'foo\.txt' *
 -n   print line number
 [-A, -B, -C]#  print # lines after, before, or around matching lines
 -o   print only the matching part of the line, useful to regex values out of a file for use in a pipeline
+     this also puts multiple matches in a single line on separate lines in the output, so it can be used to count matches
 -m # print only the first # matching lines
 -l   print only the filenames, not the matching lines
+-c   outputs number of matching lines (multiple matches on same line still counts as 1)
 
 # filter out empty lines for, say, -v, by using a start/end pattern ^$
 $ grep -v -e foobar -e ^$
