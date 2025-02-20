@@ -5,8 +5,9 @@ Sequence: \\e[\e[36;1m<codes separated by ';'>\e[0mm
 Reset all: \\e[0m
 0    reset
 1    \e[1mbold\e[0m
-22   normal text; no longer bold or faint, keeps current color
 4    \e[4munderline\e[0m
+7    \e[7minvert\e[0m
+22   normal text; no longer bold or faint, keeps current color
 FG      BG      regular   bright
 30	40	\e[30;47mBlack\e[0m     \e[30;1;47mBlack\e[0m
 31	41	\e[31mRed\e[0m       \e[31;1mRed\e[0m
