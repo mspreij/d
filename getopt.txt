@@ -74,9 +74,13 @@ $options = getopt(str $shortflags, array $longflags = [], int &$rest_index = nul
 
 $options = getopt('abc');
 $ script.php -ca
-var_export($options); // ['c'=>false, 'a'=>false] 
+var_export($options); \e[36m# ['c'=>false, 'a'=>false]\e[0m
 # so check for flag using isset($options['b']) I guess
 
+# $rest_index:
+$options = getopt('abch', ['help'], $rest_index);
+$argv = array_slice($argv, $rest_index); \e[36m# $argv now contains any remaining arguments\e[0m
+
 # NB: getopt stops parsing input at the first non-option (ie something not starting with - or --):
-$ script.php -a x -b // ['a'=>false]
-$ script.php -a -x -b // ['a'=>false, 'b'=>false]
+$ script.php -a x -b \e[36m# ['a'=>false] - $argv if reset with \e[1m$rest_index\e[22m as above would now contain \e[1mx\e[22m and \e[1m-b\e[0m
+$ script.php -a -x -b \e[36m# ['a'=>false, 'b'=>false]\e[0m
