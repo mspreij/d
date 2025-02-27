@@ -32,6 +32,7 @@ The client/server send number or typed packets, here is what the numbers mean:
 # this can mean you need to use a capital P for port if you're using a lowercase p. It can also mean you
 # need to use a lowercase p for port if you're using a capital P. Don't ask.
 
+
 \e[38;5;201m--- SSH-KEYGEN ---\e[0m
 
 ### remove a passphrase
@@ -49,7 +50,9 @@ $ ssh-keygen -y -f foobar > foobar.pub
 
 # see also \e[38;5;201mssh-agent\e[0m
 
+
 \e[38;5;201m--- SSHD ---\e[0m
+
 # Check /etc/ssh/sshd_config syntax before restarting the service:
 $ sshd -t
 
@@ -60,6 +63,25 @@ $ sshd -t
 from="192.168.0.*" ssh-rsa AAAAB3NzaC1yc2E...
 
 # it should allow multiple comma-separated addresses and wildcards
+
+
+\e[38;5;201m--- MULTIPLEXING ---\e[0m
+
+# SSH allows you to use the same connection for multiple sessions on the remote host, which saves time for scripts that
+# run several remote commands. I'm still a bit vague on connection vs session vs whatnot, but if you re-use an existing
+# connection, no new lines appear in the server's \e[1mauth.log\e[0m / \e[1msecure\e[0m logs. And it's faster.
+# To create a connection that hangs around in the background you can just edit the config file like:
+Host whatever
+  ControlMaster auto
+  ControlPath ~/.ssh/control-%r@%h-%p
+  ControlPersist 10m
+# Connections to this host will now create a socket file \e[38;5;226m~/.ssh/control-*\e[36m (which will be specific to that host because
+# of all the %% stuffs). That first connection becomes the master connection automatically. New connections will
+# reuse this connection. 10 minutes of inactivity removes it.
+# Check the status:
+$ ssh -O check <host>
+# Remove it:
+$ ssh -O exit <host>
 
 \e[38;5;201m--- TUNNELLING ---\e[0m
 
