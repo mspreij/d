@@ -28,7 +28,7 @@ for ($i = 0; $i < $child_count; $i++) {
         \e[36m# Send a message to the parent\e[0m
         msg_send($queue, 1, "Child $i slept for $sleepTime seconds");
         
-        exit(0);
+        exit(0); \e[32;1m# <-- this mofo Needs Adding if you're converting a regular loop to a forking one\e[0m
     }
 }
 
