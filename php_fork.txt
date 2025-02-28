@@ -17,10 +17,7 @@ for ($i = 0; $i < $child_count; $i++) {
     $pid = pcntl_fork();
     if ($pid == -1) {
         die('Could not fork');
-    } elseif ($pid) {
-        \e[36m# Parent process\e[0m
-        // Do nothing, will wait for child messages later
-    } else {
+    } elseif ($pid == 0) {
         \e[36m# Child process: do all the Child things, send the results to the queue, then \e[1mexit\e[0m
         $sleepTime = rand(1, 5);
         sleep($sleepTime);
@@ -28,7 +25,10 @@ for ($i = 0; $i < $child_count; $i++) {
         \e[36m# Send a message to the parent\e[0m
         msg_send($queue, 1, "Child $i slept for $sleepTime seconds");
         
-        exit(0); \e[32;1m# <-- this mofo Needs Adding if you're converting a regular loop to a forking one\e[0m
+        exit(0); \e[32;1m# <-- this mofo \e[4mNeeds Adding\e[24m if you're converting a regular loop to a forking one\e[0m
+    } else { \e[36m# optional..\e[0m
+        \e[36m# Parent process\e[0m
+        \e[36m# nothing needs doing here, the parent will wait for child messages later\e[0m
     }
 }
 
@@ -48,5 +48,3 @@ msg_remove_queue($queue);
 # Other considerations:
 # - make sure the child process Always exits, and always sends something to the queue before doing so, wrapping it in a try/catch
 #   should work
-# - counting $children++ inside the child process does not work, this variable will not be incremented in the parent process.
-#   you can increment it in the parent branch of the $pid fork.
