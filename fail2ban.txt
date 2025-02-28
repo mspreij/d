@@ -1,5 +1,6 @@
 # There is a \e[33mfail2ban-server\e[0m which just runs, and a \e[33mfail2ban-client\e[0m which starts/reloads/stops the server
 #   and sends it all the configuration. You can also do this from systemctl, but apparently the two methods are not compatible.
+# NB: if firewalld is stopped (systemctl) fail2ban stops too, and will \e[1mnot\e[0m automagically start again when firewalld is started.
 
 $ man jail.conf
 
