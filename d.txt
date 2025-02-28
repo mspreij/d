@@ -16,6 +16,7 @@ You can simply start editing a new note (\e[38;5;208md -e newthing\e[0m) to crea
 ANSI escape sequences for colors are supported, check \e[38;5;208md colors\e[0m for a quickstart on those.
 Lines that start with '#' are colored with a/the comment color (blue by default), see preferences below.
 Notes of which the names (and thus filenames) start with \e[34;1mprivate_\e[0m are ignored by git.
+When invoking the editor it does not try to match unique substrings of existing note names.
 
 When d output is piped elsewhere, the colors are stripped, unless the \e[38;5;208m-c\e[0m/\e[38;5;208m--color\e[0m flag is passed as well (\e[1mbefore\e[0m
 the note name, the code is hacky enough already..).
