@@ -27,11 +27,12 @@ these days, and a var commit_edits, that if non-empty will prompt you for a comm
 NB: the git thing does not work if you invoked editing using a symlink of the note name, like \e[38;5;208md -e ff\e[0m for firefox
 notes.
 
+## In short:
 # show usage and available .txt files
 $ d
-
 # print notes for foo
 $ d foo
-
 # edit foo notes (foo.txt will be created if it does not exist)
 $ d -e foo
+# search contents of all notes
+$ d -s foobar
