@@ -13,4 +13,4 @@ date +%F         \e[36m# 2025-03-05\e[0m
 --date/-d string
 # where string can be all sorts of wacky shit, and also accepts +/-n day/month modifiers
 # last date of the month: get the current 1st day of the month, add a month, subtract a day, print as date:
-date -d $(date +%Y-%m-01)' +1 month -1 day' +%F
+date -d $(date +%Y-%m-01)' +1 month -1 day' +%F   \e[36m# 2025-03-31\e[0m
