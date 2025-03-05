@@ -1,0 +1,16 @@
+# Formatting dates. The format string begins with \e[38;5;201;1m+\e[0m
+date +%Y-%m-%d   \e[36m# 2025-03-05\e[0m
+# or shorter:
+date +%F         \e[36m# 2025-03-05\e[0m
+
+# Times
++%s        \e[36m# seconds since epoch ("unix timestamp")\e[0m
++%H:%M:%S  \e[36m# 14:42:58\e[0m
+# or shorter:
++%T        \e[36m# 14:44:22\e[0m
+
+# Input date:
+--date/-d string
+# where string can be all sorts of wacky shit, and also accepts +/-n day/month modifiers
+# last date of the month: get the current 1st day of the month, add a month, subtract a day, print as date:
+date -d $(date +%Y-%m-01)' +1 month -1 day' +%F
