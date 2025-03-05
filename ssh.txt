@@ -18,6 +18,17 @@
 # Completely randomly, you can add newlines to files by doing \e[38;5;208mecho >> foo.txt\e[0m
 # Mind you, still have to quote the >> or the whole thing when ssh'ing the command.
 
+# For more elaborate scripts, just pass it through:
+$ ssh somehost 'bash -s' < localscript
+# \e[38;5;201mbash -s\e[0m runs lines from STDIN, which is obviously supplied by \e[1m< localscript\e[0m
+# localscript doesn't require a shebang, it seems to work with one though.
+# Run something on the host as root, and pass args to become $1, $2 etc in the script:
+$ ssh somehost 'sudo bash -s' -- foo bar bazz < localscript
+# To send args with spaces doubly quote them, or quote + escape the spaces:
+$ ssh somehost 'sudo bash -s' -- foo "'bar bazz'" < localscript
+$ ssh somehost 'sudo bash -s' -- foo "bar\ bazz" < localscript
+# You can also include them in the command part, which requires less quoting/escaping but eh..
+
 # SSH defines some escapes you can use while in session, they all start with a tilde '~', which is only
 # interpreted as special when following a newline. \e[38;5;208m~?\e[0m gets you a list, \e[38;5;208mman ssh\e[0m has longer explanations under
 # \e[38;5;201mESCAPE CHARACTERS\e[0m. Some useful ones:
