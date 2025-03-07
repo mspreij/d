@@ -43,7 +43,10 @@ msg_remove_queue($queue);
 # You might be tempted to use register_shutdown_function() for this (ChatGPT told me to!) but that will also fire as soon as
 # the first child process exits, sooo.. don't.
 
-# If all else fails, from the cli use \e[38;5;208mipcrm -q <msqid>\e[0m, where the msqid shows up under the output of \e[38;5;208mipcs\e[0m.
+# If all else fails, from the cli use \e[38;5;208mipcrm -q <msqid>\e[0m, where the \e[1mmsqid\e[0m shows up under the output of \e[38;5;208mipcs -q\e[0m.
+# If that ALSO fails because \e[38;5;208mipcrm\e[0m doesn't exist, go back to PHP. Get the \e[1mkey\e[0m, not the msqid from ipcs -q:
+$ php -r '$id = <key>; $q = msg_get_queue($id); msg_remove_queue($q);'
+# no need to quote the key, it's an integer, just usually in hex notation which is more common in low-level system programming.
 
 # Other considerations:
 # - make sure the child process Always exits, and always sends something to the queue before doing so, wrapping it in a try/catch
