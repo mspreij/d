@@ -3,9 +3,11 @@ ls
 -a  # include dot-files
 -A  # include dot-files but not the current and parent directory
 -h  # human-readable filesizes
+-s  # show size (also in short format)
 -S  # order by size (-s shows "allocated size in blocks")
 -t  # order by time
 -r  # reverse order
+-1  # single column (one filename per line)
 -i  # show inode number
 -Z  # print security context (AppArmor, SELinux, ..)
 
