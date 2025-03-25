@@ -1,6 +1,6 @@
-# If you get some \e[31;1mfile not found\e[0m message, try connecting to an IP address instead of 'localhost', it'll be trying to use
-# socket files or somesuch. If \e[1m127.0.0.1\e[0m doesn't work (which could be if it's running in a container) try the actual IP
-# address of the computer, which should be one of \e[38;5;208mhostname -I\e[0m
+# If you get some \e[31;1mfile not found\e[0m message, try connecting to an IP address instead of 'localhost', it'll be trying to
+# use socket files or somesuch. If \e[1m127.0.0.1\e[0m doesn't work (which could be if it's running in a container) try the
+# actual IP address of the computer, which should be one of \e[38;5;208mhostname -I\e[0m
 
-# If you get locked out, the file to delete is \e[38;5;226m/tmp/adminer.invalid\e[0m. This file might sit in a container if that's where
-# adminer's running from.
+# If you get locked out, the file to delete is \e[38;5;226m/tmp/adminer.invalid\e[0m. This file might sit in a container if that's
+# where adminer's running from.
