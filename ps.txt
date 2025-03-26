@@ -1,0 +1,8 @@
+# Find out if a process is sleeping or awake:
+$ ps -o stat= -p $pid
+# stat= removes header info
+
+# to get a pid for a particular process, use
+$ pgrep -f '^/path/to/binary'
+# or just
+$ pgrep <binary name>
