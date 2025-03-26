@@ -8,9 +8,13 @@ n      next match
 N      previous match
 &      filter (show only matching lines). multiple uses will stack filters, use &<enter> to reset. ! negates. not sure
        what works in both regular search and filter
--I     case-insensitive all things
--N, -n enable, disable line numbers
+-i     case-insensitive search on lowercase queries
+-I     case-insensitive search regardless of query case
+-N     toggle line numbers in gutter
+-n     toggle showing line numbers in long prompt, '=' command output, and whether to pass the line to 'v' editor
 -M -m  "ruler" with x/y z% lines shown
+=      show some info (lines, bytes, percentage..)
+-v     open editor for input file, doesn't work for STDIN
 :n, :p next, previous file
 Alt-u  toggle hilighting (also ESC u)
 -S     toggle wrapping long lines
