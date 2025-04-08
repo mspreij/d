@@ -1,7 +1,7 @@
 # by default curl outputs the body and some progress information to STDOUT
 
+-k / --insecure     # ignore HTTPS errors/certificate errors
 -s / --silent       # silent, suppress progress
--k / --insecure     # ignore https errors
 -i / --include      # include headers
 -I / --head         # Only headers
 -o <file>           # save to file
