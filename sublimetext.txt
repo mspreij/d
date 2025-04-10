@@ -1,4 +1,5 @@
 # a very incomplete list because I've been looking for this file and it never exists, so now it does.
+# NB: these appear to include my own changes in the config so uh, sorry to anyone who is not me.
 Ctrl-R       : list and navigate symbols in the file
 Ctrl-shift-P : do anything whatsoever?
 Ctrl-P       : go through ALL THE FILES
@@ -9,7 +10,8 @@ Alt-Shift--  : go to next location
 
 # Editing
 Ctrl-Enter   : add newline at end of current line and go to next line
-Ctrl-D       : Duplicate line
+Ctrl-D       : Duplicate line or select-next-match
+Ctrl-Shift-D : might be actual duplicate line? who knows
 Ctrl-Shift-K : Delete line
 
 Ctrl-K, Ctrl-B (or like, Ctrl-KB): toggle sidebar
