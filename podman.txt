@@ -2,12 +2,26 @@ So this is like docker with a red hat on.
 If your setup is cursed and you're using systemd to manage your containers, "podman run <thing>" might work less well
   then \e[32msystemctl --user restart whateverthehellitwas.service\e[0m. I dunno.
 
-# list running containers [or all of them]
-podman ps [-a]
+# there is a fair amount of detailed help
+podman help volume ls \e[36m# show help on the \e[38;5;208mls\e[36m sub-command of the \e[38;5;208mvolume\e[36m command\e[0m
 
-# get oodles of json to parse through for useful things
+# you can list images, volumes, containers, and probably more.
+# most have an -a toggle for also-the-ones-not-in-use
+#                         shortcuts
+podman volume ls
+podman image ls           podman images
+podman container ls       podman ps
+
+# list random usage info
+podman system df
+
+# clean up, this is almost always safe
+podman image prune [-a]
+
+# get oodles of json to parse through for useful things.
 podman generate spec <container> | less
 podman inspect <container> | less
+# maybe run through fx instead of less
 
 # without systemd
 podman run <image> # creates new container from image which is fetched if necessary
