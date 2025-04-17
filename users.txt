@@ -1,9 +1,9 @@
 # Linux users, that is
 
-# add user: adduser is the perl script that was created because useradd wasn't .. userfriendly.
+### add user: adduser is the perl script that was created because useradd wasn't .. userfriendly.
 $ [sudo] adduser <username>
 
-# add 'm to sudo, normal linux:
+# add 'm to sudo (or like, any other group, because sudo is just a group here), normal linux:
 $ [sudo] adduser <username> sudo
 # centos
 $ [sudo] usermod -aG wheel <username>
@@ -11,3 +11,11 @@ $ [sudo] usermod -aG wheel <username>
 
 # remove (including homedir & mail spool)
 $ userdel -r <username>
+
+### Groups
+# what groups is this user in?
+$ groups <user>
+$ id <user>      \e[36m# with more ids\e[0m
+
+# what users are in this group?
+$ grep ^<groupname>: /etc/group
