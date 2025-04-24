@@ -33,3 +33,18 @@ $ date -d @1703028415
 
 # random line from file
 shuf -n1 <file>
+
+# notifications for ubuntu
+$ zenity --info --text="hello world!"
+
+# custom protocols are added with
+$ xdg-mime default phpstorm-url-handler.desktop x-scheme-handler/phpstorm
+# check what's registered
+$ xdg-mime query default x-scheme-handler/phpstorm
+# a protocol handler then sits in that .desktop file in
+~/.local/share/applications
+/usr/share/applications
+# basically an ini file that:
+#  - specifies a mimetype
+#  - points to a script
+# script: any regular chmod+x'd thing
