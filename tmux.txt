@@ -71,4 +71,7 @@ bind -n M-Down select-pane -D
 # chatgpt says to use these for truecolor and you know what it works I'm keeping it
 set -g default-terminal "tmux-256color"
 set -ga terminal-overrides ",xterm-256color:Tc"
+
+# highlight the currently active window in the status bar
+set-window-option -g window-status-current-style bg=#ff6600,fg=white
 # ============================
