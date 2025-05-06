@@ -22,6 +22,7 @@ $ grep 'foo\.txt' *
      this also puts multiple matches in a single line on separate lines in the output, so it can be used to count matches
 -m # print only the first # matching lines
 -l   print only the filenames, not the matching lines
+-L   print filenames that DO NOT match the pattern
 -c   outputs number of matching lines (multiple matches on same line still counts as 1)
 
 # filter out empty lines for, say, -v, by using a start/end pattern ^$
