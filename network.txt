@@ -1,3 +1,6 @@
+# what is my WAN IP address?
+$ curl ifconfig.me
+
 # what is listening on port 1234?
 $ netstat -ltnp
 $ ss -ltnp

@@ -8,6 +8,7 @@ $ help history
 -p !foo    echo the most recent history entry that starts with foo, without running it
 # this ties in with bash' expansion of !stuff. !-3 will run the third-last command again,
 #   !123 runs command nr 123 (according to the history list)
+# \e[38;5;201mNB:\e[0m if the most recent history entry contained multiple ;-delimited commands, those after the first one \e[1mWILL\e[0m be run.
 
 # Disable & re-enable storing commands in history:
 $ set +o history

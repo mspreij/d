@@ -2,6 +2,7 @@
 date +%Y-%m-%d   \e[36m# 2025-03-05\e[0m
 # or shorter:
 date +%F         \e[36m# 2025-03-05\e[0m
+date +%b --> "Apr"
 
 # Times
 +%s        \e[36m# seconds since epoch ("unix timestamp")\e[0m

@@ -1,6 +1,10 @@
-# tmux is a \e[1mT\e[22merminal \e[1mMU\e[22mltiple\e[1mX\e[22mer. It lets you split a window (the whole screen) into panes, and you
+# tmux is a \e[1mT\e[22merminal \e[1mMU\e[22mltiple\e[1mX\e[22mer (like \e[1mscreen\e[0m). It lets you split a window (the whole screen) into panes, and you
 # can have multiple windows too; they're numbered, and the current one is asterisk'd, in the bottom bar.
 # With a customizable prefix you can change settings/do actions etc. Default is Ctrl-b.
+
+# Config file is \e[38;5;226m~/.tmux.conf\e[0m, there's a sample one at the bottom.
+# You can reload it in a running session with
+$ tmux source-file ~/.tmux.conf
 
 \e[38;5;208mprefix\e[0m ?  list actions
 \e[38;5;208mprefix\e[0m :  command prompt
