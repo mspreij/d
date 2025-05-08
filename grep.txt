@@ -1,12 +1,19 @@
 # this is a /mostly/ correct interpretation of the man pages, the details on regex are hairy and depend on the grep
 # version and implementation
 
--i   case-insensitive
--v   negate matches (invert result)
--e   use for each pattern if you have more than one to match or negate (it ORs)
--E   extended regex.
--P   Perl compatible regex
--s   surpress that warning about directories (and other unreadable files)
+-i       case-insensitive
+-v       negate matches (invert result)
+-e       use for each pattern if you have more than one to match or negate (it ORs)
+-E       extended regex.
+-P       Perl compatible regex
+-s       surpress that warning about directories (and other unreadable files)
+-r       recurse into subdirectories
+-D skip  don't try to read devices, FIFO files or sockets.
+         NB: if you use * as target, the shell will expand this into the current directory list, and if there's socket
+         files in there grep will still try to read those.
+         Workarounds:
+           grep -D skip -r foo . # the period works for recursive searches if you were already wanting that..
+           find . -maxdepth 1 -type f -exec grep foo {} +
 
 --include \*.php  # only search these files. either escape the * or quote the string
 
@@ -27,7 +34,3 @@ $ grep 'foo\.txt' *
 
 # filter out empty lines for, say, -v, by using a start/end pattern ^$
 $ grep -v -e foobar -e ^$
-
-# bugs
-grep will hang on named pipes/FIFO type things, and not skip them even if they are in the --exclude list. You can use
-  --device=skip to not process this type of file.
