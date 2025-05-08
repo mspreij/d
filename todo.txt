@@ -5,7 +5,7 @@ d:
 - move short usage list to top of d.txt
 
 Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
-- man: where are man pages? what are the numbers about? mandb, manpath
+- systemctl
 - locale
 - wget/curl
 - cut? this needs to be a chapter thing in bash or ... w/e
@@ -17,6 +17,7 @@ Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
 - shopt???
 - visudo
 - certinfo?
+* man: where are man pages? what are the numbers about? mandb, manpath
 * jq
 * composer
 * ansi codes
