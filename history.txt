@@ -5,10 +5,14 @@ $ help history
 # random other things that you'll never ever need
 -s args..  store the rest of the args in history without executing them (the command that does or calls this will
            not be stored itself)
--p !foo    echo the most recent history entry that starts with foo, without running it
+-p !foo    echo the most recent history entry that starts with foo, without running \e[1mTHE FIRST PART\e[0m of it
 # this ties in with bash' expansion of !stuff. !-3 will run the third-last command again,
 #   !123 runs command nr 123 (according to the history list)
 # \e[38;5;201mNB:\e[0m if the most recent history entry contained multiple ;-delimited commands, those after the first one \e[1mWILL\e[0m be run.
+# SO THAT SUCKS.
+# USE THIS SHORTCUT INSTEAD
+$ !foo\e[38;5;201m:p\e[0m
+# that prints it, and adds it to your history as most recent command so you can arrow-up to edit it.
 
 # Disable & re-enable storing commands in history:
 $ set +o history
