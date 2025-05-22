@@ -1,7 +1,10 @@
 # the man page is for the history library or somesuch? use help:
 $ help history
 # for when you're doing password things on the cli:
--c         clear history
+-c    clear history
+# when you want to continue your session in a second pane
+-w    write history to the history file (which is read for new shells)
+
 # random other things that you'll never ever need
 -s args..  store the rest of the args in history without executing them (the command that does or calls this will
            not be stored itself)
