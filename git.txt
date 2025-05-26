@@ -92,6 +92,16 @@ git remote set-url origin foo://bar/baz.git
 # looks like you can also edit .git/config ?
 
 
+### Worktree
+
+# Worktrees let you check out and work in multiple branches from the same repo at the same time, in different directories.
+# The basic commands are list, add & remove:
+$ git worktree list
+$ git worktree add \e[38;5;226m../path-to-new-worktree \e[32mbranch\e[0m
+$ git worktree remove \e[38;5;226m../path-to-worktree\e[0m
+# you can not have the same branch checked out in multiple worktrees.
+
+
 ### Misc
 
 # git puts all informative output on STDERR, which is not unixy. to not spam your inbox via crontab,
