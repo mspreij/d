@@ -14,11 +14,14 @@
          Workarounds:
            grep -D skip -r foo . # the period works for recursive searches if you were already wanting that..
            find . -maxdepth 1 -type f -exec grep foo {} +
+--color[=auto]  values \e[38;5;208mnever\e[0m, \e[38;5;208malways\e[0m or \e[38;5;208mauto\e[0m
 
 --include \*.php  # only search these files. either escape the * or quote the string
 
-# find LITERAL periond: use quotes _and_ escape it
+# find \e[1mliteral\e[0m period: either use quotes _and_ escape it, or escape twice
 $ grep 'foo\.txt' *
+$ grep foo\\.txt *
+
 
 ### output
 -H   print filename with each match (default for wildcard file patterns)
@@ -34,3 +37,7 @@ $ grep 'foo\.txt' *
 
 # filter out empty lines for, say, -v, by using a start/end pattern ^$
 $ grep -v -e foobar -e ^$
+
+### Patterns
+# simple IP match
+$ grep -E '[0-9]+(\.[0-9]+){3}'
