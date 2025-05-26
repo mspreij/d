@@ -1,3 +1,5 @@
+This is a mix of escape sequences and stty settings.
+
 Some random sequences that can be used in scripts
 \\e[2J clear the screen
 \\e[H  move the cursor to top-left
@@ -6,3 +8,11 @@ Some random sequences that can be used in scripts
 \\e[nC      ...right
 \\e[nD and left.
 ...
+
+To add:
+- alternative buffer
+- intercepting mouse events
+- move cursor to y,x location
+- hide/show cursor
+- dis/enable echoing input
+- couple stty settings (raw, icanon, ..)
