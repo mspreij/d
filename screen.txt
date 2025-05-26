@@ -1,4 +1,4 @@
-If ctrl-s messes with flow control (ixoff?) you can run \e[38;5;208mscreen -n\e0m from inside screen.
+If ctrl-s messes with flow control (ixoff?) you can run \e[38;5;208mscreen -n\e[0m from inside screen.
 you can also do \e[38;5;208m<prefix> :flow off\e[0m where prefix is Ctrl-a by default I think?
 or put this in some config file (~/.screenrc):
 defflow off
