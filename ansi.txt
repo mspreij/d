@@ -10,6 +10,7 @@ Some random sequences that can be used in scripts
 ...
 
 To add:
+- what IS the topleft coord - [0,0] or [1,1] ?
 - alternative buffer
 - intercepting mouse events
 - move cursor to y,x location
