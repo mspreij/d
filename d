@@ -29,12 +29,21 @@ if [[ $1 = "-e" ]]; then
     ${EDITOR:-nano} "$dir/$entry.txt";
     modified_files=$(git -C "$dir" status -s -uno --porcelain | cut -c4- | sed 's/^"//;s/"$//')
     if [[ -n "$commit_edits" && $(printf '%s\n' "$modified_files" | grep -Fx "${entry}.txt") ]]; then
-        echo -n "  Git commit message, will (try to) push (leave empty to skip): "
-        read msg
-        if [[ -n $msg ]]; then
-            git -C "$dir" commit "$entry".txt -m "$msg"
-            git -C "$dir" push
-        fi
+        while true; do
+            echo "  Git commit message, will (try to) push (leave empty to skip, enter the letter 'd' to see diff)"
+            echo -n "  Msg: "
+            read msg
+            if [[ -z $msg ]]; then
+                echo -ne "\e[A\e[2K\e[A\e[2K"
+                break
+            elif [[ $msg == d ]]; then
+                git -C "$dir" diff -- "${entry}.txt"
+            else
+                git -C "$dir" commit "${entry}.txt" -m "$msg"
+                git -C "$dir" push
+                break
+            fi
+        done
     fi
     exit;
 fi;
