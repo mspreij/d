@@ -1,7 +1,8 @@
 Not actually documentation, just a todo/random ideas list..
 
 d:
-- also git add in case of new file
+- also git add in case of new file?
+- if git message == "d" show git diff and loop back to accepting git message
 - move short usage list to top of d.txt
 
 Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
