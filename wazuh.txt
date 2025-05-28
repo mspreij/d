@@ -1,2 +1,0 @@
-Agents can be removed using the CLI manager on the host at \e[38;5;226m/var/ossec/bin/manage_agents\e[0m, follow the menu.
-NB: in our case that's INSIDE the container kthxbai

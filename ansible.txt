@@ -9,9 +9,15 @@ $ ap playbook.yml --syntax-check \e[36m# just check it without running\e[0m
 # Commandline tools list
 https://docs.ansible.com/ansible/latest/command_guide/index.html
 
-# what modules are installed?
+# what collections are installed?
 $ ansible-galaxy collection list | less
 # note that collections in $HOME/.ansible can override the default ones
+
+# install/update a collection (guessing the --force updates harder?)
+ansible-galaxy collection install containers.podman --force
+
+# what modules does a particular collection have?
+ansible-doc -l -t module | grep \e[32mcontainers.podman\e[0m
 
 # Specify roles in playbook:
 - name: random playbook
@@ -22,3 +28,4 @@ $ ansible-galaxy collection list | less
       vars:
         var_specific_to_foobar: 123
       when: some_boolean
+
