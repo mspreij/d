@@ -1,19 +1,20 @@
 This is a mix of escape sequences and stty settings.
 
-Some random sequences that can be used in scripts
-\\e[2J clear the screen
-\\e[H  move the cursor to top-left
-\\e[nA move cursor n places up
-\\e[nB            ...down
-\\e[nC      ...right
-\\e[nD and left.
+The topleft coordinate for cursor moving is [1,1]
+
+# some random sequences that can be used in scripts:
+\\e[2J     \e[1mclear\e[0m the screen
+\\e[\e[32mn\e[0m;\e[38;5;201mm\e[0mH   \e[1mmove\e[0m cursor to \e[38;5;201mm\e[0m'th column, \e[32mn\e[0m'th row (yes, Y comes first). Top-left is 1;1, but as the values default to 1
+          \\e[H moves the cursor there. \\e[\e[38;5;201m5\e[0mH will move it to the 5th row (and 1st column), \\e[;\e[32m3\e[0mH to 3rd column (top row)
+\\e[\e[32mn\e[0mA     \e[1mmove\e[0m cursor \e[32mn\e[0m places up
+\\e[\e[32mn\e[0mB                ...down
+\\e[\e[32mn\e[0mC          ...right
+\\e[\e[32mn\e[0mD     and left.
 ...
 
 To add:
-- what IS the topleft coord - [0,0] or [1,1] ?
 - alternative buffer
 - intercepting mouse events
-- move cursor to y,x location
 - hide/show cursor
 - dis/enable echoing input
 - couple stty settings (raw, icanon, ..)
