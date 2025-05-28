@@ -16,6 +16,10 @@ if [[ -z $1 ]]; then
     exit
 fi;
 
+# d -g for git status
+# d -p for git push
+# d -u for git pull "update"
+
 # Edit mode
 if [[ $1 = "-e" ]]; then
     entry=$2;
@@ -40,7 +44,9 @@ if [[ $1 = "-e" ]]; then
                 git -C "$dir" diff -- "${entry}.txt"
             else
                 git -C "$dir" commit "${entry}.txt" -m "$msg"
-                git -C "$dir" push
+                if [[ "$commit_edits" == "push" ]]; then
+                    git -C "$dir" push
+                fi
                 break
             fi
         done
