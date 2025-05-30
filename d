@@ -33,8 +33,9 @@ if [[ $1 = "-e" ]]; then
     ${EDITOR:-nano} "$dir/$entry.txt";
     modified_files=$(git -C "$dir" status -s -uno --porcelain | cut -c4- | sed 's/^"//;s/"$//')
     if [[ -n "$commit_edits" && $(printf '%s\n' "$modified_files" | grep -Fx "${entry}.txt") ]]; then
+        [[ $commit_edits == "push" ]] && pushing="(and will try to push) "
         while true; do
-            echo "  Git commit message, will (try to) push (leave empty to skip, enter the letter 'd' to see diff)"
+            echo "  Git commit message ${pushing}- leave empty to skip, enter the letter 'd' to see diff."
             echo -n "  Msg: "
             read msg
             if [[ -z $msg ]]; then
