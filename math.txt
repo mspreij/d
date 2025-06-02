@@ -1,0 +1,30 @@
+# Bash Arithmetic Primer: (( ))
+
+# 1. Basic arithmetic (no output, just evaluation)
+# \e[38;5;201mNB:\e[0m no \e[1m$\e[0m before variable names when used inside (( ))
+((x = 5 + 3))       \e[36m# spaces are optional\e[0m
+echo $x \e[36m# 8\e[0m
+
+# 2. Conditions
+if ((x < 10)); then
+  echo "x is small"
+fi
+
+# 3. Increment/decrement
+((x++))             \e[36m# post-increment\e[0m
+((--x))             \e[36m# pre-decrement\e[0m
+
+# 4. Boolean logic (0 = false, non-zero = true)
+((0))               \e[36m# false (exit code 1)\e[0m
+((1))               \e[36m# true  (exit code 0)\e[0m
+
+# 5. Return value check
+((5 > 3))           \e[36m# exit code is 0 (true)\e[0m
+echo $?             \e[36m# prints 0\e[0m
+((5 < 3))           \e[36m# exit code is 1 (false)\e[0m
+echo $?             \e[36m# prints 1\e[0m
+
+# 6. To output a result: use \e[1m$\e[0m(( ))
+echo $((5 + 5))     \e[36m# prints 10
+# you can also use this way to set variables in the more common format:
+x=$((3*3)) \e[36m# $x is 9\e[0m
