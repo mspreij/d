@@ -33,14 +33,18 @@ $ tmux capture-pane -eS - -p > tmux.txt
 # -S = starting line (negative is from before visible, - is from start)
 # -p = print to STDOUT, otherwise it goes to some buffer thing, somewhere?
 
-# capture a SELECTION over multiple pages and copy it to the OS clipboard \o/
+# capture a SELECTION over multiple pages and copy it to the tmux's clipboard
 # start copy-mode
 \e[38;5;208mprefix\e[0m [
 # start selecting
 Ctrl-Space
 # copy the select and exit copy-mode
 Ctrl-w
-# paste to your heart's content \o/ It does not seem to copy colors, this is either a feature or a bug.
+# paste
+Middlemouse button \e[36m# or\e[0m
+\e[38;5;208mprefix\e[0m ]
+# It does not seem to copy colors, this is either a feature or a bug.
+
 
 # In copy-mode you can \e[38;5;201msearch\e[0m using
 Ctrl-s [type string] <enter>
