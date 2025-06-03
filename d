@@ -42,6 +42,7 @@ if [[ $1 = "-e" ]]; then
                 echo -ne "\e[A\e[2K\e[A\e[2K"
                 break
             elif [[ $msg == d ]]; then
+                echo -ne "\e[A\e[2K\e[A\e[2K"
                 git -C "$dir" diff -- "${entry}.txt"
             else
                 git -C "$dir" commit "${entry}.txt" -m "$msg"
