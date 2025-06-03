@@ -19,3 +19,31 @@ $ id <user>      \e[36m# with more ids\e[0m
 
 # what users are in this group?
 $ grep ^<groupname>: /etc/group
+
+### Passwords
+$ grep \e[32muser\e[0m /etc/shadow
+# Format (sample values for user backupper):
+backupper : $3D54.. : 19835 : 1   : 365 : 7    : 30    :         :
+   user   : pw      : last  : min : max : warn : inact : expires 
+Cols:
+1   username
+2   encrypted password, or * (no password), !* locked
+3   date of last password change as days since 1970-01-01
+    0 means user must change password on next login
+    empty means password aging features are disabled
+4   minimum password age in days
+5   maximum password age in days
+6   password expiry warning period in days. 0 or empty = no warning.
+7   inactivity period in days, during which a user may still login after password expired (but must change it immediately)
+    empty = no enforcement
+8   account expiry date in days since 1970-01-01. After this date the user can not login by any means.
+9   this field is not in use yet
+
+# chage - change user password expiry information
+# -l  show summary for user; "account aging information"
+$ chage -l \e[32muser\e[0m
+
+# disable password expiration and inactivity lock
+chage -M -1 -I -1 \e[32muser\e[0m
+# -M  days, max age of password. -1 removes this check.
+# -I  days of inactivity after a password has expired before the account is locked. -1 = never inactivate.
