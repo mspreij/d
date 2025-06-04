@@ -1,3 +1,5 @@
+# See also openssl_functions, certbot
+
 # as with all things created by committees or experts, there are 3247 options and features of which
 # we need like 3, but any software created for those will be incomplete or lack edgecases or...
 
@@ -19,6 +21,3 @@ https://www.php.net/manual/en/function.openssl-x509-parse.php
 
 # TODO
 SSL_ERROR_RX_RECORD_TOO_LONG: explanation and fix here...
-
-# see also
-openssl_functions

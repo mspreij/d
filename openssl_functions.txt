@@ -1,3 +1,5 @@
+# See also openssl, certbot
+
 # look at certificate as if you were human
 cert ()
 {
