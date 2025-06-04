@@ -1,6 +1,6 @@
 # Linux users, that is
 
-### add user: adduser is the perl script that was created because useradd wasn't .. userfriendly.
+### Add user: adduser is the perl script that was created because useradd wasn't .. userfriendly.
 $ [sudo] adduser <username>
 
 # add 'm to sudo (or like, any other group, because sudo is just a group here), normal linux:
@@ -11,6 +11,12 @@ $ [sudo] usermod -aG wheel <username>
 
 # remove (including homedir & mail spool)
 $ userdel -r <username>
+# if it complains about running processes, just kill those and try again
+# optionally check for lingering user namespace mappings, mounts or processes
+grep \e[32muser\e[0m /etc/subuid /etc/subgid
+mount | grep \e[32muser\e[0m
+ps aux | grep \e[32muser\e[0m
+
 
 ### Groups
 # what groups is this user in?
@@ -27,7 +33,7 @@ backupper : $3D54.. : 19835 : 1   : 365 : 7    : 30    :         :
    user   : pw      : last  : min : max : warn : inact : expires 
 Cols:
 1   username
-2   encrypted password, or * (no password), !* locked
+2   encrypted password, or * (no password), !* or !! locked
 3   date of last password change as days since 1970-01-01
     0 means user must change password on next login
     empty means password aging features are disabled
