@@ -1,3 +1,5 @@
+# See also openssl, openssl_functions
+
 # it runs as a service, grab the current status from systemctl
 $ systemctl | grep cert
 # maybe this only shows a certbot.timer, which then fires up the service (or something) when needed.
@@ -41,3 +43,11 @@ location ~ /\. {
 }
 
 # ^~ = starts with, ~ = regex (hence why the period in .well-known shouldn't be escaped)
+
+
+\e[36;1m=== Tools/resources ===\e[0m
+
+# Show a history of certifcates (dates, issuer) for a (sub)domain.
+https://crt.sh/?q=yourdomain.com
+# The data for this site comes from public Certificate Transparency (CT) logs, which come from CA's and some other
+# large infra orgs.
