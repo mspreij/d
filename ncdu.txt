@@ -7,3 +7,5 @@ Use \e[32;1mb\e[0m to open the current directory in a new shell (simply exit the
 
 Poor man's ncdu (in docker containers, say), which only shows directory sizes:
 \e[38;5;208malias ncdu="ls -lA | grep ^d | awk '{print \$9}' | xargs du -sh"\e[0m
+
+If installers don't offer it, \e[36mhttps://dev.yorhel.nl/ncdu\e[0m has static binaries for download.
