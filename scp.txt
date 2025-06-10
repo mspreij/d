@@ -5,7 +5,10 @@ $ scp \e[1;32m-3\e[0m user@server1:/path user@server2:/path
 
 # of course "user@" is optional if you have a decent ~/.ssh/config
 
-# for a simple, single file you can also simply do
+# \e[31msubsystem request failed on channel 0\e[0m will occasionally happen on systems that don't support SFTP,
+# to use the original SCP protocol here use \e[38;5;208m-O\e[0m (capital o the letter)
+
+# or, for a simple, single file, you can also simply do
 $ cat file.txt | ssh <server> 'cat > file.txt'
 
 # for a directory, see \e[38;5;208mtar\e[0m
