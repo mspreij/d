@@ -13,5 +13,9 @@ date +%b --> "Apr"
 # Input date:
 --date/-d string
 # where string can be all sorts of wacky shit, and also accepts +/-n day/month modifiers
+# if the input is a timestamp, prefix a \e[38;5;208m@\e[0m
+$ date -d \e[38;5;201;1m@\e[0m1749655073
+Wed Jun 11 05:17:53 PM CEST 2025
+
 # last date of the month: get the current 1st day of the month, add a month, subtract a day, print as date:
 date -d $(date +%Y-%m-01)' +1 month -1 day' +%F   \e[36m# 2025-03-31\e[0m
