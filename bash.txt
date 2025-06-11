@@ -35,7 +35,7 @@ $ if [[ ! -t 0 ]]; then ..
     connected to STDIN, which won't exist. -s surpresses output)
 
 # shortest way to increment a variable (note no '$')
-((i++))
+((i++)) \e[36m# see also \e[38;5;208md math\e[0m
 
 # what's the deal with export?
 export foo[=bar]
