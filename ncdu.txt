@@ -2,6 +2,8 @@ New Curses Disk Usage - aka "where has my disk space gone?!"
 
 -e   make modified-timestamps available. \e[32;1mm\e[0m toggles them, \e[32;1mM\e[0m sorts on them (\e[32;1ms\e[0m to sort on size again)
 -x   only scan the given (current?) filesystem/partition
+-o <file> [directory]   output scan data to file as JSON
+-f <file>               read scan data from saved file instead of filesystem
 
 Use \e[32;1mb\e[0m to open the current directory in a new shell (simply exit the shell to return to ncdu).
 
