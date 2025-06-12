@@ -12,6 +12,7 @@ $ [sudo] usermod -aG wheel <username>
 # remove (including homedir & mail spool)
 $ userdel -r <username>
 # if it complains about running processes, just kill those and try again
+# \e[1mNB:\e[0m Don't be logged in \e[1mas that user\e[0m in another shell "to see if it worked", that prevents it working.
 # optionally check for lingering user namespace mappings, mounts or processes
 grep \e[32muser\e[0m /etc/subuid /etc/subgid
 mount | grep \e[32muser\e[0m
