@@ -41,9 +41,13 @@ virtual too). You can do this in the run command (and probably some config file 
 \e[38;5;202;1mdocker stop/start (container-id|name)\e[0m  # whereas \e[33mdocker run\e[0m creates a new container, \e[33mstop\e[0m and \e[33mstart\e[0m work on existing containers.
   I guess they're like snapshots or something when stopped?
 \e[38;5;202;1mdocker logs (container-id|name) [-f]\e[0m  # magically shows relevant log lines from within the container, probably needs a config
-  somewhere. -f keeps it open like tail.
-\e[38;5;202;1mdocker exec -it (container-id|name) /bin/bash\e[0m  # exec runs things in the container. -it for \e[4mi\e[0mnteractive \e[4mt\e[0merminal apparently, and
-  you can point at what terminal you want. So that gives you an inside shell.
+                                        somewhere. -f keeps it open like tail.
+\e[38;5;202;1mdocker exec -it (container-id|name) /bin/bash\e[0m  # exec runs things in the container. -it for \e[4mi\e[0mnteractive \e[4mt\e[0merminal apparently,
+                                                 and you can point at what terminal you want. So that gives you an inside
+  shell. You can also open any application instead of the shell, like a db client.
+  NB: when importing SQL like \e[38;5;202mzcat archive.sql.gz | docker exec \e[1;38;5;201m-i\e[0;38;5;202m db_container mysql_client my_db\e[0m, note that you want \e[38;5;201;1m-i\e[0m
+  but \e[1mnot\e[0m -t; because really -i is for STDIN (good) and -t for TTY with all kinds of byte mangling and newline handling
+  (not good).
 
 # removing things
 \e[38;5;202;1mdocker rm (container-id|name)\e[0m  # remove the container (it has to be stopped)
