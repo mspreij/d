@@ -17,6 +17,10 @@ $ help history
 $ !foo\e[38;5;201m:p\e[0m
 # that prints it, and adds it to your history as most recent command so you can arrow-up to edit it.
 
+# to find more uses besides the last you'll have to resort to history again; disabling the timestamp just for this command makes grepping simpler:
+HISTTIMEFORMAT= history | grep '^[ ]*[0-9]\+  foo'
+# pull through tail as needed
+
 # Disable & re-enable storing commands in history:
 $ set +o history
 $ set -o history
