@@ -3,5 +3,5 @@
 -u unique values (like \e[38;5;208msort | uniq\e[0m, but lacks uniq's count flag)
 -h properly sort human-readable filesizes (200K < 1M etc)
 
-# you can sort on 3rd column too
-sort -k3 somefile.txt
+# you can sort on 3rd column too (or multiple columns, comma-separated)
+sort -k3,4 somefile.txt
