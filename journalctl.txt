@@ -1,0 +1,23 @@
+journalctl shows logs for systemd things (logged by systemd-journald.service)
+Calling it without options shows all logs since time immemorial, which is rarely useful.
+Usually it's one line per log item but occasionally a stacktrace will be dumped in there.
+By default only a few items are shown, but you can run the json output through whatever.
+
+# flags
+-r               reverse (newest at top)
+-f              "follow", print new log messages as they are added, like tail
+--since/--until  take timeranges like "3 hours ago" or better "yyyy-mm-dd hh:mm:ss"
+
+-b               loglines from this boot (-b -1 last boot etc)
+--list-boots     show 30 or so last boot/shutdowns.
+
+# filter
+-u               show logs for systemd unit like nginx.service. can be used multiple times.
+_UID=n           show logs for user with user-id n. use \e[38;5;208mid <user>\e[0m to find id
+
+# output
+-o               json
+                 json-pretty
+                 verbose     # shows all fields
+
+https://www.loggly.com/ultimate-guide/using-journalctl/
