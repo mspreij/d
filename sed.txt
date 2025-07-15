@@ -14,3 +14,5 @@ echo
 
 # using sed to color certain substrings; basically use \\x1b for ESC
 echo 12345367 | sed 's/3/\\x1b[31m3\\x1b[0m/g'
+# ORRRR you can use bash's $'..' to interpret escaped characters in a string
+echo 12345367 | sed $'s/3/\\e[31m3\\e[0m/g'
