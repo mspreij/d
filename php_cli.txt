@@ -5,13 +5,16 @@
 # -icanon to send every char straight through, no wait for newlines
 # -echo to not print input (DISABLE this before exiting the script!)
 shell_exec('stty -icanon -echo');
+
 # fgetc etc don't wait for input.
 # put fgetc in a while($char = fgetc()) {.. loop for putting together mb chars
 stream_set_blocking(STDIN, false);
+
 # switch to alternate screen buffer
-echo "\e[?1049h";
+echo "\\e[?1049h";
+
 # hide cursor
-echo "\e[?25l";
+echo "\\e[?25l";
 
 # register shutdown function to restore terminal
 register_shutdown_function('back_to_normal');
@@ -28,8 +31,8 @@ pcntl_signal(SIGINT, function () {
 
 function back_to_normal() {
     shell_exec('stty sane');
-    echo "\e[?1049l"; // back to original screen buffer
-    echo "\e[?25h";   // show the cursor again
+    echo "\\e[?1049l"; // back to original screen buffer
+    echo "\\e[?25h";   // show the cursor again
 }
 
 # todo: get more from ~/projects/hacks/ like width, height
