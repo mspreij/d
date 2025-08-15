@@ -93,7 +93,7 @@ if [[ -f "$file" ]]; then
     # sed 1: only within comments, a reset-color code is replaced by a color code using the $comment color (and resets
     #        style and background)
     # sed 2: comment lines get colored using the $comment color
-    doc="$(echo "$doc" | sed "/^#/s/\\e\[0m/${esc}[0m${esc}[${comment};49;22m/g" | sed "s/^\(#.*\)/${esc}[${comment}m\1${esc}[0m/")";
+    doc="$(echo "$doc" | sed "/^#/s/\\\e\[0m/${esc}[${comment};49;22m/g" | sed "s/^\(#.*\)/${esc}[${comment}m\1${esc}[0m/")";
     if [[ -t 1 ]]; then
         printf '%b' "$doc" | less -riF;
     else
