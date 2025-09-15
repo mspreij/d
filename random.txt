@@ -36,6 +36,7 @@ shuf -n1 <file>
 
 # notifications for ubuntu
 $ zenity --info --text="hello world!"
+# to prevent it trying to interpret HTML and fail due to invalid syntax, add \e[38;5;208m--no-markdown\e[0m
 
 # custom protocols are added with
 $ xdg-mime default phpstorm-url-handler.desktop x-scheme-handler/phpstorm
