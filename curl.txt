@@ -8,3 +8,4 @@
 -O                  # use name from url
 -L / --location     # follow redirects
 -X <method>         # set method to use, defaults to GET. Is used in the request \e[1mverbatim\e[0m.
+-H 'header: value'  # add headers (good for API keys/tokens). -H can be used multiple times.

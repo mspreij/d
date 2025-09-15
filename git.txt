@@ -7,7 +7,6 @@ alias gdc='git diff --cached'
 alias glc='git show --name-status'
 # "git last branches"
 alias glb='git reflog | grep checkout | cut -d\  -f6,8 | sed '\''s/ /\\n/'\'' | head -n50 |  awk '\''!x[$0]++'\''  | egrep [g-z] | head -n8'
-
 alias glp='git log -p'
 # git log also supports \e[38;5;208m--grep=foo | --grep foo\e[0m to filter commit messages. Add \e[38;5;208m-i\e[0m after it to make it case-insensitive.
 
@@ -26,14 +25,17 @@ alias gsf='git status -s -uno --porcelain | cut -c4- | sed '\''s/^"//;s/"$//'\''
 # or by commit hash:
   $ git cherry-pick <commit-hash>
 
+
+# === git diff ===
+
 # what am I about to push?
   $ git diff [--stat] origin/master
-
 # diff between branches, commit hash, symbolic ref..
   $ git diff [options] <commit>..<commit> [--] [path..]
-
 # fine-grained diff shows changes inline: \e[31;1m[-deleted stuff-]\e[0m \e[32;1m{+added stuff+}\e[0m
-  $ git diff --word-diff 
+  $ git diff --word-diff
+# show only files where the changed line contains \e[38;5;208m<regex>\e[0m
+  $ git diff -G\e[32m<regex>\e[0m
 
 # add specific parts of changed file to stage:
   $ git add -p
