@@ -14,9 +14,9 @@ awk operates on each line of the file or STDIN, and runs action if pattern match
 - multiple actions are separated by ';'
 
 So these are all basically the same:
-\e[32mawk '{if (length($0) > 50 ) print $0}' file
-awk '{if (length($0) > 50 ) print }' file
-awk 'length($0) > 50 { print }' file \e[36m# note conditional expression instead of if-clause in the action\e[0m
+\e[32mawk '{if (length($0) > 50 ) print $0}' file\e[0m
+\e[32mawk '{if (length($0) > 50 ) print }' file\e[0m
+\e[32mawk 'length($0) > 50 { print }' file \e[36m# note conditional expression instead of if-clause in the action\e[0m
 \e[32mawk 'length($0) > 50' file\e[0m
 and will print all lines of file longer than 50 characters.
 
