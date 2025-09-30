@@ -1,6 +1,9 @@
 # basic command:
 rsync [flags] source target
 # source and target can be ssh-style remote servers like user@domain:/path
+# The \e[32;1m:\e[0m in a server tells rsync \e[1mthat it IS A SERVER AND NOT A LOCAL FILE\e[0m ffs,
+#   so before you make a local 170 GB copy again and wonder why it didn't ask for a password, make
+#   sure that the server path contains the ':'.
 
 # Trailing Slashes are important!
 rsync /path/src\e[32;1;4m/\e[0m dest/  # copy the contents of src directory to the dest directory
