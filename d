@@ -104,6 +104,13 @@ if [[ -f "$file" ]]; then
         fi;
     fi;
 else
-    echo "  E: docs not found.";
-    exit 44;
+    if [[ $(command ls "$dir"/*"$1"*.txt 2>/dev/null | wc -l) -gt 1 ]]; then   # multiple matches
+        files=$(command ls "$dir"/*"$1"*.txt | xargs basename -a | sed s/.txt//)
+        files="${files//$'\n'/, }"
+        echo -e "Matches: ${files//$1/\\e[1;32m$1\\e[0m}"
+        exit 1;
+    else
+        echo "  E: docs not found.";
+        exit 44;
+    fi;
 fi
