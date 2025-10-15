@@ -38,32 +38,27 @@ Colors:
 - \e[34;1mbright blue\e[0m (34;1) for key strokes? maybe something with bg color to suggest a key cap
 
 Random ideas:
+ - move all .txt data files to a subdirectory so future non-data files can still be .txt and wont show up in search etc
  Search:
    - should also check for files with the query as substring
    - should not search the symlinks (optionally check they link to something in that directory, otherwise still search?)
  - if the shown command is a symlink to another command, prepend a message stating that
- * bash_completion is a good start, but for incomplete input..
-   √ if there is a single match, d can load that. It shows the filename in red.
-   √ this needs tweaking: the red filename should end up in the same data that goes to `less`, and ls should be command ls
-      because sometimes shit ends up executable/symlink and the filename gains a '*' with some .bashrcs (or something), which
-      then breaks the file-exists check
-   - for multiple matches, probably just yell at the user?
-   ?? for multiple matches, prepend a message but show the first one (or all, if that is even possible?).
  ? -l to list entries with last-modified date, and/or commit message
- - support multiple random-order options o.o https://stackoverflow.com/a/14203146/126584
+ - support multiple random-order options o.o https://stackoverflow.com/a/14203146/126584 or \e[32m$ d getopt\e[0m
  * d now supresses color (well, the git version does, I keep overwriting the version in use) when outputting to other process;
    v added a flag to force color output
    ? also for search result and other non-interactive output (is this needed?)
  - should probably prefix more things (like grep) with 'command'
- - `d foo :bar` to get only chapter bar from foo (what in the frick is 'chapter notation')
- - could even fetch and store data from some server. or local database. not sure what the advantage of this is, or if there is one..
- - if <entry> not found, offer to grep for it? or do that automatically? or count the results and decide on that? flip a coin?
+ - `d foo:bar` to get only chapter bar from foo (what in the frick is 'chapter notation')
+ - could even fetch and store data from some server. or local database. not sure what the advantage of this is, or if there
+   is one..
+ - if <entry> not found, offer to grep for it? or do that automatically? or count the results and decide on that? flip a coin? have a beer?
 
 Done/discarded:
  √ placeholder for comment color, to finish different-color strings inside comments.
    > how about simply "\e[0m" but only in comment lines! this would need to go Before the sed that colors
-   > this even worked, shiv'd the new sed on the same line before the current one, but using \\e instead of ${esc} and somehow it
-     works..
+   > this even worked, shiv'd the new sed on the same line before the current one, but using \\e instead of ${esc} and
+     somehow it works..
  √ some type of apropos, "d -s blaat" where it simply greps for blaat in all doc files and prints a pretty result table
  √ config? things? somewhere in $D_DOCS
    √ color to use for comments
@@ -75,5 +70,11 @@ Done/discarded:
  v bash_completion
  v maybe add color support for emphasis or the commands in a description
    x example entry using this
- * bash_completion is a good start, but for incomplete input..
+ v bash_completion is a good start, but for incomplete input..
    x for bonus points prepend a different message if only a substring match was found ('zip' for gzip)
+   √ if there is a single match, d can load that. It shows the filename in red.
+   √ this needs tweaking: the red filename should end up in the same data that goes to `less`, and ls should be command ls
+      because sometimes shit ends up executable/symlink and the filename gains a '*' with some .bashrcs (or something), which
+      then breaks the file-exists check
+   √ for multiple matches, print the names and exit
+   x for multiple matches, prepend a message but show the first one (or all, if that is even possible?).
