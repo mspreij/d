@@ -29,3 +29,22 @@ ansible-doc -l -t module | grep \e[32mcontainers.podman\e[0m
         var_specific_to_foobar: 123
       when: some_boolean
 
+# run only a specific task, which Does Not Need vars, defaults or dependencies from its Role.
+- name: do some shit
+  become: true
+  gather_facts: true
+  hosts:
+    - mercury
+  tasks:
+    - include_tasks: roles/container-webhost/tasks/firewall.yml
+
+# run a specific task that DOES need stuff from the role:
+- name: do some shit
+  become: true
+  gather_facts: true
+  hosts:
+    - mercury
+  tasks:
+    - include_role:
+        name: container-webhost
+        tasks_from: firewall.yml
