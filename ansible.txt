@@ -24,7 +24,7 @@ ansible-doc -l -t module | grep \e[32mcontainers.podman\e[0m
   roles:
     - \e[32;1mfoo\e[0m           # regular role names
     - \e[32;1mbar\e[0m
-    - role: \e[32;1mfoobar\e[0m  # with this format you can add additional parameters:
+    - role: \e[32;1mfoobar\e[0m  # extended format: allows vars, tags, etc. (but \e[1mnot\e[0m 'when')
       vars:
         var_specific_to_foobar: 123
 # \e[38;5;208mroles\e[0m here, is \e[1msyntactic sugar\e[0m that converts to
@@ -32,13 +32,14 @@ ansible-doc -l -t module | grep \e[32mcontainers.podman\e[0m
   tasks:
     - import_role:
         name: foobar
-# import_role is different from include_role: the latter is slower because it's parsed at runtime,
-# and allows 'when' and variables in its assignment (?)
+# \e[1mimport_role\e[0m is different from \e[38;5;208minclude_role\e[0m: the latter is slower because it's parsed at runtime,
+# and allows 'when', 'loop' and variables
 
 
 ## Shitty examples:
 
-# run only a specific task, which Does Not Need vars, defaults or dependencies from its Role.
+# run only a specific task file, NOT tied to any role context
+# vars, defaults and dependencies from its role will not load.
 - name: do some shit
   become: true
   gather_facts: true
@@ -47,7 +48,7 @@ ansible-doc -l -t module | grep \e[32mcontainers.podman\e[0m
   tasks:
     - include_tasks: roles/container-webhost/tasks/firewall.yml
 
-# run a specific task that DOES need stuff from the role:
+# run a specific task with full role context:
 - name: do some shit
   become: true
   gather_facts: true
