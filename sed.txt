@@ -1,5 +1,5 @@
 # flags
--E    use regex, \1, \2 etc are backreferences
+-E    use regex, \\1, \\2 etc are backreferences
 -i    change file in place
 -e    use for multiple separate 's/foo/bar/' replacements (kinda like grep?)
 
@@ -16,6 +16,7 @@ echo
 echo 12345367 | sed 's/3/\\x1b[31m3\\x1b[0m/g'
 # ORRRR you can use bash's $'..' to interpret escaped characters in a string
 echo 12345367 | sed $'s/3/\\e[31m3\\e[0m/g'
+# \e[1mNB:\e[0m you'll need to double escape backreferences when using $
 
 # more fun, redirect stderr to a process with sed coloring it red:
 ls -ld Desktop blablabla 2> >(sed $'s/^/\\e[31;1m/; s/$/\\e[0m/')
