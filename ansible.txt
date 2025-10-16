@@ -28,12 +28,12 @@ ansible-doc -l -t module | grep \e[32mcontainers.podman\e[0m
       vars:
         var_specific_to_foobar: 123
 # \e[38;5;208mroles\e[0m here, is \e[1msyntactic sugar\e[0m that converts to
-...
+- name: random playbook
   tasks:
-    - import_role:
+    - \e[38;5;201mimport_role\e[0m:
         name: foobar
 # \e[1mimport_role\e[0m is different from \e[38;5;208minclude_role\e[0m: the latter is slower because it's parsed at runtime,
-# and allows 'when', 'loop' and variables
+# and allows 'when', 'loop' and variables.
 
 
 ## Shitty examples:
@@ -55,6 +55,17 @@ ansible-doc -l -t module | grep \e[32mcontainers.podman\e[0m
   hosts:
     - mercury
   tasks:
-    - include_role:
+    - \e[38;5;201mimport_role\e[0m:
         name: container-webhost
-        tasks_from: firewall.yml
+        tasks_from: firewall.yml \e[36m# only static filenames allowed\e[0m
+
+# run a specific task with full role context with added flexibility:
+- name: do some shit
+  become: true
+  gather_facts: true
+  hosts:
+    - mercury
+  tasks:
+    - \e[38;5;201minclude_role\e[0m:
+        name: container-webhost
+        tasks_from: "{{ tasks_for_host }}" \e[36m# supports variables\e[0m
