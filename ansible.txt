@@ -27,7 +27,16 @@ ansible-doc -l -t module | grep \e[32mcontainers.podman\e[0m
     - role: \e[32;1mfoobar\e[0m  # with this format you can add additional parameters:
       vars:
         var_specific_to_foobar: 123
-      when: some_boolean
+# \e[38;5;208mroles\e[0m here, is \e[1msyntactic sugar\e[0m that converts to
+...
+  tasks:
+    - import_role:
+        name: foobar
+# import_role is different from include_role: the latter is slower because it's parsed at runtime,
+# and allows 'when' and variables in its assignment (?)
+
+
+## Shitty examples:
 
 # run only a specific task, which Does Not Need vars, defaults or dependencies from its Role.
 - name: do some shit
