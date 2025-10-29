@@ -15,24 +15,3 @@ Shamelessly copy/pasted from tldr:
   \e[32m- List all service/socket/automount units filtering by running/failed state:\e[0m
       \e[31msystemctl list-units --type \e[0mservice|socket|automount\e[0m\e[31m --state \e[0mfailed|running\e[0m\e[31m\e[0m
   \e[32m- Show the contents & absolute path of a unit file or edit it:\e[0m  \e[31msystemctl \e[0mcat|edit\e[0m\e[31m \e[0munit\e[0m\e[31m\e[0m
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
