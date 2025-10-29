@@ -1,0 +1,2 @@
+# install the deb file:
+sudo dpkg -i file.deb
