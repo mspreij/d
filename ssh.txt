@@ -11,6 +11,8 @@
         some remote ~/.bashrc things based on the origin of the session.
         \e[38;5;201mNB:\e[0m the variable name needs to be specifically allowed in the remote's \e[38;5;226m/etc/ssh/sshd_config\e[0m using
         \e[38;5;208mAcceptEnv <VarName>\e[0m (multiple delimited by space). \e[4;1mMake sure\e[0m this config line sits above any match blocks!
+        \e[38;5;201mNB 2:\e[0m if you're using multiplexing (reusing a master connection, see further on), only the env variables \e[1msent while
+        creating\e[0m that connection will be set, new ones you send while ssh'ing in over the existing connection will be ignored.
 \e[38;5;208m-o SetEnv=<VarName>=<value>\e[0m  like the above except you can set a new/different one, since \e[38;5;208mOpenSSH 7.8\e[0m
 -vvv    1 to 3 v's for debugging non-cooperative connections
 

@@ -14,6 +14,7 @@ Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
 - cut? this needs to be a chapter thing in bash or ... w/e
 - apt, probably
 - atop
+- diff
 - yum
 - irssi
 - configure/make stuff, check old C notes & kilo editor
