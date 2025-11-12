@@ -1,0 +1,13 @@
+# file checks a given file vs patterns in a magic file, in /usr/share/misc/magic or magic.mgc
+#   on my system those symlink elsewhere
+# it outputs the type of file it thinks it is.
+
+file foo       # get type of file in human readable form
+file -i foo    # get mimetype instead
+file -b foo    # don't print filename
+
+# there are often multiple matches, it'll return the highest/first/strongest one but
+# can still be wrong: "foo(function(" is a match for javascript, even if that legit
+# appears in a .php file with "#!/usr/bin/env php\n<?php" as first two lines
+file -k foo    # get all matches from the magic file
+file -kr foo   # get all matches but on separate lines

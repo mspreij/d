@@ -25,4 +25,6 @@ podman inspect <container> | less
 
 # without systemd
 podman run <image> # creates new container from image which is fetched if necessary
+# so run is like a shortcut for fetch/build and start
+
 podman start <container> # existing container
