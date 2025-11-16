@@ -31,7 +31,8 @@ F                  go to end of file and wait for more input, like tail -f
 
 # this is for CLI specifically:
 -F     quit if the output fits on one screen
--r     interpret escape sequences (for colour, say)
+-R     interpret escape sequences (for colour)
+-r     interpret ALL escape sequences, less safe/stable
 -i     searching is case-insensitive by default (except when the pattern contains uppercase)
 -I     searching is case-insensitive even when the pattern contains uppercase
 
