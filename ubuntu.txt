@@ -12,11 +12,13 @@ press (don't hold) right-alt and then the chars in the 2.. columns. Also this is
 ←    < -
 ↑    ^ |   # these two can go
 ↓    | v   #  in either order
+€    c =   # Euro!
+≈    ~ ~
 
 Unicode: ctrl-shift-u, <code>, enter. if the code is uppercase, enter seems less needed? And it also seems to yes, be case-sensitive.
          code:
 √/∛/∜    221A/B/C
-€        20AC          <-------- EURO EURO EURO
+€        20AC
 ♠♡♢♣     2660,1,2,3
 ♤♥♦♧     2664,5,6,7
 💙       1f499
