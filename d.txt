@@ -29,7 +29,7 @@ It has a tab-completion function in d.bash_completion, you can symlink that to s
 
 There's a tiny 'preferences' file \e[1md.conf\e[0m (basically a list of bash variables that will be sourced) you can make in
 \e[32m$D_DOCS\e[0m (based on say \e[32m$D_DOCS\e[38;5;226m/d.conf.sample\e[0m)
-- comment: lets you set a comment ansi color which I think actually works these days
+- comment: lets you set a comment ansi color which I think actually works these days. NB: quote the value if it contains ';' characters
 - commit_edits: if non-empty, \e[1md\e[0m will prompt you for a commit message after you edited a note
      an empty message will skip the commit and just exit.
      if as git message you enter the letter 'd', it'll show a diff before asking for a message again.
