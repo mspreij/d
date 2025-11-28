@@ -10,6 +10,10 @@ done
 # -e <event> "modify" here. Possible values (check man pages for specifics):
   access, modify, attrib, close_write, close_nowrite, close, open, moved_to, moved_from, move, move_self,
   create, delete, delete_self, unmount
+# NB: for running scripts you're editing on save, \e[38;5;208mmodify\e[0m will work only if the file is saved atomically (write tmp file, replace).
+#     Editors that modify files in place will cause a "text file busy" error, since modify triggers as soon as the file starts being written to.
+#     In that case, use close_write
+
 # \e[38;5;208maction-goes-here\e[0m can like run the file, scp, whatever. Go wild. Knock yourself out. Keep your pants on.
 # You can stick \e[38;5;208m\\e[2J\\e[H\e[0m at the start of your script to clear the screen and set the cursor top-left again
 #   (which also removes some more inotifywait output)
