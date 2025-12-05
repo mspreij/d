@@ -94,6 +94,19 @@ git remote set-url origin foo://bar/baz.git
 # looks like you can also edit .git/config ?
 
 
+### Pathspecs
+
+# a lot of git subcommands take a path, by default this is \e[38;5;226m$PWD\e[0m or '\e[38;5;226m.\e[0m'.
+# Besides automatic shell expansion, git also has its own expansion for things.
+$ git add *.php \e[36m# git sees a list of php files in the current directory\e[0m
+$ git add '*.php' \e[36m# git does its own expansion, applied to the full path, so also finds all php files in subdirectories\e[0m
+# \e[38;5;201m*\e[0m matches everything
+# \e[38;5;201m?\e[0m matches any single character
+# \e[38;5;201m[abcd]\e[0m, \e[38;5;201m[gG]\e[0m same as POSIX globs
+# With a leading '\e[38;5;201m:\e[0m' more things are possible:
+$ git add ':!*php' \e[36m# add everything except php files\e[0m
+... and many more, to add later.
+
 ### Worktree
 
 # Worktrees let you check out and work in multiple branches from the same repo at the same time, in different directories.
