@@ -94,7 +94,16 @@ git remote set-url origin foo://bar/baz.git
 # looks like you can also edit .git/config ?
 
 
-### Pathspecs
+### Filters
+
+# There are bunches of filters that work across commands
+
+## Dates
+
+## Author
+git log -p \e[32;1m--author='John Doe'\e[0m
+
+## Pathspecs
 
 # a lot of git subcommands take a path, by default this is \e[38;5;226m$PWD\e[0m or '\e[38;5;226m.\e[0m'.
 # Besides automatic shell expansion, git also has its own expansion for things.
