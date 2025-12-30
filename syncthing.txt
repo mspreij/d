@@ -1,0 +1,33 @@
+# todo: add a bunch of color codes
+
+# syncthing keeps folders synchronized between machines. Opensource, open protocol, encrypted traffic,
+#   self-hosted. It prefers simple over smart, like creating new files in case of conflicts.
+
+# Every install gets a long-ass unique ID that lets you add them to other installs as Remote Devices.
+
+# Any files that were modified in multiple places are just copied to
+# yadda.sync-conflict-<datetime><serverid>.foo on both sides, safe to use for merging and then toss.
+
+# Devices are connected to using their long-ass ID:
+$ syncthing cli show system | grep myID
+
+# systemd is not going away, might as well make it a service, so as not to clutter terminal windows
+https://github.com/syncthing/syncthing/blob/main/etc/linux-systemd/user/syncthing.service
+# store in ~/.config/systemd/user/syncthing.service
+$ systemctl --user enable syncthing.service
+$ systemctl --user start syncthing.service
+
+# XML config file, db, certs etc are stored in ~/.local/state/syncthing/. Don't edit the xml config
+#   directly while it's running. syncthing has a cli subcommand which lets you do all the things, but..
+
+# The CLI interface is cumbersome and not very well documented, which is where the web GUI comes in:
+# Visit http://localhost:8384
+# If it's going to face public, set a user, pass, enable https, maybe change the port.
+# Add the port to your firewall maybe.
+
+# Now, when you share a folder, you can specify which (friendly-named) Device to share it with. Then
+#   the GUI in that device will get a popup to accept it (devices can't control eachother by design).
+#   When you click accept on the remote, you can tell it to use an existing folder.
+
+# .stignore files in a shared folder root accepts patters for files not to share (think .gitignore)
+# --> Put .git and *.log in these.
