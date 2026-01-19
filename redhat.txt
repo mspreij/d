@@ -1,2 +1,9 @@
 # show last patches and stuff for a package (-q for --query)
 rpm -q --changelog openssl | less
+
+# what kernel is this?
+uname -r
+# what kernels have I got
+rpm -q kernel
+# what kernel is it gonna use next boot
+grubby --default-kernel
