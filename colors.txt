@@ -1,9 +1,10 @@
 Exhaustive colors info: https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
+SGR = Select Graphic Rendition
 
 \\e === ESC
 Sequence: \\e[\e[36;1m<codes separated by ';'>\e[0mm
 Reset all: \\e[0m
-0    reset
+0    reset (strictly, the 0 is optional and you can do \\e[m)
 1    \e[1mbold\e[0m
 4    \e[4munderline\e[0m
 7    \e[7minvert\e[0m
