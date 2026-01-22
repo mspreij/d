@@ -16,5 +16,6 @@ To add:
 - alternative buffer
 - intercepting mouse events
 - hide/show cursor
+- cursor shapes ("\\e[{0..6} q", space is significant)
 - dis/enable echoing input
 - couple stty settings (raw, icanon, ..)
