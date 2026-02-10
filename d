@@ -20,9 +20,31 @@ fi;
 # d -p for git push
 # d -u for git pull "update"
 
+OPTIONS=$(getopt -o e:s:c -l color -- "$@")
+eval set -- "$OPTIONS"
+while true; do
+    case "$1" in
+        -e)
+            edit=1
+            entry=$2
+            shift 2;;
+        -s)
+            search=1
+            query=$2
+            shift 2;;
+        -c|--color)
+            color=1
+            shift;;
+        --)
+            shift
+            break;;
+    esac;
+done;
+
+name="$1"
+
 # Edit mode
-if [[ $1 = "-e" ]]; then
-    entry=$2;
+if [[ "$edit" ]]; then
     if [[ -z $entry ]]; then
         echo -n "  Name of entry: ";
         read entry;
@@ -57,8 +79,7 @@ if [[ $1 = "-e" ]]; then
 fi;
 
 # Search mode
-if [[ $1 = '-s' ]]; then
-    query=$2
+if [[ "$search" ]]; then
     if [[ -z $query ]]; then
         echo -n "  Search for..: "
         read query;
@@ -70,20 +91,14 @@ if [[ $1 = '-s' ]]; then
     exit;
 fi
 
-# check for color flag
-if [[ $1 = '-c' || $1 = '--color' ]]; then
-    color=true
-    shift
-fi
-
 # Display mode
-if [[ -f "$dir"/"$1".txt ]]; then                                    # exact match
-    file="$dir"/"$1".txt
-elif [[ $(command ls "$dir"/"$1"*.txt 2>/dev/null | wc -l) -eq 1 ]]; then    # starts with
-    file=$(command ls "$dir"/"$1"*.txt)
+if [[ -f "$dir"/"$name".txt ]]; then                                    # exact match
+    file="$dir"/"$name".txt
+elif [[ $(command ls "$dir"/"$name"*.txt 2>/dev/null | wc -l) -eq 1 ]]; then    # starts with
+    file=$(command ls "$dir"/"$name"*.txt)
     partial=1
-elif [[ $(command ls "$dir"/*"$1"*.txt 2>/dev/null | wc -l) -eq 1 ]]; then   # contains
-    file=$(command ls "$dir"/*"$1"*.txt)
+elif [[ $(command ls "$dir"/*"$name"*.txt 2>/dev/null | wc -l) -eq 1 ]]; then   # contains
+    file=$(command ls "$dir"/*"$name"*.txt)
     partial=1
 fi
 if [[ -f "$file" ]]; then
@@ -104,8 +119,8 @@ if [[ -f "$file" ]]; then
         fi;
     fi;
 else
-    if [[ $(command ls "$dir"/*"$1"*.txt 2>/dev/null | wc -l) -gt 1 ]]; then   # multiple matches
-        files=$(command ls "$dir"/*"$1"*.txt | xargs basename -a | sed s/.txt//)
+    if [[ $(command ls "$dir"/*"$name"*.txt 2>/dev/null | wc -l) -gt 1 ]]; then   # multiple matches
+        files=$(command ls "$dir"/*"$name"*.txt | xargs basename -a | sed s/.txt//)
         files="${files//$'\n'/, }"
         echo -e "Matches: ${files//$1/\\e[1;32m$1\\e[0m}"
         exit 1;
