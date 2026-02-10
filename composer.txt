@@ -17,6 +17,9 @@ $ composer require some/package[:1.2.3]
 # Tell composer to check for newer versions [of a package] (as allowed) per the json file, install that or those and update the
 # lock file.
 $ composer update [some/package]
+# if it refuses or seems to not update, add \e[38;5;208m-W/--with-all-dependencies\e[0m, they can hold it back otherwise
+
+
 
 ### Versions
 # There's exact, range, hyphenated range, wildcard range, tilde range and caret range (and some stability stuff)

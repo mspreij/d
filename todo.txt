@@ -8,27 +8,27 @@ d:
 v if git message == "d" show git diff and loop back to accepting git message
 
 Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
-- systemctl
 - locale
-- wget/curl
+* wget/curl
 - cut? this needs to be a chapter thing in bash or ... w/e
 - apt, probably
-- atop
+* atop
 - diff
-- yum
+* yum
 - irssi
 - configure/make stuff, check old C notes & kilo editor
 - shopt???
 - visudo
-- certinfo?
 * man: where are man pages? what are the numbers about? mandb, manpath
 * jq
 * composer
 * ansi codes
 * grep: ?exclude file/dir patterns with examples
 * tmux
+v systemctl
 v git
 v bat install instructions o.o;
+x certinfo?
 
 Colors:
 - yellow: paths, maybe \e[38;5;226m38;5;226\e[0m
