@@ -17,6 +17,10 @@ podman system df
 
 # clean up, this is almost always safe
 podman image prune [-a]
+# figure out how much it will probably reclaim:
+podman system df
+# list the images and their space:
+podman images --format '{{.ID}} {{.Size}} {{.Repository}}:{{.Tag}}'
 
 # get oodles of json to parse through for useful things.
 podman generate spec <container> | less

@@ -3,15 +3,45 @@ systemctl daemon-reload \e[36m# season with sudo and --user to taste\e[0m
 
 Shamelessly copy/pasted from tldr:
 
-  Control the systemd system and service manager.
-  Some subcommands such as `disable`, `status`, `reboot` etc. have their own usage documentation.
-  More information: https://www.freedesktop.org/software/systemd/man/systemctl.html.
-  \e[32m- Show all running services:\e[0m                           \e[31msystemctl status\e[0m
-  \e[32m- List failed units:\e[0m                                   \e[31msystemctl --failed\e[0m
-  \e[32m- Start/Stop/Restart/Reload/Show the status a service:\e[0m \e[31msystemctl \e[0mstart|stop|restart|reload|status\e[0m\e[31m \e[0munit\e[0m\e[31m\e[0m
-  \e[32m- Enable/Disable a unit to be started on bootup:\e[0m       \e[31msystemctl \e[0menable|disable\e[0m\e[31m \e[0munit\e[0m\e[31m\e[0m
-  \e[32m- Reload systemd, scan for new or changed units:\e[0m       \e[31msystemctl daemon-reload\e[0m
-  \e[32m- Check if a unit is active/enabled/failed:\e[0m            \e[31msystemctl \e[0mis-active|is-enabled|is-failed\e[0m\e[31m \e[0munit\e[0m\e[31m\e[0m
-  \e[32m- List all service/socket/automount units filtering by running/failed state:\e[0m
-      \e[31msystemctl list-units --type \e[0mservice|socket|automount\e[0m\e[31m --state \e[0mfailed|running\e[0m\e[31m\e[0m
-  \e[32m- Show the contents & absolute path of a unit file or edit it:\e[0m  \e[31msystemctl \e[0mcat|edit\e[0m\e[31m \e[0munit\e[0m\e[31m\e[0m
+Control the systemd system and service manager.
+Some subcommands such as `disable`, `status`, `reboot` etc. have their own usage documentation.
+More information: https://www.freedesktop.org/software/systemd/man/systemctl.html
+
+----
+
+Systemd manages services. Services are run system-wide or in a user session.
+The files that describe services live in:
+
+/usr/lib/systemd/[user|system]/   # installed by software, no need to touch
+/etc/systemd/[user|system]/       # overrides by the system admin
+~/.config/systemd/user/           # overrides by the user
+
+Services can be started/stopped by timers, path changes, socket traffic, at boot, on mounts, etc.
+Mostly you'll be using timers, occasionally paths, maybe sockets.
+
+Services, timers, path, socket etc files have a similar structure with three sections:
+[Unit] description, dependencies, ordering
+[$type] what kind of thing it is. This will be [Timer], or [Path], etc.
+[Install] where `systemctl enable` should wire it under.
+
+Every section has a bunch of key=value pairs.
+
+# Show all running services:
+systemctl [status]
+
+# List failed units
+systemctl --failed
+# Start/Stop/Restart/Reload/Show the status of a service
+systemctl \e[38;5;33mstart\e[0m|\e[38;5;33mstop\e[0m|\e[38;5;33mrestart\e[0m|\e[38;5;33mreload\e[0m|\e[38;5;33mstatus\e[0m \e[32;1munit\e[0m
+# Enable/Disable a unit to be started on bootup
+systemctl \e[38;5;33menable\e[0m|\e[38;5;33mdisable\e[0m \e[32;1munit\e[0m
+# Reload systemd, scan for new or changed units:
+systemctl daemon-reload
+# Check if a unit is active/enabled/failed
+systemctl \e[38;5;33mis-active\e[0m|\e[38;5;33mis-enabled\e[0m|\e[38;5;33mis-failed\e[0m \e[32;1munit\e[0m
+# List all service/socket/automount units filtering by running/failed state
+systemctl list-units --type \e[38;5;33mservice\e[0m|\e[38;5;33msocket\e[0m|\e[38;5;33mautomount\e[0m --state \e[38;5;33mfailed\e[0m|\e[38;5;33mrunning\e[0m
+# Show the contents & absolute path of a unit file or edit it
+systemctl \e[38;5;33mcat\e[0m|\e[38;5;33medit\e[0m \e[32;1munit\e[0m
+
+## Timers
