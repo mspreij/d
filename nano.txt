@@ -14,7 +14,7 @@ Alt-6    copy marked text or line into buffer
 Ctrl-/   find/replace; you can find regex but replace only accepts strings, HOWEVER..
 Ctrl-t   pipe buffer or selection through command. Start the command with \e[32;1m|\e[0m to pipe throught, I guess.
          \e[32;1m| sed\e[0m wants \e[32;1m-z\e[0m to use null character instead of newline to delimit, for some reason.
-
+Alt-3    comments selection? for the current language?
 
 Alt-u    undo
 Alt-e    redo
@@ -28,7 +28,7 @@ Alt-f    toggle between current/new buffer for Ctrl-r behaviour above, for newer
          this only works while in the Ctrl-r "dialog"
 Alt-.    (or Esc, '.') go to next buffer
 Alt-c    toggle cursor position display
-Alt-#/N  toggle line numbers on the left (Alt-Shift-3 or Alt-Shift-n)
+Alt-#/n  toggle line numbers on the left (Alt-Shift-3 or Alt-n)
 Alt-o    toggle tab -> spaces ('set tabsize 4' or so in .nanorc)
 Alt-y    toggle syntax highlighting
 Alt-s    toggle wrapping long lines (or: Esc, s)
