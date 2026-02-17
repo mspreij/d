@@ -12,6 +12,8 @@ The topleft coordinate for cursor moving is [1,1]
 \\e[\e[32mn\e[0mD     and left.
 ...
 
+See also: php_cli for box drawing characters
+
 To add:
 - alternative buffer
 - intercepting mouse events
