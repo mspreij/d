@@ -6,5 +6,15 @@
   $ jq empty file.json 2>/dev/null; echo $?
 # if 0, valid file, otherwise probably 4 and syntax error
 
-# interactive viewer: https://github.com/antonmedv/fx
-$ sudo snap install fx     \e[36m# or see: https://fx.wtf/install
+# example usage:
+podman inspect wazuh-manager --format '{{ json .Mounts }}' | jq -r '.[] | "\(.Source) -> \(.Destination)"'
+-r          raw, don't quote output strings
+.[]         loop over items in input array
+|           each item is piped through
+".."        output will be string
+\(...)      jq string interpolation
+.Source     get this item from object
+
+
+# interactive JSON viewer: https://github.com/antonmedv/fx
+$ sudo snap install fx     \e[36m# or see: https://fx.wtf/install\e[0m
