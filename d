@@ -87,7 +87,15 @@ if [[ "$search" ]]; then
             exit;
         fi;
     fi;
-    command grep -in --color=always "${query}" ${dir}/*.txt | less -rF
+    if [[ -t 1 ]]; then
+        (cd ${dir} && command find -type f -name '*.txt' -exec grep -in --color=always "${query}" {} + | less -rF)
+    else
+        if [[ $color ]]; then
+            (cd ${dir} && command find -type f -name '*.txt' -exec grep -in --color=always "${query}" {} +)
+        else
+            (cd ${dir} && command find -type f -name '*.txt' -exec grep -in --color=never "${query}" {} +)
+        fi
+    fi
     exit;
 fi
 
