@@ -55,6 +55,7 @@ mysql dbname < dbname.sql # etc
 # general query result display (running queries straight from the bash prompt with -e):
 -s  # no grid-lines for query output
 -N  # no headers/column names for query output
+-E  # vertical output mode (list of name:value pairs), like \G in the mysql client
 -B  # tab separated according to chatgpt?
 # \e[38;5;201mNB:\e[0m when the output is piped to another process, mysql uses batch mode (tab-separated fields) and removes column names, making it
 #     easier to parse
