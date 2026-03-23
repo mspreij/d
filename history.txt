@@ -40,3 +40,6 @@ HISTFILESIZE=2000
 
 # show with timestamps
 HISTTIMEFORMAT="%F %T "
+
+# ':' delimited patterns of input to ignore (do not store in history/files)
+HISTIGNORE='ls:pwd:exit:*password*:*sekrit-server-name*'
