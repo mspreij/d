@@ -5,6 +5,7 @@ d:
 - see flags in d source for git status, push, pull
 - also git add in case of new file?
 - move short usage list to top of d.txt
+- show filename if user used symlink name (like with substring match)
 v if git message == "d" show git diff and loop back to accepting git message
 
 Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
