@@ -68,7 +68,6 @@ Done/discarded:
    x attempt syntax highlighting (maybe use bat if available?)
    x there should then also be some sane - optionally configurable - defaults
    > No.
- v bash_completion
  v maybe add color support for emphasis or the commands in a description
    x example entry using this
  v bash_completion is a good start, but for incomplete input..
