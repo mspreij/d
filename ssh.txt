@@ -60,8 +60,10 @@ $ ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub
 ### Create public key from private key
 $ ssh-keygen -y -f foobar > foobar.pub
 # -y outputs the public key, -f foobar specifies the private file. Etc.
-
 # see also \e[38;5;201mssh-agent\e[0m
+
+### Remove an "offending key" from known_hosts
+$ ssh-keygen -R <hostname>
 
 
 \e[38;5;201m--- SSHD ---\e[0m
