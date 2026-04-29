@@ -12,14 +12,15 @@ Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
 - locale
 * wget/curl
 - cut? this needs to be a chapter thing in bash or ... w/e
-- apt, probably
+- visidata
+* apt, probably
 * atop
 - diff
 * yum
 - irssi
 - configure/make stuff, check old C notes & kilo editor
 - shopt???
-- visudo
+- visudo? there's a section in sudo
 * man: where are man pages? what are the numbers about? mandb, manpath
 * jq
 * composer

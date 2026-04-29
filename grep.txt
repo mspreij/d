@@ -20,7 +20,7 @@
 
 # find \e[1mliteral\e[0m period: either use quotes _and_ escape it, or escape twice
 $ grep 'foo\.txt' *
-$ grep foo\\.txt *
+$ grep foo\\\.txt *
 
 
 ### output
