@@ -1,9 +1,7 @@
-!Very incomplete!
-
-Composer has a \e[32mjson\e[0m file which tells it what we *want*. It uses that to generate a \e[32mlock\e[0m file to tell the world what it has decided
-to install (based on the json file) in /vendor. Both files go in git: the json is obvious, and the lock file tells other
-developers what they should be using to get the same result, and will deploy those same exact versions into production, which is
-usually what you want.
+Composer has a \e[32mjson\e[0m file which tells it what we *want*.
+It uses that to generate a \e[32mlock\e[0m file to tell the world what it has decided to install (based on the json file) in /vendor.
+Both files go in git: the json is obvious, and the lock file tells other developers what they should be using to get the same result,
+and will deploy those same exact versions into production, which is usually what you want.
 
 $ composer install
 # composer will check for a lock file and install everything there in vendor.
@@ -12,11 +10,11 @@ $ composer install
 
 # Tell composer to install this (optionally specifying version), add it to the json file and note the installed version in the
 #   lock file.
-$ composer require some/package[:1.2.3]
+$ composer require vendor/package[:1.2.3]
 
 # Tell composer to check for newer versions [of a package] (as allowed) per the json file, install that or those and update the
 # lock file.
-$ composer update [some/package]
+$ composer update [vendor/package]
 # if it refuses or seems to not update, add \e[38;5;208m-W/--with-all-dependencies\e[0m, they can hold it back otherwise
 
 
@@ -36,8 +34,13 @@ $ composer update [some/package]
 # caret is similar but allows anything until the next major version (unless current MV is 0: ^0.4 becomes >=0.4 <0.5)
 ^1.5.7                  >=1.5.7 <2
 
-### show what versions of packages are installed in the current project
-$ composer show
+composer validate \e[36m# show what you did wrong, and why composer is disappointed in you\e[m
 
-### show what you did wrong, and why composer is disappointed in you
-$ composer validate
+composer show [vendor/package] \e[36m# show what versions of packages are installed in the current project\e[m
+                               \e[36m# add a package name to get detailed output\e[m
+composer show -t [vendor/package]  \e[36m# show dependency tree, or required items for given package\e[m
+
+composer why     vendor/package        \e[36m# shows which packages require it, dependency chain\e[m
+composer why-not vendor/package 1.2.3  \e[36m# show which constraints are blocking the given version\e[m
+
+composer outdated \e[36m# show outdated packages\e[m
