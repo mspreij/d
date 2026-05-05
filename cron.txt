@@ -7,5 +7,18 @@
 # there's also /etc/cron.d/ for ... generic crons that are not hourly/daily-etc. All these crons also include
 #   a column for the username.
 
-The day of week column has Monday 1, and Sunday 0 or 7. You can also use the first three letters, in which case you can't
-use ranges. Apparently the same is true for month names.
+cron runs as its user, but in a very limited environment. You can set some vars at the top:
+SHELL=/usr/bin/bash   \e[36m# instead of the usual sh\e[m
+PATH=yourstuff:$PATH  \e[36m# if $PATH is available, see below\e[m
+MAILTO=output@gets.sent.here
+
+$HOME should be available, and works better than ~
+To see what vars are available use this for a minute: * * * * * env > /tmp/cron_env
+
+Columns: minutes, hours, day-of-month, month, day-of-week.
+Modifiers: 1-10 range; 1,4,7 multiple specific minutes; */4 every four minutes (or hours etc)
+
+Day-of-week column: Monday is day 1, Sunday 0 or 7.
+You can also use the first three letters, in which case you can't use ranges. Apparently the same is true for month names.
+
+Instead of the 5 time columns you can also use: @reboot, @hourly, @daily, @weekly, @monthly, @yearly

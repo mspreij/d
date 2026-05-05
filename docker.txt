@@ -1,18 +1,29 @@
-# basing this initial version on
-https://www.youtube.com/watch?v=gAkwW2tuIqE  Docker in 7 steps              11 minutes
-https://www.youtube.com/watch?v=3c-iBn73dDE  Docker tutorial for beginners  2:45 hours
-https://devopscycle.com/blog/the-ultimate-docker-cheat-sheet/
+Docker uses a bunch of virtualization tricks to create the illusion of having a separate virtual computer running. It has its own
+network, IP address, users, etc etc.
 
 ## Dockerfiles, images and containers ##
-A \e[38;5;201;1mdockerfile\e[0m is a description of/recipe for an environment + applications etc, you can \e[1mbuild\e[0m it to create a docker image. A
+A \e[38;5;201;1mDockerfile\e[0m is a description of/recipe for an environment + applications etc, you can \e[1mbuild\e[0m it to create a docker image. A
 dockerfile is a simple text file consisting of lines of an instruction followed by arguments (and # comments).
 Usually the file builds on existing images (the FROM: instruction), which are based on yet other images etc, with some light-weight
 linux distro at the bottom.
 
 You can \e[1m$ docker build\e[0m a dockerfile to create a docker \e[38;5;201;1mimage\e[0m.
 
-When you run/start that image, you get a \e[38;5;201;1mcontainer\e[0m, a running "instance" of the image. Whatever happens in or to the container does
+When you \e[1mrun\e[m that image, you get a running \e[38;5;201;1mcontainer\e[0m, an "instance" of the image. Whatever happens in or to the container does
 not affect the image.
+
+\e[4mHOWEVER\e[m: \e[1mRun\e[m is really shorthand for \e[1mcreate\e[m and \e[1mstart\e[m.
+
+Many of the flags that you give to \e[1mrun\e[m will be distributed along \e[1mcreate\e[m and \e[1mstart\e[m as needed.
+-i in particular means "keep STDIN open" for \e[1mcreate\e[m, and "interactive" (attach it to your terminal) for \e[1mstart\e[m.
+A \e[1mcreated\e[m container has its environment set, its ports, mounts, TTY ..
+When you \e[1mstart\e[m it you can additionally attach (-a) STDOUT/STDERR, and make it interactive (-i), but you can no longer decide you
+want a TTY after all.
+And run/start/create each have default values for the various flags too. So what most people do is just \e[1mrun -d\e[m which creates and then
+starts the container "detached", that is without attaching stdin/stdout/stderr, and then you can exec -it to create a new process in the running
+container, and /that/ is connected to your terminal. Here the -i is also "keep STDIN open", and -t for TTY. Oh and --rm otherwise you'll be
+racking up containers like no business.
+
 
 # \e[1mHow does this work?\e[0m
 Images are really a stack of layers, or overlays. At the bottom there is the lightweight distro (like Alpine). On disk, this is a
@@ -20,8 +31,6 @@ directory named after a hash, with all the files of that OS, except the kernel -
 difference\e[0m between VMs (which do have their own kernel) and containers. Every layer above that has its own directory, and can add,
 update or delete files from the base image. Higher layers keep a reference to the underlying layer in a file 'lower'. Docker merges
 all these layers into a virtual filesystem.
-
-
 
 To access the containers you still need to map local ports to their listening ports (it's a virtual thing, container ports are
 virtual too). You can do this in the run command (and probably some config file or w/e).
@@ -56,3 +65,8 @@ virtual too). You can do this in the run command (and probably some config file 
 # overview of running containers:
 $ docker ps
 $ docker ps -a # includes non-running
+
+# These worked at some point
+https://www.youtube.com/watch?v=gAkwW2tuIqE  Docker in 7 steps              11 minutes
+https://www.youtube.com/watch?v=3c-iBn73dDE  Docker tutorial for beginners  2:45 hours
+https://devopscycle.com/blog/the-ultimate-docker-cheat-sheet/
