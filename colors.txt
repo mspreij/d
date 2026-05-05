@@ -3,7 +3,8 @@ SGR = Select Graphic Rendition
 
 \\e === ESC
 Sequence: \\e[\e[36;1m<codes separated by ';'>\e[0mm
-Reset all: \\e[0m
+Reset all: \\e[0m or even just \\e[m
+Reset fore/background color: \\e[39m / \\e[49m
 0    reset (strictly, the 0 is optional and you can do \\e[m)
 1    \e[1mbold\e[0m
 4    \e[4munderline\e[0m
@@ -19,6 +20,7 @@ FG      BG      regular   bright
 35	45	\e[35mMagenta\e[0m   \e[35;1mMagenta\e[0m
 36	46	\e[36mCyan\e[0m      \e[36;1mCyan\e[0m
 37	47	\e[37;40mWhite\e[0m     \e[37;1;40mWhite\e[0m
+
 
 Example: $ echo -e "\\e[1;35;42m Bold magenta on green background \\e[0m"
 Becomes: \e[1;35;42m Bold magenta on green background \e[0m
