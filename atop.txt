@@ -1,12 +1,27 @@
-# uh... I know nothing, and here it is!
 atop = top + history, and more detail.
 
-It can run interactively like top, but also as a service (atop.service), as which it will sample system load/resources and
-  write their values to /var/log/atop/atop_<date>, every $interval seconds (see below), it's some binary format.
+# A simple usecase: run atop every 10 seconds for 2 hours starting at 2:30 AM. You can write a systemd service file
+#   and a systemd timer, but you can also just crontab it:
+30 2 * * * /usr/bin/atop -w $HOME/log/morning.atop 10 720
+-w <file>    \e[36m# write the logs here\e[m
+10           \e[36m# seconds interval\e[m
+720          \e[36m# samples to take\e[m
+
+# A sample should be a sub-second matter but even if it stalls or takes long, the 10 seconds is the interval between
+#   end of one sample and start of next, not "run every 10 seconds".
+
+atop -r <file>  \e[36m# to read it\e[m
+
+g     # default generic view
+t/T   # step forward/backward in time
+
+
+It can run interactively like top, but also as a service (atop.service), as which it will sample system load/resources
+  and write their values to /var/log/atop/atop_<date>, every $interval seconds (see below), it's some binary format.
 
 Config file sits in /etc/default/atop, unless you run CentOS, then it's /etc/sysconfig/atop. Unless it's simply
-  /etc/atoprc, and you can override them in ~/.atoprc, this probably depends on the version. atoprc could be another thing
-  altogether which is /supposed/ to have a manpage? I can't find it.
+  /etc/atoprc, and you can override them in ~/.atoprc, this probably depends on the version. atoprc could be another
+  thing altogether which is /supposed/ to have a manpage? I can't find it.
 
 For my current version (2.7.1 CentOS), the config settings are just this:
   LOGOPTS=
