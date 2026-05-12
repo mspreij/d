@@ -26,3 +26,7 @@ $ firefox -p
 # in linux at least. It'll bring up the profile manager.
 
 Buttons/links with accesskeys can be triggered with alt-shift-<key>
+
+## Curl
+Right-click on a request in the network tab of developer tools, -> Copy value -> Copy as cUrl
+  to get a curl command including cookies, user agent etc.
