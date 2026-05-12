@@ -17,6 +17,12 @@ $ help history
 $ !foo\e[38;5;201m:p\e[0m
 # that prints it, and adds it to your history as most recent command so you can arrow-up to edit it.
 
+# Alternative, the old \e[38;5;201mfc\e[m (Fix Command) lets you see and edit commands.
+$ help fc      \e[36m# no man page but this works\e[m
+$ fc           \e[36m# has you edit, & runs command on exit. Clear and save file to not re-run\e[m
+$ fc -l -n     \e[36m# just list the last few commands, -n for no line numbers. Add \e[38;5;201m-3\e[36m to see the last 3. There's more range tricks but I can't\e[m
+               \e[36m# figure them out right now.\e[m
+
 # to find more uses besides the last you'll have to resort to history again; disabling the timestamp just for this command makes grepping simpler:
 HISTTIMEFORMAT= history | grep '^[ ]*[0-9]\+  foo'
 # pull through tail as needed
