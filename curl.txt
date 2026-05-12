@@ -9,3 +9,6 @@
 -L / --location     # follow redirects
 -X <method>         # set method to use, defaults to GET. Is used in the request \e[1mverbatim\e[0m.
 -H 'header: value'  # add headers (good for API keys/tokens). -H can be used multiple times.
+
+# Firefox: in the network tab, right-click a request -> copy value -> copy as cUrl
+# This gives the full logged-in request in curl format with session cookies and user agent and everything
