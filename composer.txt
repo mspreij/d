@@ -34,6 +34,8 @@ $ composer update [vendor/package]
 # caret is similar but allows anything until the next major version (unless current MV is 0: ^0.4 becomes >=0.4 <0.5)
 ^1.5.7                  >=1.5.7 <2
 
+composer audit    \e[36m# check for known vulnerabilities in the installed package versions\e[m
+
 composer validate \e[36m# show what you did wrong, and why composer is disappointed in you\e[m
 
 composer show [vendor/package] \e[36m# show what versions of packages are installed in the current project\e[m
