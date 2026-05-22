@@ -33,12 +33,48 @@ rsync /path/src  dest/  # copy the src directory *itself* into the dest director
                    last night's backup if there's source disk- or network glitches
 --force         => also refers to --delete, and will remove directories with contents on the target if they're no longer on the source
 
-# progress
+### progress
 -v shows each file and directory
 --progress shows \e[1mstats\e[0m on each file and directory, only use for debugging
 --info=progress2 gives an ever changing summary and estimation of done and todo.
 Using `pv` is possible but only with rsync -v and pv -l(ine count) -s $lines, as rsync doesn't use the STDIO streams that pv needs.
   Also redirect stdout to /dev/null because pv still outputs all incoming data again.
+
+### include/exclude
+Technically include/exclude rules are the old (and simple) way, and filter rules are the new way - but for that, consult the man
+page, atm. While "simple", they are still not intuitive.
+
+Args:
+--include=foo --include=.git/
+--exclude=bazz --exclude=*.jpg
+but with larger projects, it's much easier to store the rules in include/exclude files:
+--include-from=goodfiles.txt
+--exclude-from=badfiles.txt
+
+The include & exclude rules affect rsync's \e[1mtraversal\e[m of the filesystem. This means that excluding '/foo/' does not mean
+"ignore foo and everything in it", but rather "don't add or enter 'foo' while creating the file list".
+
+foo       match file or directory named foo, anywhere
+foo/      match directory named foo, anywhere
+/foo      match file or directory in the root of the source path
+/foo/     means the directory entry /foo in the root
+/foo/**   means everything in /foo
+/foo/***  means foo/ itself and everything in it
+
+The first include or exclude rule that matches a file wins, so generally if there are exceptions to excluded paths, specify the
+include rules first.
+
+To include a file in a path which is excluded, every nested directory to that file has to be included:
+A simple \e[31mexclude\e[m
+  /giant_repo
+will work, nothing inside that path will be added.
+But to keep a config file in that repo, \e[32minclude\e[0m:
+  /giant_repo
+  /giant_repo/config/
+  /giant_repo/config/specific_file.yml
+But after that, \e[31mexclude\e[m must specify
+  /giant_repo/***
+because /giant_repo itself has already become traversable, and excluding only it no longer has effect.
 
 ### Logging ###
 https://stackoverflow.com/a/12037164/126584
