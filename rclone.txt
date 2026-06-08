@@ -51,7 +51,7 @@ $ sudo umount /mount/directory
 Lines with stuff to include start with a '+', to exclude start with '-'
 Comments are #
 Directories should probably have /** at the end?
-If you use the filqe at all, a line with '- *' might prevent wiping the target directory's .ssh, .bashrc etc. This
+If you use the file at all, a line with '- *' might prevent wiping the target directory's .ssh, .bashrc etc. This
 shouldn't happen with a proper setup but YOU KNOW.
 
 ### TROUBLESHOOTING ###
