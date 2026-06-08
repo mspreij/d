@@ -30,6 +30,10 @@ systemctl [status]
 
 # List failed units
 systemctl --failed
+
+# Slap units that are failing to start because you tried too often
+systemctl --user reset-failed wetf.service
+
 # Start/Stop/Restart/Reload/Show the status of a service
 systemctl \e[38;5;33mstart\e[0m|\e[38;5;33mstop\e[0m|\e[38;5;33mrestart\e[0m|\e[38;5;33mreload\e[0m|\e[38;5;33mstatus\e[0m \e[32;1munit\e[0m
 # Enable/Disable a unit to be started on bootup
