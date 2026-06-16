@@ -3,3 +3,8 @@
 
 # list LUKS things
 $ blkid -t TYPE=crypto_LUKS -o device
+# with more context:
+$ lsblk -f
+
+# check the passphrase of a specific partition
+cryptsetup luksOpen --test-passphrase   /dev/vdb
