@@ -8,6 +8,7 @@
 -P       Perl compatible regex
 -s       surpress that warning about directories (and other unreadable files)
 -r       recurse into subdirectories
+-R       recurse into subdirectories AND follow symlinks
 -D skip  don't try to read devices, FIFO files or sockets.
          NB: if you use * as target, the shell will expand this into the current directory list, and if there's socket
          files in there grep will still try to read those.
