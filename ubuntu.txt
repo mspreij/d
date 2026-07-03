@@ -24,6 +24,7 @@ Unicode: ctrl-shift-u, <code>, enter. if the code is uppercase, enter seems less
          code:
 √/∛/∜    221A/B/C
 €        20AC
+ƒ        0192
 ♠♡♢♣     2660,1,2,3
 ♤♥♦♧     2664,5,6,7
 💙       1f499
