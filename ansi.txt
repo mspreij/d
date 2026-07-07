@@ -12,11 +12,26 @@ The topleft coordinate for cursor moving is [1,1]
 \\e[\e[32mn\e[0mD     and left.
 ...
 
+# mouse mode
+There are two sequences for mouse input, one lets you select what types of input to receive:
+\\e[?1000h	Report button press/release only ("normal tracking")
+\\e[?1001h	Highlight tracking (rarely supported)
+\\e[?1002h	Report button press, release, and movement while a button is held (drag tracking)
+\\e[?1003h	Report all mouse movement, even with no button pressed
+
+The second sets the coordinate system. There were earlier versions for smaller screens, but
+  basically, you just want SGR mouse mode:
+To enable \\e[?1006h , disable \\e[?1006l
+Inputs will arrive as \\e[<\e[38;5;201minput\e[0m;\e[38;5;201mx\e[m;\e[38;5;201my\e[mM
+"input" here is a bitfield (am I using that right? it's late) which contains control, shift, meta,
+alt, left/middle/right mouse button, scroll, or even move. So it can tell you "user alt-dragged an
+item here". then x and y coords, and M/m for button down or up.
+
 See also: php_cli for box drawing characters
 
 To add:
 - alternative buffer
-- intercepting mouse events
+* intercepting mouse events
 - hide/show cursor
 - cursor shapes ("\\e[{0..6} q", space is significant)
 - dis/enable echoing input
