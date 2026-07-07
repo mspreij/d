@@ -1,0 +1,3 @@
+In KDE Konsole, Ctrl+S is bound to software flow control (XOFF), which freezes terminal
+output.
+\e[1mTo disable:\e[m Settings > Edit Current Profile, Advanced tab, uncheck \e[33m[Enable] flow control\e[m.
