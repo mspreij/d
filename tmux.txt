@@ -5,6 +5,8 @@
 # Config file is \e[38;5;226m~/.tmux.conf\e[0m, there's a sample one at the bottom.
 # You can reload it in a running session with
 $ tmux source-file ~/.tmux.conf
+# \e[38;5;200mNB\e[36m if a session is running already, the config file won't be re-read for a new session; a 'tmux server' is still
+#   running
 
 \e[38;5;208mprefix\e[0m ?  list actions
 \e[38;5;208mprefix\e[0m :  command prompt
