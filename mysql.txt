@@ -32,6 +32,8 @@ ALTER USER 'user'@'host' REQUIRE SSL                                          --
 
 # list keys and stuff
 SHOW INDEX FROM <table>;
+# have fewer keys
+ALTER TABLE <table> DROP INDEX <index_name>;
 
 # remove duplicate records
 ALTER IGNORE TABLE \e[32m<table>\e[0m ADD UNIQUE INDEX \e[32m<foo>\e[0m (\e[32m<foo>\e[0m);
