@@ -43,20 +43,23 @@ Colors:
 Random ideas:
  - move all .txt data files to a subdirectory so future non-data files can still be .txt and wont show up in search etc
  Search:
-   - should also check for files with the query as substring
+   - should also check for filenames with the query as substring
    - should not search the symlinks (optionally check they link to something in that directory, otherwise still search?)
+   - results also show color codes, try to strip those (experiment with applying them instead maybe)
  - if the shown command is a symlink to another command, prepend a message stating that
  ? -l to list entries with last-modified date, and/or commit message
  * d now supresses color (well, the git version does, I keep overwriting the version in use) when outputting to other process;
    v added a flag to force color output
    ? also for search result and other non-interactive output (is this needed?)
  - should probably prefix more things (like grep) with 'command'
- - `d foo:bar` to get only chapter bar from foo (what in the frick is 'chapter notation')
- - could even fetch and store data from some server. or local database. not sure what the advantage of this is, or if there
-   is one..
+ ? `d foo:bar` to get only chapter bar from foo.
+   > chapters could start with "### foobar" and contain everything up to the next ### entry
+   > if not present, just show everything regardless, maybe note it at the top
  - if <entry> not found, offer to grep for it? or do that automatically? or count the results and decide on that? flip a coin? have a beer?
 
 Done/discarded:
+ x could even fetch and store data from some server. or local database. not sure what the advantage of this is, or if there
+   is one..
  v support multiple random-order options o.o https://stackoverflow.com/a/14203146/126584 or \e[32m$ d getopt\e[0m
  √ placeholder for comment color, to finish different-color strings inside comments.
    > how about simply "\e[0m" but only in comment lines! this would need to go Before the sed that colors

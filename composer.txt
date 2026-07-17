@@ -46,3 +46,6 @@ composer why     vendor/package        \e[36m# shows which packages require it, 
 composer why-not vendor/package 1.2.3  \e[36m# show which constraints are blocking the given version\e[m
 
 composer outdated \e[36m# show outdated packages\e[m
+
+composer self-update
+composer diagnose

@@ -20,6 +20,14 @@ mass-storage devices that is more flexible than conventional partitioning scheme
 volume manager can concatenate, stripe together or otherwise combine partitions (or block devices in general) into
 larger virtual partitions that administrators can re-size or move."
 
+Usually, LVM takes one or more block storage devices - this can be a whole disk, a partition, a RAID device, or a
+decrypted device made available through LUKS. LVM mostly does not care what is underneath, as long as it looks like
+a block device.
+LVM marks those devices as Physical Volumes, combines them into a Volume Group, and that Volume Group acts as
+a storage pool.
+From that pool, LVM creates Logical Volumes. These are similar in role to partitions, but are easier to manage later,
+for example when resizing or adding more backing storage.
+
 \e[33mLUKS:\e[0m Linux Unified Key Setup is a disk encryption specification:
 https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup
 
