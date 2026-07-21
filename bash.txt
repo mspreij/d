@@ -1,5 +1,11 @@
 Scripting cheatsheet: https://devhints.io/bash
 
+# put at top of script file:
+set -euo pipefail
+ -e           \e[36m# exit when a (non-conditional) command fails, if it has a non-zero exit status\e[m
+ -u           \e[36m# exit on undefined variables\e[m
+ -o pipefail  \e[36m# exit when any command in a pipeline fails, not just the last one\e[m
+
 ### looping through lines (from a textfile, say)
 # read splits a line into columns on whitespace.
 # read \e[38;5;208m-a\e[0m turns line into an array. you can add \e[38;5;208m-r\e[0m to \e[1mnot\e[0m interpret backslashed characters differently (safer)
