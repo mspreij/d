@@ -32,6 +32,8 @@ ALTER USER 'user'@'host' REQUIRE SSL                                          --
 
 # list keys and stuff
 SHOW INDEX FROM <table>;
+# have more keys. if you need to add multiple keys, doing it in one go might be faster (comma delimited, just like columns)
+ALTER TABLE <table> ADD INDEX <name> (col1, [col2, ..]);
 # have fewer keys
 ALTER TABLE <table> DROP INDEX <index_name>;
 
