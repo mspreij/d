@@ -1,5 +1,6 @@
 # xargs tries to call the given command as few times as possible by default, and will pass multi-line input in one go.
 
+-d <delimiter>  \e[36m# pass a delimiter to use, -d '\\n' is handy for lists of filenames that contain spaces\e[0m
 -n #    \e[36m# split input on whitespace and use # number of words each call\e[0m
 -P #    \e[36m# create # processes to speed it up more, this helps when there are multiple CPU cores available \e[0m
 -L #    \e[36m# split by line but lines with trailing spaces will be appended to the next line\e[0m
