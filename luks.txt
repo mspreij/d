@@ -1,15 +1,42 @@
+# todo: colors here and there
+
 # what in the fuck *is* LUKS?
 \e[32;1mLinux Unified Key Setup\e[0m is a disk encryption specification: https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup
 
-# list LUKS things
-# blkid: block ID / block device identification
-# run it on its own to see all the devices with UUIDs, and with the following arguments to see only the encrypted ones
+# Basically LUKS takes a block device and encrypts it. When it's unlocked you get a new block device with which you can
+#   do what you want - create a filesystem on it, partition it, use as part of a LVM pool, encrypt again, ..
+# The passphrase that you use isn't used for the decryption, but to decrypt the actual key. That's how you can have
+#   multiple passphrases to unlock the disk.
+
+# List LUKS things:
+$ blkid \e[36m# block ID / block device identification\e[m
+# on its own it shows the devices with UUIDs, with the following arguments only the encrypted ones:
 $ blkid -t TYPE=crypto_LUKS -o device
-# with more context:
-$ lsblk -f
+# similar info with more context:
+$ lsblk [-f]
+
+# Aside:
+# lsblk is "block device topology", what disks/partitions/LVM/LUKS mappings exist, how they relate, and where filesystems
+#   are mounted.
+# blkid is more "identifying what a block device contains", without the dependency graph, and is easier to use when
+#   scripting things.
+# lsblk -f will show almost all that blkid does.
+
+# Inspect key slots
+cryptsetup luksDump /dev/vdb
 
 # check the passphrase of a specific partition
 cryptsetup luksOpen --test-passphrase   /dev/vdb
 
+# At the start of an encrypted disk there is some metadata that describes the cypher/settings, LUKS UUID, and keyslot
+# data that allows the passphrases to unlock the disk. Without that metadata the encrypted data is lost.
+# This creates a backup of that LUKS header:
+cryptsetup luksHeaderBackup /dev/vdb --header-backup-file /boot/luks_headers.img
+# I've stuck it in /boot here since there was space, and /boot is not encrypted.
+
+# add a key:
+cryptsetup luksAddKey /dev/vdb
+
 # to be sure - if you don't know what /dev/vdb should be in your case,
 $ blkid -t TYPE=crypto_LUKS -o device \e[36m# returns candidates\e[0m
+
