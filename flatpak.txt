@@ -3,41 +3,44 @@ Apps are installed separately from the distro's normal apt/dnf packages.
 They use shared runtimes, so apps can carry newer dependencies than the host OS.
 Useful when a distro package is outdated or broken, but uses more disk space.
 
+# install local file
+flatpak install ./something.flatpak
+flatpak install ./something.flatpakref
+
+# List configured repositories/remotes.
 flatpak remotes
-    List configured repositories/remotes.
 
+# Add Flathub, the main public Flatpak repository.
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    Add Flathub, the main public Flatpak repository.
 
+# Search available applications.
 flatpak search <some-app>
-    Search available applications.
 
-# Apostrophe is an example application here
+# Install an application from Flathub (Apostrophe is an example application here)
 flatpak install flathub org.gnome.gitlab.somas.Apostrophe
-    Install an application from Flathub.
 
+# List installed Flatpak apps and runtimes.
 flatpak list
-    List installed Flatpak apps and runtimes.
 
+# Start an application manually.
 flatpak run org.gnome.gitlab.somas.Apostrophe
-    Start an application manually.
 
+# Update all installed apps and runtimes.
 flatpak update
-    Update all installed apps and runtimes.
 
+# Remove an application.
 flatpak uninstall org.gnome.gitlab.somas.Apostrophe
-    Remove an application.
 
+# Remove runtimes/dependencies no longer needed.
 flatpak uninstall --unused
-    Remove runtimes/dependencies no longer needed.
 
+# Show version, runtime, permissions and installation details.
 flatpak info org.gnome.gitlab.somas.Apostrophe
-    Show version, runtime, permissions and installation details.
 
+# Show recent Flatpak installs/updates/removals.
 flatpak history
-    Show recent Flatpak installs/updates/removals.
 
+# Show manually configured permission overrides.
 flatpak override --show org.gnome.gitlab.somas.Apostrophe
-    Show manually configured permission overrides.
 
 Courtesy ChatGPT
