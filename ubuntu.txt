@@ -2,6 +2,9 @@
 [root]# nano /etc/update-manager/release-upgrades
 prompt=normal
 
+# what kernel is active, and what will be used for next boot?
+uname -r
+ls -l /boot/vmlinuz \e[36m# symlink points to what will be used\e[0m
 
 === CHARACTERS ===
 
