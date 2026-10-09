@@ -20,6 +20,8 @@ Alt-e      redo
 Ctrl-up/down   no idea what version this was added, but this moves the cursor to the previous/next paragraph
 Alt-+/-      scrolls without moving the caret (until the caret hits the top/bottom, then it scrolls along)
 F6, Ctrl-w, Ctrl-f  search..
+- Alt-r             toggle regex mode in search. confusingly means search-to-replace outside of search (and then regex
+                    inside /that/)
 Alt-w, Alt-f        ..find next
 Alt-b               ..find previous
 
