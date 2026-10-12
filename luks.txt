@@ -40,3 +40,9 @@ cryptsetup luksAddKey /dev/vdb
 # to be sure - if you don't know what /dev/vdb should be in your case,
 $ blkid -t TYPE=crypto_LUKS -o device \e[36m# returns candidates\e[0m
 
+### UUID
+# UUIDs are used to identify disks. The 'disk' with encrypted data has a different UUID than it's unlocked version.
+# The UUID of the encrypted container you find with
+cryptsetup luksUUID /dev/vdb
+# that of the filesystem:
+blkid /dev/mapper/<readable-disk name>
