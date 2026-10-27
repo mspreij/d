@@ -38,6 +38,23 @@ ansible-doc -l -t module | grep \e[32mcontainers.podman\e[0m
 
 ## Shitty examples:
 
+# output some debug info/variables
+- hosts: l33tb0x
+  gather_facts: yes
+  tasks:
+    - name: blaat
+      ansible.builtin.debug:
+        msg:
+        - "address={{ ansible_facts.default_ipv4.address }}"
+        - "gateway={{ ansible_facts.default_ipv4.gateway }}"
+        - "netmask={{ ansible_facts.default_ipv4.netmask }}"
+        - "interface={{ ansible_facts.default_ipv4.interface }}"
+        - "hostname={{ ansible_facts.hostname }}"
+    - name: blaat
+      ansible.builtin.debug:
+        var: ansible_facts.default_ipv4
+# separate tasks since var and msg can't sit in the same one.
+
 # run only a specific task file, NOT tied to any role context
 # vars, defaults and dependencies from its role will not load.
 - name: do some shit

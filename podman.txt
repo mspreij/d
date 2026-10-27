@@ -15,6 +15,17 @@ podman container ls       podman ps
 # list random usage info
 podman system df
 
+# types of mounts (shared data)
+# - volume
+┌───────────────────┬──────────┬──────────────────┬────────────┐
+│ Type              │  podman  │  pruned by       │ visible in │
+│                   │  managed │ volume prune     │ volume ls  │
+│ anonymous volume  │   Yes    │  Yes (if unused) │    Yes     │
+│ named volume      │   Yes    │  Yes (if unused) │    Yes     │
+│ bind mount        │   No     │  No              │    No      │
+└───────────────────┴──────────┴──────────────────┴────────────┘
+
+
 # clean up, this is almost always safe
 podman image prune [-a]
 # figure out how much it will probably reclaim:

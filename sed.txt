@@ -3,14 +3,16 @@ sed [options] '<address>{command}'
 # given filenames or STDIN
 
 # options
--E    use regex, \\1, \\2 etc are backreferences
+-E    use Extended regex, \\1, \\2 etc are backreferences. Also removes the need to escape the + when using it for
+      "one or more of these". In the default "basic regex", you have to use \+ in an expression.
 -i    change file in place
 -e    use for multiple separate 's/foo/bar/' replacements (kinda like grep?)
 -s    treat each file separately (default is "streaming them all together as one big input")
 -n    do not print; presumably the action will handle it
 
 # example[s]
-sed -n 2p <file> \e[36m# print every second line\e[0m
+sed -n 2p <file>           \e[36m# print every second line\e[0m
+sed -i 's/ *$//' file.txt  \e[36m# trim trailing spaces from file\e[m
 
 # no, sed doesn't understand linebreaks, but it *does* understand line _beginnings_, so in case you were trying to
 # indent some string or output again:

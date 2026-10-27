@@ -49,3 +49,6 @@ $ xdg-mime query default x-scheme-handler/phpstorm
 #  - specifies a mimetype
 #  - points to a script
 # script: any regular chmod+x'd thing
+
+# restart kde/plasma panel/taskbar (takes a few seconds):
+$ killall plasmashell; plasmashell &

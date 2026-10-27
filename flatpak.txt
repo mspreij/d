@@ -1,0 +1,46 @@
+Flatpak = application packaging/sandboxing system for Linux.
+Apps are installed separately from the distro's normal apt/dnf packages.
+They use shared runtimes, so apps can carry newer dependencies than the host OS.
+Useful when a distro package is outdated or broken, but uses more disk space.
+
+# install local file
+flatpak install ./something.flatpak
+flatpak install ./something.flatpakref
+
+# List configured repositories/remotes.
+flatpak remotes
+
+# Add Flathub, the main public Flatpak repository.
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Search available applications.
+flatpak search <some-app>
+
+# Install an application from Flathub (Apostrophe is an example application here)
+flatpak install flathub org.gnome.gitlab.somas.Apostrophe
+
+# List installed Flatpak apps and runtimes.
+flatpak list
+
+# Start an application manually.
+flatpak run org.gnome.gitlab.somas.Apostrophe
+
+# Update all installed apps and runtimes.
+flatpak update
+
+# Remove an application.
+flatpak uninstall org.gnome.gitlab.somas.Apostrophe
+
+# Remove runtimes/dependencies no longer needed.
+flatpak uninstall --unused
+
+# Show version, runtime, permissions and installation details.
+flatpak info org.gnome.gitlab.somas.Apostrophe
+
+# Show recent Flatpak installs/updates/removals.
+flatpak history
+
+# Show manually configured permission overrides.
+flatpak override --show org.gnome.gitlab.somas.Apostrophe
+
+Courtesy ChatGPT

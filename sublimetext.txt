@@ -16,3 +16,13 @@ Ctrl-Shift-K : Delete line
 
 Ctrl-K, Ctrl-B (or like, Ctrl-KB): toggle sidebar
 Ctrl-0 (zero): focus sidebar
+
+# customizations sit in
+~/.config/sublime-text/Packages/User
+# and downloaded packages in
+~/.config/sublime-text/'Installed Packages'
+
+# macOS, probably
+~/Library/Application Support/Sublime Text/Installed Packages/
+
+# tar'ing the first one up and overwriting the target with it should be 90% there

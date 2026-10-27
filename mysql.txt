@@ -32,6 +32,10 @@ ALTER USER 'user'@'host' REQUIRE SSL                                          --
 
 # list keys and stuff
 SHOW INDEX FROM <table>;
+# have more keys. if you need to add multiple keys, doing it in one go might be faster (comma delimited, just like columns)
+ALTER TABLE <table> ADD INDEX <name> (col1, [col2, ..]);
+# have fewer keys
+ALTER TABLE <table> DROP INDEX <index_name>;
 
 # remove duplicate records
 ALTER IGNORE TABLE \e[32m<table>\e[0m ADD UNIQUE INDEX \e[32m<foo>\e[0m (\e[32m<foo>\e[0m);
@@ -55,6 +59,8 @@ mysql dbname < dbname.sql # etc
 # general query result display (running queries straight from the bash prompt with -e):
 -s  # no grid-lines for query output
 -N  # no headers/column names for query output
+# basically you want \e[32;1m-Ns\e[0;36m to be able to use queries inline in scripts (like count() or max()), getting only the selected value back
+-E  # vertical output mode (list of name:value pairs), like \G in the mysql client
 -B  # tab separated according to chatgpt?
 # \e[38;5;201mNB:\e[0m when the output is piped to another process, mysql uses batch mode (tab-separated fields) and removes column names, making it
 #     easier to parse

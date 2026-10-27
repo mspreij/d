@@ -29,8 +29,7 @@ $ find . -mtime -1 \e[32;1m-print0\e[0m | xargs \e[32;1m-0\e[0m ls -lAd
 $ find . -user joe -group developers
 # (yeah, try and remember THAT)
 
-# find files with extension foo, note the wildcard AND the quotes because why make things simple (though the quotes seems to
-# not always be required, sometimes they ARE, I dunno, just use 'm)
+# find files with extension foo, note the wildcard AND the quotes, shell expansion I guess
 $ find . -name '*foo'
 
 # find files except not in /that/ directory (note, again, the quotes and slashes and wildcard..)

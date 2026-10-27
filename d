@@ -87,7 +87,15 @@ if [[ "$search" ]]; then
             exit;
         fi;
     fi;
-    command grep -in --color=always "${query}" ${dir}/*.txt | less -rF
+    if [[ -t 1 ]]; then
+        (cd ${dir} && command find -type f -name '*.txt' -exec grep -in --color=always "${query}" {} + | less -rF)
+    else
+        if [[ $color ]]; then
+            (cd ${dir} && command find -type f -name '*.txt' -exec grep -in --color=always "${query}" {} +)
+        else
+            (cd ${dir} && command find -type f -name '*.txt' -exec grep -in --color=never "${query}" {} +)
+        fi
+    fi
     exit;
 fi
 
@@ -103,7 +111,7 @@ elif [[ $(command ls "$dir"/*"$name"*.txt 2>/dev/null | wc -l) -eq 1 ]]; then   
 fi
 if [[ -f "$file" ]]; then
     doc=$(cat "$file");
-    if [[ $partial == 1 ]]; then doc="===> $(basename ${file%.*})\n$doc"; fi
+    if [[ $partial == 1 ]]; then doc="\e[38;5;207m===> $(basename ${file%.*})\e[m\n$doc"; fi
     esc=$(printf '\033');
     # sed 1: only within comments, a reset-color code is replaced by a color code using the $comment color (and resets
     #        style and background)

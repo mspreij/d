@@ -1,0 +1,58 @@
+# If your strings are stupidly boring you don't have to quote them, but it's
+#   better to just make it a habit. Various characters will confuse the parser
+#   outside quotes, and some values will be interpreted as booleans.
+
+# Single quotes are boring
+foo: 'these escapes\\ndo \\\\ nothing'
+bar: 'variable {{substitution}} still works (or breaks..) though'
+# Use two single quotes to get a single single quote in single quotes
+bazz: 'foo yadda \e[38;5;201m''\e[0m quux' \e[36m# >> "foo yadda ' quuux"\e[m
+# Newlines turn to spaces.
+# All leading whitespace is ignored.
+x: 'foo
+  bar
+      bazz' \e[36m# "foo bar bazz"\e[m
+# You \e[1mcan\e[0m add a newline by putting 2 (actual) newlines
+
+# Doublequoted lines are pretty much the same except you can escape stuff
+foo: "this is\e[38;5;201m\\n\e[0mreally three\e[38;5;201m\\n\e[0mlines"
+# Escaping a linebreak removes it without converting it to a space
+foo: "bar\e[38;5;201m\\\e[0m
+    yadda" \e[36m# "baryadda"\e[m
+
+
+### Block scalars
+# These are alllmost like multiline quoted strings except without the quotes.
+
+foo:
+  foobar
+  quuuux
+  boxies on the hillside \e[36m# "foobar quuuux boxies on the hillside"\e[m
+
+# But you add block style indicators:
+# \e[38;5;201m| literal\e[0m keeps newlines
+# \e[38;5;201m> folded\e[0m turns newlines into spaces
+# Either will also add a \e[1mtrailing newline\e[m
+# Indented spaces are preserved (except the leading yaml-format spacing)
+
+include_newlines: \e[38;5;201m|\e[0m
+    This block of text
+        is preserved exactly as it looks
+    including linebreaks
+
+fold_newlines: \e[38;5;201m>\e[0m
+    this is really
+    just a single line
+    where newlines are replaced
+    by spaces
+
+# Folding DOES add newlines around lines that are indented because logic, presumably.
+# Add a - to not add the linebreak at the end. This is a \e[38;5;208mchomping indicator\e[0m. Yes.
+
+foobar: \e[38;5;201m|-\e[0m
+    this block with newlines
+    has no trailing
+    newline.
+
+# https://yaml-multiline.info/ shows that you can also use + to add all the linebreaks at the end,
+#   and specify the indentation level. If you want.

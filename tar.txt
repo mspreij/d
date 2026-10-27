@@ -1,10 +1,12 @@
 # the '-' before flags/options is optional
-c  create archive file
-x  extract
-z  [de]compress
-f  specify filename -> this refers to the archive file
-v  verbose
-t  list (but less does this too)
+c        create archive file
+x        extract
+z        [de]compress
+f        specify filename -> this refers to the archive file
+v        verbose
+t        list (but less does this too)
+C <dir>  change to <dir> first, to prevent the path to the to-archive files going
+         into the archive as well. only affects following arguments.
 
 # create archive from directory (create, compress, file)
 $ tar czf foo.tar.gz foodir
@@ -19,8 +21,14 @@ $ tar -tvf archive.tar
 # Extract all files from archive.tar.
 $ tar -xf archive.tar
 
+# newer/gnu versions of tar will write to STDOUT or read from STDIN if no file
+# was given, so the SSH example below works without file descriptors.
+# older/POSIX compliant require 'f -' where '-' is the stream.
+
 # use tar to create a remote compressed archive of a local directory
 $ tar zc dirname | ssh user@remote.host cat \> \~/dirname.tar.gz
 
 # or just don't bother with compression and use it instead of scp
 $ tar c stuff | ssh host tar x
+# or POSIX:
+$ tar cf - stuff | ssh host tar xf -
