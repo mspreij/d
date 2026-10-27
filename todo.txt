@@ -2,7 +2,7 @@ Test
 Not actually documentation, just a todo/random ideas list..
 
 d:
-- see flags in d source for git status, push, pull
+- see flags in d source for git status, push, pull, diff
 - also git add in case of new file?
 - move short usage list to top of d.txt
 v if git message == "d" show git diff and loop back to accepting git message
