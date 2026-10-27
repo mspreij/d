@@ -17,6 +17,10 @@ firewall-cmd --zone=\e[32;1m<zone>\e[0m --permanent --add-rich-rule='rule family
 # Then "activate" it:
 firewall-cmd --reload
 
+# enable/disable specific services:
+firewall-cmd --remove-service=http
+firewall-cmd --add-service=https
+
 # Example adding temporary rule:
 $ fw --add-rich-rule='rule family="ipv4" source address="136.144.153.19" port port="15000" protocol="tcp" accept'
 'success'
