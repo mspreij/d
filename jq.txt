@@ -6,6 +6,9 @@
   $ jq empty file.json 2>/dev/null; echo $?
 # if 0, valid file, otherwise probably 4 and syntax error
 
+
+-- unbuffered     \e[36m# when piping live input to another process, add --unbuffered so it doesn't buffer before sending\e[0m
+
 # example usage:
 podman inspect wazuh-manager --format '{{ json .Mounts }}' | jq -r '.[] | "\(.Source) -> \(.Destination)"'
 -r          raw, don't quote output strings

@@ -28,6 +28,13 @@ cryptsetup luksDump /dev/vdb
 # check the passphrase of a specific partition
 cryptsetup luksOpen --test-passphrase   /dev/vdb
 
+# actually unlock it
+cryptsetup luksOpen /dev/vdb luks-bigstorage
+# it now should appear here: /dev/mapper/luks-bigstorage
+
+# close/unlock it again (after umount'ing it if needed)
+cryptsetup luksClose luks-bigstorage
+
 # At the start of an encrypted disk there is some metadata that describes the cypher/settings, LUKS UUID, and keyslot
 # data that allows the passphrases to unlock the disk. Without that metadata the encrypted data is lost.
 # This creates a backup of that LUKS header:
