@@ -1,0 +1,26 @@
+# was this thing installed by apt?
+# find its path:
+$ type php
+# or
+$ command -v php
+
+$ dpkg -S /usr/bin/php
+dpkg-query: no path found matching pattern /usr/bin/php \e[36m# means no\e[m
+# But, that's a symlink really, so follow that first
+$ readlink -f $(command -v php) \e[36m# -f for follow\e[m
+# aha!
+$ dpkg -S /usr/bin/php8.4
+php8.4-cli: /usr/bin/php8.4 \e[36m# means yes\e[m
+
+apt update
+    install
+    upgrade
+    dist-upgrade
+    search
+    show
+    --fix-broken install
+
+apt-file
+apt 
+do-release-upgrade
+
