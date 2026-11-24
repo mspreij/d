@@ -22,6 +22,7 @@ Things to add or YOU KNOW to COPY FROM CHEATSHEETS:
 - shopt???
 - visudo? there's a section in sudo
 - move wsl things to their own document..
+- phar, box-project
 * man: where are man pages? what are the numbers about? mandb, manpath
 * jq
 * composer
