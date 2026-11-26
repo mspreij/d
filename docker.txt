@@ -41,8 +41,8 @@ virtual too). You can do this in the run command (and probably some config file 
 \e[38;5;202;1mdocker pull <image>[:tag]\e[0m  # download <image> from hub.docker.com, tag can be version or some random name string indicating the
   release, and defaults to latest. It downloads the stack of images that the requested image was built on, so they can be re-used
   for other images that use them.
-\e[38;5;202;1mdocker run <image>[:tag]\e[0m   # run starts an image to create a new container. if it can't find the image locally, it looks for it
-  on hub.docker.com. Basically it's short for pull and start.
+\e[38;5;202;1mdocker run <image>[:tag]\e[0m   # run creates and starts a new container from an image. if it can't find the image locally, it looks for it
+  on hub.docker.com. Basically it's short for pull, create, start.
     \e[38;5;202;1m.. run -d\e[0m              # detach (and print container id), so you get the terminal back
     \e[38;5;202;1m.. run -p3000:4000\e[0m     # map local port 3000 to container port 4000
     \e[38;5;202;1m.. run --name foobar\e[0m   # give your container a non-random name (I mean xenodochial_herschel, what?)
